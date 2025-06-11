@@ -1,4 +1,4 @@
-package com.korealm.portfolio.ui
+package com.korealm.dotfolio.ui
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
@@ -20,18 +20,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.korealm.portfolio.state.AppThemeState
+import com.korealm.dotfolio.state.AppThemeState
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
-import portfolio.composeapp.generated.resources.Res
-import portfolio.composeapp.generated.resources.bg_dark
-import portfolio.composeapp.generated.resources.bg
-import portfolio.composeapp.generated.resources.cloudy
-import portfolio.composeapp.generated.resources.file_manager
-import portfolio.composeapp.generated.resources.start
-import portfolio.composeapp.generated.resources.weather_many_clouds
+import dotfolio.composeapp.generated.resources.Res
+import dotfolio.composeapp.generated.resources.bg_dark
+import dotfolio.composeapp.generated.resources.bg
+import dotfolio.composeapp.generated.resources.cloudy
+import dotfolio.composeapp.generated.resources.file_manager
+import dotfolio.composeapp.generated.resources.start
+import dotfolio.composeapp.generated.resources.weather_many_clouds
 
 //        ██████╗  ██████╗      █████╗ ███╗   ██╗██████╗     ████████╗ █████╗ ███████╗██╗  ██╗██████╗  █████╗ ██████╗
 //        ██╔══██╗██╔════╝     ██╔══██╗████╗  ██║██╔══██╗    ╚══██╔══╝██╔══██╗██╔════╝██║ ██╔╝██╔══██╗██╔══██╗██╔══██╗
@@ -99,12 +100,13 @@ fun DesktopEnvironment(
                     Text(
                         text = "26°C",
                         color = MaterialTheme.colorScheme.onSurface,
+                        fontWeight = FontWeight.Normal,
                         fontSize = 15.sp,
                     )
 
                     Text(
                         text = stringResource(Res.string.cloudy),
-                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.9f),
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f),
                         fontSize = 15.sp,
                     )
                 }

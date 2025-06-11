@@ -1,4 +1,4 @@
-package com.korealm.portfolio.ui.theme
+package com.korealm.dotfolio.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -107,7 +107,6 @@ fun MicaTheme(
         errorContainer = Win11DarkErrorContainer,
         onErrorContainer = Win11DarkText
     )
-
 
     MaterialTheme(
         colorScheme = if (darkTheme) win11DarkColors() else win11LightColors(),
