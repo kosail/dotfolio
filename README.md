@@ -55,13 +55,9 @@ Contributions are welcome! Feel free to fork the repository and submit pull requ
 
 ---
 
-## 🎒 What I learned from this project
+[//]: # (## 🎒 What I learned from this project)
 
-Bro, I need to use loggers to keep track of what's happening with the app in all moment. It was HARD to follow the execution and debug, and moreover, due to the fact this app was tested running as root.
-
-I know, I played with fire. Sorry mom, I will not do that again. I will test my apps without root privileges from now on.
-
----
+[//]: # (---)
 
 ## 📜 License
 ![GPLv3 License logo. Copyright © 2012 Christian Cadena](repo_images/license-logos-by-christian-candena-GNU_GPLv3_License.png)
