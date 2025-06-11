@@ -1,0 +1,82 @@
+# dotfolio
+
+A minimalist, interactive, Linux-themed developer portfolio built with [Compose Multiplatform](https://github.com/JetBrains/compose-multiplatform).  
+Inspired by desktop environments, this project blends creativity with code — aiming to speak louder than words.
+
+> 📎 “Think of it as a personal OS. One that boots into who I am.”
+
+---
+
+## ✨ Features (Planned)
+
+- ⚡️ Static desktop-like UI with interactive elements (icons, windows)
+- 📁 Clickable icons that open custom "apps" (bio, CV, projects, contact)
+- 📝 Launches with a central notepad window describing the author
+- 💡 Inspired by DEs like GNOME, Windows 11, and macOS
+- 🧠 Built entirely in Kotlin Multiplatform (WASM target)
+- 🐧 Strong Linux and developer identity baked in the UX
+- 🎨 Clean, elegant aesthetics with a focus on detail and interactivity
+
+
+### \--> Preview is still in progress. The project just started. \<--
+
+---
+
+## 🎯 Goals
+
+- Stand out in a sea of traditional portfolios
+- Demonstrate creativity, UI/UX sensibility, and Kotlin/Compose skills
+- Emphasize Linux proficiency and cross-platform versatility
+
+---
+
+## 🔧 Stack
+
+- **Kotlin** — Main language
+- **Compose Multiplatform (WASM)** — UI framework
+- **GitHub Pages** — For deployment (expected static hosting)
+
+---
+
+## 🚀 Setup
+
+> Clone and build the project locally.
+
+```bash
+git clone https://github.com/kosail/dotfolio.git
+cd dotfolio
+./gradlew wasmJsBrowserDistribution
+```
+
+---
+
+## 💐 Contributing
+Contributions are welcome! Feel free to fork the repository and submit pull requests. If you have ideas, suggestions, or bug reports, open an issue on GitHub.
+
+---
+
+## 🎒 What I learned from this project
+
+Bro, I need to use loggers to keep track of what's happening with the app in all moment. It was HARD to follow the execution and debug, and moreover, due to the fact this app was tested running as root.
+
+I know, I played with fire. Sorry mom, I will not do that again. I will test my apps without root privileges from now on.
+
+---
+
+## 📜 License
+![GPLv3 License logo. Copyright © 2012 Christian Cadena](repo_images/license-logos-by-christian-candena-GNU_GPLv3_License.png)
+
+[GPLv3 (GNU General Public License v3)](LICENSE.txt) – Free to use, modify, and distribute as long as this remains open source, and it is not use for profitable purposes.
+
+GPLv3 Logos:
+
+    Copyright © 2012 Christian Cadena
+    Available under the Creative Commons Attribution 3.0 Unported License.
+
+
+---
+> **Note:** dotfolio is a personal learning project and is not affiliated with Microsoft, Windows or any other brand or product.
+---
+dotfolio Copyright © 2025, kosail
+<br>
+With love, from Honduras.
