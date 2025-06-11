@@ -1,18 +1,17 @@
-# dotfolio
+![dotfolio logo](repo_images/banner.png)
 
-A minimalist, interactive, Linux-themed developer portfolio built with [Compose Multiplatform](https://github.com/JetBrains/compose-multiplatform).  
-Inspired by desktop environments, this project blends creativity with code — aiming to speak louder than words.
+A minimalist, interactive, Windows 11 themed developer portfolio built with [Compose Multiplatform](https://github.com/JetBrains/compose-multiplatform).  
+Inspired by Mica aesthetics, this project blends creativity with code — aiming to speak louder than words.
 
 > 📎 “Think of it as a personal OS. One that boots into who I am.”
 
 ---
 
-## ✨ Features (Planned)
+## 🌼 Features (Planned)
 
 - ⚡️ Static desktop-like UI with interactive elements (icons, windows)
 - 📁 Clickable icons that open custom "apps" (bio, CV, projects, contact)
 - 📝 Launches with a central notepad window describing the author
-- 💡 Inspired by DEs like GNOME, Windows 11, and macOS
 - 🧠 Built entirely in Kotlin Multiplatform (WASM target)
 - 🐧 Strong Linux and developer identity baked in the UX
 - 🎨 Clean, elegant aesthetics with a focus on detail and interactivity
@@ -22,7 +21,7 @@ Inspired by desktop environments, this project blends creativity with code — a
 
 ---
 
-## 🎯 Goals
+## 🌺 Goals
 
 - Stand out in a sea of traditional portfolios
 - Demonstrate creativity, UI/UX sensibility, and Kotlin/Compose skills
@@ -38,7 +37,7 @@ Inspired by desktop environments, this project blends creativity with code — a
 
 ---
 
-## 🚀 Setup
+## 🌻 Setup
 
 > Clone and build the project locally.
 
