@@ -58,11 +58,11 @@ kotlin {
 
 compose.desktop {
     application {
-        mainClass = "com.korealm.portfolio.MainKt"
+        mainClass = "com.korealm.dotfolio.MainKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "com.korealm.portfolio"
+            packageName = "com.korealm.dotfolio"
             packageVersion = "1.0.0"
         }
     }
