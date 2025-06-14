@@ -7,7 +7,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
@@ -17,10 +16,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.korealm.dotfolio.state.AppThemeState
 import dotfolio.composeapp.generated.resources.*
-import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
-import kotlinx.datetime.*
 
 //        ██████╗  ██████╗      █████╗ ███╗   ██╗██████╗     ████████╗ █████╗ ███████╗██╗  ██╗██████╗  █████╗ ██████╗
 //        ██╔══██╗██╔════╝     ██╔══██╗████╗  ██║██╔══██╗    ╚══██╔══╝██╔══██╗██╔════╝██║ ██╔╝██╔══██╗██╔══██╗██╔══██╗
@@ -32,7 +29,6 @@ import kotlinx.datetime.*
 @Composable
 fun DesktopEnvironment(
     clock: Pair<String, String>,
-    onClockUpdate: (String, String) -> Unit,
     themeState: AppThemeState,
     modifier: Modifier = Modifier,
 ) {
@@ -75,7 +71,7 @@ fun DesktopEnvironment(
 
                 // Top left weather section. Weather is hardcoded, not dynamic.
                 Image (
-                    painterResource(Res.drawable.weather_many_clouds),
+                    painterResource(if (themeState.isDarkTheme) Res.drawable.weather_many_clouds else Res.drawable.weather_clouds),
                     contentDescription = null,
                     modifier = Modifier.size(34.dp)
                 )
@@ -88,7 +84,7 @@ fun DesktopEnvironment(
                         .padding(start = 13.dp)
                 ) {
                     Text(
-                        text = "26°C",
+                        text = if (themeState.isDarkTheme) "26°C" else "29°C",
                         color = MaterialTheme.colorScheme.onSurface,
                         fontWeight = FontWeight.Normal,
                         fontSize = 15.sp,
@@ -96,7 +92,7 @@ fun DesktopEnvironment(
                     )
 
                     Text(
-                        text = stringResource(Res.string.cloudy),
+                        text = stringResource(if (themeState.isDarkTheme) Res.string.cloudy else Res.string.partly_cloudy),
                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f),
                         fontSize = 15.sp,
                         lineHeight = 0.sp
@@ -166,20 +162,6 @@ fun DesktopEnvironment(
                     horizontalAlignment = Alignment.End,
                     modifier = Modifier.padding(vertical = 5.dp, horizontal = 15.dp)
                 ) {
-                    // Keep updating the time in the background every 6 seconds
-                    LaunchedEffect(Unit) {
-                        val localDateTime = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault())
-                        val hour = (if (localDateTime.hour > 12) localDateTime.hour - 12 else localDateTime.hour).toString().padStart(2, '0')
-                        val minute = localDateTime.minute.toString().padStart(2, '0')
-
-                        val time = "$hour:$minute ${if (localDateTime.hour > 12) "PM" else "AM"}"
-                        val date = "${localDateTime.monthNumber}/${localDateTime.dayOfMonth}/${localDateTime.year}"
-
-                        onClockUpdate(time, date)
-                        delay(6000)
-                    }
-
-
                     Text(
                         text = clock.first,
                         fontSize = 15.sp,
