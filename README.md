@@ -29,14 +29,6 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 
 ---
 
-## 🔧 Stack
-
-- **Kotlin** — Main language
-- **Compose Multiplatform (WASM)** — UI framework
-- **GitHub Pages** — For deployment (expected static hosting)
-
----
-
 ## 🌻 Setup
 
 > Clone and build the project locally.
@@ -46,6 +38,18 @@ git clone https://github.com/kosail/dotfolio.git
 cd dotfolio
 ./gradlew wasmJsBrowserDistribution
 ```
+
+---
+
+## 🔧 Stack & Resources
+### Stack
+- **Kotlin** — Main language
+- **Compose Multiplatform (WASM)** — UI framework
+- **GitHub Pages** — For deployment (expected static hosting)
+
+### Resources
+- [Windows 11 icon theme, by yeyushengfan258](https://github.com/yeyushengfan258/Win11-icon-theme/)
+- [Selawik font, by Microsoft](https://github.com/microsoft/Selawik) (I've had A LOT of issues adding this font to the WASM version of this project, but as I plan to make the effort to make Selawik the default font, I added it)
 
 ---
 
