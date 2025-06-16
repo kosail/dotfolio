@@ -17,7 +17,8 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 - 🎨 Clean, elegant aesthetics with a focus on detail and interactivity
 
 
-### \--> Preview is still in progress. The project just started. \<--
+### \--> The project just started. This preview is barebones \<--
+![Nighly app logo](repo_images/nightly_appearance.webp)
 
 ---
 
