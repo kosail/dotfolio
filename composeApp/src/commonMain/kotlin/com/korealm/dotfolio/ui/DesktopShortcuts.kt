@@ -43,7 +43,7 @@ fun DesktopShortcuts(
             Spacer(modifier = Modifier.height(20.dp))
 
             Image(
-                painterResource(Res.drawable.microsoft_edge),
+                painterResource(Res.drawable.web_browser),
                 contentDescription = null,
                 modifier = Modifier.size(56.dp)
             )
@@ -61,11 +61,11 @@ fun DesktopShortcuts(
             Spacer(modifier = Modifier.height(20.dp))
 
             Image(
-                painter = painterResource(Res.drawable.ms_outlook),
+                painter = painterResource(Res.drawable.outlook),
                 contentDescription = null,
                 modifier = Modifier.size(56.dp)
             )
-            ShortcutTitle(text = stringResource(Res.string.ms_outlook), modifier = Modifier)
+            ShortcutTitle(text = stringResource(Res.string.outlook), modifier = Modifier)
 
 
             Spacer(modifier = Modifier.height(20.dp))

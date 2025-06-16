@@ -3,7 +3,7 @@
     <string name="partly_cloudy">Partly cloudy</string>
     <!--  Programs  -->
     <string name="ms_edge">Microsoft Edge</string>
-    <string name="ms_outlook">Outlook</string>
+    <string name="outlook">Outlook</string>
     <string name="recycler_bin">Recycler bin</string>
     <!--  Window related  -->
     <string name="minimize">Minimize</string>

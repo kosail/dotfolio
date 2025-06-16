@@ -1,31 +1,30 @@
-package com.korealm.dotfolio.ui
+package com.korealm.dotfolio.ui.windows
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.detectDragGestures
-import androidx.compose.foundation.hoverable
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.onPointerEvent
-import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
@@ -48,6 +47,7 @@ fun DraggableWindow(
     windowWidth: Dp = 600.dp,
     windowHeight: Dp = 400.dp,
     modifier: Modifier = Modifier,
+    icon: Painter? = null,
     content: @Composable () -> Unit
 ) {
     BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
@@ -77,42 +77,74 @@ fun DraggableWindow(
                 .then(modifier)
         ) {
             Column {
-                // Title bar
-                Box(
+                Row(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(32.dp)
                         .background(MaterialTheme.colorScheme.surfaceVariant)
-                        .pointerInput(Unit) {
-                            detectDragGestures { change, dragAmount ->
-                                change.consume()
-                                offset += dragAmount
-                            }
-                        },
-                    contentAlignment = Alignment.CenterEnd
                 ) {
-                    Row(
-                        modifier = Modifier.height(32.dp),
-                        verticalAlignment = Alignment.CenterVertically
+                    Surface(
+                        color = Color.Transparent,
+                        modifier = Modifier
+                        .align(Alignment.CenterVertically)
+                        .padding(start = 5.dp)
                     ) {
-                        TitleBarButton(
-                            onClick = onWindowMinimize,
-                            iconPainter = painterResource(if (themeState.isDarkTheme) Res.drawable.window_minimize_dark else Res.drawable.window_minimize_light),
-                            contentDescription = "Minimize"
-                        )
+                        if (icon != null) {
+                            Image(
+                                painter = icon,
+                                contentDescription = null,
+                                modifier = Modifier.size(16.dp)
+                            )
+                        }
+                    }
 
-                        TitleBarButton(
-                            onClick = onWindowMaximize,
-                            iconPainter = painterResource(if (themeState.isDarkTheme) Res.drawable.window_maximize_dark else Res.drawable.window_maximize_light),
-                            contentDescription = "Maximize"
-                        )
+                    // A Spacer by its own cannot be enough to move elements to extreme opposites, it seems
+                    // I know this is by far a bad solution, but I hope I'll learn to do this better in the future.
+                    Surface(
+                        color = Color.Transparent,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .weight(1f)
+                            .pointerInput(Unit) {
+                                detectDragGestures { change, dragAmount ->
+                                    change.consume()
+                                    offset += dragAmount
+                                }
+                            }
+                    ) {
+                        Spacer(Modifier.fillMaxSize())
+                    }
 
-                        TitleBarButton(
-                            onClick = onWindowClose,
-                            iconPainter = painterResource(if (themeState.isDarkTheme) Res.drawable.window_close_dark else Res.drawable.window_close_light),
-                            contentDescription = "Close",
-                            hoverColor = MaterialTheme.colorScheme.error.copy(alpha = 0.45f) // Red on hover like real Windows
-                        )
+
+                    // Title bar
+                    Surface(
+                        color = Color.Transparent,
+                        modifier = Modifier
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.End,
+                            modifier = Modifier.height(32.dp)
+                        ) {
+                            TitleBarButton(
+                                onClick = onWindowMinimize,
+                                iconPainter = painterResource(if (themeState.isDarkTheme) Res.drawable.window_minimize_dark else Res.drawable.window_minimize_light),
+                                contentDescription = "Minimize"
+                            )
+
+                            TitleBarButton(
+                                onClick = onWindowMaximize,
+                                iconPainter = painterResource(if (themeState.isDarkTheme) Res.drawable.window_maximize_dark else Res.drawable.window_maximize_light),
+                                contentDescription = "Maximize"
+                            )
+
+                            TitleBarButton(
+                                onClick = onWindowClose,
+                                iconPainter = painterResource(if (themeState.isDarkTheme) Res.drawable.window_close_dark else Res.drawable.window_close_light),
+                                contentDescription = "Close",
+                                hoverColor = MaterialTheme.colorScheme.error.copy(alpha = 0.45f) // Red on hover like real Windows
+                            )
+                        }
                     }
                 }
 
@@ -122,6 +154,7 @@ fun DraggableWindow(
                         .fillMaxSize()
                         .background(MaterialTheme.colorScheme.background)
                         .safeContentPadding()
+                        .scrollable(rememberScrollState(), Orientation.Vertical)
                 ) {
                     content()
                 }
