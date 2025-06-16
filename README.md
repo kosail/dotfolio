@@ -50,6 +50,7 @@ cd dotfolio
 
 ### Resources
 - [Windows 11 icon theme, by yeyushengfan258](https://github.com/yeyushengfan258/Win11-icon-theme/)
+- [Notepad Win11 icon, from Wikipedia Commons](https://commons.wikimedia.org/wiki/File:Notepad_Win11.svg)
 - [Selawik font, by Microsoft](https://github.com/microsoft/Selawik) (I've had A LOT of issues adding this font to the WASM version of this project, but as I plan to make the effort to make Selawik the default font, I added it)
 
 ---
