@@ -32,18 +32,18 @@ import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun DesktopShortcuts(
-    appRegistry: Map<String, () -> Unit>,
+    onAppLaunch: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     // IDE complaints that I should remove "redundant" declaration, but I refuse to do so as I admit that this list is NOT intuitive at first glance
-    val shortcutButtonsList = listOf< Triple<DrawableResource, String, () -> Unit> >(
-        Triple(Res.drawable.trash, stringResource(Res.string.trash), appRegistry["trash"] ?: {}),
-        Triple(Res.drawable.pdf, stringResource(Res.string.cv), {}),
-        Triple(Res.drawable.web_browser, stringResource(Res.string.about_me) + ".html", appRegistry["webBrowser"] ?: {}),
-        Triple(Res.drawable.mp3, stringResource(Res.string.voice_recording) + ".wav", appRegistry["audioPlayer"] ?: {}),
-        Triple(Res.drawable.image_viewer, stringResource(Res.string.profile_pic) + ".jpg", appRegistry["photoViewer"] ?: {}),
-        Triple(Res.drawable.folder, stringResource(Res.string.projects), appRegistry["fileExplorer"] ?: {}),
-        Triple(Res.drawable.settings, stringResource(Res.string.settings), appRegistry["settings"] ?: {})
+    val shortcutButtonsList = listOf(
+        Triple(Res.drawable.trash, stringResource(Res.string.trash), "trash"),
+        Triple(Res.drawable.pdf, stringResource(Res.string.cv), "cv"),
+        Triple(Res.drawable.web_browser, stringResource(Res.string.about_me) + ".html", "webBrowser"),
+        Triple(Res.drawable.mp3, stringResource(Res.string.voice_recording) + ".wav", "audioPlayer"),
+        Triple(Res.drawable.image_viewer, stringResource(Res.string.profile_pic) + ".jpg", "photoViewer"),
+        Triple(Res.drawable.folder, stringResource(Res.string.projects), "fileExplorer"),
+        Triple(Res.drawable.settings, stringResource(Res.string.settings), "settings")
     )
 
     Box( modifier = modifier ) {
@@ -55,8 +55,16 @@ fun DesktopShortcuts(
                 .padding(horizontal = 20.dp)
 
         ) {
-            for (shortcut in shortcutButtonsList) {
-                ShortcutButton(shortcut.first, shortcut.second, { shortcut.third.invoke() })
+            for ((icon, title, appId) in shortcutButtonsList) { // Unpacking Triple for more readability
+                ShortcutButton(
+                    icon = icon,
+                    title = title,
+                    onLaunch = {
+                        if (appId.isNotEmpty()) {
+                            onAppLaunch(appId)
+                        }
+                    }
+                )
             }
         }
     }

@@ -1,10 +1,6 @@
 package com.korealm.dotfolio.ui
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.expandHorizontally
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.shrinkHorizontally
+import androidx.compose.animation.*
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -18,15 +14,17 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.korealm.dotfolio.model.WindowApp
 import com.korealm.dotfolio.state.AppThemeState
+import com.korealm.dotfolio.ui.windows.DraggableWindow
 import dotfolio.composeapp.generated.resources.*
-import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -40,11 +38,12 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 fun DesktopEnvironment(
     clock: Pair<String, String>,
-    openApps: Set<Pair<String, DrawableResource>>,
+    openAppsIds: List<String>,
+    appRegistry: Map<String, @Composable () -> WindowApp>,
     themeState: AppThemeState,
     modifier: Modifier = Modifier,
 ) {
-    val visibleApps by remember(openApps) { derivedStateOf { openApps.toList() } }
+    val visibleApps by remember(openAppsIds) { derivedStateOf { openAppsIds } }
 
     Box(
         modifier = modifier
@@ -120,22 +119,30 @@ fun DesktopEnvironment(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier.fillMaxSize()
             ) {
-                TaskbarIcon(Res.drawable.start, onClick = { /* TODO LATER */ }, modifier = Modifier)
+                TaskbarIcon( // Start menu icon
+                    icon = painterResource(Res.drawable.start),
+                    onClick = { /* TODO LATER */ },
+                    modifier = Modifier.size(36.dp)
+                )
 
-                visibleApps.forEach { app ->
-                    AnimatedVisibility(
-                        visible = true,
-                        enter = fadeIn() + expandHorizontally(expandFrom = Alignment.Start),
-                        exit = fadeOut() + shrinkHorizontally(shrinkTowards = Alignment.Start),
-                        modifier = Modifier.padding(horizontal = 4.dp)
-                    ) {
-                        TaskbarIcon(
-                            icon = app.second,
-                            onClick = { /* TODO LATER */ },
-                            modifier = Modifier
-                        )
+                visibleApps.forEach { appId ->
+                    val windowApp = appRegistry[appId]?.invoke()
+                    if (windowApp != null) {
+                        AnimatedVisibility(
+                            visible = true,
+                            enter = fadeIn() + expandHorizontally(expandFrom = Alignment.Start),
+                            exit = fadeOut() + shrinkHorizontally(shrinkTowards = Alignment.Start),
+                            modifier = Modifier.padding(horizontal = 4.dp)
+                        ) {
+                            TaskbarIcon(
+                                icon = windowApp.icon,
+                                onClick = { /* TODO LATER */ },
+                                modifier = Modifier
+                            )
+                        }
                     }
                 }
+
             }
 
             Row(
@@ -198,12 +205,25 @@ fun DesktopEnvironment(
             }
         }
     }
+
+    openAppsIds.forEach { appId ->
+        val window = appRegistry[appId]?.invoke()
+        if (window != null) {
+            DraggableWindow(
+                windowWidth = window.defaultSize.width,
+                windowHeight = window.defaultSize.height,
+                titleBar = window.titleBar,
+                content = window.content
+            )
+        }
+    }
+
 }
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun TaskbarIcon(
-    icon: DrawableResource,
+    icon: Painter,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -219,7 +239,7 @@ fun TaskbarIcon(
             .background(if (isHover) MaterialTheme.colorScheme.primary.copy(alpha = 0.01f) else Color.Transparent)
     ) {
         Image(
-            painterResource(icon),
+            painter = icon,
             contentDescription = null,
             modifier = Modifier.size(36.dp)
         )
