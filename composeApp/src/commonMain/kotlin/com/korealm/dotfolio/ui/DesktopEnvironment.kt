@@ -1,21 +1,32 @@
 package com.korealm.dotfolio.ui
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.expandHorizontally
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkHorizontally
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.input.pointer.PointerEventType
+import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.korealm.dotfolio.state.AppThemeState
 import dotfolio.composeapp.generated.resources.*
+import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -29,10 +40,12 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 fun DesktopEnvironment(
     clock: Pair<String, String>,
-    openApps: Set<String>,
+    openApps: Set<Pair<String, DrawableResource>>,
     themeState: AppThemeState,
     modifier: Modifier = Modifier,
 ) {
+    val visibleApps by remember(openApps) { derivedStateOf { openApps.toList() } }
+
     Box(
         modifier = modifier
             .fillMaxSize()
@@ -107,19 +120,22 @@ fun DesktopEnvironment(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier.fillMaxSize()
             ) {
-                Image(
-                    painterResource(Res.drawable.start),
-                    contentDescription = null,
-                    modifier = Modifier.size(36.dp)
-                )
+                TaskbarIcon(Res.drawable.start, onClick = { /* TODO LATER */ }, modifier = Modifier)
 
-                Spacer(Modifier.width(16.dp))
-
-                Image(
-                    painterResource(Res.drawable.file_manager),
-                    contentDescription = null,
-                    modifier = Modifier.size(36.dp)
-                )
+                visibleApps.forEach { app ->
+                    AnimatedVisibility(
+                        visible = true,
+                        enter = fadeIn() + expandHorizontally(expandFrom = Alignment.Start),
+                        exit = fadeOut() + shrinkHorizontally(shrinkTowards = Alignment.Start),
+                        modifier = Modifier.padding(horizontal = 4.dp)
+                    ) {
+                        TaskbarIcon(
+                            icon = app.second,
+                            onClick = { /* TODO LATER */ },
+                            modifier = Modifier
+                        )
+                    }
+                }
             }
 
             Row(
@@ -181,5 +197,31 @@ fun DesktopEnvironment(
                 Spacer(Modifier.width(6.dp))
             }
         }
+    }
+}
+
+@OptIn(ExperimentalComposeUiApi::class)
+@Composable
+fun TaskbarIcon(
+    icon: DrawableResource,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    var isHover by remember { mutableStateOf(false) }
+
+    Box(
+        contentAlignment = Alignment.Center,
+        modifier = modifier
+            .size(56.dp)
+            .onPointerEvent(PointerEventType.Enter) { isHover = true }
+            .onPointerEvent(PointerEventType.Exit) { isHover = false }
+            .clickable { onClick() }
+            .background(if (isHover) MaterialTheme.colorScheme.primary.copy(alpha = 0.01f) else Color.Transparent)
+    ) {
+        Image(
+            painterResource(icon),
+            contentDescription = null,
+            modifier = Modifier.size(36.dp)
+        )
     }
 }

@@ -10,10 +10,12 @@ import com.korealm.dotfolio.ui.DesktopEnvironment
 import com.korealm.dotfolio.ui.DesktopShortcuts
 import com.korealm.dotfolio.ui.theme.MicaTheme
 import com.korealm.dotfolio.ui.windows.Win32Controller
+import dotfolio.composeapp.generated.resources.*
 import kotlinx.coroutines.delay
 import kotlinx.datetime.Clock
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
+import org.jetbrains.compose.resources.DrawableResource
 
 
 @Composable
@@ -27,33 +29,40 @@ fun App() {
 
 
     // Windows related
-    var openApps by remember { mutableStateOf(mutableSetOf<String>()) }
+    var openApps by remember { mutableStateOf(emptySet<Pair<String, DrawableResource>>()) }
 
-    // This is like a sealed "registry" of apps. All apps' instantiation in here.
+    // This is like a sealed "registry" of apps, and now all apps can be called from here.
+    // It also syncs opened window apps with the taskbar icons.
     val appRegistry = mapOf<String, () -> Unit>(
         "notepad" to {
+            val app = Pair("notepad", Res.drawable.notepad)
+            openApps = openApps + app
             Win32Controller.notepad()
-            openApps.add("notepad")
-         },
+        },
         "webBrowser" to {
+            val app = Pair("webBrowser", Res.drawable.web_browser)
+            openApps = openApps + app
             Win32Controller.webBrowser()
-            openApps.add("webBrowser")
         },
         "audioPlayer" to {
+            val app = Pair("audioPlayer", Res.drawable.playmymusic)
+            openApps = openApps + app
             Win32Controller.audioPlayer()
-            openApps.add("audioPlayer")
-         },
+        },
         "photoViewer" to {
+            val app = Pair("photoViewer", Res.drawable.image_viewer)
+            openApps = openApps + app
             Win32Controller.photoViewer()
-            openApps.add("photoViewer")
-         },
+        },
         "fileExplorer" to {
+            val app = Pair("fileExplorer", Res.drawable.file_manager)
+            openApps = openApps + app
             Win32Controller.fileExplorer()
-            openApps.add("fileExplorer")
         },
         "settings" to {
+            val app = Pair("settings", Res.drawable.settings)
+            openApps = openApps + app
             Win32Controller.settings()
-            openApps.add("settings")
         }
     )
 
