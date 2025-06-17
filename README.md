@@ -10,7 +10,7 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 ## 🌼 Features (Planned)
 
 - ⚡️ Static desktop-like UI with interactive elements (icons, windows)
-- 📁 Clickable icons that open custom "apps" (CV, a photo of me, projects, etc)
+- 📁 Clickable icons that open custom "apps" (CV, a photo of me, projects, etc.)
 - 📝 Launches with a central notepad window describing the author
 - 🧠 Built entirely in Kotlin Multiplatform (WASM target)
 - 🎨 Clean, elegant aesthetics with a focus on detail and interactivity
