@@ -3,17 +3,16 @@
 A minimalist, interactive, Windows 11 themed developer portfolio built with [Compose Multiplatform](https://github.com/JetBrains/compose-multiplatform).  
 Inspired by Mica aesthetics, this project blends creativity with code — aiming to speak louder than words.
 
-> 📎 “Think of it as a personal OS. One that boots into who I am.”
+📎 Think of it as a personal OS. One that boots into who I am.
 
 ---
 
 ## 🌼 Features (Planned)
 
 - ⚡️ Static desktop-like UI with interactive elements (icons, windows)
-- 📁 Clickable icons that open custom "apps" (bio, CV, projects, contact)
+- 📁 Clickable icons that open custom "apps" (CV, a photo of me, projects, etc)
 - 📝 Launches with a central notepad window describing the author
 - 🧠 Built entirely in Kotlin Multiplatform (WASM target)
-- 🐧 Strong Linux and developer identity baked in the UX
 - 🎨 Clean, elegant aesthetics with a focus on detail and interactivity
 
 
@@ -22,11 +21,13 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 
 ---
 
-## 🌺 Goals
+## 🌺 Goal of this project:
 
-- Stand out in a sea of traditional portfolios
-- Demonstrate creativity, UI/UX sensibility, and Kotlin/Compose skills
-- Emphasize Linux proficiency and cross-platform versatility
+The sole goal is to stand out in a sea of traditional portfolios. It's to tell, build an interactive story about myself disguised as an operating system.
+
+Taking this in mind, I focused on implementing only what is needed to tell this story, not to rebuild the actual functionality of an entire OS on Compose.
+
+I consider this minimalist precision is not a limitation, but a design power move. Make it speak clearly, cleanly, and with purpose. Demonstrate creativity, UI/UX sensibility, and Kotlin/Compose skills. That's my goal, and the one of this project.
 
 ---
 
