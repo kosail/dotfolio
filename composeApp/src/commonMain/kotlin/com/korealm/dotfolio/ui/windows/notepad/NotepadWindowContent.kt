@@ -1,12 +1,8 @@
-package com.korealm.dotfolio.ui.windows
+package com.korealm.dotfolio.ui.windows.notepad
 
 import androidx.compose.runtime.Composable
 
 @Composable
-fun NotepadTitleBar() {
-}
-
-@Composable
 fun NotepadWindowContent() {
-
+    // TODO
 }

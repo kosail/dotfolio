@@ -5,17 +5,16 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.safeContentPadding
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import com.korealm.dotfolio.model.WindowApp
 import com.korealm.dotfolio.state.rememberAppThemeState
 import com.korealm.dotfolio.ui.DesktopEnvironment
 import com.korealm.dotfolio.ui.DesktopShortcuts
 import com.korealm.dotfolio.ui.theme.MicaTheme
 import com.korealm.dotfolio.ui.windows.Win32Controller
-import dotfolio.composeapp.generated.resources.*
 import kotlinx.coroutines.delay
 import kotlinx.datetime.Clock
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
-import org.jetbrains.compose.resources.DrawableResource
 
 
 @Composable
@@ -29,42 +28,32 @@ fun App() {
 
 
     // Windows related
-    var openApps by remember { mutableStateOf(emptySet<Pair<String, DrawableResource>>()) }
+    var openWindows by remember { mutableStateOf(listOf<String>()) }
+
+    var openWindowRef by remember { mutableStateOf< (String) -> Unit>({}) } // Due to circular dependency between this 2 functions and appRegistry
+    var closeWindowRef by remember { mutableStateOf<(String) -> Unit>({}) } // I had to first declare them, and then associate the real function
+
 
     // This is like a sealed "registry" of apps, and now all apps can be called from here.
-    // It also syncs opened window apps with the taskbar icons.
-    val appRegistry = mapOf<String, () -> Unit>(
-        "notepad" to {
-            val app = Pair("notepad", Res.drawable.notepad)
-            openApps = openApps + app
-            Win32Controller.notepad()
-        },
-        "webBrowser" to {
-            val app = Pair("webBrowser", Res.drawable.web_browser)
-            openApps = openApps + app
-            Win32Controller.webBrowser()
-        },
-        "audioPlayer" to {
-            val app = Pair("audioPlayer", Res.drawable.playmymusic)
-            openApps = openApps + app
-            Win32Controller.audioPlayer()
-        },
-        "photoViewer" to {
-            val app = Pair("photoViewer", Res.drawable.image_viewer)
-            openApps = openApps + app
-            Win32Controller.photoViewer()
-        },
-        "fileExplorer" to {
-            val app = Pair("fileExplorer", Res.drawable.file_manager)
-            openApps = openApps + app
-            Win32Controller.fileExplorer()
-        },
-        "settings" to {
-            val app = Pair("settings", Res.drawable.settings)
-            openApps = openApps + app
-            Win32Controller.settings()
-        }
+    val appRegistry = mapOf<String, (@Composable () -> WindowApp)>(
+        "notepad" to { Win32Controller.notepad { closeWindowRef("notepad") } },
+        "webBrowser" to { Win32Controller.webBrowser { closeWindowRef("webBrowser") } },
+        "audioPlayer" to { Win32Controller.audioPlayer { closeWindowRef("audioPlayer") } },
+        "photoViewer" to { Win32Controller.photoViewer { closeWindowRef("photoViewer") } },
+        "fileExplorer" to { Win32Controller.fileExplorer { closeWindowRef("fileExplorer") } },
+        "settings" to { Win32Controller.settings { closeWindowRef("settings") } },
     )
+
+    openWindowRef = { appId ->
+        if (appId !in openWindows) {
+            openWindows = openWindows + appId
+        }
+    }
+
+
+    closeWindowRef = { appId ->
+        openWindows = openWindows.filterNot { it == appId }
+    }
 
 
     // Run dotfolio!
@@ -78,12 +67,13 @@ fun App() {
         ) {
             DesktopEnvironment(
                 clock = localDateTime,
-                openApps = openApps,
+                openAppsIds = openWindows,
+                appRegistry = appRegistry,
                 themeState = themeState,
                 modifier = Modifier)
 
             DesktopShortcuts(
-                appRegistry = appRegistry,
+                onAppLaunch = { appId -> openWindowRef(appId) },
                 modifier = Modifier.fillMaxSize()
             )
 
