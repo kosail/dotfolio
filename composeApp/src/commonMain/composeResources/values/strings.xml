@@ -2,9 +2,14 @@
     <string name="cloudy">Cloudy</string>
     <string name="partly_cloudy">Partly cloudy</string>
     <!--  Programs  -->
-    <string name="ms_edge">Microsoft Edge</string>
-    <string name="outlook">Outlook</string>
-    <string name="recycler_bin">Recycler bin</string>
+    <string name="trash">Recycler bin</string>
+    <string name="cv">CV</string>                   <!--  .pdf   -->
+    <string name="about_me">About me</string>       <!--  .html  -->
+    <string name="voice_recording">Voice</string>   <!--  .wav   -->
+    <string name="profile_pic">Me</string>          <!--  .jpg   -->
+    <string name="projects">Projects</string>
+    <string name="settings">Settings</string>
+    <string name="readme">Readme</string>           <!--  .txt   -->
     <!--  Window related  -->
     <string name="minimize">Minimize</string>
     <string name="maximize">Maximize</string>

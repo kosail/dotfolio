@@ -29,6 +29,7 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 fun DesktopEnvironment(
     clock: Pair<String, String>,
+    openApps: Set<String>,
     themeState: AppThemeState,
     modifier: Modifier = Modifier,
 ) {

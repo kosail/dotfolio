@@ -2,27 +2,18 @@ package com.korealm.dotfolio
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeContentPadding
-import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.korealm.dotfolio.model.dotApp
 import com.korealm.dotfolio.state.rememberAppThemeState
 import com.korealm.dotfolio.ui.DesktopEnvironment
 import com.korealm.dotfolio.ui.DesktopShortcuts
 import com.korealm.dotfolio.ui.theme.MicaTheme
-import com.korealm.dotfolio.ui.windows.DraggableWindow
-import dotfolio.composeapp.generated.resources.Res
-import dotfolio.composeapp.generated.resources.notepad
+import com.korealm.dotfolio.ui.windows.Win32Controller
 import kotlinx.coroutines.delay
 import kotlinx.datetime.Clock
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
-import org.jetbrains.compose.resources.painterResource
 
 
 @Composable
@@ -34,10 +25,38 @@ fun App() {
     var localDateTime by remember { mutableStateOf(Pair("", "")) }
     ClockThread { time, date -> localDateTime = localDateTime.copy(time, date) }
 
+
     // Windows related
-    var openApps by remember {
-        mutableStateOf(mutableSetOf<dotApp>())
-    }
+    var openApps by remember { mutableStateOf(mutableSetOf<String>()) }
+
+    // This is like a sealed "registry" of apps. All apps' instantiation in here.
+    val appRegistry = mapOf<String, () -> Unit>(
+        "notepad" to {
+            Win32Controller.notepad()
+            openApps.add("notepad")
+         },
+        "webBrowser" to {
+            Win32Controller.webBrowser()
+            openApps.add("webBrowser")
+        },
+        "audioPlayer" to {
+            Win32Controller.audioPlayer()
+            openApps.add("audioPlayer")
+         },
+        "photoViewer" to {
+            Win32Controller.photoViewer()
+            openApps.add("photoViewer")
+         },
+        "fileExplorer" to {
+            Win32Controller.fileExplorer()
+            openApps.add("fileExplorer")
+        },
+        "settings" to {
+            Win32Controller.settings()
+            openApps.add("settings")
+        }
+    )
+
 
     // Run dotfolio!
     MicaTheme(
@@ -50,26 +69,15 @@ fun App() {
         ) {
             DesktopEnvironment(
                 clock = localDateTime,
+                openApps = openApps,
                 themeState = themeState,
                 modifier = Modifier)
 
-            DesktopShortcuts(modifier = Modifier.fillMaxSize())
+            DesktopShortcuts(
+                appRegistry = appRegistry,
+                modifier = Modifier.fillMaxSize()
+            )
 
-//            DraggableWindow(
-//                icon = painterResource(Res.drawable.notepad),
-//                themeState = themeState,
-//                onWindowClose = {},
-//                onWindowMaximize = {},
-//                onWindowMinimize = {},
-//                modifier = Modifier
-//            ) {
-//                Text(
-//                    text = "It works",
-//                    textAlign = TextAlign.Center,
-//                    fontSize = 40.sp,
-//                    modifier = Modifier.fillMaxSize().padding(50.dp)
-//                )
-//            }
         }
     }
 }
