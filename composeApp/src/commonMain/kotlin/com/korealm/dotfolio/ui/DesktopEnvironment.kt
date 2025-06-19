@@ -50,23 +50,15 @@ fun DesktopEnvironment(
             .fillMaxSize()
     ) {
 
-        AnimatedVisibility(themeState.isDarkTheme) {
-            Image(
-                painter = painterResource(Res.drawable.bg_dark),
-                contentDescription = "Wallpaper",
-                contentScale = ContentScale.Crop,
-                modifier = Modifier.matchParentSize()
-            )
-        }
-
-        AnimatedVisibility(!themeState.isDarkTheme) {
-            Image(
-                painter = painterResource(Res.drawable.bg),
-                contentDescription = "Wallpaper",
-                contentScale = ContentScale.Crop,
-                modifier = Modifier.matchParentSize()
-            )
-        }
+        // TODO: Improve and move this wallpaper switch thing into ThemeState
+        Image(
+            painter = painterResource(
+                if (themeState.isDarkTheme) Res.drawable.bg_dark else Res.drawable.bg_light
+            ),
+            contentDescription = "Wallpaper",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier.matchParentSize()
+        )
 
         Surface(
             tonalElevation = 2.dp,

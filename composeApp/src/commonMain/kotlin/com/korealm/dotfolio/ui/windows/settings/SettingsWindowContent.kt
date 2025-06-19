@@ -10,16 +10,20 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Switch
+import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalDivider
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.PointerIcon
-import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -34,6 +38,8 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 fun SettingsWindowContent (
     themeState: AppThemeState,
+    isDevModeOn: Boolean,
+    onDevModeChange: () -> Unit,
     selectedIndex: Int,
     onSelectIndex: (Int) -> Unit,
 ) {
@@ -133,24 +139,39 @@ fun SettingsWindowContent (
             Spacer(Modifier.height(25.dp))
 
             // Options
-            sidebarOption(
+            SidebarOption(
                 icon = Res.drawable.desktop,
                 text = Res.string.settings__system,
                 isSelected = selectedIndex == 0,
                 onClick = { onSelectIndex(0) }
             )
 
-            sidebarOption(
-                icon = Res.drawable.about,
-                text = Res.string.settings__about,
-                isSelected = selectedIndex == 1,
-                onClick = { onSelectIndex(1) }
-            )
+            AnimatedVisibility(isDevModeOn) {
+                SidebarOption(
+                    icon = Res.drawable.about,
+                    text = Res.string.settings__about,
+                    isSelected = selectedIndex == 1,
+                    onClick = { onSelectIndex(1) }
+                )
+            }
         }
 
+        Spacer(
+            modifier = Modifier
+                .fillMaxHeight()
+                .width(10.dp)
+                .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f))
+        )
+
         // Main content
-        Column(
-            content = { if (selectedIndex == 0) systemScreen() else aboutScreen() },
+        Box(
+            content = {
+                if (selectedIndex == 0) SystemScreen(
+                    themeState = themeState,
+                    isDevModeOn = isDevModeOn,
+                    onDevModeChange = onDevModeChange
+            ) else AboutScreen()
+                      },
             modifier = Modifier
                 .fillMaxSize()
                 .weight(1f)
@@ -159,7 +180,7 @@ fun SettingsWindowContent (
 }
 
 @Composable
-fun sidebarOption(
+fun SidebarOption(
     icon: DrawableResource,
     text: StringResource,
     isSelected: Boolean,
@@ -211,11 +232,145 @@ fun sidebarOption(
 }
 
 @Composable
-fun systemScreen() {
-    Box(modifier = Modifier.fillMaxSize().background(Color.Cyan))
+fun SystemScreen(
+    themeState: AppThemeState,
+    isDevModeOn: Boolean,
+    onDevModeChange: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f))
+    ) {
+        // Title
+        Column(
+            modifier = Modifier.padding(start = 16.dp, top = 16.dp)
+        ) {
+            Text(
+                text = stringResource(Res.string.settings__system),
+                fontSize = 25.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier
+            )
+
+            Spacer(Modifier.height(40.dp))
+
+            SettingOption(
+                icon = if (themeState.isDarkTheme) Res.drawable.dark_mode_symbolic_light else Res.drawable.dark_mode_symbolic_dark,
+                title = Res.string.settings__dark_mode,
+                subtitle = Res.string.settings__dark_mode_description
+            ) {
+                SettingsToggle(
+                    checked = themeState.isDarkTheme,
+                    onClick = { themeState.toggleTheme() }
+                )
+            }
+
+            Spacer(Modifier.height(4.dp))
+
+            //TODO: This one is too custom, so needs to become it's own composable.
+            // TODO: Moreover because I need to rotate the icon when menu is opened
+            SettingOption(
+                icon = if (themeState.isDarkTheme) Res.drawable.picture_symbolic_light else Res.drawable.picture_symbolic_dark,
+                title = Res.string.settings__background,
+                subtitle = Res.string.settings__background_description,
+
+                ) {}
+
+            Spacer(Modifier.height(4.dp))
+
+            SettingOption(
+                icon = if (themeState.isDarkTheme) Res.drawable.atom_symbolic_light else Res.drawable.atom_symbolic_dark,
+                title = Res.string.settings__dev_mode
+            ) {
+                SettingsToggle(
+                    checked = isDevModeOn,
+                    onClick = { onDevModeChange() }
+                )
+            }
+        }
+    }
 }
 
 @Composable
-fun aboutScreen() {
-    Box(modifier = Modifier.fillMaxSize().background(Color.Green))
+fun AboutScreen(
+    modifier: Modifier = Modifier
+) {
+    Box(modifier = modifier.fillMaxSize().background(Color.Green))
+}
+
+@Composable
+fun SettingOption(
+    icon: DrawableResource,
+    title: StringResource,
+    subtitle: StringResource? = null,
+    modifier: Modifier = Modifier,
+    content: @Composable () -> Unit
+) {
+    Surface(
+        shape = RoundedCornerShape(5.dp),
+        color = MaterialTheme.colorScheme.surface,
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.surfaceVariant),
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(horizontal = 30.dp)
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Start,
+            modifier = Modifier.padding(start = 22.dp, top = 15.dp, bottom = 15.dp, end = 25.dp)
+        ) {
+            Image(
+                painter = painterResource(icon),
+                contentDescription = null,
+                modifier = Modifier.size(20.dp)
+            )
+
+            Spacer(Modifier.width(22.dp))
+
+            Column(
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.Start,
+                modifier = Modifier
+            ) {
+                Text(
+                    text = stringResource(title),
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Normal,
+                    lineHeight = 0.sp,
+                    modifier = Modifier
+                )
+
+                if (subtitle != null) {
+                    Text(
+                        text = stringResource(subtitle),
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Normal,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+                        modifier = Modifier
+                    )
+                }
+            }
+
+            Spacer(Modifier.fillMaxWidth().weight(1f))
+            content()
+        }
+    }
+}
+
+@Composable
+fun SettingsToggle(
+    checked: Boolean,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Switch(
+        checked = checked,
+        onCheckedChange = { onClick() },
+        colors = SwitchDefaults.colors(
+            uncheckedTrackColor = MaterialTheme.colorScheme.surface,
+        ),
+        modifier = modifier.scale(0.9f)
+    )
 }

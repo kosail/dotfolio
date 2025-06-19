@@ -36,7 +36,16 @@
     <!--  Settings App  -->
     <string name="username">kosail</string>
     <string name="email">Local Account</string>
+
     <string name="settings__search_bar_content">I'm mocking a search bar</string>
     <string name="settings__system">System</string>
     <string name="settings__about">About dotfolio</string>
+
+    <string name="settings__dev_mode">Enable developer mode</string>
+
+    <string name="settings__dark_mode">Dark mode</string>
+    <string name="settings__dark_mode_description">Change the color theme on dotfolio and its apps</string>
+
+    <string name="settings__background">Background</string>
+    <string name="settings__background_description">Choose your preferred background image for your system</string>
 </resources>
