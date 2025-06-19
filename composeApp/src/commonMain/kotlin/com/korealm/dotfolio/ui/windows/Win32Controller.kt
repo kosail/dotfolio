@@ -32,5 +32,5 @@ object Win32Controller {
     fun fileExplorer(themeState: AppThemeState, onClose: () -> Unit)/*: WindowApp*/ = FileManagerApp(onClose)
 
     @Composable
-    fun settings(themeState: AppThemeState, onClose: () -> Unit)/*: WindowApp*/ = SettingsApp(onClose)
+    fun settings(themeState: AppThemeState, onClose: () -> Unit): WindowApp = SettingsApp(themeState, onClose)
 }

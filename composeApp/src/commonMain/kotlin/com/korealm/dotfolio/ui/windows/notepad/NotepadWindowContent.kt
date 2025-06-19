@@ -10,30 +10,18 @@ import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.blur
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.korealm.dotfolio.state.AppThemeState
-import dotfolio.composeapp.generated.resources.Res
-import dotfolio.composeapp.generated.resources._100_percent
-import dotfolio.composeapp.generated.resources.edit
-import dotfolio.composeapp.generated.resources.file
-import dotfolio.composeapp.generated.resources.main_content_message
-import dotfolio.composeapp.generated.resources.settings_symbolic
-import dotfolio.composeapp.generated.resources.utf8
-import dotfolio.composeapp.generated.resources.view
-import dotfolio.composeapp.generated.resources.windows_crlf
+import dotfolio.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun NotepadWindowContent(
-    themeState: AppThemeState,
     modifier: Modifier = Modifier
 ) {
     Column(

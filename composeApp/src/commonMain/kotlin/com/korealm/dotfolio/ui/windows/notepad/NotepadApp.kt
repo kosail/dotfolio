@@ -8,6 +8,7 @@ import com.korealm.dotfolio.state.AppThemeState
 import dotfolio.composeapp.generated.resources.Res
 import dotfolio.composeapp.generated.resources.notepad
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 
 
 @Composable
@@ -18,10 +19,10 @@ fun NotepadApp(
 ): WindowApp {
     return WindowApp(
         appId = "notepad",
-        title = "Notepad",
+        title = stringResource(Res.string.notepad),
         icon = painterResource(Res.drawable.notepad),
-        defaultSize = DpSize(600.dp, 400.dp),
+        defaultSize = DpSize(700.dp, 500.dp),
         titleBar = { NotepadTitleBar(themeState, onClose) },
-        content = { NotepadWindowContent(themeState) }
+        content = { NotepadWindowContent() }
     )
 }
