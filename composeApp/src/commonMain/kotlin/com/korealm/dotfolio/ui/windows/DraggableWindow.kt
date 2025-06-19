@@ -37,7 +37,7 @@ fun DraggableWindow(
     windowWidth: Dp = 600.dp,
     windowHeight: Dp = 400.dp,
     modifier: Modifier = Modifier,
-    titleBarColor: Color = MaterialTheme.colorScheme.surface,
+//    titleBarColor: Color = MaterialTheme.colorScheme.surface, // Unnecessary because the bg color can be set directly in titleBar
     titleBar: @Composable () -> Unit,
     content: @Composable () -> Unit
 ) {
@@ -68,12 +68,12 @@ fun DraggableWindow(
                 .then(modifier)
         ) {
             Column {
-                Row(
+                Box(
                     content = { titleBar() },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(32.dp)
-                        .background(titleBarColor)
+//                        .height(32.dp) // Don't hardcode the title bar height! But make sure to specify it in the titleBar you're passing
+//                        .background(titleBarColor)
                         .pointerInput(Unit) {
                             detectDragGestures { change, dragAmount ->
                                 change.consume()

@@ -4,5 +4,5 @@ import androidx.compose.runtime.Composable
 import com.korealm.dotfolio.model.WindowApp
 
 @Composable
-fun AudioPlayerApp(onClose: () -> Unit): WindowApp {
+fun AudioPlayerApp(onClose: () -> Unit)/*: WindowApp*/ {
 }

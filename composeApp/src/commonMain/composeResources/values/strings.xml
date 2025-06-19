@@ -1,7 +1,7 @@
 <resources>
     <string name="cloudy">Cloudy</string>
     <string name="partly_cloudy">Partly cloudy</string>
-    <!--  Programs  -->
+    <!--  Programs & Shortcuts  -->
     <string name="trash">Recycler bin</string>
     <string name="cv">CV</string>                   <!--  .pdf   -->
     <string name="about_me">About me</string>       <!--  .html  -->
@@ -14,4 +14,13 @@
     <string name="minimize">Minimize</string>
     <string name="maximize">Maximize</string>
     <string name="close">Close</string>
+    <!--  Specific programs section  -->
+    <!--  Notepad  -->
+    <string name="file">File</string>
+    <string name="edit">Edit</string>
+    <string name="view">View</string>
+    <string name="100_percent">100%</string>
+    <string name="windows_crlf">Windows (CRLF)</string>
+    <string name="utf8">UTF-8</string>
+    <string name="main_content_message">Lorem ipsssssssssssummmmmmmm</string>
 </resources>

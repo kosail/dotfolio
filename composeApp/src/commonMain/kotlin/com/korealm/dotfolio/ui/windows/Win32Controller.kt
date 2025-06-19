@@ -2,6 +2,7 @@ package com.korealm.dotfolio.ui.windows
 
 import androidx.compose.runtime.Composable
 import com.korealm.dotfolio.model.WindowApp
+import com.korealm.dotfolio.state.AppThemeState
 import com.korealm.dotfolio.ui.windows.audio_player.AudioPlayerApp
 import com.korealm.dotfolio.ui.windows.file_manager.FileManagerApp
 import com.korealm.dotfolio.ui.windows.notepad.NotepadApp
@@ -15,20 +16,21 @@ import com.korealm.dotfolio.ui.windows.web_browser.WebBrowserApp
 // This is just a glue layer between the logic declared in each app package, and the main app
 object Win32Controller {
     @Composable
-    fun notepad(onClose: () -> Unit): WindowApp = NotepadApp(onClose)
+    fun notepad(themeState: AppThemeState, onClose: () -> Unit): WindowApp = NotepadApp(themeState, onClose)
+
+    // TODO: Make that all apps receive the themeState as a parameter, so they can handle well light/dark mode switch.
+    @Composable
+    fun webBrowser(themeState: AppThemeState, onClose: () -> Unit)/*: WindowApp*/ = WebBrowserApp(onClose)
 
     @Composable
-    fun webBrowser(onClose: () -> Unit): WindowApp = WebBrowserApp(onClose)
+    fun audioPlayer(themeState: AppThemeState, onClose: () -> Unit)/*: WindowApp*/ = AudioPlayerApp(onClose)
 
     @Composable
-    fun audioPlayer(onClose: () -> Unit): WindowApp = AudioPlayerApp(onClose)
+    fun photoViewer(themeState: AppThemeState, onClose: () -> Unit)/*: WindowApp*/ = PhotosApp(onClose)
 
     @Composable
-    fun photoViewer(onClose: () -> Unit): WindowApp = PhotosApp(onClose)
+    fun fileExplorer(themeState: AppThemeState, onClose: () -> Unit)/*: WindowApp*/ = FileManagerApp(onClose)
 
     @Composable
-    fun fileExplorer(onClose: () -> Unit): WindowApp = FileManagerApp(onClose)
-
-    @Composable
-    fun settings(onClose: () -> Unit): WindowApp = SettingsApp(onClose)
+    fun settings(themeState: AppThemeState, onClose: () -> Unit)/*: WindowApp*/ = SettingsApp(onClose)
 }
