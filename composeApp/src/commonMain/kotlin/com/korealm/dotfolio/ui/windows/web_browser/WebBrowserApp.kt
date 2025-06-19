@@ -4,5 +4,5 @@ import androidx.compose.runtime.Composable
 import com.korealm.dotfolio.model.WindowApp
 
 @Composable
-fun WebBrowserApp (onClose: () -> Unit): WindowApp {
+fun WebBrowserApp (onClose: () -> Unit)/*: WindowApp*/ {
 }

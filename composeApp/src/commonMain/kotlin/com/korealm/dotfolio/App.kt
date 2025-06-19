@@ -28,7 +28,7 @@ fun App() {
 
 
     // Windows related
-    var openWindows by remember { mutableStateOf(listOf<String>()) }
+    var openWindows by remember { mutableStateOf(listOf<String>("notepad")) }
 
     var openWindowRef by remember { mutableStateOf< (String) -> Unit>({}) } // Due to circular dependency between this 2 functions and appRegistry
     var closeWindowRef by remember { mutableStateOf<(String) -> Unit>({}) } // I had to first declare them, and then associate the real function
@@ -36,12 +36,12 @@ fun App() {
 
     // This is like a sealed "registry" of apps, and now all apps can be called from here.
     val appRegistry = mapOf<String, (@Composable () -> WindowApp)>(
-        "notepad" to { Win32Controller.notepad { closeWindowRef("notepad") } },
-        "webBrowser" to { Win32Controller.webBrowser { closeWindowRef("webBrowser") } },
-        "audioPlayer" to { Win32Controller.audioPlayer { closeWindowRef("audioPlayer") } },
-        "photoViewer" to { Win32Controller.photoViewer { closeWindowRef("photoViewer") } },
-        "fileExplorer" to { Win32Controller.fileExplorer { closeWindowRef("fileExplorer") } },
-        "settings" to { Win32Controller.settings { closeWindowRef("settings") } },
+        "notepad" to { Win32Controller.notepad (themeState) { closeWindowRef("notepad") } },
+//        "webBrowser" to { Win32Controller.webBrowser (themeState) { closeWindowRef("webBrowser") } },
+//        "audioPlayer" to { Win32Controller.audioPlayer (themeState) { closeWindowRef("audioPlayer") } },
+//        "photoViewer" to { Win32Controller.photoViewer (themeState) { closeWindowRef("photoViewer") } },
+//        "fileExplorer" to { Win32Controller.fileExplorer (themeState) { closeWindowRef("fileExplorer") } },
+//        "settings" to { Win32Controller.settings (themeState) { closeWindowRef("settings") } },
     )
 
     openWindowRef = { appId ->
@@ -65,6 +65,15 @@ fun App() {
                 .safeContentPadding()
                 .fillMaxSize()
         ) {
+            /*
+            ! Found a bug!
+                ! Windows are going under the shortcut icons, which doesn't make sense.
+                ! Windows should be OVER any other element
+                ? This might mean that I will have to implement a Z index... bro
+                ? I thought I could have made it without implementing that.
+
+                * I already tried to switch positions between DesktopEnvironment and DesktopShorcuts, but it's not that easy it seams.
+            */
             DesktopEnvironment(
                 clock = localDateTime,
                 openAppsIds = openWindows,

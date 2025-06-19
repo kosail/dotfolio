@@ -122,7 +122,6 @@ fun DesktopEnvironment(
                 TaskbarIcon( // Start menu icon
                     icon = painterResource(Res.drawable.start),
                     onClick = { /* TODO LATER */ },
-                    modifier = Modifier.size(36.dp)
                 )
 
                 visibleApps.forEach { appId ->

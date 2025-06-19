@@ -38,7 +38,7 @@ fun DesktopShortcuts(
     // IDE complaints that I should remove "redundant" declaration, but I refuse to do so as I admit that this list is NOT intuitive at first glance
     val shortcutButtonsList = listOf(
         Triple(Res.drawable.trash, stringResource(Res.string.trash), "trash"),
-        Triple(Res.drawable.pdf, stringResource(Res.string.cv), "cv"),
+        Triple(Res.drawable.pdf, stringResource(Res.string.cv) + ".pdf", "cv"),
         Triple(Res.drawable.web_browser, stringResource(Res.string.about_me) + ".html", "webBrowser"),
         Triple(Res.drawable.mp3, stringResource(Res.string.voice_recording) + ".wav", "audioPlayer"),
         Triple(Res.drawable.image_viewer, stringResource(Res.string.profile_pic) + ".jpg", "photoViewer"),
