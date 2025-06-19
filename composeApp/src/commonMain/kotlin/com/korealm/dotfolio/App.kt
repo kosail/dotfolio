@@ -41,7 +41,7 @@ fun App() {
 //        "audioPlayer" to { Win32Controller.audioPlayer (themeState) { closeWindowRef("audioPlayer") } },
 //        "photoViewer" to { Win32Controller.photoViewer (themeState) { closeWindowRef("photoViewer") } },
 //        "fileExplorer" to { Win32Controller.fileExplorer (themeState) { closeWindowRef("fileExplorer") } },
-//        "settings" to { Win32Controller.settings (themeState) { closeWindowRef("settings") } },
+        "settings" to { Win32Controller.settings (themeState) { closeWindowRef("settings") } },
     )
 
     openWindowRef = { appId ->

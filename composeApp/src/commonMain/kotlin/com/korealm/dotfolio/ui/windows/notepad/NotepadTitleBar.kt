@@ -16,8 +16,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.korealm.dotfolio.state.AppThemeState
-import com.korealm.dotfolio.ui.windows.TitleBarButton
-import dotfolio.composeapp.generated.resources.*
+import com.korealm.dotfolio.ui.windows.StandardTitleBarButtonSet
+import dotfolio.composeapp.generated.resources.Res
+import dotfolio.composeapp.generated.resources.notepad
+import dotfolio.composeapp.generated.resources.readme
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -96,40 +98,9 @@ fun NotepadTitleBar(
         )
 
 
-        // Minimize, Maximize and Close buttons
-        Surface(
-            color = Color.Transparent,
-            modifier = Modifier
-        ) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.End,
-                modifier = Modifier.height(32.dp)
-            ) {
-                TitleBarButton(
-                    onClick = {},
-                    iconPainter = painterResource(if (themeState.isDarkTheme) Res.drawable.window_minimize_dark else Res.drawable.window_minimize_light),
-                    contentDescription = "Minimize",
-                    hoverColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.05f),
-                    iconSize = 20.dp
-                )
-
-                TitleBarButton(
-                    onClick = { },
-                    iconPainter = painterResource(if (themeState.isDarkTheme) Res.drawable.window_maximize_dark else Res.drawable.window_maximize_light),
-                    contentDescription = "Maximize",
-                    hoverColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.05f),
-                    iconSize = 20.dp
-                )
-
-                TitleBarButton(
-                    onClick = onClose,
-                    iconPainter = painterResource(if (themeState.isDarkTheme) Res.drawable.window_close_dark else Res.drawable.window_close_light),
-                    contentDescription = "Close",
-                    hoverColor = MaterialTheme.colorScheme.error.copy(alpha = 0.45f),
-                    iconSize = 20.dp
-                )
-            }
-        }
+        StandardTitleBarButtonSet(
+            themeState = themeState,
+            onClose = onClose
+        )
     }
 }

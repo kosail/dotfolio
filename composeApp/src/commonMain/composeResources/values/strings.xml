@@ -1,7 +1,8 @@
 <resources>
     <string name="cloudy">Cloudy</string>
     <string name="partly_cloudy">Partly cloudy</string>
-    <!--  Programs & Shortcuts  -->
+
+    <!--  Desktop Shortcuts  -->
     <string name="trash">Recycler bin</string>
     <string name="cv">CV</string>                   <!--  .pdf   -->
     <string name="about_me">About me</string>       <!--  .html  -->
@@ -10,11 +11,19 @@
     <string name="projects">Projects</string>
     <string name="settings">Settings</string>
     <string name="readme">Readme</string>           <!--  .txt   -->
+
     <!--  Window related  -->
     <string name="minimize">Minimize</string>
     <string name="maximize">Maximize</string>
     <string name="close">Close</string>
+
     <!--  Specific programs section  -->
+    <string name="notepad">Notepad</string>
+    <string name="web_browser">Edge</string>
+    <string name="audio_player">Music</string>
+    <string name="photos">Photos</string>
+    <string name="file_explorer">Explorer</string>
+
     <!--  Notepad  -->
     <string name="file">File</string>
     <string name="edit">Edit</string>
@@ -23,4 +32,11 @@
     <string name="windows_crlf">Windows (CRLF)</string>
     <string name="utf8">UTF-8</string>
     <string name="main_content_message">Lorem ipsssssssssssummmmmmmm</string>
+
+    <!--  Settings App  -->
+    <string name="username">kosail</string>
+    <string name="email">Local Account</string>
+    <string name="settings__search_bar_content">I'm mocking a search bar</string>
+    <string name="settings__system">System</string>
+    <string name="settings__about">About dotfolio</string>
 </resources>
