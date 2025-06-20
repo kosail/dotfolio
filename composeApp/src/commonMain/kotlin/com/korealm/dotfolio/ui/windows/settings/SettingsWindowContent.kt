@@ -1,19 +1,11 @@
 package com.korealm.dotfolio.ui.windows.settings
 
-import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.*
 import androidx.compose.animation.core.tween
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.togetherWith
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
@@ -31,6 +23,7 @@ import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.korealm.dotfolio.state.AppThemeState
@@ -355,13 +348,6 @@ fun SystemScreen(
     }
 }
 
-@Composable
-fun AboutScreen(
-    modifier: Modifier = Modifier
-) {
-    Box(modifier = modifier.fillMaxSize().background(Color.Green))
-}
-
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun SettingOption(
@@ -448,4 +434,48 @@ fun SettingsToggle(
         ),
         modifier = modifier.scale(0.9f)
     )
+}
+
+
+@Composable
+fun AboutScreen(
+    modifier: Modifier = Modifier
+) {
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+    ) {
+        Column(
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier
+                .padding(20.dp)
+        ) {
+            Surface(
+                color = Color.Transparent,
+                modifier = modifier.fillMaxWidth()
+            ) {
+                Image(
+                    painter = painterResource(Res.drawable.banner),
+                    contentDescription = stringResource(Res.string.dev_mode_logo_content_description),
+                    modifier = Modifier.size(150.dp)
+                )
+            }
+
+            Column(
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = modifier.fillMaxWidth()
+            ) {
+                Text(
+                    text = stringResource(Res.string.dev_mode_about_description),
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Light,
+                    textAlign = TextAlign.Center,
+                    lineHeight = 0.sp,
+                    modifier = Modifier
+                )
+            }
+        }
+    }
 }
