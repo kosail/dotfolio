@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.safeContentPadding
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import com.korealm.dotfolio.model.AppId
 import com.korealm.dotfolio.model.WindowApp
 import com.korealm.dotfolio.state.rememberAppThemeState
 import com.korealm.dotfolio.ui.DesktopEnvironment
@@ -27,20 +28,20 @@ fun App() {
 
 
     // Windows related
-    var openWindows by remember { mutableStateOf(listOf("notepad")) } // ! Debugging purposes
+    var openWindows by remember { mutableStateOf(listOf(AppId.NOTEPAD)) } // ! Debugging purposes
 
-    var openWindowRef by remember { mutableStateOf< (String) -> Unit>({}) } // Due to circular dependency between this 2 functions and appRegistry
-    var closeWindowRef by remember { mutableStateOf<(String) -> Unit>({}) } // I had to first declare them, and then associate the real function
+    var openWindowRef by remember { mutableStateOf< (AppId) -> Unit>({}) } // Due to circular dependency between this 2 functions and appRegistry
+    var closeWindowRef by remember { mutableStateOf<(AppId) -> Unit>({}) } // I had to first declare them, and then associate the real function
 
 
     // This is like a sealed "registry" of apps, and now all apps can be called from here.
-    val appRegistry = mapOf<String, (@Composable () -> WindowApp)>(
-        "notepad" to { Win32Controller.notepad { closeWindowRef("notepad") } },
-//        "webBrowser" to { Win32Controller.webBrowser { closeWindowRef("webBrowser") } },
-//        "audioPlayer" to { Win32Controller.audioPlayer { closeWindowRef("audioPlayer") } },
-        "photoViewer" to { Win32Controller.photoViewer { closeWindowRef("photoViewer") } },
-//        "fileExplorer" to { Win32Controller.fileExplorer { closeWindowRef("fileExplorer") } },
-        "settings" to { Win32Controller.settings (themeState) { closeWindowRef("settings") } },
+    val appRegistry = mapOf<AppId, (@Composable () -> WindowApp)>(
+        AppId.NOTEPAD to { Win32Controller.Notepad { closeWindowRef(AppId.NOTEPAD) } },
+//        AppId.WEB_BROWSER to { Win32Controller.WebBrowser { closeWindowRef(AppId.WEB_BROWSER) } },
+        AppId.MUSIC to { Win32Controller.MusicPlayer { closeWindowRef(AppId.MUSIC) } },
+        AppId.PHOTOS to { Win32Controller.Photos { closeWindowRef(AppId.PHOTOS) } },
+//        AppId.FILE_EXPLORER to { Win32Controller.FileExplorer { closeWindowRef(AppId.FILE_EXPLORER) } },
+        AppId.SETTINGS to { Win32Controller.Settings (themeState) { closeWindowRef(AppId.SETTINGS) } },
     )
 
     openWindowRef = { appId ->

@@ -3,8 +3,8 @@ package com.korealm.dotfolio.ui.windows.photos
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
+import com.korealm.dotfolio.model.AppId
 import com.korealm.dotfolio.model.WindowApp
-import com.korealm.dotfolio.state.AppThemeState
 import dotfolio.composeapp.generated.resources.Res
 import dotfolio.composeapp.generated.resources.photos
 import org.jetbrains.compose.resources.painterResource
@@ -15,7 +15,7 @@ fun PhotosApp(
     onClose: () -> Unit
 ): WindowApp {
     return WindowApp(
-        appId = "photoViewer",
+        appId = AppId.PHOTOS,
         title = stringResource(Res.string.photos),
         icon = painterResource(Res.drawable.photos),
         defaultSize = DpSize(800.dp, 800.dp),

@@ -3,8 +3,8 @@ package com.korealm.dotfolio.ui.windows.notepad
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
+import com.korealm.dotfolio.model.AppId
 import com.korealm.dotfolio.model.WindowApp
-import com.korealm.dotfolio.state.AppThemeState
 import dotfolio.composeapp.generated.resources.Res
 import dotfolio.composeapp.generated.resources.notepad
 import org.jetbrains.compose.resources.painterResource
@@ -17,7 +17,7 @@ fun NotepadApp(
     onClose: () -> Unit
 ): WindowApp {
     return WindowApp(
-        appId = "notepad",
+        appId = AppId.NOTEPAD,
         title = stringResource(Res.string.notepad),
         icon = painterResource(Res.drawable.notepad),
         defaultSize = DpSize(700.dp, 500.dp),

@@ -1,13 +1,9 @@
 package com.korealm.dotfolio.ui.windows.settings
 
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
+import com.korealm.dotfolio.model.AppId
 import com.korealm.dotfolio.model.WindowApp
 import com.korealm.dotfolio.state.AppThemeState
 import dotfolio.composeapp.generated.resources.Res
@@ -25,7 +21,7 @@ fun SettingsApp(
     var isDevModeOn by remember { mutableStateOf(false) }
 
     return WindowApp(
-        appId = "settings",
+        appId = AppId.SETTINGS,
         title = stringResource(Res.string.settings),
         icon = painterResource(Res.drawable.settings),
         defaultSize = DpSize(950.dp, 550.dp),
