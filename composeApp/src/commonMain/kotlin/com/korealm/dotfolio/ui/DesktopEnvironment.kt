@@ -21,6 +21,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.korealm.dotfolio.model.AppId
 import com.korealm.dotfolio.model.WindowApp
 import com.korealm.dotfolio.state.AppThemeState
 import com.korealm.dotfolio.ui.windows.DraggableWindow
@@ -38,8 +39,8 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 fun DesktopEnvironment(
     clock: Pair<String, String>,
-    openAppsIds: List<String>,
-    appRegistry: Map<String, @Composable () -> WindowApp>,
+    openAppsIds: List<AppId>,
+    appRegistry: Map<AppId, @Composable () -> WindowApp>,
     themeState: AppThemeState,
     modifier: Modifier = Modifier,
 ) {

@@ -21,6 +21,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.korealm.dotfolio.model.AppId
 import dotfolio.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
@@ -28,18 +29,18 @@ import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun DesktopShortcuts(
-    onAppLaunch: (String) -> Unit,
+    onAppLaunch: (AppId) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     // IDE complaints that I should remove "redundant" declaration, but I refuse to do so as I admit that this list is NOT intuitive at first glance
     val shortcutButtonsList = listOf(
-        Triple(Res.drawable.trash, stringResource(Res.string.trash), "trash"),
-        Triple(Res.drawable.pdf, stringResource(Res.string.cv) + ".pdf", "cv"),
-        Triple(Res.drawable.web_browser, stringResource(Res.string.about_me) + ".html", "webBrowser"),
-        Triple(Res.drawable.mp3, stringResource(Res.string.voice_recording) + ".wav", "audioPlayer"),
-        Triple(Res.drawable.photos, stringResource(Res.string.profile_pic) + ".jpg", "photoViewer"),
-        Triple(Res.drawable.folder, stringResource(Res.string.projects), "fileExplorer"),
-        Triple(Res.drawable.settings, stringResource(Res.string.settings), "settings")
+        Triple(Res.drawable.trash, stringResource(Res.string.trash), AppId.TRASH),
+        Triple(Res.drawable.pdf, stringResource(Res.string.cv) + ".pdf", AppId.CV),
+        Triple(Res.drawable.web_browser, stringResource(Res.string.about_me) + ".html", AppId.WEB_BROWSER),
+        Triple(Res.drawable.mp3, stringResource(Res.string.voice_recording) + ".wav", AppId.MUSIC),
+        Triple(Res.drawable.photos, stringResource(Res.string.profile_pic) + ".jpg", AppId.PHOTOS),
+        Triple(Res.drawable.folder, stringResource(Res.string.projects), AppId.FILE_EXPLORER),
+        Triple(Res.drawable.settings, stringResource(Res.string.settings), AppId.SETTINGS)
     )
 
     Box( modifier = modifier ) {
@@ -56,9 +57,7 @@ fun DesktopShortcuts(
                     icon = icon,
                     title = title,
                     onLaunch = {
-                        if (appId.isNotEmpty()) {
-                            onAppLaunch(appId)
-                        }
+                        onAppLaunch(appId)
                     }
                 )
             }
