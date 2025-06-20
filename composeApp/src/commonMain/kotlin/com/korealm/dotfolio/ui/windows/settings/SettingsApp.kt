@@ -28,7 +28,7 @@ fun SettingsApp(
         appId = "settings",
         title = stringResource(Res.string.settings),
         icon = painterResource(Res.drawable.settings),
-        defaultSize = DpSize(950.dp, 500.dp),
+        defaultSize = DpSize(950.dp, 550.dp),
         titleBar = { SettingsTitleBar(themeState, onClose) },
         content = {
             SettingsWindowContent(
