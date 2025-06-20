@@ -28,7 +28,7 @@ fun App() {
 
 
     // Windows related
-    var openWindows by remember { mutableStateOf(listOf<String>("notepad")) } // ! Debugging purposes
+    var openWindows by remember { mutableStateOf(listOf<String>("photoViewer")) } // ! Debugging purposes
 
     var openWindowRef by remember { mutableStateOf< (String) -> Unit>({}) } // Due to circular dependency between this 2 functions and appRegistry
     var closeWindowRef by remember { mutableStateOf<(String) -> Unit>({}) } // I had to first declare them, and then associate the real function
@@ -39,7 +39,7 @@ fun App() {
         "notepad" to { Win32Controller.notepad (themeState) { closeWindowRef("notepad") } },
 //        "webBrowser" to { Win32Controller.webBrowser (themeState) { closeWindowRef("webBrowser") } },
 //        "audioPlayer" to { Win32Controller.audioPlayer (themeState) { closeWindowRef("audioPlayer") } },
-//        "photoViewer" to { Win32Controller.photoViewer (themeState) { closeWindowRef("photoViewer") } },
+        "photoViewer" to { Win32Controller.photoViewer (themeState) { closeWindowRef("photoViewer") } },
 //        "fileExplorer" to { Win32Controller.fileExplorer (themeState) { closeWindowRef("fileExplorer") } },
         "settings" to { Win32Controller.settings (themeState) { closeWindowRef("settings") } },
     )
@@ -65,15 +65,20 @@ fun App() {
                 .safeContentPadding()
                 .fillMaxSize()
         ) {
-            /*
+            /* TODO:  has this comment become a bug tracker? Hmm, well...
             ! Found a bug!
                 ! Windows are going under the shortcut icons, which doesn't make sense.
                 ! Windows should be OVER any other element
                 ? This might mean that I will have to implement a Z index... bro
                 ? I thought I could have made it without implementing that.
+                * I already tried to switch positions between DesktopEnvironment and DesktopShorcuts, but it's not that easy it seems.
 
-                * I already tried to switch positions between DesktopEnvironment and DesktopShorcuts, but it's not that easy it seams.
+            ! Found another bug!
+                ! When we open a second (or more) window and we close the first one, the second window moves into the position where the first one was.
+                ! Which doesn't make sense! Windows should have their position independent to other windows.
+                ? I have no idea whatzupp with this and what it is causing it. I'll check on that later on when I finish to code all of the "apps" inside dotfolio
             */
+
             DesktopEnvironment(
                 clock = localDateTime,
                 openAppsIds = openWindows,

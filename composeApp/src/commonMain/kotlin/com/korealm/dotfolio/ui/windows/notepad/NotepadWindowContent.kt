@@ -3,6 +3,7 @@ package com.korealm.dotfolio.ui.windows.notepad
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -46,9 +47,10 @@ fun NotepadWindowContent(
                     .size(25.dp)
                     .padding(top = 5.dp, end = 10.dp)
             ) {
-                Image(
+                Icon(
                     painter = painterResource(Res.drawable.settings_symbolic),
                     contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier
                 )
             }

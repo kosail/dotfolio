@@ -6,6 +6,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -24,10 +25,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.korealm.dotfolio.model.WindowApp
 import com.korealm.dotfolio.state.AppThemeState
-import com.korealm.dotfolio.ui.theme.Wallpaper
 import com.korealm.dotfolio.ui.windows.DraggableWindow
 import dotfolio.composeapp.generated.resources.*
-import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -148,9 +147,10 @@ fun DesktopEnvironment(
                 horizontalArrangement = Arrangement.End,
                 modifier = Modifier.fillMaxSize()
             ) {
-                Image(
-                    painter = painterResource( if (themeState.isDarkTheme) Res.drawable.go_up_light else Res.drawable.go_up_dark),
+                Icon(
+                    painter = painterResource(Res.drawable.go_up_symbolic),
                     contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier.size(25.dp)
                 )
 
