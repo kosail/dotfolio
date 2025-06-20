@@ -126,9 +126,10 @@ fun SettingsWindowContent (
                             .fillMaxWidth()
                             .weight(1f)
                     )
-                    Image(
-                        painter = painterResource(if (themeState.isDarkTheme) Res.drawable.find_light else Res.drawable.find_dark),
+                    Icon(
+                        painter = painterResource(if (themeState.isDarkTheme) Res.drawable.find_symbolic else Res.drawable.find_symbolic),
                         contentDescription = null,
+                        tint = MaterialTheme.colorScheme.onSurface,
                         modifier = Modifier
                             .size(25.dp)
                     )
@@ -265,7 +266,7 @@ fun SystemScreen(
             Spacer(Modifier.height(40.dp))
 
             SettingOption(
-                icon = if (themeState.isDarkTheme) Res.drawable.dark_mode_symbolic_light else Res.drawable.dark_mode_symbolic_dark,
+                icon = Res.drawable.dark_mode_symbolic,
                 title = Res.string.settings__dark_mode,
                 subtitle = Res.string.settings__dark_mode_description,
                 onClick = { themeState.toggleTheme() },
@@ -277,13 +278,13 @@ fun SystemScreen(
             // TODO: Currently working on this
             var rotation by remember { mutableStateOf(0f) }
             SettingOption(
-                icon = if (themeState.isDarkTheme) Res.drawable.picture_symbolic_light else Res.drawable.picture_symbolic_dark,
+                icon = Res.drawable.picture_symbolic,
                 title = Res.string.settings__background,
                 subtitle = Res.string.settings__background_description,
                 onClick = { rotation = if (rotation == 0f) 90f else 0f },
                 inRowContent = {
                     Icon(
-                        painter = painterResource(if (themeState.isDarkTheme) Res.drawable.go_next_light else Res.drawable.go_next_dark),
+                        painter = painterResource(if (themeState.isDarkTheme) Res.drawable.go_next_symbolic else Res.drawable.go_next_symbolic),
                         contentDescription = null,
                         modifier = Modifier.size(20.dp).rotate(rotation)
                     )
@@ -339,7 +340,7 @@ fun SystemScreen(
             Spacer(Modifier.height(4.dp))
 
             SettingOption(
-                icon = if (themeState.isDarkTheme) Res.drawable.atom_symbolic_light else Res.drawable.atom_symbolic_dark,
+                icon = Res.drawable.atom_symbolic,
                 title = Res.string.settings__dev_mode,
                 onClick = { onDevModeChange() },
                 inRowContent = { SettingsToggle(checked = isDevModeOn) }
@@ -377,9 +378,10 @@ fun SettingOption(
                 modifier = Modifier
                     .onPointerEvent(PointerEventType.Press) { onClick() }
             ) {
-                Image(
+                Icon(
                     painter = painterResource(icon),
                     contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier.size(20.dp)
                 )
 

@@ -12,13 +12,16 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.korealm.dotfolio.state.AppThemeState
-import dotfolio.composeapp.generated.resources.*
+import dotfolio.composeapp.generated.resources.Res
+import dotfolio.composeapp.generated.resources.window_close
+import dotfolio.composeapp.generated.resources.window_maximize
+import dotfolio.composeapp.generated.resources.window_minimize
+import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 
 @Composable
@@ -30,11 +33,12 @@ fun StandardTitleBarButtonSet(
     onMinimize: () -> Unit = {},
     onMaximize: () -> Unit = {},
     onClose: () -> Unit = {},
+    modifier: Modifier = Modifier
 ) {
     // Minimize, Maximize and Close buttons
     Surface(
         color = Color.Transparent,
-        modifier = Modifier
+        modifier = modifier
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -44,7 +48,7 @@ fun StandardTitleBarButtonSet(
             if (minimizeButton) {
                 TitleBarButton(
                     onClick = onMinimize,
-                    iconPainter = painterResource(if (themeState.isDarkTheme) Res.drawable.window_minimize_dark else Res.drawable.window_minimize_light),
+                    iconPainter = Res.drawable.window_minimize,
                     contentDescription = "Minimize",
                     hoverColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.05f),
                     iconSize = 20.dp
@@ -54,7 +58,7 @@ fun StandardTitleBarButtonSet(
             if (maximizeButton) {
                 TitleBarButton(
                     onClick = onMaximize,
-                    iconPainter = painterResource(if (themeState.isDarkTheme) Res.drawable.window_maximize_dark else Res.drawable.window_maximize_light),
+                    iconPainter = Res.drawable.window_maximize,
                     contentDescription = "Maximize",
                     hoverColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.05f),
                     iconSize = 20.dp
@@ -64,7 +68,7 @@ fun StandardTitleBarButtonSet(
             if (exitButton) {
                 TitleBarButton(
                     onClick = onClose,
-                    iconPainter = painterResource(if (themeState.isDarkTheme) Res.drawable.window_close_dark else Res.drawable.window_close_light),
+                    iconPainter = Res.drawable.window_close,
                     contentDescription = "Close",
                     hoverColor = MaterialTheme.colorScheme.error.copy(alpha = 0.45f),
                     iconSize = 20.dp
@@ -79,7 +83,7 @@ fun StandardTitleBarButtonSet(
 @Composable
 fun TitleBarButton(
     onClick: () -> Unit,
-    iconPainter: Painter,
+    iconPainter: DrawableResource,
     contentDescription: String,
     hoverColor: Color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
     iconSize: Dp = 16.dp,
@@ -101,7 +105,7 @@ fun TitleBarButton(
             .clickable { onClick() }
     ) {
         Icon(
-            painter = iconPainter,
+            painter = painterResource(iconPainter),
             contentDescription = contentDescription,
             tint = MaterialTheme.colorScheme.onSurface,
             modifier = Modifier.size(iconSize)
