@@ -54,6 +54,12 @@ cd dotfolio
 - [Notepad Win11 icon, from Wikipedia Commons](https://commons.wikimedia.org/wiki/File:Notepad_Win11.svg)
 - [Selawik font, by Microsoft](https://github.com/microsoft/Selawik) (I've had A LOT of issues adding this font to the WASM version of this project, but as I plan to make the effort to make Selawik the default font, I added it)
 
+#### Wallpapers
+- [Anime wallpaper, by Jensen Art Co. on Pixabay](https://pixabay.com/users/jensenartofficial-31380959/)
+- [Cat wallpaper, by Zeke Tucker on Unsplash](https://unsplash.com/@zeketucker)
+- [Honduras wallpapers, by Heather Farrell on SmugMug](https://heatherfarrell.smugmug.com/Honduras-Folder/Honduras)
+
+
 ---
 
 ## 💐 Contributing

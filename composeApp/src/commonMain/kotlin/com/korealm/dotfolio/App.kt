@@ -28,7 +28,7 @@ fun App() {
 
 
     // Windows related
-    var openWindows by remember { mutableStateOf(listOf<String>("notepad")) } // ! Debugging purposes
+    var openWindows by remember { mutableStateOf(listOf<String>("settings")) } // ! Debugging purposes
 
     var openWindowRef by remember { mutableStateOf< (String) -> Unit>({}) } // Due to circular dependency between this 2 functions and appRegistry
     var closeWindowRef by remember { mutableStateOf<(String) -> Unit>({}) } // I had to first declare them, and then associate the real function
