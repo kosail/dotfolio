@@ -1,9 +1,7 @@
 package com.korealm.dotfolio.ui.windows.photos
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -13,16 +11,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.korealm.dotfolio.state.AppThemeState
+import com.korealm.dotfolio.ui.SymbolicIconButton
 import com.korealm.dotfolio.ui.windows.StandardTitleBarButtonSet
 import dotfolio.composeapp.generated.resources.*
-import org.jetbrains.compose.resources.DrawableResource
-import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun PhotosAppTitleBar(
-    themeState: AppThemeState,
     onClose: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -44,10 +39,8 @@ fun PhotosAppTitleBar(
                 modifier = Modifier
                     .padding(horizontal = 19.dp, vertical = 18.dp)
             ) {
-                Icon(
-                    painter = painterResource(Res.drawable.picture_symbolic),
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onSurface,
+                SymbolicIconButton(
+                    icon = Res.drawable.picture_symbolic,
                     modifier = Modifier.size(17.dp)
                 )
             }
@@ -67,28 +60,56 @@ fun PhotosAppTitleBar(
             )
 
             Spacer(Modifier.width(27.dp))
-            PhotosTaskBarIcon(Res.drawable.edit_photo_symbolic, modifier.size(24.dp))
+            SymbolicIconButton(
+                icon = Res.drawable.edit_photo_symbolic,
+                tint = MaterialTheme.colorScheme.onBackground,
+                modifier = modifier.size(24.dp)
+            )
 
             Spacer(Modifier.width(20.dp))
-            PhotosTaskBarIcon(Res.drawable.rotate_right)
+            SymbolicIconButton(
+                icon = Res.drawable.rotate_right_symbolic,
+                tint = MaterialTheme.colorScheme.onBackground,
+            )
 
             Spacer(Modifier.width(20.dp))
-            PhotosTaskBarIcon(Res.drawable.trash_symbolic)
+            SymbolicIconButton(
+                icon = Res.drawable.trash_symbolic,
+                tint = MaterialTheme.colorScheme.onBackground,
+            )
 
             Spacer(Modifier.width(20.dp))
-            PhotosTaskBarIcon(Res.drawable.favorite_symbolic, modifier.size(22.dp))
+            SymbolicIconButton(
+                icon = Res.drawable.favorite_symbolic,
+                tint = MaterialTheme.colorScheme.onBackground,
+                modifier = modifier.size(22.dp)
+            )
 
             Spacer(Modifier.width(20.dp))
-            PhotosTaskBarIcon(Res.drawable.help_about_symbolic, modifier.size(26.dp))
+            SymbolicIconButton(
+                icon = Res.drawable.help_about_symbolic,
+                tint = MaterialTheme.colorScheme.onBackground,
+                modifier = modifier.size(26.dp)
+            )
 
             Spacer(Modifier.width(20.dp))
-            PhotosTaskBarIcon(Res.drawable.printer_symbolic)
+            SymbolicIconButton(
+                icon = Res.drawable.printer_symbolic,
+                tint = MaterialTheme.colorScheme.onBackground,
+            )
 
             Spacer(Modifier.width(20.dp))
-            PhotosTaskBarIcon(Res.drawable.cloud_symbolic, modifier.size(25.dp))
+            SymbolicIconButton(
+                icon = Res.drawable.cloud_symbolic,
+                tint = MaterialTheme.colorScheme.onBackground,
+                modifier = modifier.size(25.dp)
+            )
 
             Spacer(Modifier.width(20.dp))
-            PhotosTaskBarIcon(Res.drawable.dot_menu_symbolic)
+            SymbolicIconButton(
+                icon = Res.drawable.dot_menu_symbolic,
+                tint = MaterialTheme.colorScheme.onBackground,
+            )
         }
 
 
@@ -103,22 +124,8 @@ fun PhotosAppTitleBar(
 
 
         StandardTitleBarButtonSet(
-            themeState = themeState,
             onClose = onClose,
             modifier = Modifier.fillMaxHeight()
         )
     }
-}
-
-@Composable
-fun PhotosTaskBarIcon(
-    icon: DrawableResource,
-    modifier: Modifier = Modifier
-) {
-    Icon(
-        painter = painterResource(icon),
-        contentDescription = null,
-        tint = MaterialTheme.colorScheme.onBackground,
-        modifier = modifier.size(18.dp)
-    )
 }

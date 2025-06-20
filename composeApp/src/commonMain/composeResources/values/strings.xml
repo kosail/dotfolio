@@ -60,4 +60,9 @@
     <string name="dev_mode_created_by">Created by kosail</string>
     <string name="dev_mode_with_love">With love, from Honduras.</string>
     <string name="dev_mode_signature">kosail in the korealm</string>
+
+    <!--  Photos App  -->
+    <string name="photos__photo_content_description">Developer in debug mode</string>
+    <string name="photos__zoom_in">Zoom in</string>
+    <string name="photos__zoom_out">Zoom out</string>
 </resources>
