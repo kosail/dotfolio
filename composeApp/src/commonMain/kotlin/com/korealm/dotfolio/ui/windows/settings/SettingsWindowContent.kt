@@ -8,22 +8,22 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Switch
-import androidx.compose.material3.SwitchDefaults
-import androidx.compose.material3.Text
-import androidx.compose.material3.VerticalDivider
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.PointerIcon
+import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -170,8 +170,8 @@ fun SettingsWindowContent (
                     themeState = themeState,
                     isDevModeOn = isDevModeOn,
                     onDevModeChange = onDevModeChange
-            ) else AboutScreen()
-                      },
+                ) else AboutScreen()
+          },
             modifier = Modifier
                 .fillMaxSize()
                 .weight(1f)
@@ -259,36 +259,37 @@ fun SystemScreen(
             SettingOption(
                 icon = if (themeState.isDarkTheme) Res.drawable.dark_mode_symbolic_light else Res.drawable.dark_mode_symbolic_dark,
                 title = Res.string.settings__dark_mode,
-                subtitle = Res.string.settings__dark_mode_description
-            ) {
-                SettingsToggle(
-                    checked = themeState.isDarkTheme,
-                    onClick = { themeState.toggleTheme() }
-                )
-            }
+                subtitle = Res.string.settings__dark_mode_description,
+                onClick = { themeState.toggleTheme() },
+                content = { SettingsToggle(checked = themeState.isDarkTheme) }
+            )
 
             Spacer(Modifier.height(4.dp))
 
-            //TODO: This one is too custom, so needs to become it's own composable.
-            // TODO: Moreover because I need to rotate the icon when menu is opened
+            // TODO: Currently working on this
+            var rotation by remember { mutableStateOf(0f) }
             SettingOption(
                 icon = if (themeState.isDarkTheme) Res.drawable.picture_symbolic_light else Res.drawable.picture_symbolic_dark,
                 title = Res.string.settings__background,
                 subtitle = Res.string.settings__background_description,
+                onClick = { rotation = if (rotation == 0f) 90f else 0f }
+            ) {
+                Icon(
+                    painter = painterResource(if (themeState.isDarkTheme) Res.drawable.go_next_light else Res.drawable.go_next_dark),
+                    contentDescription = null,
+                    modifier = Modifier.size(20.dp).rotate(rotation)
+                )
 
-                ) {}
+            }
 
             Spacer(Modifier.height(4.dp))
 
             SettingOption(
                 icon = if (themeState.isDarkTheme) Res.drawable.atom_symbolic_light else Res.drawable.atom_symbolic_dark,
-                title = Res.string.settings__dev_mode
-            ) {
-                SettingsToggle(
-                    checked = isDevModeOn,
-                    onClick = { onDevModeChange() }
-                )
-            }
+                title = Res.string.settings__dev_mode,
+                onClick = { onDevModeChange() },
+                content = { SettingsToggle(checked = isDevModeOn) }
+            )
         }
     }
 }
@@ -300,12 +301,14 @@ fun AboutScreen(
     Box(modifier = modifier.fillMaxSize().background(Color.Green))
 }
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun SettingOption(
     icon: DrawableResource,
     title: StringResource,
     subtitle: StringResource? = null,
     modifier: Modifier = Modifier,
+    onClick: (() -> Unit)? = null,
     content: @Composable () -> Unit
 ) {
     Surface(
@@ -315,6 +318,7 @@ fun SettingOption(
         modifier = modifier
             .fillMaxWidth()
             .padding(horizontal = 30.dp)
+            .onPointerEvent(PointerEventType.Press) { onClick?.invoke() }
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -362,12 +366,14 @@ fun SettingOption(
 @Composable
 fun SettingsToggle(
     checked: Boolean,
-    onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    // This switch serves just as a visual representation of the current values. We don't need it to handle changes here.
+    // Instead, the Composable parent of this Switch will handle that so it behaves like the real Settings app on W11:
+    // Click wherever over the option, and the option will be triggered.
     Switch(
         checked = checked,
-        onCheckedChange = { onClick() },
+        onCheckedChange = {},
         colors = SwitchDefaults.colors(
             uncheckedTrackColor = MaterialTheme.colorScheme.surface,
         ),
