@@ -441,12 +441,13 @@ fun SettingsToggle(
 fun AboutScreen(
     modifier: Modifier = Modifier
 ) {
-    Box(
+    Surface(
+        color = Color.Transparent,
         modifier = modifier
             .fillMaxSize()
     ) {
         Column(
-            verticalArrangement = Arrangement.Center,
+            verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .padding(20.dp)
@@ -465,7 +466,9 @@ fun AboutScreen(
             Column(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = modifier.fillMaxWidth()
+                modifier = modifier
+                    .fillMaxWidth()
+                    .padding(top = 15.dp)
             ) {
                 Text(
                     text = stringResource(Res.string.dev_mode_about_description),
@@ -475,7 +478,65 @@ fun AboutScreen(
                     lineHeight = 0.sp,
                     modifier = Modifier
                 )
+
+                HorizontalDivider(
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
+                    modifier = Modifier.padding(horizontal = 20.dp, vertical = 30.dp)
+                )
+
+                Text(
+                    text = stringResource(Res.string.dev_mode_not_a_website),
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Normal,
+                    textAlign = TextAlign.Center,
+                    lineHeight = 0.sp
+                )
+
+                Spacer(Modifier.height(15.dp))
+
+                Text(
+                    text = stringResource(Res.string.dev_mode_built_and_tested),
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Light,
+                    textAlign = TextAlign.Center,
+                    lineHeight = 0.sp
+                )
             }
         }
+
+        Column(
+            verticalArrangement = Arrangement.Bottom,
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 15.dp)
+        ) {
+            Text(
+                text = stringResource(Res.string.dev_mode_created_by),
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Light,
+                textAlign = TextAlign.Center,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
+                lineHeight = 0.sp
+            )
+            Text(
+                text = stringResource(Res.string.dev_mode_with_love),
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Light,
+                textAlign = TextAlign.Center,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
+                lineHeight = 0.sp
+            )
+
+            Text(
+                text = stringResource(Res.string.dev_mode_signature),
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Light,
+                textAlign = TextAlign.Center,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f),
+                lineHeight = 0.sp
+            )
+        }
+
     }
 }
