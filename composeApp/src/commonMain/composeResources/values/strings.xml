@@ -20,7 +20,7 @@
     <!--  Specific programs section  -->
     <string name="notepad">Notepad</string>
     <string name="web_browser">Edge</string>
-    <string name="audio_player">Music</string>
+    <string name="music_player">Music</string>
     <string name="photos">Photos</string>
     <string name="file_explorer">Explorer</string>
 
@@ -65,4 +65,6 @@
     <string name="photos__photo_content_description">Developer in debug mode</string>
     <string name="photos__zoom_in">Zoom in</string>
     <string name="photos__zoom_out">Zoom out</string>
+
+    <!--  Music App  -->
 </resources>

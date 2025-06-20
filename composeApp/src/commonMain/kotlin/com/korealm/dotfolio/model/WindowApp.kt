@@ -5,7 +5,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.DpSize
 
 data class WindowApp(
-    val appId: String,
+    val appId: AppId,
     val title: String,
     val icon: Painter,
     val isMinimized: Boolean = false,
