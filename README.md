@@ -1,4 +1,4 @@
-![dotfolio logo](repo_images/banner.png)
+![dotfolio logo](repo_images/banner.webp)
 
 A minimalist, interactive, Windows 11 themed developer portfolio built with [Compose Multiplatform](https://github.com/JetBrains/compose-multiplatform).  
 Inspired by Mica aesthetics, this project blends creativity with code — aiming to speak louder than words.
@@ -66,7 +66,7 @@ Contributions are welcome! Feel free to fork the repository and submit pull requ
 [//]: # (---)
 
 ## 📜 License
-![GPLv3 License logo. Copyright © 2012 Christian Cadena](repo_images/license-logos-by-christian-candena-GNU_GPLv3_License.png)
+![GPLv3 License logo. Copyright © 2012 Christian Cadena](repo_images/license-logos-by-christian-candena-GNU_GPLv3_License.webp)
 
 [GPLv3 (GNU General Public License v3)](LICENSE.txt) – Free to use, modify, and distribute as long as this remains open source, and it is not use for profitable purposes.
 
