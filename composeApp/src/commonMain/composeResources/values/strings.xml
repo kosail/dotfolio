@@ -48,4 +48,7 @@
 
     <string name="settings__background">Background</string>
     <string name="settings__background_description">Choose your preferred background image for your system</string>
+
+    <string name="settings__background_available_images">Available images</string>
+    <string name="settings__background_images_content_description">Preview of wallpaper</string>
 </resources>
