@@ -3,7 +3,6 @@ package com.korealm.dotfolio.ui.windows
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.*
@@ -16,17 +15,15 @@ import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.korealm.dotfolio.state.AppThemeState
+import com.korealm.dotfolio.ui.SymbolicIconButton
 import dotfolio.composeapp.generated.resources.Res
 import dotfolio.composeapp.generated.resources.window_close
 import dotfolio.composeapp.generated.resources.window_maximize
 import dotfolio.composeapp.generated.resources.window_minimize
 import org.jetbrains.compose.resources.DrawableResource
-import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun StandardTitleBarButtonSet(
-    themeState: AppThemeState,
     minimizeButton: Boolean = true,
     maximizeButton: Boolean = true,
     exitButton: Boolean = true,
@@ -104,10 +101,9 @@ fun TitleBarButton(
             .onPointerEvent(PointerEventType.Exit) { isHovered = false }
             .clickable { onClick() }
     ) {
-        Icon(
-            painter = painterResource(iconPainter),
+        SymbolicIconButton(
+            icon = iconPainter,
             contentDescription = contentDescription,
-            tint = MaterialTheme.colorScheme.onSurface,
             modifier = Modifier.size(iconSize)
         )
     }

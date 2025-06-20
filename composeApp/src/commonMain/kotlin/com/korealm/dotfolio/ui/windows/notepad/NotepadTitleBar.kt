@@ -25,7 +25,6 @@ import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun NotepadTitleBar(
-    themeState: AppThemeState,
     onClose: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -98,9 +97,6 @@ fun NotepadTitleBar(
         )
 
 
-        StandardTitleBarButtonSet(
-            themeState = themeState,
-            onClose = onClose
-        )
+        StandardTitleBarButtonSet(onClose = onClose)
     }
 }

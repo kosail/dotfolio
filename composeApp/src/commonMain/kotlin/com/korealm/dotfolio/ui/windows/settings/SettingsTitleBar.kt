@@ -22,7 +22,6 @@ import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun SettingsTitleBar (
-    themeState: AppThemeState,
     onClose: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -73,9 +72,6 @@ fun SettingsTitleBar (
                 .weight(1f)
         )
 
-        StandardTitleBarButtonSet(
-            themeState = themeState,
-            onClose = onClose
-        )
+        StandardTitleBarButtonSet(onClose = onClose)
     }
 }
