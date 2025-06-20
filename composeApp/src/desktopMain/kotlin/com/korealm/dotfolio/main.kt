@@ -15,7 +15,7 @@ fun main() = application {
     Window(
         onCloseRequest = ::exitApplication,
         title = "dotfolio",
-        state = WindowState(size = DpSize(1300.dp, 800.dp)),
+        state = WindowState(size = DpSize(1300.dp, 1000.dp)),
         icon = icon,
     ) {
         App()

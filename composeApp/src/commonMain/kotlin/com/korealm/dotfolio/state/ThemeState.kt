@@ -15,9 +15,9 @@ class AppThemeState(initialDarkTheme: Boolean, initialWallpaper: Wallpaper) {
         isDarkTheme = !isDarkTheme
 
         // Automatic wallpaper switching if the user has not manually changed the wallpaper from settings
-        if (currentWallpaper == Wallpaper.DEFAULT_LIGHT) {
+        if (currentWallpaper == Wallpaper.DEFAULT_LIGHT && isDarkTheme) {
             currentWallpaper = Wallpaper.DEFAULT_DARK
-        } else if (currentWallpaper == Wallpaper.DEFAULT_DARK) {
+        } else if (currentWallpaper == Wallpaper.DEFAULT_DARK && !isDarkTheme) {
             currentWallpaper = Wallpaper.DEFAULT_LIGHT
         }
     }

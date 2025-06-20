@@ -1,19 +1,23 @@
 package com.korealm.dotfolio.ui.windows.settings
 
+import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
@@ -25,10 +29,12 @@ import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.PointerIcon
 import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.input.pointer.pointerHoverIcon
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.korealm.dotfolio.state.AppThemeState
+import com.korealm.dotfolio.ui.theme.Wallpaper
 import dotfolio.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.StringResource
@@ -159,23 +165,33 @@ fun SettingsWindowContent (
         Spacer(
             modifier = Modifier
                 .fillMaxHeight()
-                .width(10.dp)
-                .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f))
+                .width(5.dp)
+                .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.4f))
         )
 
         // Main content
-        Box(
-            content = {
-                if (selectedIndex == 0) SystemScreen(
-                    themeState = themeState,
-                    isDevModeOn = isDevModeOn,
-                    onDevModeChange = onDevModeChange
-                ) else AboutScreen()
-          },
-            modifier = Modifier
+        Box(modifier = Modifier
                 .fillMaxSize()
                 .weight(1f)
-        )
+                .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.4f))
+            .scrollable(rememberScrollState(), Orientation.Vertical)
+        ) {
+            AnimatedContent (
+                targetState = selectedIndex,
+                transitionSpec = {
+                    fadeIn(animationSpec = tween(250)) togetherWith fadeOut(animationSpec = tween(250))
+                }
+            ) { index ->
+                when (index) {
+                    0 -> SystemScreen(
+                            themeState = themeState,
+                            isDevModeOn = isDevModeOn,
+                            onDevModeChange = onDevModeChange
+                        )
+                    else -> AboutScreen()
+                }
+            }
+        }
     }
 }
 
@@ -241,7 +257,6 @@ fun SystemScreen(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f))
     ) {
         // Title
         Column(
@@ -261,7 +276,7 @@ fun SystemScreen(
                 title = Res.string.settings__dark_mode,
                 subtitle = Res.string.settings__dark_mode_description,
                 onClick = { themeState.toggleTheme() },
-                content = { SettingsToggle(checked = themeState.isDarkTheme) }
+                inRowContent = { SettingsToggle(checked = themeState.isDarkTheme) }
             )
 
             Spacer(Modifier.height(4.dp))
@@ -272,14 +287,60 @@ fun SystemScreen(
                 icon = if (themeState.isDarkTheme) Res.drawable.picture_symbolic_light else Res.drawable.picture_symbolic_dark,
                 title = Res.string.settings__background,
                 subtitle = Res.string.settings__background_description,
-                onClick = { rotation = if (rotation == 0f) 90f else 0f }
+                onClick = { rotation = if (rotation == 0f) 90f else 0f },
+                inRowContent = {
+                    Icon(
+                        painter = painterResource(if (themeState.isDarkTheme) Res.drawable.go_next_light else Res.drawable.go_next_dark),
+                        contentDescription = null,
+                        modifier = Modifier.size(20.dp).rotate(rotation)
+                    )
+                },
             ) {
-                Icon(
-                    painter = painterResource(if (themeState.isDarkTheme) Res.drawable.go_next_light else Res.drawable.go_next_dark),
-                    contentDescription = null,
-                    modifier = Modifier.size(20.dp).rotate(rotation)
-                )
+                AnimatedVisibility(rotation != 0f) {
+                    Column (
+                        modifier = Modifier.padding(top = 15.dp)
+                    ) {
+                        Text(
+                            text = stringResource(Res.string.settings__background_available_images),
+                            fontSize = 15.sp,
+                            fontWeight = FontWeight.Normal,
+                            modifier = Modifier
+                        )
 
+                        Spacer(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(10.dp)
+                        )
+
+                        // Image gallery ahead!
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.Center,
+                            modifier = Modifier
+                        ) {
+                            Wallpaper.entries.forEachIndexed { index, entry ->
+                                // A nice border around the image
+                                Surface(
+                                    shape = RoundedCornerShape(4.dp),
+                                    color = Color.Transparent,
+                                    modifier = Modifier
+                                        .size(85.dp)
+                                        .padding(horizontal = 2.dp)
+                                        .pointerHoverIcon(PointerIcon.Hand)
+                                ) {
+                                    Image(
+                                        painter = painterResource(entry.resource),
+                                        contentDescription = "${stringResource(Res.string.settings__background_images_content_description)} $index",
+                                        contentScale = ContentScale.Crop,
+                                        modifier = Modifier
+                                            .clickable { themeState.changeWallpaper(entry) }
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
             Spacer(Modifier.height(4.dp))
@@ -288,7 +349,7 @@ fun SystemScreen(
                 icon = if (themeState.isDarkTheme) Res.drawable.atom_symbolic_light else Res.drawable.atom_symbolic_dark,
                 title = Res.string.settings__dev_mode,
                 onClick = { onDevModeChange() },
-                content = { SettingsToggle(checked = isDevModeOn) }
+                inRowContent = { SettingsToggle(checked = isDevModeOn) }
             )
         }
     }
@@ -308,8 +369,9 @@ fun SettingOption(
     title: StringResource,
     subtitle: StringResource? = null,
     modifier: Modifier = Modifier,
-    onClick: (() -> Unit)? = null,
-    content: @Composable () -> Unit
+    onClick: () -> Unit,
+    inRowContent: @Composable () -> Unit,
+    content: (@Composable () -> Unit)? = null
 ) {
     Surface(
         shape = RoundedCornerShape(5.dp),
@@ -318,47 +380,54 @@ fun SettingOption(
         modifier = modifier
             .fillMaxWidth()
             .padding(horizontal = 30.dp)
-            .onPointerEvent(PointerEventType.Press) { onClick?.invoke() }
     ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Start,
-            modifier = Modifier.padding(start = 22.dp, top = 15.dp, bottom = 15.dp, end = 25.dp)
+        Column (
+            modifier = Modifier
+                .padding(start = 22.dp, top = 15.dp, bottom = 15.dp, end = 25.dp)
         ) {
-            Image(
-                painter = painterResource(icon),
-                contentDescription = null,
-                modifier = Modifier.size(20.dp)
-            )
-
-            Spacer(Modifier.width(22.dp))
-
-            Column(
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.Start,
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Start,
                 modifier = Modifier
+                    .onPointerEvent(PointerEventType.Press) { onClick() }
             ) {
-                Text(
-                    text = stringResource(title),
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Normal,
-                    lineHeight = 0.sp,
-                    modifier = Modifier
+                Image(
+                    painter = painterResource(icon),
+                    contentDescription = null,
+                    modifier = Modifier.size(20.dp)
                 )
 
-                if (subtitle != null) {
+                Spacer(Modifier.width(22.dp))
+
+                Column(
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.Start,
+                    modifier = Modifier
+                ) {
                     Text(
-                        text = stringResource(subtitle),
-                        fontSize = 14.sp,
+                        text = stringResource(title),
+                        fontSize = 16.sp,
                         fontWeight = FontWeight.Normal,
-                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+                        lineHeight = 0.sp,
                         modifier = Modifier
                     )
+
+                    if (subtitle != null) {
+                        Text(
+                            text = stringResource(subtitle),
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.Normal,
+                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+                            modifier = Modifier
+                        )
+                    }
                 }
+
+                Spacer(Modifier.fillMaxWidth().weight(1f))
+                inRowContent()
             }
 
-            Spacer(Modifier.fillMaxWidth().weight(1f))
-            content()
+            content?.invoke()
         }
     }
 }
