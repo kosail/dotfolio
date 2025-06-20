@@ -16,20 +16,19 @@ import com.korealm.dotfolio.ui.windows.web_browser.WebBrowserApp
 // This is just a glue layer between the logic declared in each app package, and the main app
 object Win32Controller {
     @Composable
-    fun notepad(themeState: AppThemeState, onClose: () -> Unit): WindowApp = NotepadApp(themeState, onClose)
-
-    // TODO: Make that all apps receive the themeState as a parameter, so they can handle well light/dark mode switch.
-    @Composable
-    fun webBrowser(themeState: AppThemeState, onClose: () -> Unit)/*: WindowApp*/ = WebBrowserApp(onClose)
+    fun notepad(onClose: () -> Unit): WindowApp = NotepadApp(onClose)
 
     @Composable
-    fun audioPlayer(themeState: AppThemeState, onClose: () -> Unit)/*: WindowApp*/ = AudioPlayerApp(onClose)
+    fun webBrowser(onClose: () -> Unit)/*: WindowApp*/ = WebBrowserApp(onClose)
 
     @Composable
-    fun photoViewer(themeState: AppThemeState, onClose: () -> Unit): WindowApp = PhotosApp(themeState, onClose)
+    fun audioPlayer(onClose: () -> Unit)/*: WindowApp*/ = AudioPlayerApp(onClose)
 
     @Composable
-    fun fileExplorer(themeState: AppThemeState, onClose: () -> Unit)/*: WindowApp*/ = FileManagerApp(onClose)
+    fun photoViewer(onClose: () -> Unit): WindowApp = PhotosApp(onClose)
+
+    @Composable
+    fun fileExplorer(onClose: () -> Unit)/*: WindowApp*/ = FileManagerApp(onClose)
 
     @Composable
     fun settings(themeState: AppThemeState, onClose: () -> Unit): WindowApp = SettingsApp(themeState, onClose)

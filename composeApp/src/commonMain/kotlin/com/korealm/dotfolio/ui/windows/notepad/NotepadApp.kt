@@ -14,7 +14,6 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 // This file intends to compose both, the TitleBar and WindowContent into one single functional composable element
 fun NotepadApp(
-    themeState: AppThemeState,
     onClose: () -> Unit
 ): WindowApp {
     return WindowApp(
@@ -22,7 +21,7 @@ fun NotepadApp(
         title = stringResource(Res.string.notepad),
         icon = painterResource(Res.drawable.notepad),
         defaultSize = DpSize(700.dp, 500.dp),
-        titleBar = { NotepadTitleBar(themeState, onClose) },
+        titleBar = { NotepadTitleBar(onClose) },
         content = { NotepadWindowContent() }
     )
 }

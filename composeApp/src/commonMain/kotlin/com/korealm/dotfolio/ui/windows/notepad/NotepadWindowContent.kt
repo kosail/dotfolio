@@ -16,6 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.korealm.dotfolio.ui.SymbolicIconButton
 import dotfolio.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.painterResource
@@ -47,12 +48,7 @@ fun NotepadWindowContent(
                     .size(25.dp)
                     .padding(top = 5.dp, end = 10.dp)
             ) {
-                Icon(
-                    painter = painterResource(Res.drawable.settings_symbolic),
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onSurface,
-                    modifier = Modifier
-                )
+                SymbolicIconButton( icon = Res.drawable.settings_symbolic )
             }
         }
 

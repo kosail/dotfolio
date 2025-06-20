@@ -12,15 +12,14 @@ import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun PhotosApp(
-    themeState: AppThemeState,
     onClose: () -> Unit
 ): WindowApp {
     return WindowApp(
         appId = "photoViewer",
         title = stringResource(Res.string.photos),
         icon = painterResource(Res.drawable.photos),
-        defaultSize = DpSize(700.dp, 500.dp),
-        titleBar = { PhotosAppTitleBar(themeState, onClose) },
+        defaultSize = DpSize(800.dp, 800.dp),
+        titleBar = { PhotosAppTitleBar(onClose) },
         content = { PhotosAppWindowContent() }
     )
 }
