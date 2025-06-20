@@ -26,7 +26,7 @@ object Win32Controller {
     fun audioPlayer(themeState: AppThemeState, onClose: () -> Unit)/*: WindowApp*/ = AudioPlayerApp(onClose)
 
     @Composable
-    fun photoViewer(themeState: AppThemeState, onClose: () -> Unit)/*: WindowApp*/ = PhotosApp(onClose)
+    fun photoViewer(themeState: AppThemeState, onClose: () -> Unit): WindowApp = PhotosApp(themeState, onClose)
 
     @Composable
     fun fileExplorer(themeState: AppThemeState, onClose: () -> Unit)/*: WindowApp*/ = FileManagerApp(onClose)
