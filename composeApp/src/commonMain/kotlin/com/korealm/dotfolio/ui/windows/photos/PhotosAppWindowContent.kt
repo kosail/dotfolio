@@ -50,7 +50,7 @@ fun PhotosAppWindowContent(
                     .fillMaxWidth()
                     .onPointerEvent(PointerEventType.Scroll) { event ->
                         val scrollDelta = event.changes.first().scrollDelta.y
-                        val speed = 0.1f
+                        val speed = 0.05f
 
                         scale = (scale + scrollDelta * speed).coerceIn(0.5f, 4f)
                     }
