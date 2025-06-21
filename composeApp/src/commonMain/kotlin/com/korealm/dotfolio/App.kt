@@ -77,6 +77,11 @@ fun App() {
                 ! When we open a second (or more) window and we close the first one, the second window moves into the position where the first one was.
                 ! Which doesn't make sense! Windows should have their position independent to other windows.
                 ? I have no idea whatzupp with this and what it is causing it. I'll check on that later on when I finish to code all of the "apps" inside dotfolio
+
+            ! Found a third bug...
+                ! Honduras wallpapers are not being rendered correctly on WASM, but just in Desktop
+                * I already tried manually cutting the pictures into a 16:9 proportion, but they still render wrongly, so there must be something related to the files.
+                ? Maybe changing formats could help...
             */
 
             DesktopEnvironment(
