@@ -1,5 +1,7 @@
 package com.korealm.dotfolio.ui.windows.media_player
 
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -8,10 +10,17 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.PointerEventType
+import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -21,8 +30,8 @@ import kotlinx.datetime.Clock
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 import org.jetbrains.compose.resources.DrawableResource
-import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.pluralStringResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -227,7 +236,7 @@ fun MainSection(
                 ) {
                     HeaderButton(
                         icon = Res.drawable.media_playback_start_symbolic,
-                        text = Res.string.media_player__play_all,
+                        text = pluralStringResource(Res.plurals.media_player__play, 2),
                         containerColor = Color(0xFFCF3E0B),
                         contentColor = Color.White,
                         onClick = {},
@@ -236,22 +245,42 @@ fun MainSection(
 
                     HeaderButton(
                         icon = Res.drawable.media_playlist_shuffle_symbolic,
-                        text = Res.string.media_player__shuffle_and_play,
+                        text = stringResource(Res.string.media_player__shuffle_and_play),
                         onClick = {},
                         modifier = Modifier.padding(end = 10.dp)
                     )
 
                     HeaderButton(
                         icon = Res.drawable.add_plus_symbolic,
-                        text = Res.string.media_player__add_to,
+                        text = stringResource(Res.string.media_player__add_to),
                         modifier = Modifier.padding(end = 10.dp)
                     )
 
                     HeaderButton(
                         icon = Res.drawable.edit_symbolic,
-                        text = Res.string.media_player__edit_info
+                        text = stringResource(Res.string.media_player__edit_info)
                     )
                 }
+            }
+        }
+
+        Box(
+            contentAlignment = Alignment.TopCenter,
+            modifier = Modifier
+                .align(Alignment.Center)
+
+        ) {
+            Column(
+                modifier = Modifier
+                    .padding(top = 150.dp)
+            ) {
+                 MediaListRow(
+                    audioName = "Example",
+                     color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.7f),
+                     onClick = {},
+                     modifier = Modifier
+                         .fillMaxWidth()
+                 )
             }
         }
     }
@@ -260,7 +289,7 @@ fun MainSection(
 @Composable
 fun HeaderButton(
     icon: DrawableResource,
-    text: StringResource,
+    text: String,
     containerColor: Color = MaterialTheme.colorScheme.background,
     contentColor: Color = MaterialTheme.colorScheme.onSurface,
     onClick: (() -> Unit)? = null,
@@ -294,7 +323,7 @@ fun HeaderButton(
             Spacer(modifier = Modifier.width(8.dp))
 
             Text(
-                text = stringResource(text),
+                text = text,
                 fontSize = 14.sp,
                 color = contentColor
             )
@@ -302,13 +331,46 @@ fun HeaderButton(
     }
 }
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
-fun MediaList(
-    list: List<Audios>,
-    onClick: (() -> Unit)? = null,
+fun MediaListRow(
+    audioName: String,
+    color: Color,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    var isHover by remember { mutableStateOf(false) }
 
+    Surface(
+        shape = RoundedCornerShape(5.dp),
+        color = color,
+        border = BorderStroke(1.dp, color.copy(alpha = 0.9f)),
+        modifier = modifier
+            .onPointerEvent(PointerEventType.Enter) { isHover = true }
+            .onPointerEvent(PointerEventType.Exit) { isHover = false }
+            .clickable { onClick() }
+    ) {
+        AnimatedContent (targetState = isHover) { hover ->
+            when (hover) {
+                true -> {
+                    Spacer(modifier = Modifier.width(25.dp))
+                    SymbolicIconButton(icon = Res.drawable.media_playback_start_symbolic)
+                    Spacer(modifier = Modifier.width(45.dp))
+                }
+                false -> Spacer(modifier = Modifier.width(55.dp))
+            }
+        }
+        
+        Row (
+            modifier = Modifier.padding(horizontal = 10.dp, vertical = 10.dp),
+        ) {
+
+            Text(
+                text = "1.   $audioName",
+                fontSize = 16.sp,
+            )
+        }
+    }
 }
 
 @Composable
