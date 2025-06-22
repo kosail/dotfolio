@@ -72,10 +72,19 @@
     <string name="media_player__artist">Kosail &amp; Co.</string>
     <string name="media_player__genre">dotradio.fm</string>
     <string name="media_player__audios_count">3 audios</string>
-    <string name="media_player__audio_en">Welcome to dotfolio</string>
-    <string name="media_player__audio_es">Bienvenido a dotfolio</string>
-    <string name="media_player__audio_jp">ドットフォリオへようこそ</string>
-    <string name="media_player__play_all">Play all</string>
+    <string-array name="recordings">
+        <item>Welcome to dotfolio</item>
+        <item>Bienvenido a dotfolio</item>
+        <item>ドットフォリオへようこそ</item>
+    </string-array>
+    <plurals name="media_player__play">
+        <item quantity="one">Play</item>
+        <item quantity="other">Play all</item>
+    </plurals>
+    <string name="media_player__next">Next audio</string>
+    <string name="media_player__prev">Previous audio</string>
+    <string name="media_player__shuffle">Shuffle</string>
+    <string name="media_player__repeat">Repeat</string>
     <string name="media_player__shuffle_and_play">Shuffle and play</string>
     <string name="media_player__add_to">Add to</string>
     <string name="media_player__edit_info">Edit info</string>
