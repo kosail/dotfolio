@@ -28,7 +28,7 @@ fun App() {
 
 
     // Windows related
-    var openWindows by remember { mutableStateOf(listOf(AppId.NOTEPAD)) } // ! Debugging purposes
+    var openWindows by remember { mutableStateOf(listOf(AppId.MEDIA_PLAYER)) } // ! Debugging purposes
 
     var openWindowRef by remember { mutableStateOf< (AppId) -> Unit>({}) } // Due to circular dependency between this 2 functions and appRegistry
     var closeWindowRef by remember { mutableStateOf<(AppId) -> Unit>({}) } // I had to first declare them, and then associate the real function
@@ -38,7 +38,7 @@ fun App() {
     val appRegistry = mapOf<AppId, (@Composable () -> WindowApp)>(
         AppId.NOTEPAD to { Win32Controller.Notepad { closeWindowRef(AppId.NOTEPAD) } },
 //        AppId.WEB_BROWSER to { Win32Controller.WebBrowser { closeWindowRef(AppId.WEB_BROWSER) } },
-        AppId.MUSIC to { Win32Controller.MusicPlayer { closeWindowRef(AppId.MUSIC) } },
+        AppId.MEDIA_PLAYER to { Win32Controller.MediaPlayer { closeWindowRef(AppId.MEDIA_PLAYER) } },
         AppId.PHOTOS to { Win32Controller.Photos { closeWindowRef(AppId.PHOTOS) } },
 //        AppId.FILE_EXPLORER to { Win32Controller.FileExplorer { closeWindowRef(AppId.FILE_EXPLORER) } },
         AppId.SETTINGS to { Win32Controller.Settings (themeState) { closeWindowRef(AppId.SETTINGS) } },
@@ -82,6 +82,11 @@ fun App() {
                 ! Honduras wallpapers are not being rendered correctly on WASM, but just in Desktop
                 * I already tried manually cutting the pictures into a 16:9 proportion, but they still render wrongly, so there must be something related to the files.
                 ? Maybe changing formats could help...
+
+            TODO: I may have found a solution for the font issue on WASM!!!
+                * Check on this link later. It might be a manual solution, but it might work tho.
+                * Preloading of resources for web targets
+                * https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-resources-usage.html#preloading-of-resources-for-web-targets
             */
 
             DesktopEnvironment(

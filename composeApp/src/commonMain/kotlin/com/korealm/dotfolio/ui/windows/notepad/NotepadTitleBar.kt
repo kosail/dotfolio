@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.korealm.dotfolio.state.AppThemeState
 import com.korealm.dotfolio.ui.windows.StandardTitleBarButtonSet
+import com.korealm.dotfolio.ui.windows.TitleBarMainIcon
 import dotfolio.composeapp.generated.resources.Res
 import dotfolio.composeapp.generated.resources.notepad
 import dotfolio.composeapp.generated.resources.readme
@@ -41,21 +42,12 @@ fun NotepadTitleBar(
             .height(46.dp)
             .background(MaterialTheme.colorScheme.primary.copy(alpha = 0.20f))
     ) {
-        // Icon
-        Surface(
-            color = Color.Transparent,
+        TitleBarMainIcon(
+            icon = Res.drawable.notepad,
             modifier = Modifier
                 .align(Alignment.CenterVertically)
-                .padding(horizontal = 15.dp)
                 .padding(top = 5.dp)
-        ) {
-            Image(
-                painter = painterResource(Res.drawable.notepad),
-                contentDescription = null,
-                modifier = Modifier.size(18.dp)
-            )
-        }
-
+        )
 
         // Tabs
         Surface (

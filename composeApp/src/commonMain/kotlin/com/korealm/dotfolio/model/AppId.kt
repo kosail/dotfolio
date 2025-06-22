@@ -2,7 +2,7 @@ package com.korealm.dotfolio.model
 
 enum class AppId {
     FILE_EXPLORER,
-    MUSIC,
+    MEDIA_PLAYER,
     NOTEPAD,
     PHOTOS,
     SETTINGS,
