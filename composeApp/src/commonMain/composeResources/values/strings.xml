@@ -69,7 +69,7 @@
     <!--  Media Player App  -->
     <string name="media_player__album">The voice behind the code</string>
     <string name="media_player__album_content_desc">Wherever you are now, I wish you the best, my lovely cat.</string>
-    <string name="media_player__artist">Kosail &amp; Co.</string>
+    <string name="media_player__artist">kosailing</string>
     <string name="media_player__genre">dotradio.fm</string>
     <string name="media_player__audios_count">3 audios</string>
     <string-array name="recordings">

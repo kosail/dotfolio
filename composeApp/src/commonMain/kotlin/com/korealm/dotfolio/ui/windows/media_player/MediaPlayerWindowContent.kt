@@ -1,19 +1,11 @@
 package com.korealm.dotfolio.ui.windows.media_player
 
-import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
@@ -29,10 +21,7 @@ import dotfolio.composeapp.generated.resources.*
 import kotlinx.datetime.Clock
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
-import org.jetbrains.compose.resources.DrawableResource
-import org.jetbrains.compose.resources.painterResource
-import org.jetbrains.compose.resources.pluralStringResource
-import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.resources.*
 
 @Composable
 fun MediaPlayerWindowContent(
@@ -174,6 +163,9 @@ fun MainSectionSideBar(
 fun MainSection(
     modifier: Modifier = Modifier
 ) {
+    // Needed for the year on top of the album and for each song
+    val year = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()).year
+
     Box(
         modifier = modifier
             .fillMaxSize()
@@ -216,7 +208,6 @@ fun MainSection(
 
                 Spacer(modifier = Modifier.height(15.dp))
 
-                val year = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()).year
                 val fullDescription = "$year • ${stringResource(Res.string.media_player__genre)} • ${stringResource(Res.string.media_player__audios_count)}"
 
                 Text(
@@ -272,15 +263,21 @@ fun MainSection(
         ) {
             Column(
                 modifier = Modifier
-                    .padding(top = 150.dp)
+                    .padding(top = 250.dp)
             ) {
-                 MediaListRow(
-                    audioName = "Example",
-                     color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.7f),
-                     onClick = {},
-                     modifier = Modifier
-                         .fillMaxWidth()
-                 )
+                val names = stringArrayResource(Res.array.recordings)
+
+                Audio.entries.forEachIndexed { index, audio ->
+                    MediaListRow(
+                        audioName = names[index],
+                        index = index,
+                        year = year,
+                        color = if (index % 2 == 0) MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f) else MaterialTheme.colorScheme.surface,
+                        onClick = {},
+                        modifier = Modifier
+                            .fillMaxWidth()
+                    )
+                }
             }
         }
     }
@@ -335,39 +332,85 @@ fun HeaderButton(
 @Composable
 fun MediaListRow(
     audioName: String,
-    color: Color,
+    index: Int,
+    year: Int,
+    color: Color = MaterialTheme.colorScheme.surface,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     var isHover by remember { mutableStateOf(false) }
+    var mp3Bytes by remember { mutableStateOf<ByteArray?>(null) }
 
-    Surface(
-        shape = RoundedCornerShape(5.dp),
-        color = color,
-        border = BorderStroke(1.dp, color.copy(alpha = 0.9f)),
+    LaunchedEffect(Unit) {
+        mp3Bytes = Res.readBytes(Audio.values()[index].path)
+    }
+
+    Box(
+        contentAlignment = Alignment.CenterStart,
         modifier = modifier
             .onPointerEvent(PointerEventType.Enter) { isHover = true }
             .onPointerEvent(PointerEventType.Exit) { isHover = false }
             .clickable { onClick() }
+            .clip(RoundedCornerShape(5.dp))
+            .background(color)
+            .border(1.dp, color.copy(alpha = 0.5f))
     ) {
-        AnimatedContent (targetState = isHover) { hover ->
-            when (hover) {
-                true -> {
-                    Spacer(modifier = Modifier.width(25.dp))
-                    SymbolicIconButton(icon = Res.drawable.media_playback_start_symbolic)
-                    Spacer(modifier = Modifier.width(45.dp))
-                }
-                false -> Spacer(modifier = Modifier.width(55.dp))
+        AnimatedVisibility(isHover) {
+            Surface (
+                color = Color.Transparent,
+                modifier = Modifier.padding(start = 20.dp)
+            ){
+                SymbolicIconButton(
+                    icon = Res.drawable.media_playback_start_symbolic,
+                    contentDescription = pluralStringResource(Res.plurals.media_player__play, 1),
+                    modifier = Modifier
+                )
             }
         }
         
         Row (
-            modifier = Modifier.padding(horizontal = 10.dp, vertical = 10.dp),
+            modifier = Modifier
+                .padding(vertical = 10.dp)
+                .padding(start = 55.dp, end = 10.dp)
         ) {
 
             Text(
-                text = "1.   $audioName",
-                fontSize = 16.sp,
+                text = "${index + 1}.    $audioName",
+                fontSize = 15.sp,
+                modifier = Modifier
+                    .widthIn(min = 300.dp, max = 300.dp)
+            )
+
+            Text(
+                text = stringResource(Res.string.media_player__artist),
+                fontSize = 15.sp,
+                modifier = Modifier
+                    .padding(start = 5.dp)
+                    .widthIn(min = 120.dp, max = 120.dp)
+            )
+
+            Text(
+                text = "$year",
+                fontSize = 15.sp,
+                modifier = Modifier
+                    .padding(start = 10.dp)
+                    .widthIn(min = 50.dp, max = 50.dp)
+            )
+
+            Text(
+                text = stringResource(Res.string.media_player__genre),
+                fontSize = 15.sp,
+                modifier = Modifier
+                    .padding(start = 10.dp)
+                    .widthIn(min = 100.dp, max = 100.dp)
+            )
+
+            // TODO: Duration of the songs. I'm not sure if to hardcode them or do it dynamically
+            Text(
+                text = "01:30",
+                fontSize = 15.sp,
+                modifier = Modifier
+                    .padding(start = 30.dp)
             )
         }
     }
