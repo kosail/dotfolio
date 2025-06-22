@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import com.korealm.dotfolio.model.WindowApp
 import com.korealm.dotfolio.state.AppThemeState
 import com.korealm.dotfolio.ui.windows.file_manager.FileManagerApp
-import com.korealm.dotfolio.ui.windows.music_player.MusicPlayerApp
+import com.korealm.dotfolio.ui.windows.media_player.MediaPlayerApp
 import com.korealm.dotfolio.ui.windows.notepad.NotepadApp
 import com.korealm.dotfolio.ui.windows.photos.PhotosApp
 import com.korealm.dotfolio.ui.windows.settings.SettingsApp
@@ -22,7 +22,7 @@ object Win32Controller {
     fun WebBrowser(onClose: () -> Unit)/*: WindowApp*/ = WebBrowserApp(onClose)
 
     @Composable
-    fun MusicPlayer(onClose: () -> Unit): WindowApp = MusicPlayerApp(onClose)
+    fun MediaPlayer(onClose: () -> Unit): WindowApp = MediaPlayerApp(onClose)
 
     @Composable
     fun Photos(onClose: () -> Unit): WindowApp = PhotosApp(onClose)

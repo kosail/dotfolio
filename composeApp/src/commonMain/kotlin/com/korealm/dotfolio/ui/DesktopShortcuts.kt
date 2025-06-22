@@ -37,7 +37,7 @@ fun DesktopShortcuts(
         Triple(Res.drawable.trash, stringResource(Res.string.trash), AppId.TRASH),
         Triple(Res.drawable.pdf, stringResource(Res.string.cv) + ".pdf", AppId.CV),
         Triple(Res.drawable.web_browser, stringResource(Res.string.about_me) + ".html", AppId.WEB_BROWSER),
-        Triple(Res.drawable.mp3, stringResource(Res.string.voice_recording) + ".wav", AppId.MUSIC),
+        Triple(Res.drawable.mp3, stringResource(Res.string.voice_recording) + ".wav", AppId.MEDIA_PLAYER),
         Triple(Res.drawable.photos, stringResource(Res.string.profile_pic) + ".jpg", AppId.PHOTOS),
         Triple(Res.drawable.folder, stringResource(Res.string.projects), AppId.FILE_EXPLORER),
         Triple(Res.drawable.settings, stringResource(Res.string.settings), AppId.SETTINGS)
@@ -76,6 +76,7 @@ fun ShortcutTitle(
         fontSize = 17.sp,
         fontWeight = FontWeight.Light,
 //        fontFamily = FontTheme(),  // TODO: Fix this shit
+        // FIXME: Check on App.kt for the note related to this I left there
         style = TextStyle(
             shadow = Shadow(
                 color = Color.Black,

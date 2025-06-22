@@ -1,10 +1,12 @@
 package com.korealm.dotfolio.ui.windows
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
@@ -13,14 +15,20 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.onPointerEvent
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.korealm.dotfolio.ui.SymbolicIconButton
 import dotfolio.composeapp.generated.resources.Res
+import dotfolio.composeapp.generated.resources.settings
 import dotfolio.composeapp.generated.resources.window_close
 import dotfolio.composeapp.generated.resources.window_maximize
 import dotfolio.composeapp.generated.resources.window_minimize
 import org.jetbrains.compose.resources.DrawableResource
+import org.jetbrains.compose.resources.StringResource
+import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun StandardTitleBarButtonSet(
@@ -107,4 +115,40 @@ fun TitleBarButton(
             modifier = Modifier.size(iconSize)
         )
     }
+}
+
+@Composable
+fun TitleBarMainIcon(
+    icon: DrawableResource,
+    contentDescription: String? = null,
+    modifier: Modifier = Modifier
+) {
+    // Since this Surface is declared on its own, out of scope of any Row, Column or Box parent, we cannot declare here that this Surface should align center vertically its content.
+    // Thus, you'll probably want to always pass a Modifier with .align(Alignment.CenterVertically) extension property.
+    Surface(
+        color = Color.Transparent,
+        modifier = modifier
+            .padding(horizontal = 15.dp)
+    ) {
+        Image(
+            painter = painterResource(icon),
+            contentDescription = contentDescription,
+            modifier = Modifier.size(18.dp)
+        )
+    }
+}
+
+@Composable
+fun TitleBarTitle(
+    string: StringResource,
+    modifier: Modifier = Modifier
+) {
+    // Same issue as above. You'll probably want to always pass a Modifier with .align(Alignment.CenterVertically) extension property.
+    Text(
+        text = stringResource(string),
+        color = MaterialTheme.colorScheme.onSurface,
+        fontWeight = FontWeight.Normal,
+        fontSize = 15.sp,
+        modifier = modifier
+    )
 }

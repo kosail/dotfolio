@@ -1,54 +1,40 @@
-package com.korealm.dotfolio.ui.windows.settings
+package com.korealm.dotfolio.ui.windows.media_player
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.korealm.dotfolio.state.AppThemeState
 import com.korealm.dotfolio.ui.windows.StandardTitleBarButtonSet
 import com.korealm.dotfolio.ui.windows.TitleBarMainIcon
 import com.korealm.dotfolio.ui.windows.TitleBarTitle
 import dotfolio.composeapp.generated.resources.Res
-import dotfolio.composeapp.generated.resources.settings
-import org.jetbrains.compose.resources.painterResource
-import org.jetbrains.compose.resources.stringResource
+import dotfolio.composeapp.generated.resources.media_player
 
 @Composable
-fun SettingsTitleBar (
+fun MediaPlayerTitleBar(
     onClose: () -> Unit,
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier
 ) {
-    Box(
+    Row(
         modifier = modifier
             .fillMaxWidth()
-            .height(40.dp)
+            .height(44.dp)
             .background(MaterialTheme.colorScheme.surface)
-    )
-
-    Row (
-        modifier = modifier
-            .fillMaxWidth()
-            .height(40.dp)
-            .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.4f))
     ) {
         TitleBarMainIcon(
-            icon = Res.drawable.settings,
+            icon = Res.drawable.media_player,
             modifier = Modifier.align(Alignment.CenterVertically)
         )
 
         Spacer(Modifier.width(5.dp))
 
         TitleBarTitle(
-            string = Res.string.settings,
+            string = Res.string.media_player,
             modifier = Modifier.align(Alignment.CenterVertically)
         )
 
@@ -61,6 +47,9 @@ fun SettingsTitleBar (
                 .weight(1f)
         )
 
-        StandardTitleBarButtonSet(onClose = onClose)
+        StandardTitleBarButtonSet(
+            onClose = onClose,
+            modifier = Modifier.fillMaxHeight()
+        )
     }
 }
