@@ -11,6 +11,7 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.text.font.FontWeight
@@ -33,6 +34,8 @@ fun MediaPlayerWindowContent(
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.surface)
     ) {
+        var selectedAudio by remember { mutableStateOf(Audio.RECORDING_EN) } // Initialize the player without any audio
+
         Column(
             modifier = Modifier.fillMaxSize()
         ) {
@@ -46,11 +49,14 @@ fun MediaPlayerWindowContent(
                 )
 
                 MainSection(
+                    selectedAudio = selectedAudio,
+                    onSelectedAudioChange = { selectedAudio = it },
                     modifier = Modifier
                 )
             }
 
             PlayerSection(
+                selectedAudio = selectedAudio,
                 modifier = Modifier.weight(0.35f)
             )
         }
@@ -161,6 +167,8 @@ fun MainSectionSideBar(
 
 @Composable
 fun MainSection(
+    selectedAudio: Audio,
+    onSelectedAudioChange: (Audio) -> Unit,
     modifier: Modifier = Modifier
 ) {
     // Needed for the year on top of the album and for each song
@@ -273,7 +281,7 @@ fun MainSection(
                         index = index,
                         year = year,
                         color = if (index % 2 == 0) MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f) else MaterialTheme.colorScheme.surface,
-                        onClick = {},
+                        onClick = { onSelectedAudioChange(audio) },
                         modifier = Modifier
                             .fillMaxWidth()
                     )
@@ -418,12 +426,148 @@ fun MediaListRow(
 
 @Composable
 fun PlayerSection(
+    selectedAudio: Audio,
+    duration: Int = 124, // FIXME: Temp solution to be able to code the GUI. Later on I'll make an static function to call inside this code
     modifier: Modifier = Modifier
 ) {
-    Surface(
-        color = Color.DarkGray,
+    var progressInSeconds by remember { mutableIntStateOf(20) }
+
+    Box(
+        propagateMinConstraints = true,
         modifier = modifier
             .fillMaxSize()
+            .padding(5.dp)
     ) {
+
+        Box(
+            propagateMinConstraints = true,
+            contentAlignment = Alignment.TopCenter,
+            modifier = Modifier.align(Alignment.TopStart)
+        )
+        {
+            Row(
+                horizontalArrangement = Arrangement.Center,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 20.dp, vertical = 15.dp)
+            ) {
+                Text( // Actual time
+                    text = "${progressInSeconds / 3600}:${
+                        (progressInSeconds / 60).toString().padStart(2, '0')
+                    }:${(progressInSeconds % 60).toString().padStart(2, '0')}",
+                    fontSize = 14.sp,
+                    modifier = Modifier
+                )
+
+                Spacer(Modifier.width(15.dp))
+
+                // TODO: Replace this shit with a custom progress bar indicator
+                LinearProgressIndicator(
+                    progress = { progressInSeconds / duration.toFloat() },
+                    color = MaterialTheme.colorScheme.primary,
+                    trackColor = MaterialTheme.colorScheme.surfaceVariant,
+                    strokeCap = StrokeCap.Round,
+                    modifier = Modifier
+                )
+
+                Spacer(Modifier.width(15.dp))
+
+                Text( // Actual time
+                    text = "${duration / 3600}:${
+                        (duration / 60).toString().padStart(2, '0')
+                    }:${(duration % 60).toString().padStart(2, '0')}",
+                    fontSize = 14.sp,
+                    modifier = Modifier
+                )
+            }
+        }
+
+        Box(
+            contentAlignment = Alignment.BottomCenter,
+            modifier = Modifier.align(Alignment.BottomCenter)
+        ) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Start,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(120.dp)
+            ) {
+                Surface(
+                    shape = RoundedCornerShape(5.dp),
+                    modifier = Modifier.padding(5.dp)
+                ) {
+                    Image(
+                        painter = painterResource(  if (selectedAudio.ordinal == 2) Res.drawable.me_and_my_neko else Res.drawable.me_and_my_cat ),
+                        contentDescription = null,
+                        modifier = Modifier
+                    )
+                }
+
+
+                Column(
+                  modifier = Modifier.padding(start = 13.dp, top = 15.dp)
+                ) {
+                    val name = stringArrayResource(Res.array.recordings)[selectedAudio.ordinal]
+                    val displayName = when (selectedAudio.ordinal) {
+                        2 -> if (name.length > 8) name.substring(0, 8) + "..." else name  // Japanese
+                        else -> if (name.length > 15) name.substring(0, 15) + "..." else name  // English/Spanish
+                    }
+
+                    Text(
+                        text = displayName,
+                        fontSize = 24.sp,
+                        fontWeight = FontWeight.Medium,
+                        modifier = Modifier
+                    )
+
+                    Spacer(Modifier.height(5.dp))
+
+                    // Tricky line. I know it can be simplified, done in a clearer way, but it's ok there are only 3 audios. It's not a real media player.
+                    val artist_n_album = "${stringResource(Res.string.media_player__artist)} • ${stringResource(Res.string.media_player__album)}"
+                    
+                    Text(
+                        text = artist_n_album.substring(0, 28) + "...",
+                        fontSize = 15.sp,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f),
+                    )
+                }
+            }
+        }
+
+        Box(
+            contentAlignment = Alignment.Center,
+            modifier = Modifier
+        ) {
+            Row(
+                modifier = Modifier
+                    .padding(top = 35.dp, start = 10.dp)
+            ) {
+                SymbolicIconButton(
+                    icon = Res.drawable.media_playlist_shuffle_symbolic,
+                    modifier = Modifier.size(22.dp)
+                )
+
+                Spacer(Modifier.width(20.dp))
+                SymbolicIconButton(
+                    icon = Res.drawable.media_skip_backward_symbolic,
+                    modifier = Modifier.size(25.dp)
+                )
+
+                // TODO: Play goes here
+
+                Spacer(Modifier.width(20.dp))
+                SymbolicIconButton(
+                    icon = Res.drawable.media_skip_forward_symbolic,
+                    modifier = Modifier.size(25.dp)
+                )
+
+                Spacer(Modifier.width(20.dp))
+                SymbolicIconButton(
+                    icon = Res.drawable.media_repeat_symbolic,
+                    modifier = Modifier.size(30.dp)
+                )
+            }
+        }
     }
 }
