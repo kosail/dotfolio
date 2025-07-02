@@ -6,7 +6,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import com.korealm.dotfolio.ui.windows.media_player.window_content.Audio
+import com.korealm.dotfolio.ui.windows.media_player.player.Audio
 
 class MediaPlayerState(
     initialPlayingState: Boolean,
@@ -16,9 +16,7 @@ class MediaPlayerState(
     var isPlaying by mutableStateOf(initialPlayingState)
     var isBuffering by mutableStateOf(initialBufferingState)
     var currentTime by mutableIntStateOf(0)
-
     var duration by mutableIntStateOf(0)
-        private set
 
     // To avoid initial progress division by zero
     val progress: Int
