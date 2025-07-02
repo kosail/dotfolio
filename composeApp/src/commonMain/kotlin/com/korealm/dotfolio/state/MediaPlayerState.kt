@@ -10,7 +10,7 @@ import com.korealm.dotfolio.ui.windows.media_player.window_content.Audio
 
 class MediaPlayerState(
     initialPlayingState: Boolean,
-    initialBufferingState: Boolean, // This may be useful for web target
+    initialBufferingState: Boolean, // This may be useful for web target, or I may end deleting it
     initialPlayingItem: Audio
 ) {
     var isPlaying by mutableStateOf(initialPlayingState)
@@ -21,7 +21,9 @@ class MediaPlayerState(
         private set
 
     // To avoid initial progress division by zero
-    var progress = if (duration == 0) 0 else currentTime / duration
+    val progress: Int
+    get() = if (duration == 0) 0 else currentTime / duration
+
 
     var currentPlayingItem by mutableStateOf(initialPlayingItem)
     private set
