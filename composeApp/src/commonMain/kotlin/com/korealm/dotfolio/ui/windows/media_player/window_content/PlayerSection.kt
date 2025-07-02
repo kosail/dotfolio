@@ -124,6 +124,7 @@ fun PlayerSection(
     selectedAudio: Audio,
     isPlaying: Boolean,
     onPlayClick: () -> Unit,
+    onAudioChange: (Audio) -> Unit,
     duration: Int = 124, // FIXME: Temp solution to be able to code the GUI. Later on I'll make an static function to call inside this code
     modifier: Modifier = Modifier
 ) {
@@ -247,13 +248,19 @@ fun PlayerSection(
                     SymbolicIconButton(
                         icon = Res.drawable.media_playlist_shuffle_symbolic,
                         modifier = Modifier.size(22.dp)
-                    ) { /*TODO*/ }
+                    )
 
                     Spacer(Modifier.width(20.dp))
                     SymbolicIconButton(
                         icon = Res.drawable.media_skip_backward_symbolic,
                         modifier = Modifier.size(25.dp)
-                    ) { /*TODO*/ }
+                    ) {
+                        changeAudio(
+                            actualAudio = selectedAudio,
+                            onAudioChange = { onAudioChange(it) },
+                            action = PlayerControls.PREVIOUS
+                        )
+                    }
                 }
 
                 // Using images instead of animated circular progress bar to improve performance, or well, to not worsen performance on unnecessary things
@@ -276,7 +283,13 @@ fun PlayerSection(
                     SymbolicIconButton(
                         icon = Res.drawable.media_skip_forward_symbolic,
                         modifier = Modifier.size(25.dp)
-                    )
+                    ) {
+                        changeAudio(
+                            actualAudio = selectedAudio,
+                            onAudioChange = { onAudioChange(it) },
+                            action = PlayerControls.NEXT
+                        )
+                    }
 
                     Spacer(Modifier.width(20.dp))
                     SymbolicIconButton(

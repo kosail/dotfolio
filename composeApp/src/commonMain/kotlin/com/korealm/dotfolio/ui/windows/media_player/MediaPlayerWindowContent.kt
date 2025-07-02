@@ -58,7 +58,8 @@ fun MediaPlayerWindowContent(
             PlayerSection(
                 selectedAudio = selectedAudio,
                 isPlaying = isPlaying,
-                onPlayClick = { isPlaying = !isPlaying },
+                onPlayClick = { isPlaying = !isPlaying }, // Needed by play/stop button
+                onAudioChange = { selectedAudio = it }, // Needed by prev/next buttons
                 modifier = Modifier.weight(0.35f)
             )
         }
