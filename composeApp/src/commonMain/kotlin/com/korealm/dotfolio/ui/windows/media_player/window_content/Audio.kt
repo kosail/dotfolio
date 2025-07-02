@@ -1,4 +1,4 @@
-package com.korealm.dotfolio.ui.windows.media_player
+package com.korealm.dotfolio.ui.windows.media_player.window_content
 
 enum class Audio (val path: String) {
     RECORDING_EN ("files/recording_en.mp3"),

@@ -19,8 +19,8 @@ fun SymbolicIconButton(
     icon: DrawableResource,
     contentDescription: String? = null,
     tint: Color = MaterialTheme.colorScheme.onSurface,
-    onClick: (() -> Unit)? = null,
     modifier: Modifier = Modifier,
+    onClick: (() -> Unit)? = null,
 ) {
     Icon(
         painter = painterResource(icon),
