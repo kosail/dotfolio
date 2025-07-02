@@ -23,6 +23,7 @@ import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.korealm.dotfolio.state.MediaPlayerState
 import com.korealm.dotfolio.ui.SymbolicIconButton
 import dotfolio.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.painterResource
@@ -41,11 +42,11 @@ fun MediaListRow(
     modifier: Modifier = Modifier
 ) {
     var isHover by remember { mutableStateOf(false) }
-    var mp3Bytes by remember { mutableStateOf<ByteArray?>(null) }
-
-    LaunchedEffect(Unit) {
-        mp3Bytes = Res.readBytes(Audio.entries[index].path)
-    }
+//    var mp3Bytes by remember { mutableStateOf<ByteArray?>(null) }
+//
+//    LaunchedEffect(Unit) {
+//        mp3Bytes = Res.readBytes(Audio.entries[index].path)
+//    }
 
     Box(
         contentAlignment = Alignment.CenterStart,
@@ -107,7 +108,7 @@ fun MediaListRow(
                     .widthIn(min = 100.dp, max = 100.dp)
             )
 
-            // TODO: Duration of the songs. I'm not sure if to hardcode them or do it dynamically
+            // TODO: Duration of the songs. I'm not sure if to hardcode them or do it dynamically because, if done dynamically, I'll need to preload all three files with JS for web target
             Text(
                 text = "01:30",
                 fontSize = 15.sp,
@@ -121,15 +122,10 @@ fun MediaListRow(
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun PlayerSection(
-    selectedAudio: Audio,
-    isPlaying: Boolean,
+    playerState: MediaPlayerState,
     onPlayClick: () -> Unit,
-    onAudioChange: (Audio) -> Unit,
-    duration: Int = 124, // FIXME: Temp solution to be able to code the GUI. Later on I'll make an static function to call inside this code
     modifier: Modifier = Modifier
 ) {
-    var progressInSeconds by remember { mutableIntStateOf(20) }
-
     Box(
         propagateMinConstraints = true,
         modifier = modifier
@@ -150,9 +146,9 @@ fun PlayerSection(
                     .padding(horizontal = 20.dp, vertical = 15.dp)
             ) {
                 Text( // Actual time
-                    text = "${progressInSeconds / 3600}:${
-                        (progressInSeconds / 60).toString().padStart(2, '0')
-                    }:${(progressInSeconds % 60).toString().padStart(2, '0')}",
+                    text = "${playerState.progress / 3600}:${
+                        (playerState.progress / 60).toString().padStart(2, '0')
+                    }:${(playerState.progress % 60).toString().padStart(2, '0')}",
                     fontSize = 14.sp,
                     modifier = Modifier
                 )
@@ -161,7 +157,7 @@ fun PlayerSection(
 
                 // TODO: Replace this shit with a custom progress bar indicator
                 LinearProgressIndicator(
-                    progress = { progressInSeconds / duration.toFloat() },
+                    progress = { playerState.progress.toFloat() },
                     color = MaterialTheme.colorScheme.primary,
                     trackColor = MaterialTheme.colorScheme.surfaceVariant,
                     strokeCap = StrokeCap.Round,
@@ -170,10 +166,10 @@ fun PlayerSection(
 
                 Spacer(Modifier.width(15.dp))
 
-                Text( // Actual time
-                    text = "${duration / 3600}:${
-                        (duration / 60).toString().padStart(2, '0')
-                    }:${(duration % 60).toString().padStart(2, '0')}",
+                Text( // Total duration
+                    text = "${playerState.duration / 3600}:${
+                        (playerState.duration / 60).toString().padStart(2, '0')
+                    }:${(playerState.duration % 60).toString().padStart(2, '0')}",
                     fontSize = 14.sp,
                     modifier = Modifier
                 )
@@ -196,7 +192,7 @@ fun PlayerSection(
                     modifier = Modifier.padding(5.dp)
                 ) {
                     Image(
-                        painter = painterResource(  if (selectedAudio.ordinal == 2) Res.drawable.me_and_my_neko else Res.drawable.me_and_my_cat ),
+                        painter = painterResource(  if (playerState.itemIndex == 2) Res.drawable.me_and_my_neko else Res.drawable.me_and_my_cat ),
                         contentDescription = null,
                         modifier = Modifier
                     )
@@ -206,8 +202,8 @@ fun PlayerSection(
                 Column(
                     modifier = Modifier.padding(start = 13.dp, top = 15.dp)
                 ) {
-                    val name = stringArrayResource(Res.array.recordings)[selectedAudio.ordinal]
-                    val displayName = when (selectedAudio.ordinal) {
+                    val name = stringArrayResource(Res.array.recordings)[playerState.itemIndex]
+                    val displayName = when (playerState.itemIndex) {
                         2 -> if (name.length > 8) name.substring(0, 8) + "..." else name  // Japanese
                         else -> if (name.length > 15) name.substring(0, 15) + "..." else name  // English/Spanish
                     }
@@ -221,7 +217,7 @@ fun PlayerSection(
 
                     Spacer(Modifier.height(5.dp))
 
-                    // Tricky line. I know it can be simplified, done in a clearer way, but it's ok there are only 3 audios. It's not a real media player.
+                    // Tricky line. I know it can be simplified, done in a clearer way. But it's ok, there are only 3 audios. It's not a real media player.
                     val artistAndAlbum = "${stringResource(Res.string.media_player__artist)} • ${stringResource(Res.string.media_player__album)}"
 
                     Text(
@@ -256,8 +252,7 @@ fun PlayerSection(
                         modifier = Modifier.size(25.dp)
                     ) {
                         changeAudio(
-                            actualAudio = selectedAudio,
-                            onAudioChange = { onAudioChange(it) },
+                            playerState = playerState,
                             action = PlayerControls.PREVIOUS
                         )
                     }
@@ -269,7 +264,7 @@ fun PlayerSection(
                     modifier = Modifier
                 ) {
                     Image(
-                        painter = painterResource(if (isPlaying) Res.drawable.media_player_pause else Res.drawable.media_player_play),
+                        painter = painterResource(if (playerState.isPlaying) Res.drawable.media_player_pause else Res.drawable.media_player_play),
                         contentDescription = null,
                         modifier = Modifier
                             .onPointerEvent(PointerEventType.Press) { onPlayClick() }
@@ -285,8 +280,7 @@ fun PlayerSection(
                         modifier = Modifier.size(25.dp)
                     ) {
                         changeAudio(
-                            actualAudio = selectedAudio,
-                            onAudioChange = { onAudioChange(it) },
+                            playerState = playerState,
                             action = PlayerControls.NEXT
                         )
                     }
