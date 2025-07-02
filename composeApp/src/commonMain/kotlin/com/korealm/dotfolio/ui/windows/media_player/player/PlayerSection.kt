@@ -1,4 +1,4 @@
-package com.korealm.dotfolio.ui.windows.media_player.window_content
+package com.korealm.dotfolio.ui.windows.media_player.player
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image

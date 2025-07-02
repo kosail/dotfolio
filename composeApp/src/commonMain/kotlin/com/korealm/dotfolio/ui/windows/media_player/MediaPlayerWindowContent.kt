@@ -5,12 +5,11 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import com.korealm.dotfolio.state.MediaPlayerState
 import com.korealm.dotfolio.state.rememberMediaPlayerState
-import com.korealm.dotfolio.ui.windows.media_player.window_content.Audio
-import com.korealm.dotfolio.ui.windows.media_player.window_content.MainSection
-import com.korealm.dotfolio.ui.windows.media_player.window_content.MainSectionSideBar
-import com.korealm.dotfolio.ui.windows.media_player.window_content.PlayerSection
+import com.korealm.dotfolio.ui.windows.media_player.player.Audio
+import com.korealm.dotfolio.ui.windows.media_player.player.MainSection
+import com.korealm.dotfolio.ui.windows.media_player.player.MainSectionSideBar
+import com.korealm.dotfolio.ui.windows.media_player.player.PlayerSection
 
 @Composable
 fun MediaPlayerWindowContent(

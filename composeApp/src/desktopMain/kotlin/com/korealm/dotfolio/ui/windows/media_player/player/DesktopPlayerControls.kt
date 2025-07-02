@@ -1,8 +1,6 @@
-package com.korealm.dotfolio.ui.windows.media_player.window_content
+package com.korealm.dotfolio.ui.windows.media_player.player
 
 import com.korealm.dotfolio.state.MediaPlayerState
-import kotlinx.browser.document
-import org.w3c.dom.HTMLAudioElement
 
 actual fun playToggler(
     playerState: MediaPlayerState,
