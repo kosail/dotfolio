@@ -20,7 +20,8 @@ class MediaPlayerState(
     var duration by mutableIntStateOf(0)
         private set
 
-    var progress = currentTime / duration
+    // To avoid initial progress division by zero
+    var progress = if (duration == 0) 0 else currentTime / duration
 
     var currentPlayingItem by mutableStateOf(initialPlayingItem)
     private set

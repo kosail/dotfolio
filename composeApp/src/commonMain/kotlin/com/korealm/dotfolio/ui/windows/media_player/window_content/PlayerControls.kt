@@ -12,8 +12,11 @@ enum class PlayerControls {
     NEXT
 }
 
-//expect fun PlayAudio()
-//
+expect fun playAudio(
+    playerState: MediaPlayerState
+)
+
+
 //expect fun PauseAudio()
 
 // Next and prev buttons in the player are VERY similar, to not say that they have the same exact logic, with the only difference that one moves forward and the other backwards.
