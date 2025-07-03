@@ -9,7 +9,9 @@ import com.korealm.dotfolio.state.rememberMediaPlayerState
 import com.korealm.dotfolio.ui.windows.media_player.player.Audio
 import com.korealm.dotfolio.ui.windows.media_player.player.MainSection
 import com.korealm.dotfolio.ui.windows.media_player.player.MainSectionSideBar
+import com.korealm.dotfolio.ui.windows.media_player.player.PlayerControls
 import com.korealm.dotfolio.ui.windows.media_player.player.PlayerSection
+import com.korealm.dotfolio.ui.windows.media_player.player.playToggler
 
 @Composable
 fun MediaPlayerWindowContent(
@@ -49,7 +51,12 @@ fun MediaPlayerWindowContent(
 
             PlayerSection(
                 playerState = playerState,
-                onPlayClick = { playerState.isPlaying = !playerState.isPlaying }, // Needed by play/stop button
+                onPlayClick = {
+                    playToggler(
+                        playerState = playerState,
+                        action = if (playerState.isPlaying) PlayerControls.PAUSE else PlayerControls.PLAY
+                    )
+                }, // Needed by play/stop button
                 modifier = Modifier.weight(0.35f)
             )
         }
