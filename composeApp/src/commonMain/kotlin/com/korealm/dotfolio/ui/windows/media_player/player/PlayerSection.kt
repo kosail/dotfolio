@@ -202,7 +202,13 @@ fun PlayerSection(
                 Column(
                     modifier = Modifier.padding(start = 13.dp, top = 15.dp)
                 ) {
-                    val name = stringArrayResource(Res.array.recordings)[playerState.itemIndex]
+                    val names = listOf(
+                        Res.string.media_player__recordings_en,
+                        Res.string.media_player__recordings_es,
+                        Res.string.media_player__recordings_jp
+                    )
+
+                    val name = stringResource(names[playerState.itemIndex])
                     val displayName = when (playerState.itemIndex) {
                         2 -> if (name.length > 8) name.substring(0, 8) + "..." else name  // Japanese
                         else -> if (name.length > 15) name.substring(0, 15) + "..." else name  // English/Spanish

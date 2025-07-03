@@ -235,11 +235,15 @@ fun MainSection(
                 modifier = Modifier
                     .padding(top = 250.dp)
             ) {
-                val names = stringArrayResource(Res.array.recordings)
+                val names = listOf(
+                    Res.string.media_player__recordings_en,
+                    Res.string.media_player__recordings_es,
+                    Res.string.media_player__recordings_jp
+                )
 
                 Audio.entries.forEachIndexed { index, audio ->
                     MediaListRow(
-                        audioName = names[index],
+                        audioName = stringResource(names[index]),
                         index = index,
                         year = year,
                         color = if (index % 2 == 0) MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f) else MaterialTheme.colorScheme.surface,

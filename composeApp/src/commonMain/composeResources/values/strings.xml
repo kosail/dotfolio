@@ -72,11 +72,9 @@
     <string name="media_player__artist">kosailing</string>
     <string name="media_player__genre">dotradio.fm</string>
     <string name="media_player__audios_count">3 audios</string>
-    <string-array name="recordings">
-        <item>Welcome to dotfolio</item>
-        <item>Bienvenido a dotfolio</item>
-        <item>ドットフォリオへようこそ</item>
-    </string-array>
+    <string name="media_player__recordings_en">Welcome to dotfolio</string>
+    <string name="media_player__recordings_es">Bienvenido a dotfolio</string>
+    <string name="media_player__recordings_jp">ドットフォリオへようこそ</string>
     <plurals name="media_player__play">
         <item quantity="one">Play</item>
         <item quantity="other">Play all</item>
