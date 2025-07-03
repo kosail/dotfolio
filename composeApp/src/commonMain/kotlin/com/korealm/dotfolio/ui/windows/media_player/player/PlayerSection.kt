@@ -130,13 +130,15 @@ fun PlayerSection(
         propagateMinConstraints = true,
         modifier = modifier
             .fillMaxSize()
-            .padding(5.dp)
+            .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.2f))
     ) {
 
         Box(
             propagateMinConstraints = true,
             contentAlignment = Alignment.TopCenter,
-            modifier = Modifier.align(Alignment.TopStart)
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .padding(5.dp)
         )
         {
             Row(

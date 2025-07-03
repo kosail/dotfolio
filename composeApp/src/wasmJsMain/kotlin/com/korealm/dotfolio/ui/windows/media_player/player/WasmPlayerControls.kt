@@ -12,6 +12,11 @@ actual fun playToggler(
     when (action) {
         PlayerControls.PLAY -> {
             MediaPlayer.let {
+                if (it.isPlaying()) {
+                    it.pause()
+                    it.clearSource()
+                }
+
                 it.setSource(playerState.currentPlayingItem.path)
                 it.play()
             }
