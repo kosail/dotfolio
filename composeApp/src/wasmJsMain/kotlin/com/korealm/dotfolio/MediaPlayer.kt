@@ -41,6 +41,10 @@ object MediaPlayer {
         audioElement.load()
     }
 
+    fun clearSource() {
+        audioElement.src = ""
+    }
+
     fun play() {
         scope.launch {
             audioElement.play()

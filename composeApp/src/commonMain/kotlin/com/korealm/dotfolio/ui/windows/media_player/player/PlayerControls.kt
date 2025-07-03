@@ -30,5 +30,8 @@ fun changeAudio(
         action == PlayerControls.PREVIOUS && index == 0) return // Don't rewind
 
     if (action == PlayerControls.NEXT) index++ else index--
+
     playerState.changePlayingItem(Audio.entries[index])
+    playToggler(playerState, PlayerControls.PAUSE)
+    playToggler(playerState, PlayerControls.PLAY)
 }

@@ -11,6 +11,7 @@ import com.korealm.dotfolio.ui.windows.media_player.player.MainSection
 import com.korealm.dotfolio.ui.windows.media_player.player.MainSectionSideBar
 import com.korealm.dotfolio.ui.windows.media_player.player.PlayerControls
 import com.korealm.dotfolio.ui.windows.media_player.player.PlayerSection
+import com.korealm.dotfolio.ui.windows.media_player.player.changeAudio
 import com.korealm.dotfolio.ui.windows.media_player.player.playToggler
 
 @Composable
@@ -37,14 +38,21 @@ fun MediaPlayerWindowContent(
                     modifier = Modifier
                 )
 
+                // There's something wrong with me. This kind of programming goes more into the declarative one instead of reactive.
+                // I need to learn more about reactive GUIs and refactor this code.
                 MainSection(
                     onPlayClick = {
                         playerState.let {
                             it.isPlaying = true
                             it.changePlayingItem(Audio.entries[0])
                         }
+
+                        playToggler(playerState, PlayerControls.PLAY)
                     },
-                    onSelectedAudioChange = { playerState.changePlayingItem(it) },
+                    onSelectedAudioChange = {
+                        playerState.changePlayingItem(it)
+                        playToggler(playerState, PlayerControls.PLAY)
+                    },
                     modifier = Modifier
                 )
             }
