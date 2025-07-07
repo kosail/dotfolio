@@ -20,7 +20,7 @@ actual object MediaPlayer {
                 state?.currentTime = 0
             }
 
-            ontimeupdate = {
+            ontimeupdate = { // TODO: Seems like this is not working... I'll check this later
                 state?.currentTime = audioElement.currentTime.toInt()
             }
 
@@ -32,13 +32,13 @@ actual object MediaPlayer {
 
     actual fun bindState(state: MediaPlayerState) {
         this.state = state
-        setSource(state.currentPlayingItem.path)
     }
 
-    actual fun setSource(path: String) {
+    actual fun setSource(path: String, onReady: () -> Unit) {
         if (audioElement.src.endsWith(path)) return // audio path already set
         audioElement.src = path
         audioElement.load()
+        onReady()
     }
 
     actual fun clearSource() {

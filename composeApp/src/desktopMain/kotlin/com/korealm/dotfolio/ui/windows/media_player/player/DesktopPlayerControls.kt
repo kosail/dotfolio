@@ -16,16 +16,11 @@ actual object MediaPlayer {
     private var state: MediaPlayerState? = null
     private val scope = MainScope()
 
-    init {
-        // I suspect this will cause issues...
-        setSource(Audio.RECORDING_ES.path)
-    }
-
     actual fun bindState(state: MediaPlayerState) {
         this.state = state
     }
 
-    actual fun setSource(path: String) {
+    actual fun setSource(path: String, onReady: () -> Unit) {
         if (activeAudioPath == path) return
         activeAudioPath = path
 
@@ -49,6 +44,8 @@ actual object MediaPlayer {
                     }
                 }
             }
+
+            onReady()
         }
     }
 

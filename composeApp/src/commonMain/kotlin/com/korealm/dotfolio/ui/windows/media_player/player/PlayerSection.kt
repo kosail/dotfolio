@@ -175,7 +175,9 @@ fun PlayerSection(
 
         Box(
             contentAlignment = Alignment.BottomCenter,
-            modifier = Modifier.align(Alignment.BottomCenter)
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .padding(5.dp)
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,

@@ -30,8 +30,7 @@ fun controlMedia(
                     it.clearSource()
                 }
 
-                it.setSource(playerState.currentPlayingItem.path)
-                it.play()
+                it.setSource(playerState.currentPlayingItem.path) { it.play() }
             }
         }
 
@@ -55,8 +54,9 @@ fun controlMedia(
             if (action == PlayerControls.NEXT) index++ else index--
 
             playerState.changePlayingItem(Audio.entries[index])
-            controlMedia(playerState, PlayerControls.PAUSE)
-            controlMedia(playerState, PlayerControls.PLAY)
+            MediaPlayer.setSource(playerState.currentPlayingItem.path) {
+                MediaPlayer.play()
+            }
         }
     }
 }

@@ -5,7 +5,7 @@ import com.korealm.dotfolio.state.MediaPlayerState
 
 expect object MediaPlayer {
     fun bindState(state: MediaPlayerState)
-    fun setSource(path: String)
+    fun setSource(path: String, onReady: () -> Unit)
     fun clearSource()
     fun play()
     fun pause()
