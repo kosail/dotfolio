@@ -24,11 +24,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.korealm.dotfolio.state.MediaPlayerState
-import com.korealm.dotfolio.ui.SymbolicIconButton
+import com.korealm.dotfolio.ui.HoverableSymbolicIconButton
+import com.korealm.dotfolio.ui.SimpleSymbolicIconButton
 import dotfolio.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.pluralStringResource
-import org.jetbrains.compose.resources.stringArrayResource
 import org.jetbrains.compose.resources.stringResource
 
 @OptIn(ExperimentalComposeUiApi::class)
@@ -58,7 +58,7 @@ fun MediaListRow(
                 color = Color.Transparent,
                 modifier = Modifier.padding(start = 20.dp)
             ){
-                SymbolicIconButton(
+                SimpleSymbolicIconButton(
                     icon = Res.drawable.media_playback_start_symbolic,
                     contentDescription = pluralStringResource(Res.plurals.media_player__play, 1),
                     modifier = Modifier
@@ -237,24 +237,31 @@ fun PlayerSection(
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier
+                .align(Alignment.Center)
         ) {
             Row(
                 modifier = Modifier
-                    .padding(top = 30.dp, start = 10.dp)
+                    .padding(top = 30.dp, start = 60.dp)
             ) {
                 Row( // First two buttons. I needed a nested Row due top padding alignment issues
                     modifier = Modifier
-                        .padding(top = 20.dp, start = 25.dp, end = 20.dp)
+                        .padding(top = 20.dp, start = 25.dp, end = 15.dp)
                 ) {
-                    SymbolicIconButton(
-                        icon = Res.drawable.media_playlist_shuffle_symbolic,
-                        modifier = Modifier.size(22.dp)
-                    )
+                    Surface(
+                        color = Color.Transparent,
+                        modifier = Modifier.padding(top = 14.dp)
+                    ){
+                        SimpleSymbolicIconButton(
+                            icon = Res.drawable.media_playlist_shuffle_symbolic,
+                            modifier = Modifier.size(22.dp)
+                        )
+                    }
 
-                    Spacer(Modifier.width(20.dp))
-                    SymbolicIconButton(
+                    Spacer(Modifier.width(15.dp))
+
+                    HoverableSymbolicIconButton(
                         icon = Res.drawable.media_skip_backward_symbolic,
-                        modifier = Modifier.size(25.dp)
+                        boxModifier = Modifier
                     ) {
                         controlMedia(
                             playerState = playerState,
@@ -266,23 +273,30 @@ fun PlayerSection(
                 // Using images instead of animated circular progress bar to improve performance, or well, to not worsen performance on unnecessary things
                 Surface(
                     color = Color.Transparent,
-                    modifier = Modifier
+                    modifier = Modifier.padding(top = 15.dp)
                 ) {
+                    val painter = if (playerState.isBuffering) {
+                        Res.drawable.media_player_loading_3
+                    } else {
+                        if (playerState.isPlaying) Res.drawable.media_player_pause else Res.drawable.media_player_play
+                    }
+
                     Image(
-                        painter = painterResource(if (playerState.isPlaying) Res.drawable.media_player_pause else Res.drawable.media_player_play),
+                        painter = painterResource(painter),
                         contentDescription = null,
                         modifier = Modifier
                             .onPointerEvent(PointerEventType.Press) { onPlayClick() }
                     )
+
                 }
 
                 Row( // First two buttons. I needed a nested Row due top padding alignment issues
                     modifier = Modifier
-                        .padding(top = 20.dp, start = 20.dp)
+                        .padding(top = 20.dp, start = 15.dp)
                 ) {
-                    SymbolicIconButton(
+                    HoverableSymbolicIconButton(
                         icon = Res.drawable.media_skip_forward_symbolic,
-                        modifier = Modifier.size(25.dp)
+                        boxModifier = Modifier.padding(bottom = 10.dp)
                     ) {
                         controlMedia(
                             playerState = playerState,
@@ -290,11 +304,16 @@ fun PlayerSection(
                         )
                     }
 
-                    Spacer(Modifier.width(20.dp))
-                    SymbolicIconButton(
-                        icon = Res.drawable.media_repeat_symbolic,
-                        modifier = Modifier.size(25.dp)
-                    )
+                    Spacer(Modifier.width(15.dp))
+                    Surface(
+                        color = Color.Transparent,
+                        modifier = Modifier.padding(top = 14.dp)
+                    ) {
+                        SimpleSymbolicIconButton(
+                            icon = Res.drawable.media_repeat_symbolic,
+                            modifier = Modifier.size(25.dp)
+                        )
+                    }
                 }
             }
         }

@@ -15,12 +15,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.korealm.dotfolio.ui.SymbolicIconButton
+import com.korealm.dotfolio.ui.SimpleSymbolicIconButton
 import dotfolio.composeapp.generated.resources.*
 import kotlinx.datetime.Clock
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
-import org.jetbrains.compose.resources.*
+import org.jetbrains.compose.resources.DrawableResource
+import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.pluralStringResource
+import org.jetbrains.compose.resources.stringResource
 import kotlin.random.Random
 
 @Composable
@@ -42,19 +45,19 @@ fun MainSectionSideBar(
                 .padding(top = 20.dp)
                 .fillMaxWidth()
         ) {
-            SymbolicIconButton(
+            SimpleSymbolicIconButton(
                 icon = Res.drawable.hamburger_menu_symbolic,
                 modifier = Modifier.size(22.dp)
             )
 
             Spacer(Modifier.height(20.dp))
-            SymbolicIconButton(
+            SimpleSymbolicIconButton(
                 icon = Res.drawable.find_ltr_symbolic,
                 modifier = Modifier.size(27.dp)
             )
 
             Spacer(Modifier.height(20.dp))
-            SymbolicIconButton(
+            SimpleSymbolicIconButton(
                 icon = Res.drawable.home_symbolic,
                 modifier = Modifier.size(21.dp)
             )
@@ -76,7 +79,7 @@ fun MainSectionSideBar(
                         .clip(RoundedCornerShape(2.dp))
                 )
 
-                SymbolicIconButton(
+                SimpleSymbolicIconButton(
                     icon = Res.drawable.music_note_symbolic,
                     modifier = Modifier
                         .size(21.dp)
@@ -85,7 +88,7 @@ fun MainSectionSideBar(
             }
 
             Spacer(Modifier.height(19.dp))
-            SymbolicIconButton(
+            SimpleSymbolicIconButton(
                 icon = Res.drawable.video_film_symbolic,
                 modifier = Modifier.size(22.dp)
             )
@@ -96,13 +99,13 @@ fun MainSectionSideBar(
                 modifier = Modifier.padding(vertical = 20.dp)
             )
 
-            SymbolicIconButton(
+            SimpleSymbolicIconButton(
                 icon = Res.drawable.media_repeat_playlist,
                 modifier = Modifier.size(23.dp)
             )
 
             Spacer(Modifier.height(20.dp))
-            SymbolicIconButton(
+            SimpleSymbolicIconButton(
                 icon = Res.drawable.media_album_cover_symbolic,
                 modifier = Modifier.size(27.dp)
             )
@@ -114,7 +117,7 @@ fun MainSectionSideBar(
                 .align(Alignment.BottomCenter)
                 .padding(bottom = 20.dp)
         ) {
-            SymbolicIconButton(
+            SimpleSymbolicIconButton(
                 icon = Res.drawable.settings_symbolic,
                 modifier = Modifier
                     .size(22.dp)
@@ -286,7 +289,7 @@ fun HeaderButton(
             horizontalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier.padding(vertical = 10.dp, horizontal = 14.dp)
         ) {
-            SymbolicIconButton(
+            SimpleSymbolicIconButton(
                 icon = icon,
                 tint = contentColor
             )

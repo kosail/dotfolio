@@ -146,24 +146,24 @@ fun DesktopEnvironment(
                 horizontalArrangement = Arrangement.End,
                 modifier = Modifier.fillMaxSize()
             ) {
-                SymbolicIconButton(
+                SimpleSymbolicIconButton(
                     icon = Res.drawable.go_up_symbolic,
                     modifier = Modifier.size(25.dp)
                 )
 
-                SymbolicIconButton(
+                SimpleSymbolicIconButton(
                     icon = Res.drawable.wifi,
                     modifier = Modifier.size(30.dp)
                 )
 
-                SymbolicIconButton(
+                SimpleSymbolicIconButton(
                     icon = Res.drawable.audio_volume_medium,
                     modifier = Modifier.size(30.dp)
                 )
 
                 Spacer(Modifier.width(5.dp))
 
-                SymbolicIconButton(
+                SimpleSymbolicIconButton(
                     icon = Res.drawable.battery_100,
                     modifier = Modifier.size(22.dp)
                 )

@@ -19,9 +19,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.korealm.dotfolio.ui.SymbolicIconButton
+import com.korealm.dotfolio.ui.SimpleSymbolicIconButton
 import dotfolio.composeapp.generated.resources.Res
-import dotfolio.composeapp.generated.resources.settings
 import dotfolio.composeapp.generated.resources.window_close
 import dotfolio.composeapp.generated.resources.window_maximize
 import dotfolio.composeapp.generated.resources.window_minimize
@@ -109,7 +108,7 @@ fun TitleBarButton(
             .onPointerEvent(PointerEventType.Exit) { isHovered = false }
             .clickable { onClick() }
     ) {
-        SymbolicIconButton(
+        SimpleSymbolicIconButton(
             icon = iconPainter,
             contentDescription = contentDescription,
             modifier = Modifier.size(iconSize)

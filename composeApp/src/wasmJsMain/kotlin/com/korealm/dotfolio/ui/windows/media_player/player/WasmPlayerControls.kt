@@ -14,6 +14,7 @@ actual object MediaPlayer {
     init {
         with (audioElement) {
             volume = 0.9
+            state?.isBuffering = true
 
             onended = {
                 state?.isPlaying = false
@@ -25,6 +26,7 @@ actual object MediaPlayer {
             }
 
             onloadedmetadata = {
+                state?.isBuffering = false
                 state?.duration = audioElement.duration.toInt()
             }
         }
@@ -35,11 +37,21 @@ actual object MediaPlayer {
     }
 
     actual fun setSource(path: String, onReady: () -> Unit) {
-        if (audioElement.src.endsWith(path)) return // audio path already set
+        if (audioElement.src.endsWith(path)) {
+            onReady()
+            return
+        }
+
         audioElement.src = path
         audioElement.load()
-        onReady()
+
+        audioElement.onloadedmetadata = {
+            state?.isBuffering = false
+            state?.duration = audioElement.duration.toInt()
+            onReady() // ✅ Now it's really ready to play
+        }
     }
+
 
     actual fun clearSource() {
         audioElement.src = ""
@@ -48,6 +60,7 @@ actual object MediaPlayer {
     actual fun play() {
         scope.launch {
             audioElement.play()
+            state?.isBuffering = false
             state?.isPlaying = true
         }
     }

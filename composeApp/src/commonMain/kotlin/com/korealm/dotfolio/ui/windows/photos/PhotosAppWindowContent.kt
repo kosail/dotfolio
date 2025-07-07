@@ -20,7 +20,7 @@ import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import com.korealm.dotfolio.ui.SymbolicIconButton
+import com.korealm.dotfolio.ui.SimpleSymbolicIconButton
 import dotfolio.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
@@ -140,7 +140,7 @@ fun PhotosBottomBarIcon(
             .onPointerEvent(PointerEventType.Exit) { isHovered = false }
             .clickable { onClick() }
     ) {
-        SymbolicIconButton(
+        SimpleSymbolicIconButton(
             icon = icon,
             contentDescription = contentDescription,
             modifier = Modifier.size(18.dp)

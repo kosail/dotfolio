@@ -1,9 +1,7 @@
 package com.korealm.dotfolio.ui.windows.notepad
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -16,10 +14,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.korealm.dotfolio.ui.SymbolicIconButton
+import com.korealm.dotfolio.ui.SimpleSymbolicIconButton
 import dotfolio.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.StringResource
-import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -48,7 +45,7 @@ fun NotepadWindowContent(
                     .size(25.dp)
                     .padding(top = 5.dp, end = 10.dp)
             ) {
-                SymbolicIconButton( icon = Res.drawable.settings_symbolic )
+                SimpleSymbolicIconButton( icon = Res.drawable.settings_symbolic )
             }
         }
 

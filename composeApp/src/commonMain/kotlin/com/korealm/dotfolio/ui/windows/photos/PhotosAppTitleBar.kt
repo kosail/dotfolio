@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.korealm.dotfolio.ui.SymbolicIconButton
+import com.korealm.dotfolio.ui.SimpleSymbolicIconButton
 import com.korealm.dotfolio.ui.windows.StandardTitleBarButtonSet
 import dotfolio.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
@@ -39,7 +39,7 @@ fun PhotosAppTitleBar(
                 modifier = Modifier
                     .padding(horizontal = 19.dp, vertical = 18.dp)
             ) {
-                SymbolicIconButton(
+                SimpleSymbolicIconButton(
                     icon = Res.drawable.picture_symbolic,
                     modifier = Modifier.size(17.dp)
                 )
@@ -60,53 +60,53 @@ fun PhotosAppTitleBar(
             )
 
             Spacer(Modifier.width(27.dp))
-            SymbolicIconButton(
+            SimpleSymbolicIconButton(
                 icon = Res.drawable.edit_photo_symbolic,
                 tint = MaterialTheme.colorScheme.onBackground,
                 modifier = modifier.size(24.dp)
             )
 
             Spacer(Modifier.width(20.dp))
-            SymbolicIconButton(
+            SimpleSymbolicIconButton(
                 icon = Res.drawable.rotate_right_symbolic,
                 tint = MaterialTheme.colorScheme.onBackground,
             )
 
             Spacer(Modifier.width(20.dp))
-            SymbolicIconButton(
+            SimpleSymbolicIconButton(
                 icon = Res.drawable.trash_symbolic,
                 tint = MaterialTheme.colorScheme.onBackground,
             )
 
             Spacer(Modifier.width(20.dp))
-            SymbolicIconButton(
+            SimpleSymbolicIconButton(
                 icon = Res.drawable.favorite_symbolic,
                 tint = MaterialTheme.colorScheme.onBackground,
                 modifier = modifier.size(22.dp)
             )
 
             Spacer(Modifier.width(20.dp))
-            SymbolicIconButton(
+            SimpleSymbolicIconButton(
                 icon = Res.drawable.help_about_symbolic,
                 tint = MaterialTheme.colorScheme.onBackground,
                 modifier = modifier.size(26.dp)
             )
 
             Spacer(Modifier.width(20.dp))
-            SymbolicIconButton(
+            SimpleSymbolicIconButton(
                 icon = Res.drawable.printer_symbolic,
                 tint = MaterialTheme.colorScheme.onBackground,
             )
 
             Spacer(Modifier.width(20.dp))
-            SymbolicIconButton(
+            SimpleSymbolicIconButton(
                 icon = Res.drawable.cloud_symbolic,
                 tint = MaterialTheme.colorScheme.onBackground,
                 modifier = modifier.size(25.dp)
             )
 
             Spacer(Modifier.width(20.dp))
-            SymbolicIconButton(
+            SimpleSymbolicIconButton(
                 icon = Res.drawable.dot_menu_symbolic,
                 tint = MaterialTheme.colorScheme.onBackground,
             )
