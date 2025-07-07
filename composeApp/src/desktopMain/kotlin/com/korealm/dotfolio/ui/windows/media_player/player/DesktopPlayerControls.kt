@@ -1,17 +1,19 @@
 package com.korealm.dotfolio.ui.windows.media_player.player
 
 import com.korealm.dotfolio.state.MediaPlayerState
-import com.korealm.dotfolio.ui.windows.media_player.player.Audio
+import dotfolio.composeapp.generated.resources.Res
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.io.ByteArrayInputStream
 import java.io.File
+import javax.sound.sampled.AudioInputStream
 import javax.sound.sampled.AudioSystem
 import javax.sound.sampled.LineEvent
 
 actual object MediaPlayer {
     private var activeAudioPath = ""
-    private var audioStream = AudioSystem.getAudioInputStream(File(activeAudioPath))
+    private lateinit var audioStream: AudioInputStream
     private val clip = AudioSystem.getClip()
 
     private var state: MediaPlayerState? = null
@@ -27,42 +29,48 @@ actual object MediaPlayer {
     }
 
     actual fun setSource(path: String) {
-        if (activeAudioPath != path) return
-
+        if (activeAudioPath == path) return
         activeAudioPath = path
-        audioStream = AudioSystem.getAudioInputStream(File(activeAudioPath))
-        clip.let {
-            it.open(audioStream)
 
-            it.addLineListener { event ->
-                when (event.type) {
-                    LineEvent.Type.OPEN -> {
-                        state?.duration = clip.frameLength
-                    }
+        scope.launch { // Async needed due byteArray loading. It's mandatory for compose on raw files...
+            // Stop and reset existing clip
+            if (clip.isOpen) {
+                clip.stop()
+                clip.flush()
+                clip.close()
+            }
 
-                    LineEvent.Type.STOP -> {
-                        state?.isPlaying = false
+            val byteArray = Res.readBytes(path)
+            val stream = AudioSystem.getAudioInputStream(ByteArrayInputStream(byteArray))
 
-                        if (clip.framePosition >= clip.frameLength) state?.currentTime = 0
+            clip.open(stream)
+
+            state?.duration = (clip.microsecondLength / 1_000_000).toInt()
+
+            clip.addLineListener { event ->
+                if (event.type == LineEvent.Type.STOP) {
+                    state?.isPlaying = false
+                    if (clip.framePosition >= clip.frameLength) {
+                        clip.setFramePosition(0)
+                        state?.currentTime = 0
                     }
                 }
             }
         }
     }
 
+
     actual fun clearSource() {
         clip.flush()
     }
 
     actual fun play() {
-        scope.launch {
-            clip.start()
-            state?.isPlaying = true
-        }
+        clip.start()
+        state?.isPlaying = true
 
         scope.launch {
-            while (isPlaying()) {
-                state?.currentTime = (clip.microsecondLength / 1000).toInt()
+            while (clip.isRunning) {
+                state?.currentTime = (clip.microsecondLength / 1_000_000).toInt()
                 delay(100)
             }
         }
