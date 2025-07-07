@@ -6,14 +6,11 @@ import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.io.ByteArrayInputStream
-import java.io.File
-import javax.sound.sampled.AudioInputStream
 import javax.sound.sampled.AudioSystem
 import javax.sound.sampled.LineEvent
 
 actual object MediaPlayer {
     private var activeAudioPath = ""
-    private lateinit var audioStream: AudioInputStream
     private val clip = AudioSystem.getClip()
 
     private var state: MediaPlayerState? = null
@@ -34,11 +31,7 @@ actual object MediaPlayer {
 
         scope.launch { // Async needed due byteArray loading. It's mandatory for compose on raw files...
             // Stop and reset existing clip
-            if (clip.isOpen) {
-                clip.stop()
-                clip.flush()
-                clip.close()
-            }
+            if (clip.isOpen) clearSource()
 
             val byteArray = Res.readBytes(path)
             val stream = AudioSystem.getAudioInputStream(ByteArrayInputStream(byteArray))
@@ -51,7 +44,7 @@ actual object MediaPlayer {
                 if (event.type == LineEvent.Type.STOP) {
                     state?.isPlaying = false
                     if (clip.framePosition >= clip.frameLength) {
-                        clip.setFramePosition(0)
+                        clip.framePosition = 0
                         state?.currentTime = 0
                     }
                 }
@@ -61,7 +54,9 @@ actual object MediaPlayer {
 
 
     actual fun clearSource() {
+        clip.stop()
         clip.flush()
+        clip.close()
     }
 
     actual fun play() {

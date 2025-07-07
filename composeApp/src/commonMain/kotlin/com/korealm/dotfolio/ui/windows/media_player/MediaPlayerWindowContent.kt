@@ -3,19 +3,14 @@ package com.korealm.dotfolio.ui.windows.media_player
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.korealm.dotfolio.state.rememberMediaPlayerState
-import com.korealm.dotfolio.ui.windows.media_player.player.Audio
-import com.korealm.dotfolio.ui.windows.media_player.player.MainSection
-import com.korealm.dotfolio.ui.windows.media_player.player.MainSectionSideBar
-import com.korealm.dotfolio.ui.windows.media_player.player.PlayerControls
-import com.korealm.dotfolio.ui.windows.media_player.player.PlayerSection
-import com.korealm.dotfolio.ui.windows.media_player.player.changeAudio
-import com.korealm.dotfolio.ui.windows.media_player.player.playToggler
+import com.korealm.dotfolio.state.MediaPlayerState
+import com.korealm.dotfolio.ui.windows.media_player.player.*
 
 @Composable
 fun MediaPlayerWindowContent(
+    playerState: MediaPlayerState,
     modifier: Modifier = Modifier
 ) {
     Box(
@@ -24,8 +19,6 @@ fun MediaPlayerWindowContent(
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.surface)
     ) {
-        var playerState = rememberMediaPlayerState()
-
         Column(
             modifier = Modifier.fillMaxSize()
         ) {
@@ -47,11 +40,11 @@ fun MediaPlayerWindowContent(
                             it.changePlayingItem(Audio.entries[0])
                         }
 
-                        playToggler(playerState, PlayerControls.PLAY)
+                        controlMedia(playerState, PlayerControls.PLAY)
                     },
                     onSelectedAudioChange = {
                         playerState.changePlayingItem(it)
-                        playToggler(playerState, PlayerControls.PLAY)
+                        controlMedia(playerState, PlayerControls.PLAY)
                     },
                     modifier = Modifier
                 )
@@ -60,7 +53,7 @@ fun MediaPlayerWindowContent(
             PlayerSection(
                 playerState = playerState,
                 onPlayClick = {
-                    playToggler(
+                    controlMedia(
                         playerState = playerState,
                         action = if (playerState.isPlaying) PlayerControls.PAUSE else PlayerControls.PLAY
                     )

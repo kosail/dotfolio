@@ -8,6 +8,7 @@ import com.korealm.dotfolio.state.MediaPlayerState
 enum class PlayerControls {
     PLAY,
     PAUSE,
+    STOP,
     PREVIOUS,
     NEXT
 }
@@ -15,7 +16,7 @@ enum class PlayerControls {
 
 // Play/pause and prev/next buttons in the player are VERY similar, to not say that they have the same exact logic
 
-fun playToggler(
+fun controlMedia(
     playerState: MediaPlayerState,
     action: PlayerControls
 ) {
@@ -33,24 +34,29 @@ fun playToggler(
                 it.play()
             }
         }
+
         PlayerControls.PAUSE -> { MediaPlayer.pause() }
-        else -> Unit // Do nothing
+
+        PlayerControls.STOP -> {
+            MediaPlayer.let {
+                if (it.isPlaying()) {
+                    it.pause()
+                    it.clearSource()
+                }
+            }
+        }
+
+        else -> {
+            var index = playerState.itemIndex
+
+            if (action == PlayerControls.NEXT && index == 2 ||
+                action == PlayerControls.PREVIOUS && index == 0) return // Don't rewind
+
+            if (action == PlayerControls.NEXT) index++ else index--
+
+            playerState.changePlayingItem(Audio.entries[index])
+            controlMedia(playerState, PlayerControls.PAUSE)
+            controlMedia(playerState, PlayerControls.PLAY)
+        }
     }
-}
-
-fun changeAudio(
-    playerState: MediaPlayerState,
-    action: PlayerControls
-) {
-    // Let's keep it easy
-    var index = playerState.itemIndex
-
-    if (action == PlayerControls.NEXT && index == 2 ||
-        action == PlayerControls.PREVIOUS && index == 0) return // Don't rewind
-
-    if (action == PlayerControls.NEXT) index++ else index--
-
-    playerState.changePlayingItem(Audio.entries[index])
-    playToggler(playerState, PlayerControls.PAUSE)
-    playToggler(playerState, PlayerControls.PLAY)
 }

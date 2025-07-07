@@ -42,11 +42,6 @@ fun MediaListRow(
     modifier: Modifier = Modifier
 ) {
     var isHover by remember { mutableStateOf(false) }
-//    var mp3Bytes by remember { mutableStateOf<ByteArray?>(null) }
-//
-//    LaunchedEffect(Unit) {
-//        mp3Bytes = Res.readBytes(Audio.entries[index].path)
-//    }
 
     Box(
         contentAlignment = Alignment.CenterStart,
@@ -259,7 +254,7 @@ fun PlayerSection(
                         icon = Res.drawable.media_skip_backward_symbolic,
                         modifier = Modifier.size(25.dp)
                     ) {
-                        changeAudio(
+                        controlMedia(
                             playerState = playerState,
                             action = PlayerControls.PREVIOUS
                         )
@@ -287,7 +282,7 @@ fun PlayerSection(
                         icon = Res.drawable.media_skip_forward_symbolic,
                         modifier = Modifier.size(25.dp)
                     ) {
-                        changeAudio(
+                        controlMedia(
                             playerState = playerState,
                             action = PlayerControls.NEXT
                         )
