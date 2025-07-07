@@ -1,27 +1,61 @@
 package com.korealm.dotfolio.ui.windows.media_player.player
 
-import com.korealm.dotfolio.MediaPlayer
 import com.korealm.dotfolio.state.MediaPlayerState
+import kotlinx.browser.document
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
+import org.w3c.dom.HTMLAudioElement
 
-actual fun playToggler(
-    playerState: MediaPlayerState,
-    action: PlayerControls
-) {
-    MediaPlayer.bind(playerState) // Bind JS and DOM events changes with Compose, on every call. This is safe because MediaPlayer is a singleton
+actual object MediaPlayer {
+    private val audioElement = document.createElement("audio") as HTMLAudioElement
+    private var state: MediaPlayerState? = null
+    private val scope = MainScope()
 
-    when (action) {
-        PlayerControls.PLAY -> {
-            MediaPlayer.let {
-                if (it.isPlaying()) {
-                    it.pause()
-                    it.clearSource()
-                }
+    init {
+        with (audioElement) {
+            volume = 0.9
 
-                it.setSource(playerState.currentPlayingItem.path)
-                it.play()
+            onended = {
+                state?.isPlaying = false
+                state?.currentTime = 0
+            }
+
+            ontimeupdate = {
+                state?.currentTime = audioElement.currentTime.toInt()
+            }
+
+            onloadedmetadata = {
+                state?.duration = audioElement.duration.toInt()
             }
         }
-        PlayerControls.PAUSE -> { MediaPlayer.pause() }
-        else -> Unit // Do nothing
     }
+
+    actual fun bindState(state: MediaPlayerState) {
+        this.state = state
+        setSource(state.currentPlayingItem.path)
+    }
+
+    actual fun setSource(path: String) {
+        if (audioElement.src.endsWith(path)) return // audio path already set
+        audioElement.src = path
+        audioElement.load()
+    }
+
+    actual fun clearSource() {
+        audioElement.src = ""
+    }
+
+    actual fun play() {
+        scope.launch {
+            audioElement.play()
+            state?.isPlaying = true
+        }
+    }
+
+    actual fun pause() {
+        audioElement.pause()
+        state?.isPlaying = false
+    }
+
+    actual fun isPlaying(): Boolean = !audioElement.paused
 }

@@ -12,12 +12,31 @@ enum class PlayerControls {
     NEXT
 }
 
+
 // Play/pause and prev/next buttons in the player are VERY similar, to not say that they have the same exact logic
 
-expect fun playToggler(
+fun playToggler(
     playerState: MediaPlayerState,
     action: PlayerControls
-)
+) {
+    MediaPlayer.bindState(playerState) // Bind JS / JVM events changes with Compose, on every call. This is safe because MediaPlayer is a singleton
+
+    when (action) {
+        PlayerControls.PLAY -> {
+            MediaPlayer.let {
+                if (it.isPlaying()) {
+                    it.pause()
+                    it.clearSource()
+                }
+
+                it.setSource(playerState.currentPlayingItem.path)
+                it.play()
+            }
+        }
+        PlayerControls.PAUSE -> { MediaPlayer.pause() }
+        else -> Unit // Do nothing
+    }
+}
 
 fun changeAudio(
     playerState: MediaPlayerState,
