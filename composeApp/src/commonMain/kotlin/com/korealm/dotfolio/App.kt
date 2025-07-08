@@ -66,20 +66,6 @@ fun App() {
                 .fillMaxSize()
         ) {
             /* TODO:  has this comment become a bug tracker? Hmm, well...
-            ! Found a bug!
-                ! Windows are going under the shortcut icons, which doesn't make sense.
-                ! Windows should be OVER any other element
-                ? This might mean that I will have to implement a Z index... bro
-                ? I thought I could have made it without implementing that.
-                * I already tried to switch positions between DesktopEnvironment and DesktopShortcuts, but it's not that easy it seems.
-
-            ! Found another bug!
-                ! When we open a second (or more) window and we close the first one, the second window moves into the position where the first one was.
-                ! Which doesn't make sense! Windows should have their position independent to other windows.
-                ? I have no idea whatzupp with this and what it is causing it. I'll check on that later on when I finish to code all of the "apps" inside dotfolio
-
-            ! Found a third bug (Desktop Target):
-                ! Media player works seamlessly on web target, but in Desktop it has a bug in which if the audio is paused, then it cannot be played again
 
             TODO: I may have found a solution for the font issue on WASM!!!
                 * Check on this link later. It might be a manual solution, but it might work tho.

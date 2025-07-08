@@ -7,7 +7,7 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 
 ---
 
-## 🌼 Features (Planned)
+## 🌼 Features
 
 - ⚡️ Static desktop-like UI with interactive elements (icons, windows)
 - 📁 Clickable icons that open custom "apps" (CV, a photo of me, projects, etc.)
@@ -15,9 +15,45 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 - 🧠 Built entirely in Kotlin Multiplatform (WASM target)
 - 🎨 Clean, elegant aesthetics with a focus on detail and interactivity
 
-
-### \--> The project just started. This preview is barebones \<--
 ![Nighly app logo](repo_images/nightly_appearance.webp)
+
+---
+## 🪻 Development Stage
+### Main
+- ✅ Desktop Environment:
+    - ❌ Z Index for apps
+    - ❌ Selawik Font on Web target
+
+    
+
+### Apps
+- ✅ Notepad
+- ✅ Settings
+- ✅ Photos
+- ✅ Media Player
+- ❌ Web Browser
+- ❌ File Manager
+- ❌ PDF file download
+
+### Bugs
+
+<details>
+<summary>Show/Hide</summary>
+
+1. ### Windows are going under the shortcut icons, which doesn't make sense.
+
+    Windows should be OVER any other element
+    This might mean that I will have to implement a Z index... bro
+    I thought I could have made it without implementing that.
+    I already tried to switch positions between DesktopEnvironment and DesktopShortcuts, but it's not that easy it seems.
+
+2. ### When we open a second (or more) window and we close the first one, the second window moves into the position where the first one was.
+    Which doesn't make sense! Windows should have their position independent to other windows.
+    I have no idea whatzupp with this and what it is causing it. I'll check on that later on when I finish to code all of the "apps" inside dotfolio
+
+3. ### Media player works seamlessly on web target, but in Desktop it has a bug in which if the audio is paused, then it cannot be played again
+
+</details>
 
 ---
 
