@@ -2,6 +2,7 @@ package com.korealm.dotfolio.state
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -15,13 +16,12 @@ class MediaPlayerState(
 ) {
     var isPlaying by mutableStateOf(initialPlayingState)
     var isBuffering by mutableStateOf(initialBufferingState)
-    var currentTime by mutableIntStateOf(0)
-    var duration by mutableIntStateOf(0)
+    var currentTime by mutableFloatStateOf(0f)
+    var duration by mutableFloatStateOf(0f)
 
     // To avoid initial progress division by zero
-    val progress: Int
-    get() = if (duration == 0) 0 else currentTime / duration
-
+    val progress: Float
+    get() = if (duration == 0f) 0f else currentTime / duration
 
     var currentPlayingItem by mutableStateOf(initialPlayingItem)
     private set

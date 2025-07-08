@@ -8,6 +8,6 @@ enum class Wallpaper (val resource: DrawableResource) {
     DEFAULT_DARK (Res.drawable.bg_dark),
     ZEKE_TUCKER_UNSPLASH_CAT (Res.drawable.zeke_tucker_gSSK4u8yPpM_unsplash),
     JENSEN_ART_CO_PIXABAY (Res.drawable.jensenartofficial_pixabay),
-    HEATHER_FARRELL_SMUGMUG_1 (Res.drawable.heatherfarell_smugmug_DSC_1936_X3),
-    HEATHER_FARRELL_SMUGMUG_2 (Res.drawable.heatherfarell_smugmug_DSC_6431_X3),
+    HECTOR_EMILIO_GONZALEZ_UNSPLASH (Res.drawable.hector_emilio_gonzalez_d_X_Usz596Y_unsplash),
+    RAMON_FLOREs_UNSPLASH (Res.drawable.ramon_flores_pTPd5uzqWaw_unsplash),
 }

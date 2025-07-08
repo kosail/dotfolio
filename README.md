@@ -57,7 +57,8 @@ cd dotfolio
 #### Wallpapers
 - [Anime wallpaper, by Jensen Art Co. on Pixabay](https://pixabay.com/users/jensenartofficial-31380959/)
 - [Cat wallpaper, by Zeke Tucker on Unsplash](https://unsplash.com/@zeketucker)
-- [Honduras wallpapers, by Heather Farrell on SmugMug](https://heatherfarrell.smugmug.com/Honduras-Folder/Honduras)
+- [Honduras wallpaper 1, by Hector Emilio Gonzalez on Unsplash](https://unsplash.com/@hectoremilio)
+- [Honduras wallpaper 2, by Ramon Flores on Unsplash](https://unsplash.com/@ramonantoniof)
 
 
 ---

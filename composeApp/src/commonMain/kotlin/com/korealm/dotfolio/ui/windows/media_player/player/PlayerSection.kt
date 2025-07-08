@@ -7,7 +7,6 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -17,7 +16,6 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.text.font.FontWeight
@@ -130,7 +128,7 @@ fun PlayerSection(
             .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.2f))
     ) {
 
-        Box(
+        BoxWithConstraints(
             propagateMinConstraints = true,
             contentAlignment = Alignment.TopCenter,
             modifier = Modifier
@@ -138,36 +136,37 @@ fun PlayerSection(
                 .padding(5.dp)
         )
         {
+            val containerWidth = constraints.maxWidth
+
             Row(
                 horizontalArrangement = Arrangement.Center,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 20.dp, vertical = 15.dp)
+                    .padding(horizontal = 20.dp, vertical = 10.dp)
             ) {
                 Text( // Actual time
-                    text = "${playerState.progress / 3600}:${
-                        (playerState.progress / 60).toString().padStart(2, '0')
-                    }:${(playerState.progress % 60).toString().padStart(2, '0')}",
-                    fontSize = 14.sp,
+                    text = "${(playerState.currentTime / 3600).toInt()}:${
+                        (playerState.currentTime / 60).toInt().toString().padStart(2, '0')
+                    }:${(playerState.currentTime % 60).toInt().toString().padStart(2, '0')}",
+                    fontSize = 15.sp,
                     modifier = Modifier
                 )
-
-                Spacer(Modifier.width(15.dp))
 
                 // TODO: Replace this shit with a custom progress bar indicator
                 ProgressBar(
                     playerState = playerState,
                     backgroundColor = if (themeState.isDarkTheme) MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.8f) else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
                     modifier = Modifier
+                        .widthIn(max = (containerWidth * 0.835).dp)
+                        .padding(top = 10.dp, start = 25.dp, end = 25.dp)
                 )
 
-                Spacer(Modifier.width(15.dp))
-
+                val duration = "${(playerState.duration / 3600).toInt()}:" +
+                        "${(playerState.duration / 60).toInt().toString().padStart(2, '0')}:" +
+                        "${(playerState.duration % 60).toInt().toString().padStart(2, '0')}"
                 Text( // Total duration
-                    text = "${playerState.duration / 3600}:${
-                        (playerState.duration / 60).toString().padStart(2, '0')
-                    }:${(playerState.duration % 60).toString().padStart(2, '0')}",
-                    fontSize = 14.sp,
+                    text = duration,
+                    fontSize = 15.sp,
                     modifier = Modifier
                 )
             }

@@ -10,4 +10,5 @@ expect object MediaPlayer {
     fun play()
     fun pause()
     fun isPlaying(): Boolean
+    fun seekTo(seconds: Float)
 }

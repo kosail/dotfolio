@@ -33,14 +33,14 @@ actual object MediaPlayer {
 
             clip.open(stream)
 
-            state?.duration = (clip.microsecondLength / 1_000_000).toInt()
+            state?.duration = (clip.microsecondLength / 1_000_000).toFloat()
 
             clip.addLineListener { event ->
-                if (event.type == LineEvent.Type.STOP) {
+                if (event.type == LineEvent.Type.STOP) { // Rewind
                     state?.isPlaying = false
                     if (clip.framePosition >= clip.frameLength) {
                         clip.framePosition = 0
-                        state?.currentTime = 0
+                        state?.currentTime = 0f
                     }
                 }
             }
@@ -57,12 +57,17 @@ actual object MediaPlayer {
     }
 
     actual fun play() {
+        if (! clip.isOpen) {
+            println("Clip is not open")
+            return
+        }
+
         clip.start()
         state?.isPlaying = true
 
         scope.launch {
             while (clip.isRunning) {
-                state?.currentTime = (clip.microsecondLength / 1_000_000).toInt()
+                state?.currentTime = (clip.microsecondPosition / 1_000_000).toFloat()
                 delay(100)
             }
         }
@@ -74,4 +79,11 @@ actual object MediaPlayer {
     }
 
     actual fun isPlaying(): Boolean = clip.isRunning
+
+    actual fun seekTo(seconds: Float) {
+        clip?.let {
+            it.microsecondPosition = (seconds * 1_000_000L).toLong() // We need to convert seconds to microseconds
+        }
+    }
+
 }

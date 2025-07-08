@@ -78,10 +78,8 @@ fun App() {
                 ! Which doesn't make sense! Windows should have their position independent to other windows.
                 ? I have no idea whatzupp with this and what it is causing it. I'll check on that later on when I finish to code all of the "apps" inside dotfolio
 
-            ! Found a third bug...
-                ! Honduras wallpapers are not being rendered correctly on WASM, but just in Desktop
-                * I already tried manually cutting the pictures into a 16:9 proportion, but they still render wrongly, so there must be something related to the files.
-                ? Maybe changing formats could help...
+            ! Found a third bug (Desktop Target):
+                ! Media player works seamlessly on web target, but in Desktop it has a bug in which if the audio is paused, then it cannot be played again
 
             TODO: I may have found a solution for the font issue on WASM!!!
                 * Check on this link later. It might be a manual solution, but it might work tho.

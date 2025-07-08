@@ -18,16 +18,16 @@ actual object MediaPlayer {
 
             onended = {
                 state?.isPlaying = false
-                state?.currentTime = 0
+                state?.currentTime = 0f
             }
 
             ontimeupdate = { // TODO: Seems like this is not working... I'll check this later
-                state?.currentTime = audioElement.currentTime.toInt()
+                state?.currentTime = audioElement.currentTime.toFloat()
             }
 
             onloadedmetadata = {
                 state?.isBuffering = false
-                state?.duration = audioElement.duration.toInt()
+                state?.duration = audioElement.duration.toFloat()
             }
         }
     }
@@ -47,7 +47,7 @@ actual object MediaPlayer {
 
         audioElement.onloadedmetadata = {
             state?.isBuffering = false
-            state?.duration = audioElement.duration.toInt()
+            state?.duration = audioElement.duration.toFloat()
             onReady() // ✅ Now it's really ready to play
         }
     }
@@ -71,4 +71,9 @@ actual object MediaPlayer {
     }
 
     actual fun isPlaying(): Boolean = !audioElement.paused
+
+    actual fun seekTo(seconds: Float) {
+        audioElement.currentTime = seconds.toDouble()
+    }
+
 }
