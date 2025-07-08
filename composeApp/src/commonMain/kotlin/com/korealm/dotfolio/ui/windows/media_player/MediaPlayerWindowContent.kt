@@ -5,11 +5,13 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.korealm.dotfolio.state.AppThemeState
 import com.korealm.dotfolio.state.MediaPlayerState
 import com.korealm.dotfolio.ui.windows.media_player.player.*
 
 @Composable
 fun MediaPlayerWindowContent(
+    themeState: AppThemeState,
     playerState: MediaPlayerState,
     modifier: Modifier = Modifier
 ) {
@@ -51,6 +53,7 @@ fun MediaPlayerWindowContent(
             }
 
             PlayerSection(
+                themeState = themeState,
                 playerState = playerState,
                 onPlayClick = {
                     controlMedia(

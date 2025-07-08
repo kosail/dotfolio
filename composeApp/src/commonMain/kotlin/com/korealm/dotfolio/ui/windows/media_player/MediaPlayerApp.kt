@@ -5,6 +5,7 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import com.korealm.dotfolio.model.AppId
 import com.korealm.dotfolio.model.WindowApp
+import com.korealm.dotfolio.state.AppThemeState
 import com.korealm.dotfolio.state.rememberMediaPlayerState
 import com.korealm.dotfolio.ui.windows.media_player.player.PlayerControls
 import com.korealm.dotfolio.ui.windows.media_player.player.controlMedia
@@ -14,7 +15,7 @@ import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-fun MediaPlayerApp(onClose: () -> Unit): WindowApp {
+fun MediaPlayerApp(themeState: AppThemeState, onClose: () -> Unit): WindowApp {
     var playerState = rememberMediaPlayerState()
 
     return WindowApp(
@@ -29,6 +30,6 @@ fun MediaPlayerApp(onClose: () -> Unit): WindowApp {
                 controlMedia(playerState, PlayerControls.STOP)
             }
         ) },
-        content = { MediaPlayerWindowContent(playerState) }
+        content = { MediaPlayerWindowContent(themeState , playerState) }
     )
 }

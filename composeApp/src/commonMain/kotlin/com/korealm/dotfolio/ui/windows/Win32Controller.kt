@@ -22,7 +22,7 @@ object Win32Controller {
     fun WebBrowser(onClose: () -> Unit)/*: WindowApp*/ = WebBrowserApp(onClose)
 
     @Composable
-    fun MediaPlayer(onClose: () -> Unit): WindowApp = MediaPlayerApp(onClose)
+    fun MediaPlayer(themeState: AppThemeState ,onClose: () -> Unit): WindowApp = MediaPlayerApp(themeState, onClose)
 
     @Composable
     fun Photos(onClose: () -> Unit): WindowApp = PhotosApp(onClose)

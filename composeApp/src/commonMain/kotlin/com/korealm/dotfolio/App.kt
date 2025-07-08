@@ -38,7 +38,7 @@ fun App() {
     val appRegistry = mapOf<AppId, (@Composable () -> WindowApp)>(
         AppId.NOTEPAD to { Win32Controller.Notepad { closeWindowRef(AppId.NOTEPAD) } },
 //        AppId.WEB_BROWSER to { Win32Controller.WebBrowser { closeWindowRef(AppId.WEB_BROWSER) } },
-        AppId.MEDIA_PLAYER to { Win32Controller.MediaPlayer { closeWindowRef(AppId.MEDIA_PLAYER) } },
+        AppId.MEDIA_PLAYER to { Win32Controller.MediaPlayer (themeState) { closeWindowRef(AppId.MEDIA_PLAYER) } },
         AppId.PHOTOS to { Win32Controller.Photos { closeWindowRef(AppId.PHOTOS) } },
 //        AppId.FILE_EXPLORER to { Win32Controller.FileExplorer { closeWindowRef(AppId.FILE_EXPLORER) } },
         AppId.SETTINGS to { Win32Controller.Settings (themeState) { closeWindowRef(AppId.SETTINGS) } },

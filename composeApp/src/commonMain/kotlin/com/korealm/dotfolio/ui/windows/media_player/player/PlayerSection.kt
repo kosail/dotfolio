@@ -23,6 +23,7 @@ import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.korealm.dotfolio.state.AppThemeState
 import com.korealm.dotfolio.state.MediaPlayerState
 import com.korealm.dotfolio.ui.HoverableSymbolicIconButton
 import com.korealm.dotfolio.ui.SimpleSymbolicIconButton
@@ -117,6 +118,7 @@ fun MediaListRow(
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun PlayerSection(
+    themeState: AppThemeState,
     playerState: MediaPlayerState,
     onPlayClick: () -> Unit,
     modifier: Modifier = Modifier
@@ -153,11 +155,9 @@ fun PlayerSection(
                 Spacer(Modifier.width(15.dp))
 
                 // TODO: Replace this shit with a custom progress bar indicator
-                LinearProgressIndicator(
-                    progress = { playerState.progress.toFloat() },
-                    color = MaterialTheme.colorScheme.primary,
-                    trackColor = MaterialTheme.colorScheme.surfaceVariant,
-                    strokeCap = StrokeCap.Round,
+                ProgressBar(
+                    playerState = playerState,
+                    backgroundColor = if (themeState.isDarkTheme) MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.8f) else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
                     modifier = Modifier
                 )
 
