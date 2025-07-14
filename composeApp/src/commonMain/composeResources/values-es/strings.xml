@@ -1,0 +1,53 @@
+<resources>
+    <string name="cloudy">Nublado</string>
+    <string name="partly_cloudy">Mayormente nublado</string>
+
+    <!--  Desktop Shortcuts  -->
+    <string name="trash">Papelera de reciclaje</string>
+    <string name="cv">CV</string>                   <!--  .pdf   -->
+    <string name="about_me">Acerca de mí</string>       <!--  .html  -->
+    <string name="voice_recording">Notas de voz</string>   <!--  .wav   -->
+    <string name="profile_pic">Yo</string>          <!--  .jpg   -->
+    <string name="projects">Proyectos</string>
+    <string name="settings">Configuración</string>
+    <string name="readme">Léeme</string>           <!--  .txt   -->
+
+    <!--  Window related  -->
+    <string name="minimize">Minimizar</string>
+    <string name="maximize">Maximizar</string>
+    <string name="close">Cerrar</string>
+
+    <!--  Specific programs section  -->
+    <string name="notepad">Bloc de notas</string>
+    <string name="web_browser">Edge</string>
+    <string name="media_player">Reproductor multimedia</string>
+    <string name="photos">Fotos</string>
+    <string name="file_explorer">Navegador de archivos</string>
+
+    <!--  Notepad  -->
+    <string name="file">Archivo</string>
+    <string name="edit">Editar</string>
+    <string name="view">Vista</string>
+    <string name="100_percent">100%</string>
+    <string name="windows_crlf">Windows (CRLF)</string>
+    <string name="utf8">UTF-8</string>
+    <string name="main_content_message">
+        ¡Bienvenidos!
+
+        Esto no es una página web común — es una simulación de un escritorio.
+        Fue creado desde cero con Kotlin y Compose Multiplatform, y corre directamente en tu navegador.
+
+        Puedes hacer doble clic en los íconos de la izquierda para abrir las aplicaciones.
+        Cada una muestra una parte de mí: mis proyectos, habilidades, historia o trabajo.
+
+        No hay tutoriales ni instrucciones. Solo explora, como si usaras un sistema real.
+
+        Piensa en esto como un pequeño sistema operativo que inicia en quien soy.
+
+        Gracias por visitar 🌸
+    </string>
+
+    <!--  Settings App  -->
+    <string name="username">kosail</string>
+    <string name="email">Cuenta local</string>
+</resources>

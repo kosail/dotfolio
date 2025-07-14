@@ -31,7 +31,21 @@
     <string name="100_percent">100%</string>
     <string name="windows_crlf">Windows (CRLF)</string>
     <string name="utf8">UTF-8</string>
-    <string name="main_content_message">Lorem ipsssssssssssummmmmmmm</string>
+    <string name="main_content_message">
+        Welcome!
+
+        This isn't just a website — it's a simulation of a desktop environment.
+        Built from scratch with Kotlin and Compose Multiplatform, running fully in your browser.
+
+        You can double-click the icons on the left to open apps.
+        Each one shows a piece of me — my projects, skills, story, or work.
+
+        There’s no onboarding, no instructions. Just explore it as you would a real OS.
+
+        Think of it as a tiny operating system, one that boots into who I am.
+
+        Thank you for visiting 🌸
+    </string>
 
     <!--  Settings App  -->
     <string name="username">kosail</string>

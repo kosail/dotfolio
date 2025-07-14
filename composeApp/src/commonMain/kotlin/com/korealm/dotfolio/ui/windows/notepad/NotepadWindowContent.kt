@@ -54,7 +54,7 @@ fun NotepadWindowContent(
             modifier = Modifier.fillMaxSize().weight(1f)
         ) {
             Text(
-                text = stringResource(Res.string.main_content_message),
+                text = stringResource(Res.string.main_content_message).trimIndent(),
                 color = MaterialTheme.colorScheme.onSurface,
                 fontWeight = FontWeight.Normal,
                 fontSize = 17.sp,
