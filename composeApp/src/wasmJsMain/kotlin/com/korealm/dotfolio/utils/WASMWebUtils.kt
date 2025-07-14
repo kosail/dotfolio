@@ -11,11 +11,3 @@ actual fun openInNewTab(url: String) {
     a.rel = "noopener noreferrer"
     a.click()
 }
-
-@JsName("downloadFile")
-actual fun downloadFile(url: String, filename: String) {
-    val a = kotlinx.browser.document.createElement("a") as HTMLAnchorElement
-    a.href = url
-    a.download = filename
-    a.click()
-}

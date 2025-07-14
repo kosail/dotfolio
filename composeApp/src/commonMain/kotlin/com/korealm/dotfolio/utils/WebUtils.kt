@@ -8,4 +8,3 @@ package com.korealm.dotfolio.utils
 */
 
 expect fun openInNewTab(url: String)
-expect fun downloadFile(url: String, filename: String)
