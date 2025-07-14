@@ -15,7 +15,8 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 - 🧠 Built entirely in Kotlin Multiplatform (WASM target)
 - 🎨 Clean, elegant aesthetics with a focus on detail and interactivity
 
-![Nighly app logo](repo_images/nightly_appearance.webp)
+![Showdown of some apps](repo_images/nightly_appearance.webp)
+![About project](repo_images/nightly_appearance_2.webp)
 
 ---
 ## 🪻 Development Stage
