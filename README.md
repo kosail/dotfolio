@@ -33,7 +33,7 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 - ✅ Media Player
 - ❌ Web Browser
 - ❌ File Manager
-- ❌ PDF file download
+- ✅ PDF file download
 
 ### Bugs
 
@@ -47,11 +47,11 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
     I thought I could have made it without implementing that.
     I already tried to switch positions between DesktopEnvironment and DesktopShortcuts, but it's not that easy it seems.
 
-2. ### When we open a second (or more) window and we close the first one, the second window moves into the position where the first one was.
-    Which doesn't make sense! Windows should have their position independent to other windows.
-    I have no idea whatzupp with this and what it is causing it. I'll check on that later on when I finish to code all of the "apps" inside dotfolio
+2. ### When we open a second (or more) window, and we close the first one, the second window moves into the position where the first one was.
+    Which doesn't make sense! Windows should have their position independent of other windows.
+    I have no idea whatzupp with this and what it is causing it. I'll check on that later on when I finish coding all the "apps" inside dotfolio
 
-3. ### Media player works seamlessly on web target, but in Desktop it has a bug in which if the audio is paused, then it cannot be played again
+3. ### Media player works seamlessly on web target, but in Desktop it has a bug in which if the audio is paused, then it cannot be played again. Although, this project focuses on web target, and I use desktop implementation just for its hot reload capabilities, which really makes my life easier when quickly prototyping or fast debugging.
 
 </details>
 

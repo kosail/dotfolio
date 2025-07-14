@@ -28,9 +28,9 @@ fun App() {
 
 
     // Windows related
-    var openWindows by remember { mutableStateOf(listOf(AppId.MEDIA_PLAYER)) } // ! Debugging purposes
+    var openWindows by remember { mutableStateOf(listOf(AppId.NOTEPAD)) } // ! Debugging purposes
 
-    var openWindowRef by remember { mutableStateOf< (AppId) -> Unit>({}) } // Due to circular dependency between this 2 functions and appRegistry
+    var openWindowRef by remember { mutableStateOf<(AppId) -> Unit>({}) } // Due to circular dependency between this 2 functions and appRegistry
     var closeWindowRef by remember { mutableStateOf<(AppId) -> Unit>({}) } // I had to first declare them, and then associate the real function
 
 

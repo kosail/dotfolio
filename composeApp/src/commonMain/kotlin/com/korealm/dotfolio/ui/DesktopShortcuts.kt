@@ -22,6 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.korealm.dotfolio.model.AppId
+import com.korealm.dotfolio.utils.openInNewTab
 import dotfolio.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
@@ -32,7 +33,6 @@ fun DesktopShortcuts(
     onAppLaunch: (AppId) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    // IDE complaints that I should remove "redundant" declaration, but I refuse to do so as I admit that this list is NOT intuitive at first glance
     val shortcutButtonsList = listOf(
         Triple(Res.drawable.trash, stringResource(Res.string.trash), AppId.TRASH),
         Triple(Res.drawable.pdf, stringResource(Res.string.cv) + ".pdf", AppId.CV),
@@ -57,7 +57,11 @@ fun DesktopShortcuts(
                     icon = icon,
                     title = title,
                     onLaunch = {
-                        onAppLaunch(appId)
+                        if (appId == AppId.CV) {
+                            openInNewTab("public/cv.pdf")
+                        } else {
+                            onAppLaunch(appId)
+                        }
                     }
                 )
             }
