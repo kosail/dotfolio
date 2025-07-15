@@ -9,5 +9,5 @@ enum class Wallpaper (val resource: DrawableResource) {
     ZEKE_TUCKER_UNSPLASH_CAT (Res.drawable.zeke_tucker_gSSK4u8yPpM_unsplash),
     JENSEN_ART_CO_PIXABAY (Res.drawable.jensenartofficial_pixabay),
     HECTOR_EMILIO_GONZALEZ_UNSPLASH (Res.drawable.hector_emilio_gonzalez_d_X_Usz596Y_unsplash),
-    RAMON_FLOREs_UNSPLASH (Res.drawable.ramon_flores_pTPd5uzqWaw_unsplash),
+    RAMON_FLORES_UNSPLASH (Res.drawable.ramon_flores_pTPd5uzqWaw_unsplash),
 }

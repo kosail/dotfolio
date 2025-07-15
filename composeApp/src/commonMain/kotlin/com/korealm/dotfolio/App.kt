@@ -66,11 +66,7 @@ fun App() {
                 .fillMaxSize()
         ) {
             /* TODO:  has this comment become a bug tracker? Hmm, well...
-
-            TODO: I may have found a solution for the font issue on WASM!!!
-                * Check on this link later. It might be a manual solution, but it might work tho.
-                * Preloading of resources for web targets
-                * https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-resources-usage.html#preloading-of-resources-for-web-targets
+            * Nothing in here by the moment...
             */
 
             DesktopEnvironment(

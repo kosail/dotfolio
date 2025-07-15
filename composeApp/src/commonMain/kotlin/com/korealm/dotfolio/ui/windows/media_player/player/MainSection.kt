@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -131,6 +132,7 @@ fun MainSectionSideBar(
 fun MainSection(
     onPlayClick: () -> Unit,
     onSelectedAudioChange: (Audio) -> Unit,
+    japaneseFont: FontFamily,
     modifier: Modifier = Modifier
 ) {
     // Needed for the year on top of the album and for each song
@@ -251,6 +253,7 @@ fun MainSection(
                         year = year,
                         color = if (index % 2 == 0) MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f) else MaterialTheme.colorScheme.surface,
                         onClick = { onSelectedAudioChange(audio) },
+                        japaneseFont = japaneseFont,
                         modifier = Modifier
                             .fillMaxWidth()
                     )

@@ -58,7 +58,6 @@ fun NotepadWindowContent(
                 color = MaterialTheme.colorScheme.onSurface,
                 fontWeight = FontWeight.Normal,
                 fontSize = 17.sp,
-                fontFamily = FontFamily.Serif,
                 textAlign = TextAlign.Justify,
                 modifier = Modifier.padding(15.dp)
             )

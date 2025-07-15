@@ -58,7 +58,7 @@ fun DesktopShortcuts(
                     title = title,
                     onLaunch = {
                         if (appId == AppId.CV) {
-                            openInNewTab("public/cv.pdf")
+                            openInNewTab("composeResources/dotfolio.composeapp.generated.resources/files/cv.pdf")
                         } else {
                             onAppLaunch(appId)
                         }
@@ -79,8 +79,6 @@ fun ShortcutTitle(
         color = Color.White,
         fontSize = 17.sp,
         fontWeight = FontWeight.Light,
-//        fontFamily = FontTheme(),  // TODO: Fix this shit
-        // FIXME: Check on App.kt for the note related to this I left there
         style = TextStyle(
             shadow = Shadow(
                 color = Color.Black,

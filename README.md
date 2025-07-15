@@ -87,16 +87,21 @@ cd dotfolio
 - **GitHub Pages** — For deployment (expected static hosting)
 
 ### Resources
+
+#### -> Icons
 - [Windows 11 icon theme, by yeyushengfan258](https://github.com/yeyushengfan258/Win11-icon-theme/)
 - [Notepad Win11 icon, from Wikipedia Commons](https://commons.wikimedia.org/wiki/File:Notepad_Win11.svg)
-- [Selawik font, by Microsoft](https://github.com/microsoft/Selawik) (I've had A LOT of issues adding this font to the WASM version of this project, but as I plan to make the effort to make Selawik the default font, I added it)
 
-#### Wallpapers
+#### -> Wallpapers
 - [Anime wallpaper, by Jensen Art Co. on Pixabay](https://pixabay.com/users/jensenartofficial-31380959/)
 - [Cat wallpaper, by Zeke Tucker on Unsplash](https://unsplash.com/@zeketucker)
 - [Honduras wallpaper 1, by Hector Emilio Gonzalez on Unsplash](https://unsplash.com/@hectoremilio)
 - [Honduras wallpaper 2, by Ramon Flores on Unsplash](https://unsplash.com/@ramonantoniof)
 
+#### -> Fonts
+- Main font: [Selawik font, from Microsoft](https://github.com/microsoft/Selawik)
+- Japanese font: [M Plus 1p, from Google Fonts](https://fonts.google.com/specimen/M+PLUS+1p)
+- Emoji font: [Noto Color Emoji, from Google Fonts](https://fonts.google.com/noto/specimen/Noto+Color+Emoji)
 
 ---
 

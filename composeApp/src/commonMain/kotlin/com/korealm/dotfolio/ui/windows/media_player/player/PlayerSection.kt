@@ -18,6 +18,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.onPointerEvent
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -26,6 +27,7 @@ import com.korealm.dotfolio.state.MediaPlayerState
 import com.korealm.dotfolio.ui.HoverableSymbolicIconButton
 import com.korealm.dotfolio.ui.SimpleSymbolicIconButton
 import dotfolio.composeapp.generated.resources.*
+import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.pluralStringResource
 import org.jetbrains.compose.resources.stringResource
@@ -38,6 +40,7 @@ fun MediaListRow(
     year: Int,
     color: Color = MaterialTheme.colorScheme.surface,
     onClick: () -> Unit,
+    japaneseFont: FontFamily,
     modifier: Modifier = Modifier
 ) {
     var isHover by remember { mutableStateOf(false) }
@@ -70,12 +73,21 @@ fun MediaListRow(
                 .padding(vertical = 10.dp)
                 .padding(start = 55.dp, end = 10.dp)
         ) {
+            // TODO: Remove the index rendering into a new Text composable to avoid having the japanese row with a different font everywhere.
 
             Text(
-                text = "${index + 1}.    $audioName",
+                text = "${index + 1}.",
                 fontSize = 15.sp,
                 modifier = Modifier
-                    .widthIn(min = 300.dp, max = 300.dp)
+                    .padding(end = 10.dp)
+            )
+
+            Text(
+                text = "$audioName",
+                fontSize = 15.sp,
+                fontFamily = if (index == 2) japaneseFont else null,
+                modifier = Modifier
+                    .widthIn(min = 280.dp, max = 280.dp)
             )
 
             Text(
@@ -119,6 +131,7 @@ fun PlayerSection(
     themeState: AppThemeState,
     playerState: MediaPlayerState,
     onPlayClick: () -> Unit,
+    japaneseFont: FontFamily,
     modifier: Modifier = Modifier
 ) {
     Box(
@@ -157,7 +170,7 @@ fun PlayerSection(
                     playerState = playerState,
                     backgroundColor = if (themeState.isDarkTheme) MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.8f) else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
                     modifier = Modifier
-                        .widthIn(max = (containerWidth * 0.835).dp)
+                        .widthIn(max = (containerWidth * 0.8).dp)
                         .padding(top = 10.dp, start = 25.dp, end = 25.dp)
                 )
 
@@ -216,6 +229,7 @@ fun PlayerSection(
                         text = displayName,
                         fontSize = 24.sp,
                         fontWeight = FontWeight.Medium,
+                        fontFamily = if (playerState.itemIndex == 2) japaneseFont else null,
                         modifier = Modifier
                     )
 

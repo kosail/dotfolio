@@ -5,9 +5,14 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import com.korealm.dotfolio.state.AppThemeState
 import com.korealm.dotfolio.state.MediaPlayerState
 import com.korealm.dotfolio.ui.windows.media_player.player.*
+import dotfolio.composeapp.generated.resources.MPLUS1p
+import dotfolio.composeapp.generated.resources.Res
+import org.jetbrains.compose.resources.Font
 
 @Composable
 fun MediaPlayerWindowContent(
@@ -21,6 +26,10 @@ fun MediaPlayerWindowContent(
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.surface)
     ) {
+        val mplus1pFontFamily = FontFamily(
+            Font(Res.font.MPLUS1p, weight = FontWeight.Normal)
+        )
+
         Column(
             modifier = Modifier.fillMaxSize()
         ) {
@@ -48,6 +57,7 @@ fun MediaPlayerWindowContent(
                         playerState.changePlayingItem(it)
                         controlMedia(playerState, PlayerControls.PLAY)
                     },
+                    japaneseFont = mplus1pFontFamily,
                     modifier = Modifier
                 )
             }
@@ -61,6 +71,7 @@ fun MediaPlayerWindowContent(
                         action = if (playerState.isPlaying) PlayerControls.PAUSE else PlayerControls.PLAY
                     )
                 }, // Needed by play/stop button
+                japaneseFont = mplus1pFontFamily,
                 modifier = Modifier.weight(0.35f)
             )
         }

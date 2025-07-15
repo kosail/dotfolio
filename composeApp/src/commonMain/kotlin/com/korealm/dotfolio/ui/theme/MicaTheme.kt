@@ -2,10 +2,16 @@ package com.korealm.dotfolio.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Typography
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import dotfolio.composeapp.generated.resources.Res
+import dotfolio.composeapp.generated.resources.Selawik
+import org.jetbrains.compose.resources.Font
 
 @Composable
 fun MicaTheme(
@@ -108,8 +114,33 @@ fun MicaTheme(
         onErrorContainer = Win11DarkText
     )
 
+    val selawikFontFamily = FontFamily(
+        Font(Res.font.Selawik, weight = FontWeight.Normal)
+    )
+
+    val DefaultTypography = Typography().run {
+        Typography(
+            displayLarge = displayLarge.copy(fontFamily = selawikFontFamily),
+            displayMedium = displayMedium.copy(fontFamily = selawikFontFamily),
+            displaySmall = displaySmall.copy(fontFamily = selawikFontFamily),
+            headlineLarge = headlineLarge.copy(fontFamily = selawikFontFamily),
+            headlineMedium = headlineMedium.copy(fontFamily = selawikFontFamily),
+            headlineSmall = headlineSmall.copy(fontFamily = selawikFontFamily),
+            titleLarge = titleLarge.copy(fontFamily = selawikFontFamily),
+            titleMedium = titleMedium.copy(fontFamily = selawikFontFamily),
+            titleSmall = titleSmall.copy(fontFamily = selawikFontFamily),
+            bodyLarge = bodyLarge.copy(fontFamily = selawikFontFamily),
+            bodyMedium = bodyMedium.copy(fontFamily = selawikFontFamily),
+            bodySmall = bodySmall.copy(fontFamily = selawikFontFamily),
+            labelLarge = labelLarge.copy(fontFamily = selawikFontFamily),
+            labelMedium = labelMedium.copy(fontFamily = selawikFontFamily),
+            labelSmall = labelSmall.copy(fontFamily = selawikFontFamily),
+        )
+    }
+
     MaterialTheme(
         colorScheme = if (darkTheme) win11DarkColors() else win11LightColors(),
+        typography = DefaultTypography,
         content = content
     )
 }
