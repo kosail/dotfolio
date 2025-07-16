@@ -8,7 +8,7 @@ data class WindowApp(
     val appId: AppId,
     val title: String,
     val icon: Painter,
-    val isMinimized: Boolean = false,
+    var isMinimized: Boolean = false,
     val defaultSize: DpSize,
     val titleBar: @Composable () -> Unit = {},
     val content: @Composable () -> Unit = {}

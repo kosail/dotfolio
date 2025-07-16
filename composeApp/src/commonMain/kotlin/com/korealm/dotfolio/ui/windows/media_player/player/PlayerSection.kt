@@ -174,11 +174,10 @@ fun PlayerSection(
                         .padding(top = 10.dp, start = 25.dp, end = 25.dp)
                 )
 
-                val duration = "${(playerState.duration / 3600).toInt()}:" +
-                        "${(playerState.duration / 60).toInt().toString().padStart(2, '0')}:" +
-                        "${(playerState.duration % 60).toInt().toString().padStart(2, '0')}"
                 Text( // Total duration
-                    text = duration,
+                    text = "${(playerState.duration / 3600).toInt()}:${
+                        (playerState.duration / 60).toInt().toString().padStart(2, '0')
+                    }:${(playerState.duration % 60).toInt().toString().padStart(2, '0')}",
                     fontSize = 15.sp,
                     modifier = Modifier
                 )

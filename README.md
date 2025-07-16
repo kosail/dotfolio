@@ -22,17 +22,15 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 ## 🪻 Development Stage
 ### Main
 - ✅ Desktop Environment:
-    - ❌ Z Index for apps
-    - ❌ Selawik Font on Web target
-
-    
+    - ❌ Z Index for apps 
+    - ❌ Windows minimize capabilities
 
 ### Apps
 - ✅ Notepad
 - ✅ Settings
 - ✅ Photos
 - ✅ Media Player
-- ❌ Web Browser
+- 🌱 Web Browser
 - ❌ File Manager
 - ✅ PDF file download
 
@@ -52,7 +50,7 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
     Which doesn't make sense! Windows should have their position independent of other windows.
     I have no idea whatzupp with this and what it is causing it. I'll check on that later on when I finish coding all the "apps" inside dotfolio
 
-3. ### Media player works seamlessly on web target, but in Desktop it has a bug in which if the audio is paused, then it cannot be played again. Although, this project focuses on web target, and I use desktop implementation just for its hot reload capabilities, which really makes my life easier when quickly prototyping or fast debugging.
+3. ### Media player works seamlessly on web target, but in Desktop it has a bug in which if the audio is paused, then it cannot be played again. Although, it's okay. This project focuses on web target, and I use desktop implementation just for its hot reload capabilities, which really makes my life easier when quickly prototyping or fast debugging.
 
 </details>
 

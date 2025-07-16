@@ -35,7 +35,7 @@ fun App() {
 
 
     // This is like a sealed "registry" of apps, and now all apps can be called from here.
-    val appRegistry = mapOf<AppId, (@Composable () -> WindowApp)>(
+    val appRegistry = mapOf<AppId, (@Composable () -> WindowApp)> (
         AppId.NOTEPAD to { Win32Controller.Notepad { closeWindowRef(AppId.NOTEPAD) } },
 //        AppId.WEB_BROWSER to { Win32Controller.WebBrowser { closeWindowRef(AppId.WEB_BROWSER) } },
         AppId.MEDIA_PLAYER to { Win32Controller.MediaPlayer (themeState) { closeWindowRef(AppId.MEDIA_PLAYER) } },
@@ -74,7 +74,8 @@ fun App() {
                 openAppsIds = openWindows,
                 appRegistry = appRegistry,
                 themeState = themeState,
-                modifier = Modifier)
+                modifier = Modifier
+            )
 
             DesktopShortcuts(
                 onAppLaunch = { appId -> openWindowRef(appId) },

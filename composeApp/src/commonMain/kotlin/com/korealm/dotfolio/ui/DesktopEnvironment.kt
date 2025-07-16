@@ -132,7 +132,7 @@ fun DesktopEnvironment(
                         ) {
                             TaskbarIcon(
                                 icon = windowApp.icon,
-                                onClick = { /* TODO LATER */ },
+                                onClick = { windowApp.isMinimized = ! windowApp.isMinimized },
                                 modifier = Modifier
                             )
                         }
