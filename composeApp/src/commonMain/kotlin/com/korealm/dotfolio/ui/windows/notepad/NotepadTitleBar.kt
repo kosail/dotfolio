@@ -1,6 +1,5 @@
 package com.korealm.dotfolio.ui.windows.notepad
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -15,13 +14,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.korealm.dotfolio.state.AppThemeState
 import com.korealm.dotfolio.ui.windows.StandardTitleBarButtonSet
 import com.korealm.dotfolio.ui.windows.TitleBarMainIcon
 import dotfolio.composeapp.generated.resources.Res
 import dotfolio.composeapp.generated.resources.notepad
 import dotfolio.composeapp.generated.resources.readme
-import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable

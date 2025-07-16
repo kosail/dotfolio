@@ -28,7 +28,7 @@ fun App() {
 
 
     // Windows related
-    var openWindows by remember { mutableStateOf(listOf(AppId.NOTEPAD)) } // ! Debugging purposes
+    var openWindows by remember { mutableStateOf(listOf(AppId.WEB_BROWSER)) } // ! Debugging purposes
 
     var openWindowRef by remember { mutableStateOf<(AppId) -> Unit>({}) } // Due to circular dependency between this 2 functions and appRegistry
     var closeWindowRef by remember { mutableStateOf<(AppId) -> Unit>({}) } // I had to first declare them, and then associate the real function
@@ -37,7 +37,7 @@ fun App() {
     // This is like a sealed "registry" of apps, and now all apps can be called from here.
     val appRegistry = mapOf<AppId, (@Composable () -> WindowApp)> (
         AppId.NOTEPAD to { Win32Controller.Notepad { closeWindowRef(AppId.NOTEPAD) } },
-//        AppId.WEB_BROWSER to { Win32Controller.WebBrowser { closeWindowRef(AppId.WEB_BROWSER) } },
+        AppId.WEB_BROWSER to { Win32Controller.WebBrowser(themeState) { closeWindowRef(AppId.WEB_BROWSER) } },
         AppId.MEDIA_PLAYER to { Win32Controller.MediaPlayer (themeState) { closeWindowRef(AppId.MEDIA_PLAYER) } },
         AppId.PHOTOS to { Win32Controller.Photos { closeWindowRef(AppId.PHOTOS) } },
 //        AppId.FILE_EXPLORER to { Win32Controller.FileExplorer { closeWindowRef(AppId.FILE_EXPLORER) } },

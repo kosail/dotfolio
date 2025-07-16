@@ -19,7 +19,7 @@ object Win32Controller {
     fun Notepad(onClose: () -> Unit): WindowApp = NotepadApp(onClose)
 
     @Composable
-    fun WebBrowser(onClose: () -> Unit)/*: WindowApp*/ = WebBrowserApp(onClose)
+    fun WebBrowser(themeState: AppThemeState, onClose: () -> Unit): WindowApp = WebBrowserApp(themeState, onClose)
 
     @Composable
     fun MediaPlayer(themeState: AppThemeState ,onClose: () -> Unit): WindowApp = MediaPlayerApp(themeState, onClose)

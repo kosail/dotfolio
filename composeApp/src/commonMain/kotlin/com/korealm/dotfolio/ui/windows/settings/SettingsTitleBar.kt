@@ -1,26 +1,19 @@
 package com.korealm.dotfolio.ui.windows.settings
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.korealm.dotfolio.state.AppThemeState
 import com.korealm.dotfolio.ui.windows.StandardTitleBarButtonSet
 import com.korealm.dotfolio.ui.windows.TitleBarMainIcon
 import com.korealm.dotfolio.ui.windows.TitleBarTitle
 import dotfolio.composeapp.generated.resources.Res
 import dotfolio.composeapp.generated.resources.settings
-import org.jetbrains.compose.resources.painterResource
-import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun SettingsTitleBar (

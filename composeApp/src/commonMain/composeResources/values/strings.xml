@@ -38,7 +38,7 @@
         Built from scratch with Kotlin and Compose Multiplatform, running fully in your browser.
 
         You can double-click the icons on the left to open apps.
-        Each one shows a piece of me — my projects, skills, story, or work.
+        Each one shows a piece of me — my projects, skills, story, and work.
 
         There’s no onboarding, no instructions. Just explore it as you would a real OS.
         Think of it as a tiny operating system, one that boots into who I am.
@@ -102,4 +102,7 @@
     <string name="media_player__add_to">Add to</string>
     <string name="media_player__edit_info">Edit info</string>
 
+    <!--  Web browser App  -->
+    <string name="web_browser_tab_name">A world of us</string>
+    <string name="web_browser_github">kosail's Github</string>
 </resources>
