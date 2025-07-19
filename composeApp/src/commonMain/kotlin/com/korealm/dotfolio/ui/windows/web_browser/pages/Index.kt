@@ -1,28 +1,31 @@
 package com.korealm.dotfolio.ui.windows.web_browser.pages
 
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.gestures.Orientation
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.VerticalDivider
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.korealm.dotfolio.ui.SimpleSymbolicIconButton
-import dotfolio.composeapp.generated.resources.*
+import dotfolio.composeapp.generated.resources.MPLUS1p
+import dotfolio.composeapp.generated.resources.Res
+import dotfolio.composeapp.generated.resources.tsuki
 import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.painterResource
-import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun Index(
@@ -31,6 +34,8 @@ fun Index(
     val mPlusFontFamily = FontFamily(
         Font(Res.font.MPLUS1p, FontWeight.Normal),
     )
+
+    var currentPage by remember { mutableStateOf(Page.INDEX) }
 
     Image( // Background image
         painter = painterResource(Res.drawable.tsuki),
@@ -47,7 +52,7 @@ fun Index(
     ) {
         Surface(
             shape = RoundedCornerShape(6.dp),
-            color = MaterialTheme.colorScheme.background.copy(alpha = 0.65f),
+            color = MaterialTheme.colorScheme.background.copy(alpha = 0.85f),
             modifier = Modifier
                 .fillMaxSize()
                 .border(1.dp, MaterialTheme.colorScheme.onBackground.copy(alpha = 0.1f)),
@@ -57,108 +62,60 @@ fun Index(
             ) {
                 IndexSidebar(
                     defaultFont = mPlusFontFamily,
+                    onNavigationClick = { currentPage = it },
                     modifier = Modifier
-                        .weight(0.35f)
+                        .weight(0.4f)
                         .fillMaxHeight()
                 )
 
                 VerticalDivider(
-                        thickness = 1.dp,
-                        color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.1f),
+                    thickness = 1.dp,
+                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.1f),
                 )
 
-                Foo(
-                    defaultFont = mPlusFontFamily,
+                BoxWithConstraints (
                     modifier = Modifier
-                        .weight(0.65f)
+                        .weight(0.6f)
                         .fillMaxHeight()
-                )
+                ) {
+                    AnimatedContent(
+                        targetState = currentPage,
+                        transitionSpec = {
+                            fadeIn(animationSpec = tween(1000) ) togetherWith fadeOut(animationSpec = tween(1000))
+                        }
+                    ) { selected ->
+                        when (selected) {
+                            Page.INDEX -> {
+                                Foo(
+                                    defaultFont = mPlusFontFamily,
+                                    modifier = Modifier
+                                        .fillMaxSize()
+                                        .background(Color.Red)
+                                )
+                            }
+                            Page.ABOUT_ME -> {
+                                Foo(
+                                    defaultFont = mPlusFontFamily,
+                                    modifier = Modifier
+                                        .fillMaxSize()
+                                        .background(Color.Green)
+                                )
+                            }
+                            Page.PROJECTS -> {
+                                Foo(
+                                    defaultFont = mPlusFontFamily,
+                                    modifier = Modifier
+                                        .fillMaxSize()
+                                        .background(Color.Yellow)
+                                )
+                            }
+                            Page.THOUGHTS -> {}
+                            Page.GALLERY -> {}
+                            Page.CONTACT -> {}
+                        }
+                    }
+                }
             }
-        }
-
-    }
-}
-
-@Composable
-fun IndexSidebar(
-    defaultFont: FontFamily,
-    modifier: Modifier = Modifier,
-) {
-    Column (
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier
-    ) {
-        Row(
-            modifier = Modifier
-                .weight(0.5f)
-                .fillMaxWidth()
-        ) {
-            Surface(
-                color = Color.Transparent,
-                modifier = Modifier
-                    .background(MaterialTheme.colorScheme.background.copy(alpha = 0.1f))
-
-            ) {
-                Image(
-                    painter = painterResource(Res.drawable.milumu),
-                    contentDescription = null,
-                    modifier = Modifier
-                )
-            }
-
-            Column(
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.fillMaxSize()
-            ) {
-                SimpleSymbolicIconButton(
-                    icon = Res.drawable.home_symbolic,
-                    modifier = Modifier.size(25.dp)
-                )
-            }
-        }
-
-        HorizontalDivider(
-            thickness = 1.dp,
-            color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.1f),
-        )
-
-        Column(
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.Start,
-            modifier = Modifier
-                .weight(0.5f)
-                .fillMaxWidth()
-                .padding(horizontal = 30.dp)
-        ) {
-            Text(
-                text = stringResource(Res.string.web_browser_web_name),
-                fontSize = 25.sp,
-                fontWeight = FontWeight.Bold,
-                fontFamily = defaultFont
-            )
-
-            Spacer(modifier = Modifier.height(30.dp))
-
-            Text(
-                text = stringResource(Res.string.web_browser_web_description).trimIndent(),
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Normal,
-                fontFamily = defaultFont
-            )
         }
     }
-}
-
-@Composable
-fun Foo(
-    defaultFont: FontFamily,
-    modifier: Modifier = Modifier,
-) {
-    Box(
-        modifier = modifier
-            .scrollable(rememberScrollState(0), Orientation.Vertical)
-//            .background(Color.Red)
-    ) {}
 }

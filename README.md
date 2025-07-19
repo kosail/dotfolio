@@ -90,11 +90,12 @@ cd dotfolio
 - [Windows 11 icon theme, by yeyushengfan258](https://github.com/yeyushengfan258/Win11-icon-theme/)
 - [Notepad Win11 icon, from Wikipedia Commons](https://commons.wikimedia.org/wiki/File:Notepad_Win11.svg)
 
-#### -> Wallpapers
+#### -> Wallpapers and images
 - [Anime wallpaper, by Jensen Art Co. on Pixabay](https://pixabay.com/users/jensenartofficial-31380959/)
 - [Cat wallpaper, by Zeke Tucker on Unsplash](https://unsplash.com/@zeketucker)
 - [Honduras wallpaper 1, by Hector Emilio Gonzalez on Unsplash](https://unsplash.com/@hectoremilio)
 - [Honduras wallpaper 2, by Ramon Flores on Unsplash](https://unsplash.com/@ramonantoniof)
+- [Purple cat photo, by Adam Gonzales on Unsplash](https://unsplash.com/@adamgonzales)
 
 #### -> Fonts
 - Main font: [Selawik font, from Microsoft](https://github.com/microsoft/Selawik)
