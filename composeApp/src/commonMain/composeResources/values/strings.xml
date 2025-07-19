@@ -105,4 +105,12 @@
     <!--  Web browser App  -->
     <string name="web_browser_tab_name">A world of us</string>
     <string name="web_browser_github">kosail's Github</string>
+    <string name="web_browser_website">https://korealm.dev/</string>
+    <string name="web_browser_web_name">A World of Us</string>
+    <string name="web_browser_web_description">
+        I believe in curiosity, in focus, and in quiet craft.
+        I love Linux. I love clean UIs. I like small apps that do one thing right.
+        
+        I built Dotfolio not to impress, but to express.
+    </string>
 </resources>

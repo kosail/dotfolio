@@ -29,10 +29,14 @@ fun ProgressBar(
     modifier: Modifier = Modifier,
 ) {
     var thumbOffset by remember { mutableStateOf(playerState.progress) }
+    var isDragging by remember { mutableStateOf(false) }
 
     LaunchedEffect(playerState.isPlaying) {
         while (playerState.isPlaying) {
-            thumbOffset = playerState.progress
+            if (!isDragging) {
+                thumbOffset = playerState.progress
+            }
+
             delay(150)
         }
     }
@@ -65,11 +69,22 @@ fun ProgressBar(
             modifier = Modifier
                 .fillMaxSize()
                 .pointerInput(Unit) {
-                    detectDragGestures { _, dragAmount ->
-                        val thumbPositionPx = barWidthPx * thumbOffset + dragAmount.x
-                        thumbOffset = (thumbPositionPx / barWidthPx).coerceIn(0f, 1f)
-                        MediaPlayer.seekTo(playerState.duration * thumbOffset)
-                    }
+                    detectDragGestures(
+                        onDragStart = {
+                            isDragging = true
+                        },
+                        onDragEnd = {
+                            isDragging = false
+                        },
+                        onDragCancel = {
+                            isDragging = false
+                        },
+                        onDrag = { _, dragAmount ->
+                            val thumbPositionPx = barWidthPx * thumbOffset + dragAmount.x
+                            thumbOffset = (thumbPositionPx / barWidthPx).coerceIn(0f, 1f)
+                            MediaPlayer.seekTo(playerState.duration * thumbOffset)
+                        }
+                    )
                 }
         ) {
             val thumbX = size.width * thumbOffset

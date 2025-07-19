@@ -20,7 +20,7 @@ fun WebBrowserApp (
         appId = AppId.WEB_BROWSER,
         title = stringResource(Res.string.web_browser),
         icon = painterResource(Res.drawable.web_browser),
-        defaultSize = DpSize(1000.dp, 800.dp),
+        defaultSize = DpSize(1300.dp, 900.dp),
         titleBar = {
             WebBrowserTitleBar(
                 themeState = themeState,

@@ -3,6 +3,7 @@ package com.korealm.dotfolio.ui.windows.web_browser
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -36,6 +37,7 @@ import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.korealm.dotfolio.ui.SimpleSymbolicIconButton
+import com.korealm.dotfolio.utils.openInNewTab
 import dotfolio.composeapp.generated.resources.Res
 import dotfolio.composeapp.generated.resources.arrow1_left_symbolic
 import dotfolio.composeapp.generated.resources.arrow1_right_symbolic
@@ -48,7 +50,9 @@ import dotfolio.composeapp.generated.resources.reload_all_tabs_symbolic
 import dotfolio.composeapp.generated.resources.searching_symbolic
 import dotfolio.composeapp.generated.resources.share_symbolic
 import dotfolio.composeapp.generated.resources.user_account
+import dotfolio.composeapp.generated.resources.web_browser
 import dotfolio.composeapp.generated.resources.web_browser_github
+import dotfolio.composeapp.generated.resources.web_browser_website
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.skia.Surface
@@ -104,7 +108,7 @@ fun BrowserToolBar(
                     shape = RoundedCornerShape(6.dp),
                     color = MaterialTheme.colorScheme.surface,
                     modifier = Modifier
-                        .width((boxWidth * 0.5).dp)
+                        .width((boxWidth * 0.61).dp)
                         .height(40.dp)
                         .onPointerEvent(PointerEventType.Enter) { isHover = true }
                         .onPointerEvent(PointerEventType.Exit) { isHover = false }
@@ -128,7 +132,7 @@ fun BrowserToolBar(
                         Spacer(Modifier.width(16.dp))
 
                         Text(
-                            text = "http://localhost:8080/",
+                            text = stringResource(Res.string.web_browser_website),
                             color = MaterialTheme.colorScheme.onSurface,
                             fontSize = 17.sp,
                             modifier = Modifier
@@ -202,9 +206,10 @@ fun BrowserToolBar(
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 20.dp, bottom = 11.dp)
+                modifier = Modifier.clickable {
+                    openInNewTab("https://github.com/kosail")
+                }
+                    .padding(horizontal = 20.dp, vertical = 11.dp)
             ) {
                 SimpleSymbolicIconButton(
                     icon = Res.drawable.github_symbolic,
