@@ -3,8 +3,8 @@ package com.korealm.dotfolio.ui.windows.web_browser.pages
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -70,21 +70,21 @@ fun IndexSidebar(
                 ) {
                     BoxedIcon(
                         painter = Res.drawable.lucide_house,
-                        contentDescription = null,
-                        action = { onNavigationClick(Page.INDEX) },
+                        contentDescription = stringResource(Res.string.web_browser_home),
+                        action = { onNavigationClick(Page.HOME) },
                         modifier = Modifier
                     )
 
                     BoxedIcon(
                         painter = Res.drawable.lucide_folder_code,
-                        contentDescription = null,
+                        contentDescription = stringResource(Res.string.web_browser_projects),
                         action = { onNavigationClick(Page.PROJECTS) },
                         modifier = Modifier
                     )
 
                     BoxedIcon(
                         painter = Res.drawable.lucide_send,
-                        contentDescription = null,
+                        contentDescription = stringResource(Res.string.web_browser_contact),
                         action = { onNavigationClick(Page.CONTACT) },
                         modifier = Modifier
                     )
@@ -98,21 +98,21 @@ fun IndexSidebar(
                 ) {
                     BoxedIcon(
                         painter = Res.drawable.lucide_user,
-                        contentDescription = null,
+                        contentDescription = stringResource(Res.string.web_browser_about),
                         action = { onNavigationClick(Page.ABOUT_ME) },
                         modifier = Modifier
                     )
 
                     BoxedIcon(
                         painter = Res.drawable.lucide_flower,
-                        contentDescription = null,
+                        contentDescription = stringResource(Res.string.web_browser_thoughts),
                         action = { onNavigationClick(Page.THOUGHTS) },
                         modifier = Modifier
                     )
 
                     BoxedIcon(
                         painter = Res.drawable.lucide_images,
-                        contentDescription = null,
+                        contentDescription = stringResource(Res.string.web_browser_gallery),
                         action = { onNavigationClick(Page.GALLERY) },
                         modifier = Modifier
                     )
@@ -121,10 +121,7 @@ fun IndexSidebar(
 
         }
 
-        HorizontalDivider(
-            thickness = 1.dp,
-            color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.1f),
-        )
+        SlightDivider(Orientation.Horizontal)
 
         Column(
             verticalArrangement = Arrangement.Center,

@@ -1,7 +1,6 @@
 package com.korealm.dotfolio.ui.windows.web_browser.pages
 
 import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -9,6 +8,7 @@ import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
@@ -35,7 +35,7 @@ fun Index(
         Font(Res.font.MPLUS1p, FontWeight.Normal),
     )
 
-    var currentPage by remember { mutableStateOf(Page.INDEX) }
+    var currentPage by remember { mutableStateOf(Page.HOME) }
 
     Image( // Background image
         painter = painterResource(Res.drawable.tsuki),
@@ -68,12 +68,9 @@ fun Index(
                         .fillMaxHeight()
                 )
 
-                VerticalDivider(
-                    thickness = 1.dp,
-                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.1f),
-                )
+                SlightDivider(Orientation.Vertical)
 
-                BoxWithConstraints (
+                Box (
                     modifier = Modifier
                         .weight(0.6f)
                         .fillMaxHeight()
@@ -85,30 +82,14 @@ fun Index(
                         }
                     ) { selected ->
                         when (selected) {
-                            Page.INDEX -> {
-                                Foo(
+                            Page.HOME -> {
+                                Home(
                                     defaultFont = mPlusFontFamily,
-                                    modifier = Modifier
-                                        .fillMaxSize()
-                                        .background(Color(0xFF800080))
+                                    modifier = Modifier.fillMaxSize()
                                 )
                             }
-                            Page.ABOUT_ME -> {
-                                Foo(
-                                    defaultFont = mPlusFontFamily,
-                                    modifier = Modifier
-                                        .fillMaxSize()
-                                        .background(Color.Green)
-                                )
-                            }
-                            Page.PROJECTS -> {
-                                Foo(
-                                    defaultFont = mPlusFontFamily,
-                                    modifier = Modifier
-                                        .fillMaxSize()
-                                        .background(Color.Yellow)
-                                )
-                            }
+                            Page.ABOUT_ME -> {}
+                            Page.PROJECTS -> {}
                             Page.THOUGHTS -> {}
                             Page.GALLERY -> {}
                             Page.CONTACT -> {}

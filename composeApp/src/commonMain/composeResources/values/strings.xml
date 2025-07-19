@@ -112,4 +112,10 @@
 
         I built Dotfolio not to impress, but to express.
     </string>
+    <string name="web_browser_home">Home</string>
+    <string name="web_browser_about">About me</string>
+    <string name="web_browser_projects">Projects</string>
+    <string name="web_browser_thoughts">Thoughts</string>
+    <string name="web_browser_gallery">Gallery of inspiration</string>
+    <string name="web_browser_contact">Contact me</string>
 </resources>
