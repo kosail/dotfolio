@@ -16,6 +16,7 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 - 🎨 Clean, elegant aesthetics with a focus on detail and interactivity
 
 ![Showdown of some apps](repo_images/nightly_appearance.webp)
+![Web browser app opened up](repo_images/nightly_appearance_3.webp)
 ![About project](repo_images/nightly_appearance_2.webp)
 
 ---
