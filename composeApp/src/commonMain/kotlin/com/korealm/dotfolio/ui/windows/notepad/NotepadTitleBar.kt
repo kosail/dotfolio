@@ -14,9 +14,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.korealm.dotfolio.ui.SimpleSymbolicIconButton
 import com.korealm.dotfolio.ui.windows.StandardTitleBarButtonSet
 import com.korealm.dotfolio.ui.windows.TitleBarMainIcon
 import dotfolio.composeapp.generated.resources.Res
+import dotfolio.composeapp.generated.resources.lock_symbolic
 import dotfolio.composeapp.generated.resources.notepad
 import dotfolio.composeapp.generated.resources.readme
 import org.jetbrains.compose.resources.stringResource
@@ -64,14 +66,22 @@ fun NotepadTitleBar(
             Surface(
                 color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f),
             ) {
-                Text(
-                    text = stringResource(Res.string.readme) + ".txt",
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.Medium,
-                    modifier = Modifier
-                        .padding(vertical = 5.dp, horizontal = 10.dp)
-                        .padding(end = 50.dp)
-                )
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Start,
+                    modifier = Modifier.padding(start = 10.dp)
+                ) {
+                    SimpleSymbolicIconButton(Res.drawable.lock_symbolic)
+
+                    Text(
+                        text = stringResource(Res.string.readme) + ".txt",
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Medium,
+                        modifier = Modifier
+                            .padding(vertical = 5.dp, horizontal = 7.dp)
+                            .padding(end = 50.dp)
+                    )
+                }
             }
         }
 
