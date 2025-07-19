@@ -27,6 +27,7 @@ import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun PostHeader(
+    specialTitle: String? = null, // To use this composable as "updated profile pic" or some announcement like that
     rebloggedFrom: String? = null,
     date: String,
     font: FontFamily,
@@ -61,37 +62,23 @@ fun PostHeader(
                         .padding(end = 5.dp)
                 )
 
-                if (rebloggedFrom == null) {
-                    Text(
-                        text = stringResource(Res.string.web_browser_blogged),
-                        color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.9f),
-                        fontFamily = font,
-                        fontWeight = FontWeight.Normal,
-                        fontSize = 17.sp,
-                        textAlign = TextAlign.Start,
-                        modifier = modifier
+                if (specialTitle.isNullOrBlank()) {
+                    PostHeaderBlogText(
+                        rebloggedFrom = rebloggedFrom,
+                        font = font
                     )
                 } else {
                     Text(
-                        text = stringResource(Res.string.web_browser_reblogged),
+                        text = specialTitle,
                         color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.9f),
                         fontFamily = font,
                         fontWeight = FontWeight.Normal,
-                        fontSize = 17.sp,
-                        textAlign = TextAlign.Start,
-                        modifier = modifier.padding(end = 5.dp)
-                    )
-
-                    Text(
-                        text = rebloggedFrom,
-                        color = MaterialTheme.colorScheme.onBackground,
-                        fontFamily = font,
-                        fontWeight = FontWeight.SemiBold,
                         fontSize = 17.sp,
                         textAlign = TextAlign.Start,
                         modifier = modifier
                     )
                 }
+
             }
 
             Text(
@@ -105,5 +92,45 @@ fun PostHeader(
             )
         }
 
+    }
+}
+
+
+@Composable
+fun PostHeaderBlogText(
+    rebloggedFrom: String? = null,
+    font: FontFamily,
+    modifier: Modifier = Modifier
+) {
+    if (rebloggedFrom == null) {
+        Text(
+            text = stringResource(Res.string.web_browser_blogged),
+            color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.9f),
+            fontFamily = font,
+            fontWeight = FontWeight.Normal,
+            fontSize = 17.sp,
+            textAlign = TextAlign.Start,
+            modifier = modifier
+        )
+    } else {
+        Text(
+            text = stringResource(Res.string.web_browser_reblogged),
+            color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.9f),
+            fontFamily = font,
+            fontWeight = FontWeight.Normal,
+            fontSize = 17.sp,
+            textAlign = TextAlign.Start,
+            modifier = modifier.padding(end = 5.dp)
+        )
+
+        Text(
+            text = rebloggedFrom,
+            color = MaterialTheme.colorScheme.onBackground,
+            fontFamily = font,
+            fontWeight = FontWeight.SemiBold,
+            fontSize = 17.sp,
+            textAlign = TextAlign.Start,
+            modifier = modifier
+        )
     }
 }

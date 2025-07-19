@@ -7,16 +7,21 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import com.korealm.dotfolio.ui.windows.web_browser.pages.post.Post
+import com.korealm.dotfolio.ui.windows.web_browser.pages.post.PostBody
 import com.korealm.dotfolio.ui.windows.web_browser.pages.post.PostFooter
 import com.korealm.dotfolio.ui.windows.web_browser.pages.post.PostHeader
 import dotfolio.composeapp.generated.resources.Res
+import dotfolio.composeapp.generated.resources.kosaildev_profile
+import dotfolio.composeapp.generated.resources.web_browser_reblogged
 import dotfolio.composeapp.generated.resources.web_browser_weeks_ago
 import org.jetbrains.compose.resources.pluralStringResource
+import kotlin.collections.mutableMapOf
 
 @Composable
 fun Home(
@@ -38,12 +43,21 @@ fun Home(
                 Post(
                     postHeader = {
                         PostHeader(
+                            specialTitle = "has changed profile picture.",
                             date = pluralStringResource(Res.plurals.web_browser_weeks_ago, 1, 1),
                             font = defaultFont,
                             modifier = Modifier
                         )
                     },
-                    postBody = {},
+                    postBody = {
+                        PostBody(
+                            images = mapOf(
+                                Res.drawable.kosaildev_profile to Res.string.web_browser_reblogged // Just testing
+                            ),
+                            font = defaultFont,
+                            modifier = Modifier
+                        )
+                    },
                     postFooter = {
                         PostFooter(
                             numberOfReblogs = "115,955",
