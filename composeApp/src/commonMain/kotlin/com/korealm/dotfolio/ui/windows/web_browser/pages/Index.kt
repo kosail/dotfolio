@@ -90,7 +90,7 @@ fun Index(
                                     defaultFont = mPlusFontFamily,
                                     modifier = Modifier
                                         .fillMaxSize()
-                                        .background(Color.Red)
+                                        .background(Color(0xFF800080))
                                 )
                             }
                             Page.ABOUT_ME -> {
