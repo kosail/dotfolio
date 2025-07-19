@@ -37,6 +37,7 @@ import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.korealm.dotfolio.ui.SimpleSymbolicIconButton
+import com.korealm.dotfolio.utils.RoundedPicture
 import com.korealm.dotfolio.utils.openInNewTab
 import dotfolio.composeapp.generated.resources.Res
 import dotfolio.composeapp.generated.resources.arrow1_left_symbolic
@@ -179,13 +180,7 @@ fun BrowserToolBar(
 
                 Spacer(Modifier.width(22.dp))
 
-                Image(
-                    painter = painterResource(Res.drawable.user_account),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .clip(CircleShape)
-                        .size(35.dp)
-                )
+                RoundedPicture(Res.drawable.user_account)
 
                 Spacer(Modifier.width(22.dp))
 

@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.korealm.dotfolio.state.AppThemeState
 import com.korealm.dotfolio.ui.theme.Wallpaper
+import com.korealm.dotfolio.utils.RoundedPicture
 import dotfolio.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.StringResource
@@ -63,12 +64,9 @@ fun SettingsWindowContent (
                     .padding(16.dp)
             ) {
                 // Account profile picture
-                Image(
-                    painter = painterResource(Res.drawable.user_account),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .clip(CircleShape)
-                        .size(60.dp)
+                RoundedPicture(
+                    painter = Res.drawable.user_account,
+                    modifier = Modifier.size(60.dp)
                 )
 
                 // Account name and email

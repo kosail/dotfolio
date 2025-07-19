@@ -1,18 +1,18 @@
-package com.korealm.dotfolio.ui.windows.web_browser.pages
+package com.korealm.dotfolio.ui.windows.web_browser.pages.post
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.korealm.dotfolio.ui.windows.web_browser.pages.SlightDivider
 
 @Composable
 fun Post(
     postHeader: @Composable () -> Unit,
-    postContent: @Composable () -> Unit,
+    postBody: @Composable () -> Unit,
     postFooter: @Composable () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -23,16 +23,15 @@ fun Post(
     ) {
         Column (
             verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.fillMaxWidth()
         ) {
             postHeader()
 
-            SlightDivider(orientation = Orientation.Horizontal, modifier = Modifier.padding(vertical = 10.dp))
+            SlightDivider(orientation = Orientation.Horizontal)
 
-            postContent()
+            postBody()
 
-            SlightDivider(orientation = Orientation.Horizontal, modifier = Modifier.padding(vertical = 10.dp))
+            SlightDivider(orientation = Orientation.Horizontal)
 
             postFooter()
         }
