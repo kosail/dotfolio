@@ -4,7 +4,7 @@ enum class Page {
     HOME,
     ABOUT_ME,
     PROJECTS,
-    THOUGHTS,
+    FAQ,
     GALLERY,
     CONTACT
 }

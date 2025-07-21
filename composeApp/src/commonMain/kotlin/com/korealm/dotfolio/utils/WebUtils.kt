@@ -8,3 +8,5 @@ package com.korealm.dotfolio.utils
 */
 
 expect fun openInNewTab(url: String)
+
+expect fun encodeText(text: String): String

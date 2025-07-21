@@ -13,6 +13,8 @@ import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.korealm.dotfolio.utils.encodeText
+import com.korealm.dotfolio.utils.openInNewTab
 
 @Composable
 fun SlightDivider(
@@ -52,4 +54,16 @@ fun CustomVerticalScrollbar(
         modifier = modifier
             .fillMaxHeight()
     )
+}
+
+fun mailTrigger(
+    recipient: String,
+    subject: String,
+    body: String,
+) {
+    val encodedSubject = encodeText(subject)
+    val encodedBody = encodeText(body)
+    val fullString = "mailto:$recipient?subject=$encodedSubject&body=$encodedBody"
+
+    openInNewTab(fullString)
 }

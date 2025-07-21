@@ -135,4 +135,100 @@
     <string name="web_browser_blogged">blogged</string>
     <string name="web_browser_reblogged">reblogged</string>
     <string name="web_browser_reblogs">REBLOGS</string>
+    <string name="web_browser_pinned_post">pinned post</string>
+
+    <!--  Home posts section  -->
+    <string name="web_browser_post_welcome_tag_one">welcome</string>
+    <string name="web_browser_post_welcome_tag_two">personal blog</string>
+    <string name="web_browser_post_welcome_tag_three">tumblr inspired</string>
+    <string name="web_browser_post_welcome">
+        Welcome to my blog, fellow programmer! You are very welcome to visit every corner of this blog, this personal space. I hope you can get an idea of me, and get the beats of the heart that wrote these posts.
+    </string>
+
+    <string name="web_browser_post_one_content_desc">Screenshot of my blog, time ago</string>
+    <string name="web_browser_post_one_tag_one">wordpress</string>
+    <string name="web_browser_post_one_tag_two">moodle</string>
+    <string name="web_browser_post_one_tag_three">SEO</string>
+    <string name="web_browser_post_one_tag_four">japanese teaching</string>
+    <string name="web_browser_post_one">
+        I once had a blog (or well said, I ran a blog for 4 years). It was called Mi lugar en el mundo (roughly translated as "My place in this world"). First on Tumblr, later on WordPress. I'll relaunch it in the future, maybe using Hugo (the static site generators written in Go) since I loved the simplicity of Markdown.
+    </string>
+
+    <string name="web_browser_post_two_reblogger_account">Top writings fans</string>
+    <string name="web_browser_post_two_content_desc">Manga panel from Oyasumi Punpun, by Asano Inio.</string>
+    <string name="web_browser_post_two_tag_one">manga</string>
+    <string name="web_browser_post_two_tag_two">asano inio</string>
+    <string name="web_browser_post_two_tag_three">aiko tanaka</string>
+    <string name="web_browser_post_two">
+        Oyasumi Punpun is one of the bests mangas I have ever read. Not because of the story, but Tanaka Aiko resonates deeply inside me.
+
+        Manga panel from Oyasumi Punpun, by Asano Inio.
+    </string>
+
+    <string name="web_browser_post_three_content_desc">Screenshot of one of Takayan's songs on YouTube</string>
+    <string name="web_browser_post_three_tag_one">japanese hip hop</string>
+    <string name="web_browser_post_three_tag_two">artist takayan</string>
+    <string name="web_browser_post_three_tag_three">draw by Ran</string>
+    <string name="web_browser_post_three">
+        It’s strange to think that eight long years have passed since I began studying Japanese—time slipping by so fast. I haven’t reached the highest level I once imagined I would by now.
+
+        I’ve become a man. Older, stronger. Yet with little time left for myself.
+
+        I wish I could go back. Get my hands dirty more often. Do things without doubting whether “I” could pull them off. Worry less about others. Worry less about myself.
+
+        Even now, as a man—even with half of me made of regrets for the distant past—when I close my eyes and listen to old Takayan songs, I find myself grateful. Grateful for that silly kid who decided, all those years ago, to learn Japanese.
+
+        This afternoon is for you. For your sweetness. For the shimmering voyage of your smile.
+    </string>
+
+    <!--  FAQ section  -->
+    <string name="web_browser_faq_askbox_title">Send me your questions</string>
+    <string name="web_browser_faq_askbox_msg">
+        I know you may have one, and this contact box actually works.
+        Please reply either in English, Spanish or Japanese only.
+    </string>
+    <string name="web_browser_faq_askbox_max_chars">Max characters: </string>
+    <string name="web_browser_faq_askbox_button">Ask</string>
+    <string name="web_browser_faq_askbox_sender">Your name</string>
+    <string name="web_browser_faq_askbox_recipient">dsolishn@pm.me</string>
+
+    <string name="web_browser_faq_question_one">Are you a Kotlin fan? Or why did you choose it over JavaScript to build your portfolio?</string>
+    <string name="web_browser_faq_question_one_tag_one">Kotlin</string>
+    <string name="web_browser_faq_question_one_tag_two">Power Bi</string>
+    <string name="web_browser_faq_question_one_tag_three">PowerApps</string>
+
+    <string name="web_browser_faq_question_one_reply">
+        Lately my favorite language is Kotlin, but I'm not a fan. Let me explain:
+
+        I came from a Java background, so it felt like a natural upgrade. Same JVM under the hood but with built-in null safety, coroutines for smooth async, and (my favorite) Compose Multiplatform for writing one UI that actually runs on desktop, mobile, and web.
+
+        That said, I don’t believe in golden hammers. Kotlin is great for apps, but it’s not what I reach for when I want to go low-level or mess with things like root services. For that, I’ve always had a soft spot for Go and C (it’s tough love tho, I just wish strings mem allocs in C didn’t feel like punishment).
+
+        Then there’s C#. It honestly surprised me. I used to see it as “Microsoft Java,” but trying it out—especially alongside tools like LINQ, Power Apps, and Power BI—made me appreciate how polished and productive the ecosystem is, especially for building serious business apps fast. Sometimes it’s nice not to architect everything from scratch, and just focus on getting real things done.
+
+        So yeah, I jump between stacks depending on the job. Languages are tools, and I don’t mind switching between screwdrivers and hammers as long as I’m building something useful. I care more about the craft, not the tools.
+    </string>
+
+    <string name="web_browser_faq_question_two">Why build your own "OS" instead of using a traditional portfolio?</string>
+    <string name="web_browser_faq_question_two_tag_one">motivation</string>
+    <string name="web_browser_faq_question_two_tag_two">design thinking</string>
+    <string name="web_browser_faq_question_two_tag_three">tech skills</string>
+    <string name="web_browser_faq_question_two_reply">
+        Because a portfolio shouldn't feel like a résumé. It should feel like stepping into my brain. I didn’t want static links or an endless talk about "how great I am" or how I'm so confident about my skills, because I'm not. I wanted something playful, interactive, and deeply mine. A technical challenge to myself to prove you, and me, what I'm capable of.
+    </string>
+
+    <string name="web_browser_faq_question">replied a question.</string>
+    <string name="web_browser_faq_question_three">Favorite food?</string>
+    <string name="web_browser_faq_question_three_tag_one">baleadas</string>
+    <string name="web_browser_faq_question_three_tag_two">street food</string>
+    <string name="web_browser_faq_question_three_tag_three">central america</string>
+    <string name="web_browser_faq_question_three_reply">
+        When people hear that I'm from Honduras I often get asked for Honduras delicacies, and I always talk about Baleadas.
+
+        Oh man, a baleada is like a warm, comforting hug from Honduran street food. It's a soft, fluffy flour tortilla, fresh off the comal, stuffed with creamy refried beans, crumbled semi-seco cheese, and a drizzle of sweet-savory mantequilla (Honduran sour cream).
+
+        The classic version is simple but so satisfying, though you can level it up with scrambled eggs, avocado, or even sliced plantains. Fold it in half, take a bite, and boom—pure happiness.
+
+        I often find myself with a fuzzy feeling when I think of home and its cuisine.
+    </string>
 </resources>

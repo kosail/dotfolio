@@ -106,7 +106,7 @@ fun IndexSidebar(
                     BoxedIcon(
                         painter = Res.drawable.lucide_flower,
                         contentDescription = stringResource(Res.string.web_browser_thoughts),
-                        action = { onNavigationClick(Page.THOUGHTS) },
+                        action = { onNavigationClick(Page.FAQ) },
                         modifier = Modifier
                     )
 

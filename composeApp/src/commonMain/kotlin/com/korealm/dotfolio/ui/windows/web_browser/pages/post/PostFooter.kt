@@ -18,12 +18,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.korealm.dotfolio.ui.SimpleSymbolicIconButton
 import dotfolio.composeapp.generated.resources.*
+import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun PostFooter(
     numberOfReblogs: String,
-    tags: Array<String>,
+    tags: Array<StringResource>,
     font: FontFamily,
     modifier: Modifier = Modifier
 ) {
@@ -86,10 +87,10 @@ fun PostFooter(
                         Spacer(Modifier.width(4.dp))
 
                         Text(
-                            text = tag,
+                            text = stringResource(tag),
                             color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.8f),
                             fontFamily = font,
-                            fontWeight = FontWeight.Light,
+                            fontWeight = FontWeight.Normal,
                             fontSize = 14.sp,
                             textAlign = TextAlign.Start,
                             textDecoration = TextDecoration.Underline,
