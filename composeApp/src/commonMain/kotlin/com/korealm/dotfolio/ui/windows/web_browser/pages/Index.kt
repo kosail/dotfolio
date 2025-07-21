@@ -4,6 +4,8 @@ import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
@@ -75,7 +77,13 @@ fun Index(
                     AnimatedContent(
                         targetState = currentPage,
                         transitionSpec = {
-                            fadeIn(animationSpec = tween(1000) ) togetherWith fadeOut(animationSpec = tween(1000))
+                            slideInHorizontally(animationSpec = tween(500)) { fullWidth -> fullWidth } +
+                                    fadeIn(animationSpec = tween(500)
+                                ) togetherWith
+
+                                slideOutHorizontally(animationSpec = tween(500)) { fullWidth -> -fullWidth } +
+                                    fadeOut(animationSpec = tween(500)
+                                )
                         }
                     ) { selected ->
                         when (selected) {
