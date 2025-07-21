@@ -55,6 +55,17 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 
 </details>
 
+
+### Dev notes
+<details>
+<summary>Show/Hide</summary>
+
+### I may end up dropping the file manager app, as the web browser app became extremely efficient in its tasks.
+    So efficient, that I'm wondering if I should place my projects inside the "projects" page, I'll think about it later, as I think that I should stop adding functionalities.
+    Too much functions = overwhelming to the end user. They are here to see my skills, not to test out an OS imitation.
+
+</details>
+
 ---
 
 ## 🌺 Goal of this project:
