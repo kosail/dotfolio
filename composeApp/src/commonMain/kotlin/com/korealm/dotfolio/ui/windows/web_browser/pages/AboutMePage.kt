@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.korealm.dotfolio.state.AppThemeState
 import com.korealm.dotfolio.ui.SimpleSymbolicIconButton
+import com.korealm.dotfolio.ui.windows.web_browser.pages.general.SlightDivider
 import com.korealm.dotfolio.ui.windows.web_browser.pages.post.AboutMePost
 import com.korealm.dotfolio.ui.windows.web_browser.pages.post.SimpleBarDecoration
 import dotfolio.composeapp.generated.resources.*

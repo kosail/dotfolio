@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.korealm.dotfolio.ui.SimpleSymbolicIconButton
@@ -19,6 +20,7 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 fun PostHeader(
     specialTitle: String? = null, // To use this composable as "updated profile pic" or some announcement like that
+    animatedTitle: (@Composable () -> Unit)? = null, // Needed for the "projects" page
     rebloggedFrom: String? = null,
     isPinned: Boolean = false,
     date: String,
@@ -54,21 +56,22 @@ fun PostHeader(
                         .padding(end = 5.dp)
                 )
 
-                if (specialTitle.isNullOrBlank()) {
-                    PostHeaderBlogText(
-                        rebloggedFrom = rebloggedFrom,
-                        font = font
-                    )
-                } else {
-                    Text(
-                        text = specialTitle,
-                        color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.9f),
-                        fontFamily = font,
-                        fontWeight = FontWeight.Normal,
-                        fontSize = 17.sp,
-                        textAlign = TextAlign.Start,
-                        modifier = modifier
-                    )
+                when {
+                    !specialTitle.isNullOrBlank() -> {
+                        PostHeaderSpecialText(
+                            text = specialTitle,
+                            font = font
+                        )
+                    }
+                    animatedTitle != null -> {
+                        animatedTitle()
+                    }
+                    else -> {
+                        PostHeaderSimpleText(
+                            rebloggedFrom = rebloggedFrom,
+                            font = font
+                        )
+                    }
                 }
 
             }
@@ -119,8 +122,9 @@ fun PostHeader(
 }
 
 
+// I know this composable is unnecessary, but by moving it into a separate function it makes the PostHeader function much cleaner. The same goes for the function below this one, PostHeaderSpecialText.
 @Composable
-fun PostHeaderBlogText(
+fun PostHeaderSimpleText(
     rebloggedFrom: String? = null,
     font: FontFamily,
     modifier: Modifier = Modifier
@@ -156,4 +160,21 @@ fun PostHeaderBlogText(
             modifier = modifier
         )
     }
+}
+
+@Composable
+fun PostHeaderSpecialText(
+    text: String,
+    font: FontFamily,
+    modifier: Modifier = Modifier
+) {
+    Text(
+        text = text,
+        color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.9f),
+        fontFamily = font,
+        fontWeight = FontWeight.Normal,
+        fontSize = 17.sp,
+        textAlign = TextAlign.Start,
+        modifier = modifier
+    )
 }

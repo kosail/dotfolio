@@ -16,9 +16,21 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.korealm.dotfolio.state.AppThemeState
+import com.korealm.dotfolio.ui.windows.web_browser.pages.faq_page.FaqPage
+import com.korealm.dotfolio.ui.windows.web_browser.pages.general.IndexSidebar
+import com.korealm.dotfolio.ui.windows.web_browser.pages.general.Page
+import com.korealm.dotfolio.ui.windows.web_browser.pages.general.SlightDivider
+import com.korealm.dotfolio.ui.windows.web_browser.pages.projects_page.ProjectsPage
 import dotfolio.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.painterResource
+
+/*
+* This file, as well as this composable is a centralized navigation center.
+* It also sets the sidebar and standardizes the style across screens.
+*
+* For each screen, please refer to the file named for each one. You will notice that for me of them, there is a whole package instead of a single file. Those screens where placed inside their own package because they were either using custom not-too-reusable types which placing them in a single file will make them hard to manage, or because they were too long or complex.
+* */
 
 @Composable
 fun Index(

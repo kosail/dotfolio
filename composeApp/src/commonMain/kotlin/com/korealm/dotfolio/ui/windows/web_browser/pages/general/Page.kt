@@ -1,4 +1,4 @@
-package com.korealm.dotfolio.ui.windows.web_browser.pages
+package com.korealm.dotfolio.ui.windows.web_browser.pages.general
 
 enum class Page {
     HOME,

@@ -7,13 +7,13 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.korealm.dotfolio.ui.windows.web_browser.pages.SlightDivider
+import com.korealm.dotfolio.ui.windows.web_browser.pages.general.SlightDivider
 
 @Composable
 fun Post(
     postHeader: @Composable () -> Unit,
     postBody: @Composable () -> Unit,
-    postFooter: @Composable () -> Unit,
+    postFooter: (@Composable () -> Unit)? = null,
     modifier: Modifier = Modifier,
 ) {
 
@@ -31,9 +31,11 @@ fun Post(
 
             postBody()
 
-            SlightDivider(orientation = Orientation.Horizontal)
+            if (postFooter != null) {
+                SlightDivider(orientation = Orientation.Horizontal)
 
-            postFooter()
+                postFooter()
+            }
         }
     }
 }

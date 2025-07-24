@@ -13,11 +13,12 @@ import org.jetbrains.compose.resources.painterResource
 @Composable
 fun RoundedPicture(
     painter: DrawableResource,
+    contentDescription: String? = null,
     modifier: Modifier = Modifier,
 ) {
     Image(
         painter = painterResource(painter),
-        contentDescription = null,
+        contentDescription = contentDescription,
         modifier = modifier
             .clip(CircleShape)
             .size(35.dp)
