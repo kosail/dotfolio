@@ -1,19 +1,24 @@
 ![dotfolio logo](repo_images/banner.webp)
 
-A minimalist, interactive, Windows 11 themed developer portfolio built with [Compose Multiplatform](https://github.com/JetBrains/compose-multiplatform).  
+Dotfolio is not just a portfolio — it’s a narrative, a space, an emotional experience disguised as an operating system.
+
 Inspired by Mica aesthetics, this project blends creativity with code — aiming to speak louder than words.
 
-📎 Think of it as a personal OS. One that boots into who I am.
+🧭 Built entirely with [Compose Multiplatform](https://github.com/JetBrains/compose-multiplatform) — using the WebAssembly + JS target.
 
 ---
 
 ## 🌼 Features
 
-- ⚡️ Static desktop-like UI with interactive elements (icons, windows)
-- 📁 Clickable icons that open custom "apps" (CV, a photo of me, projects, etc.)
-- 📝 Launches with a central notepad window describing the author
-- 🧠 Built entirely in Kotlin Multiplatform (WASM target)
-- 🎨 Clean, elegant aesthetics with a focus on detail and interactivity
+- 💻 A static desktop environment that looks and feels like Windows 11 — but minimal, soft, and handcrafted
+- 🖱️ Fully interactive: a live clock, animated shortcuts, and a taskbar that reacts to opened apps
+- 🗂️ Clickable desktop icons launch simulated apps like Notepad, Settings, a Media Player, Web Browser, and my CV
+- 🌗 Seamless light and dark mode, and custom wallpaper option.
+- 🧠 Each “app” is not just aesthetic — it tells a part of the story: my skills, my personality, my design sense
+- 🌐 Runs fully client-side, no backend, no trackers
+
+> Dotfolio isn't just a portfolio. It's a window into how I think — structured like an operating system, but powered by storytelling. Just check it out:
+
 
 ![Showdown of some apps](repo_images/nightly_appearance.webp)
 ![Web browser app opened up](repo_images/nightly_appearance_3.webp)
@@ -51,7 +56,8 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
     Which doesn't make sense! Windows should have their position independent of other windows.
     I have no idea whatzupp with this and what it is causing it. I'll check on that later on when I finish coding all the "apps" inside dotfolio
 
-3. ### Media player works seamlessly on web target, but in Desktop it has a bug in which if the audio is paused, then it cannot be played again. Although, it's okay. This project focuses on web target, and I use desktop implementation just for its hot reload capabilities, which really makes my life easier when quickly prototyping or fast debugging.
+3. ### Media player works seamlessly on web target, but in Desktop it has a bug in which if the audio is paused, then it cannot be played again.
+    Although, it's okay. This project focuses on web target, and I use desktop implementation just for its hot reload capabilities, which really makes my life easier when quickly prototyping or fast debugging.
 
 </details>
 
@@ -70,17 +76,17 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 
 ## 🌺 Goal of this project:
 
-The sole goal is to stand out in a sea of traditional portfolios. It's to tell, build an interactive story about myself disguised as an operating system.
+The sole goal is to stand out in a sea of traditional portfolios. It's to tell, build an interactive story about myself.
 
 Taking this in mind, I focused on implementing only what is needed to tell this story, not to rebuild the actual functionality of an entire OS on Compose.
 
-I consider this minimalist precision is not a limitation, but a design power move. Make it speak clearly, cleanly, and with purpose. Demonstrate creativity, UI/UX sensibility, and Kotlin/Compose skills. That's my goal, and the one of this project.
+I consider this minimalist precision is not a limitation, but a design power move. Make it speak clearly, cleanly, and with purpose. That's my goal, and the one of this project.
 
 ---
 
 ## 🌻 Setup
 
-> Clone and build the project locally.
+- Clone and build the project locally.
 
 ```bash
 git clone https://github.com/kosail/dotfolio.git
@@ -93,7 +99,7 @@ cd dotfolio
 ## 🔧 Stack & Resources
 ### Stack
 - **Kotlin** — Main language
-- **Compose Multiplatform (WASM)** — UI framework
+- **Compose Multiplatform (WASM/JS)** — UI framework
 - **GitHub Pages** — For deployment (expected static hosting)
 
 ### Resources
