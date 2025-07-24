@@ -71,7 +71,7 @@
     <string name="dev_mode_dotfolio_version">dotfolio v1.0.0</string>
     <string name="dev_mode_about_description">A minimalist, interactive, Windows 11 themed developer portfolio built with Compose Multiplatform.\nMake it speak clearly, cleanly, and with purpose.</string>
     <string name="dev_mode_not_a_website">But dotfolio is not a website. It’s a window to who I am.</string>
-    <string name="dev_mode_built_and_tested">It was built entirely with Kotlin and Compose Multiplatform.\nPowered by Compose for Web (WASM), and tested on Arch Linux, of course.</string>
+    <string name="dev_mode_built_and_tested">It was built entirely with Kotlin and Compose Multiplatform.\nPowered by Compose for Web (WASM/JS), and tested on Arch Linux, of course.</string>
     <string name="dev_mode_created_by">Created by kosail</string>
     <string name="dev_mode_with_love">With love, from Honduras.</string>
     <string name="dev_mode_signature">kosail in the korealm</string>
