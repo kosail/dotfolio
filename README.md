@@ -13,7 +13,7 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 - 💻 A static desktop environment that looks and feels like Windows 11 — but minimal, soft, and handcrafted
 - 🖱️ Fully interactive: a live clock, animated shortcuts, and a taskbar that reacts to opened apps
 - 🗂️ Clickable desktop icons launch simulated apps like Notepad, Settings, a Media Player, Web Browser, and my CV
-- 🌗 Seamless light and dark mode, and custom wallpaper option.
+- 🌗 Seamless light and dark mode, and wallpaper customization option included
 - 🧠 Each “app” is not just aesthetic — it tells a part of the story: my skills, my personality, my design sense
 - 🌐 Runs fully client-side, no backend, no trackers
 
