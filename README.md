@@ -17,7 +17,7 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 - 🧠 Each “app” is not just aesthetic — it tells a part of the story: my skills, my personality, my design sense
 - 🌐 Runs fully client-side, no backend, no trackers
 
-> Dotfolio isn't just a portfolio. It's a window into how I think — structured like an operating system, but powered by storytelling. Just check it out:
+> Dotfolio is structured like an operating system, but powered by storytelling. Just check it out:
 
 
 ![Showdown of some apps](repo_images/nightly_appearance.webp)
