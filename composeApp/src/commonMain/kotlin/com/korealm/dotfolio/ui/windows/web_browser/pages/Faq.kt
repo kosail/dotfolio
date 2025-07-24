@@ -26,7 +26,7 @@ import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun FaqPage(
-    defaultFont: FontFamily,
+    font: FontFamily,
     modifier: Modifier = Modifier
 ) {
     val lazyListState = rememberLazyListState()
@@ -44,7 +44,7 @@ fun FaqPage(
             // Ask box
             item {
                 AskBox(
-                    font = defaultFont,
+                    font = font,
                     modifier = Modifier
                 )
             }
@@ -56,7 +56,7 @@ fun FaqPage(
                         PostHeader(
                             specialTitle = stringResource(Res.string.web_browser_faq_question),
                             date = pluralStringResource(Res.plurals.web_browser_months_ago, 1, 1),
-                            font = defaultFont,
+                            font = font,
                             modifier = Modifier
                         )
                     },
@@ -64,14 +64,14 @@ fun FaqPage(
                         PostBody(
                             bodyHeader = stringResource(Res.string.web_browser_faq_question_one),
                             text = stringResource(Res.string.web_browser_faq_question_one_reply).trimIndent(),
-                            font = defaultFont,
+                            font = font,
                             modifier = Modifier
                         )
                     },
                     postFooter = {
                         PostFooter(
                             numberOfReblogs = "7,003",
-                            font = defaultFont,
+                            font = font,
                             tags = arrayOf(
                                 Res.string.web_browser_faq_question_one_tag_one,
                                 Res.string.web_browser_faq_question_one_tag_two,
@@ -90,7 +90,7 @@ fun FaqPage(
                         PostHeader(
                             specialTitle = stringResource(Res.string.web_browser_faq_question),
                             date = pluralStringResource(Res.plurals.web_browser_months_ago, 2, 2),
-                            font = defaultFont,
+                            font = font,
                             modifier = Modifier
                         )
                     },
@@ -98,14 +98,14 @@ fun FaqPage(
                         PostBody(
                             bodyHeader = stringResource(Res.string.web_browser_faq_question_two),
                             text = stringResource(Res.string.web_browser_faq_question_two_reply).trimIndent(),
-                            font = defaultFont,
+                            font = font,
                             modifier = Modifier
                         )
                     },
                     postFooter = {
                         PostFooter(
                             numberOfReblogs = "119,111",
-                            font = defaultFont,
+                            font = font,
                             tags = arrayOf(
                                 Res.string.web_browser_faq_question_two_tag_one,
                                 Res.string.web_browser_faq_question_two_tag_two,
@@ -124,7 +124,7 @@ fun FaqPage(
                         PostHeader(
                             specialTitle = stringResource(Res.string.web_browser_faq_question),
                             date = pluralStringResource(Res.plurals.web_browser_months_ago, 4, 4),
-                            font = defaultFont,
+                            font = font,
                             modifier = Modifier
                         )
                     },
@@ -132,14 +132,14 @@ fun FaqPage(
                         PostBody(
                             bodyHeader = stringResource(Res.string.web_browser_faq_question_three),
                             text = stringResource(Res.string.web_browser_faq_question_three_reply).trimIndent(),
-                            font = defaultFont,
+                            font = font,
                             modifier = Modifier
                         )
                     },
                     postFooter = {
                         PostFooter(
                             numberOfReblogs = "50,107",
-                            font = defaultFont,
+                            font = font,
                             tags = arrayOf(
                                 Res.string.web_browser_faq_question_three_tag_one,
                                 Res.string.web_browser_faq_question_three_tag_two,
@@ -151,6 +151,12 @@ fun FaqPage(
                 )
             }
         }
+
+        CustomVerticalScrollbar(
+            scrollState = lazyListState,
+            modifier = Modifier
+                .align(Alignment.CenterEnd)
+        )
     }
 }
 

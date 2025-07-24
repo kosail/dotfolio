@@ -61,7 +61,7 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 <summary>Show/Hide</summary>
 
 ### I may end up dropping the file manager app, as the web browser app became extremely efficient in its tasks.
-    So efficient, that I'm wondering if I should place my projects inside the "projects" page, I'll think about it later, as I think that I should stop adding functionalities.
+   So efficient, that I'm wondering if I should place my projects inside the "projects" page, I'll think about it later, as I think that I should stop adding functionalities.
     Too much functions = overwhelming to the end user. They are here to see my skills, not to test out an OS imitation.
 
 </details>
@@ -101,6 +101,7 @@ cd dotfolio
 #### -> Icons
 - [Windows 11 icon theme, by yeyushengfan258](https://github.com/yeyushengfan258/Win11-icon-theme/)
 - [Notepad Win11 icon, from Wikipedia Commons](https://commons.wikimedia.org/wiki/File:Notepad_Win11.svg)
+- [Blanket app icon, by Rafael Mardojai](https://github.com/rafaelmardojai/blanket)
 
 #### -> Wallpapers and images
 - [Anime wallpaper, by Jensen Art Co. on Pixabay](https://pixabay.com/users/jensenartofficial-31380959/)

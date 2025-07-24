@@ -1,12 +1,7 @@
 package com.korealm.dotfolio.ui.windows.web_browser.pages
 
-import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.*
 import androidx.compose.animation.core.tween
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.slideInHorizontally
-import androidx.compose.animation.slideOutHorizontally
-import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.Orientation
@@ -20,18 +15,21 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import dotfolio.composeapp.generated.resources.MPLUS1p
-import dotfolio.composeapp.generated.resources.Res
-import dotfolio.composeapp.generated.resources.tsuki
+import com.korealm.dotfolio.state.AppThemeState
+import dotfolio.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun Index(
+    themeState: AppThemeState,
     modifier: Modifier = Modifier
 ) {
     val mPlusFontFamily = FontFamily(
-        Font(Res.font.MPLUS1p, FontWeight.Normal),
+        Font(Res.font.MPLUS1p_Light, FontWeight.Light),
+        Font(Res.font.MPLUS1p_Regular, FontWeight.Normal),
+        Font(Res.font.MPLUS1p_Medium, FontWeight.SemiBold),
+        Font(Res.font.MPLUS1p_Bold, FontWeight.Bold),
     )
 
     var currentPage by remember { mutableStateOf(Page.HOME) }
@@ -89,16 +87,27 @@ fun Index(
                         when (selected) {
                             Page.HOME -> {
                                 HomePage(
-                                    defaultFont = mPlusFontFamily,
-                                    modifier = Modifier.fillMaxSize()
+                                    font = mPlusFontFamily,
+                                    modifier = Modifier
                                 )
                             }
-                            Page.ABOUT_ME -> {}
-                            Page.PROJECTS -> {}
+                            Page.ABOUT_ME -> {
+                                AboutMePage(
+                                    font = mPlusFontFamily,
+                                    themeState = themeState,
+                                    modifier = Modifier
+                                )
+                            }
+                            Page.PROJECTS -> {
+                                ProjectsPage(
+                                    font = mPlusFontFamily,
+                                    modifier = Modifier
+                                )
+                            }
                             Page.FAQ -> {
                                 FaqPage(
-                                    defaultFont = mPlusFontFamily,
-                                    modifier = Modifier.fillMaxSize()
+                                    font = mPlusFontFamily,
+                                    modifier = Modifier
                                 )
                             }
                             Page.GALLERY -> {}

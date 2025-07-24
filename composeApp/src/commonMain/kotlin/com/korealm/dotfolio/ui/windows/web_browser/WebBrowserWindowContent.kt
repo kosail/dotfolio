@@ -10,10 +10,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.korealm.dotfolio.state.AppThemeState
 import com.korealm.dotfolio.ui.windows.web_browser.pages.Index
 
 @Composable
 fun WebBrowserWindowContent(
+    themeState: AppThemeState,
     modifier: Modifier = Modifier,
 ) {
     Box(
@@ -37,7 +39,7 @@ fun WebBrowserWindowContent(
                 propagateMinConstraints = true,
                 modifier = Modifier
                     .fillMaxSize()
-            ) { Index() }
+            ) { Index(themeState = themeState) }
         }
     }
 }

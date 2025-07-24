@@ -47,12 +47,11 @@ fun CustomVerticalScrollbar(
             minimalHeight = 16.dp,
             thickness = 7.dp,
             shape = RoundedCornerShape(4.dp),
-            hoverDurationMillis = 0,
+            hoverDurationMillis = 200,
             unhoverColor = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.3f),
             hoverColor = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f),
         ),
-        modifier = modifier
-            .fillMaxHeight()
+        modifier = modifier.fillMaxHeight()
     )
 }
 

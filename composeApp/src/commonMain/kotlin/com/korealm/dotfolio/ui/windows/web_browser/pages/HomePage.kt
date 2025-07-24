@@ -21,7 +21,7 @@ import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun HomePage(
-    defaultFont: FontFamily,
+    font: FontFamily,
     modifier: Modifier = Modifier
 ) {
     val lazyListState = rememberLazyListState()
@@ -43,21 +43,21 @@ fun HomePage(
                         PostHeader(
                             isPinned = true,
                             date = pluralStringResource(Res.plurals.web_browser_months_ago, 2, 2),
-                            font = defaultFont,
+                            font = font,
                             modifier = Modifier
                         )
                     },
                     postBody = {
                         PostBody(
                             text = stringResource(Res.string.web_browser_post_welcome).trimIndent(),
-                            font = defaultFont,
+                            font = font,
                             modifier = Modifier
                         )
                     },
                     postFooter = {
                         PostFooter(
                             numberOfReblogs = "1,055",
-                            font = defaultFont,
+                            font = font,
                             tags = arrayOf(
                                 Res.string.web_browser_post_welcome_tag_one,
                                 Res.string.web_browser_post_welcome_tag_two,
@@ -75,7 +75,7 @@ fun HomePage(
                     postHeader = {
                         PostHeader(
                             date = pluralStringResource(Res.plurals.web_browser_weeks_ago, 1, 1),
-                            font = defaultFont,
+                            font = font,
                             modifier = Modifier
                         )
                     },
@@ -85,14 +85,14 @@ fun HomePage(
                                 Res.drawable.milumu to Res.string.web_browser_post_one_content_desc
                             ),
                             text = stringResource(Res.string.web_browser_post_one).trimIndent(),
-                            font = defaultFont,
+                            font = font,
                             modifier = Modifier
                         )
                     },
                     postFooter = {
                         PostFooter(
                             numberOfReblogs = "113,317",
-                            font = defaultFont,
+                            font = font,
                             tags = arrayOf(
                                 Res.string.web_browser_post_one_tag_one,
                                 Res.string.web_browser_post_one_tag_two,
@@ -112,7 +112,7 @@ fun HomePage(
                         PostHeader(
                             rebloggedFrom = stringResource(Res.string.web_browser_post_two_reblogger_account),
                             date = pluralStringResource(Res.plurals.web_browser_weeks_ago, 2, 2),
-                            font = defaultFont,
+                            font = font,
                             modifier = Modifier
                         )
                     },
@@ -122,14 +122,14 @@ fun HomePage(
                                 Res.drawable.asano_inio_oyasumi_punpun to Res.string.web_browser_post_two_content_desc
                             ),
                             text = stringResource(Res.string.web_browser_post_two).trimIndent(),
-                            font = defaultFont,
+                            font = font,
                             modifier = Modifier
                         )
                     },
                     postFooter = {
                         PostFooter(
                             numberOfReblogs = "500,107",
-                            font = defaultFont,
+                            font = font,
                             tags = arrayOf(
                                 Res.string.web_browser_post_two_tag_one,
                                 Res.string.web_browser_post_two_tag_two,
@@ -147,7 +147,7 @@ fun HomePage(
                     postHeader = {
                         PostHeader(
                             date = pluralStringResource(Res.plurals.web_browser_months_ago, 1, 1),
-                            font = defaultFont,
+                            font = font,
                             modifier = Modifier
                         )
                     },
@@ -157,14 +157,14 @@ fun HomePage(
                                 Res.drawable.takayan_ran_drawing_suki_na_hito_ubawanaide to Res.string.web_browser_post_three_content_desc
                             ),
                             text = stringResource(Res.string.web_browser_post_three).trimIndent(),
-                            font = defaultFont,
+                            font = font,
                             modifier = Modifier
                         )
                     },
                     postFooter = {
                         PostFooter(
                             numberOfReblogs = "1,200,463",
-                            font = defaultFont,
+                            font = font,
                             tags = arrayOf(
                                 Res.string.web_browser_post_three_tag_one,
                                 Res.string.web_browser_post_three_tag_two,

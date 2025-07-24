@@ -27,6 +27,6 @@ fun WebBrowserApp (
                 onClose = onClose
             )
         },
-        content = { WebBrowserWindowContent() }
+        content = { WebBrowserWindowContent(themeState = themeState) }
     )
 }

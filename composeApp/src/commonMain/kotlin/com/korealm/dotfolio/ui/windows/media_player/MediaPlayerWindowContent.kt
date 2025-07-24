@@ -10,7 +10,7 @@ import androidx.compose.ui.text.font.FontWeight
 import com.korealm.dotfolio.state.AppThemeState
 import com.korealm.dotfolio.state.MediaPlayerState
 import com.korealm.dotfolio.ui.windows.media_player.player.*
-import dotfolio.composeapp.generated.resources.MPLUS1p
+import dotfolio.composeapp.generated.resources.MPLUS1p_Regular
 import dotfolio.composeapp.generated.resources.Res
 import org.jetbrains.compose.resources.Font
 
@@ -27,7 +27,7 @@ fun MediaPlayerWindowContent(
             .background(MaterialTheme.colorScheme.surface)
     ) {
         val mplus1pFontFamily = FontFamily(
-            Font(Res.font.MPLUS1p, weight = FontWeight.Normal)
+            Font(Res.font.MPLUS1p_Regular, weight = FontWeight.Normal)
         )
 
         Column(

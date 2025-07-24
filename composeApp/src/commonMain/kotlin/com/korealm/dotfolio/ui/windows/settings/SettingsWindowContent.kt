@@ -6,7 +6,6 @@ import androidx.compose.foundation.*
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -457,7 +456,7 @@ fun AboutScreen(
                 modifier = modifier.fillMaxWidth()
             ) {
                 Image(
-                    painter = painterResource(Res.drawable.banner),
+                    painter = painterResource(Res.drawable.dotfolio_banner),
                     contentDescription = stringResource(Res.string.dev_mode_logo_content_description),
                     modifier = Modifier.size(150.dp)
                 )
