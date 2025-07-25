@@ -3,7 +3,7 @@
     <string name="partly_cloudy">Partly cloudy</string>
 
     <!--  Desktop Shortcuts  -->
-    <string name="trash">Recycler bin</string>
+    <string name="trash">Recycle bin</string>
     <string name="cv">CV</string>                   <!--  .pdf   -->
     <string name="about_me">About me</string>       <!--  .html  -->
     <string name="voice_recording">Voice</string>   <!--  .wav   -->
@@ -321,4 +321,31 @@
     <string name="web_browser_gallery_tag_two">Fluent Design</string>
     <string name="web_browser_gallery_tag_three">Simplicity</string>
     <string name="web_browser_gallery_tag_four">Frosted Glass</string>
+
+    <!--  File explorer & Recycle bin  -->
+    <string name="file_explorer_quick_access">Quick Access</string>
+    <string name="file_explorer_desktop">Desktop</string>
+    <string name="file_explorer_downloads">Downloads</string>
+    <string name="file_explorer_documents">Documents</string>
+    <string name="file_explorer_pictures">Pictures</string>
+    <string name="file_explorer_onedrive_personal">OneDrive - Personal</string>
+    <string name="file_explorer_network">Network</string>
+    <string name="file_explorer_items">%1$d items</string>
+
+    <string name="file_explorer_amungos">Amungos</string>
+    <string name="file_explorer_discord">Discord</string>
+    <string name="file_explorer_java">Java</string>
+    <string name="file_explorer_kotlin">Kotlin</string>
+    <string name="file_explorer_go">Go</string>
+    <string name="file_explorer_csharp">C#</string>
+    <string name="file_explorer_html">HTML</string>
+    <string name="file_explorer_css">CSS</string>
+    <string name="file_explorer_js">JavaScript</string>
+    <string name="file_explorer_oracle">Oracle</string>
+    <string name="file_explorer_docker">Docker</string>
+    <string name="file_explorer_linux">Linux</string>
+    <string name="file_explorer_wordpress">Wordpress</string>
+
+
+
 </resources>

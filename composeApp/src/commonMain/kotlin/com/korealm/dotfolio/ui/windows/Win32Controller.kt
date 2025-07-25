@@ -28,7 +28,7 @@ object Win32Controller {
     fun Photos(onClose: () -> Unit): WindowApp = PhotosApp(onClose)
 
     @Composable
-    fun FileExplorer(onClose: () -> Unit)/*: WindowApp*/ = FileManagerApp(onClose)
+    fun FileExplorer(onClose: () -> Unit): WindowApp = FileManagerApp(onClose)
 
     @Composable
     fun Settings(themeState: AppThemeState, onClose: () -> Unit): WindowApp = SettingsApp(themeState, onClose)
