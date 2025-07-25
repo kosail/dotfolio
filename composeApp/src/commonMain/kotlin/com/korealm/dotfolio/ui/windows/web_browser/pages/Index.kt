@@ -123,7 +123,12 @@ fun Index(
                                 )
                             }
                             Page.GALLERY -> {}
-                            Page.CONTACT -> {}
+                            Page.CONTACT -> {
+                                ContactPage(
+                                    font = mPlusFontFamily,
+                                    modifier = Modifier
+                                )
+                            }
                         }
                     }
                 }

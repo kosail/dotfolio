@@ -47,13 +47,16 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 
 1. ### Windows are going under the shortcut icons, which doesn't make sense.
 
-    Windows should be OVER any other element
+    Windows should be OVER any other element.
+
     This might mean that I will have to implement a Z index... bro
     I thought I could have made it without implementing that.
+
     I already tried to switch positions between DesktopEnvironment and DesktopShortcuts, but it's not that easy it seems.
 
 2. ### When we open a second (or more) window, and we close the first one, the second window moves into the position where the first one was.
     Which doesn't make sense! Windows should have their position independent of other windows.
+
     I have no idea whatzupp with this and what it is causing it. I'll check on that later on when I finish coding all the "apps" inside dotfolio
 
 3. ### Media player works seamlessly on web target, but in Desktop it has a bug in which if the audio is paused, then it cannot be played again.
@@ -66,9 +69,8 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 <details>
 <summary>Show/Hide</summary>
 
-### I may end up dropping the file manager app, as the web browser app became extremely efficient in its tasks.
-   So efficient, that I'm wondering if I should place my projects inside the "projects" page, I'll think about it later, as I think that I should stop adding functionalities.
-    Too much functions = overwhelming to the end user. They are here to see my skills, not to test out an OS imitation.
+### ~~I may end up dropping the file manager app, as the web browser app became extremely efficient in its tasks.~~
+   I decided to drop the original idea of the file manager. It will no longer showcase my projects, but instead just serve as a "tech stack" or something like that. Simple, showing only icons.
 
 </details>
 

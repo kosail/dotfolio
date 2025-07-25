@@ -126,6 +126,9 @@ fun FaqPage(
                     },
                     postBody = {
                         PostBody(
+                            images = mapOf(
+                                Res.drawable.baleada to Res.string.web_browser_faq_question_three_tag_one
+                            ),
                             bodyHeader = stringResource(Res.string.web_browser_faq_question_three),
                             text = stringResource(Res.string.web_browser_faq_question_three_reply).trimIndent(),
                             font = font,

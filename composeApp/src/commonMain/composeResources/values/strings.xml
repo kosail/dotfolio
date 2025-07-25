@@ -8,7 +8,7 @@
     <string name="about_me">About me</string>       <!--  .html  -->
     <string name="voice_recording">Voice</string>   <!--  .wav   -->
     <string name="profile_pic">Me</string>          <!--  .jpg   -->
-    <string name="projects">Projects</string>
+    <string name="projects">Tech stack</string>
     <string name="settings">Settings</string>
     <string name="readme">Readme</string>           <!--  .txt   -->
 
@@ -285,4 +285,22 @@
         My plan is to rewrite it in Compose Multiplatform — so it can run on Windows, macOS, Android, and even the web. Same spirit. Same simplicity. Just more reachable.
     </string>
 
+    <!--  Contact page section  -->
+    <string name="web_browser_contact_msg">
+        Thanks for visiting Dotfolio!
+        If something here resonated, or if you’d like to say hello, I’d love to hear from you.
+
+        The best way is through the message window in the FAQ section.
+        Or, feel free to reach out by email: [ %1$d ]
+        That’s it. No social media. No noise.
+    </string>
+
+    <!--  Gallery section  -->
+    <string name="web_browser_gallery_msg">
+        This page doesn’t explain anything.
+
+        It just shows you what feels right to me — visually, emotionally, aesthetically.
+
+        A quiet corner for pixels I find beautiful, and that inspires me how to design and build.
+    </string>
 </resources>
