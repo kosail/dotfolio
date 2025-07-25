@@ -232,6 +232,20 @@
         I often find myself with a fuzzy feeling when I think of home and its cuisine.
     </string>
 
+    <string name="web_browser_faq_question_four">What thing you could not live without?</string>
+    <string name="web_browser_faq_question_four_tag_one">pine forest</string>
+    <string name="web_browser_faq_question_four_tag_two">sea</string>
+    <string name="web_browser_faq_question_four_tag_three">rain</string>
+    <string name="web_browser_faq_question_four_tag_four">花鳥風月</string>
+    <string name="web_browser_faq_question_four_reply">
+        Nature.
+        I wouldn’t make it far without it.
+
+        I’m not a hiker. I’m not outdoorsy. But touching soil and standing quietly in front of a deep green forest... it resets something.
+        It’s not about escaping tech. It’s about remembering how to breathe.
+    </string>
+
+
     <!--  About me section  -->
     <string name="web_browser_aboutme_first_title">about me.</string>
     <string name="web_browser_aboutme_first_content">
@@ -305,6 +319,6 @@
     </string>
     <string name="web_browser_gallery_tag_one">GTK</string>
     <string name="web_browser_gallery_tag_two">Fluent Design</string>
-    <string name="web_browser_gallery_tag_three">MacOs Aqua</string>
+    <string name="web_browser_gallery_tag_three">Simplicity</string>
     <string name="web_browser_gallery_tag_four">Frosted Glass</string>
 </resources>

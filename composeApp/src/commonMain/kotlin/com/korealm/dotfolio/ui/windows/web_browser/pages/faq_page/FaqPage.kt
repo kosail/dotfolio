@@ -149,6 +149,41 @@ fun FaqPage(
                     modifier = Modifier.padding(bottom = 20.dp)
                 )
             }
+
+            // Last question, the fourth one
+            item {
+                Post(
+                    postHeader = {
+                        PostHeader(
+                            specialTitle = stringResource(Res.string.web_browser_faq_question),
+                            date = pluralStringResource(Res.plurals.web_browser_months_ago, 11, 11),
+                            font = font,
+                            modifier = Modifier
+                        )
+                    },
+                    postBody = {
+                        PostBody(
+                            bodyHeader = stringResource(Res.string.web_browser_faq_question_four),
+                            text = stringResource(Res.string.web_browser_faq_question_four_reply).trimIndent(),
+                            font = font,
+                            modifier = Modifier
+                        )
+                    },
+                    postFooter = {
+                        PostFooter(
+                            numberOfReblogs = "50,107",
+                            font = font,
+                            tags = arrayOf(
+                                Res.string.web_browser_faq_question_four_tag_one,
+                                Res.string.web_browser_faq_question_four_tag_two,
+                                Res.string.web_browser_faq_question_four_tag_three,
+                                Res.string.web_browser_faq_question_four_tag_four
+                            )
+                        )
+                    },
+                    modifier = Modifier.padding(bottom = 20.dp)
+                )
+            }
         }
 
         CustomVerticalScrollbar(

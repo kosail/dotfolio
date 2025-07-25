@@ -117,11 +117,15 @@ cd dotfolio
 - [Honduras wallpaper 1, by Hector Emilio Gonzalez on Unsplash](https://unsplash.com/@hectoremilio)
 - [Honduras wallpaper 2, by Ramon Flores on Unsplash](https://unsplash.com/@ramonantoniof)
 - [Purple cat photo, by Adam Gonzales on Unsplash](https://unsplash.com/@adamgonzales)
+- [Gnome screenshot, from Blur my shell GitHub repo, by aunetx](https://github.com/aunetx/blur-my-shell)
+- Screenshot from the game "Flowers, le volume sur le printemps." Innocent Grey made this wonderful visual novel, and it's available on GOG for purchase.
+- [Amberol music player screenshot, from linkvegas12 on DevianArt](https://www.deviantart.com/linkvegas12/art/Fluent-Start-Menu-Style-For-Windows-11-1137827427)
+- [Windows 11 screenshot, from FOSTips](https://fostips.com/amberol-music-player-beautiful-design/)
 
 #### -> Fonts
 - Main font: [Selawik font, from Microsoft](https://github.com/microsoft/Selawik)
 - Japanese font: [M Plus 1p, from Google Fonts](https://fonts.google.com/specimen/M+PLUS+1p)
-- Emoji font: [Noto Color Emoji, from Google Fonts](https://fonts.google.com/noto/specimen/Noto+Color+Emoji)
+- [CURRENTLY NOT IN USE] Emoji font: [Noto Color Emoji, from Google Fonts](https://fonts.google.com/noto/specimen/Noto+Color+Emoji)
 
 ---
 
