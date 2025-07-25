@@ -30,12 +30,10 @@ fun HomePage(
     Box (
         modifier = modifier.fillMaxSize()
     ) {
-
         LazyColumn (
             state = lazyListState,
             contentPadding = PaddingValues(50.dp),
-            modifier = modifier
-                .fillMaxSize()
+            modifier = modifier.fillMaxSize()
         ) {
             // Welcome post
             item {

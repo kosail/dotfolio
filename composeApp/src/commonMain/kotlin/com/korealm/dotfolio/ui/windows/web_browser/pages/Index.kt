@@ -97,38 +97,12 @@ fun Index(
                         }
                     ) { selected ->
                         when (selected) {
-                            Page.HOME -> {
-                                HomePage(
-                                    font = mPlusFontFamily,
-                                    modifier = Modifier
-                                )
-                            }
-                            Page.ABOUT_ME -> {
-                                AboutMePage(
-                                    font = mPlusFontFamily,
-                                    themeState = themeState,
-                                    modifier = Modifier
-                                )
-                            }
-                            Page.PROJECTS -> {
-                                ProjectsPage(
-                                    font = mPlusFontFamily,
-                                    modifier = Modifier
-                                )
-                            }
-                            Page.FAQ -> {
-                                FaqPage(
-                                    font = mPlusFontFamily,
-                                    modifier = Modifier
-                                )
-                            }
-                            Page.GALLERY -> {}
-                            Page.CONTACT -> {
-                                ContactPage(
-                                    font = mPlusFontFamily,
-                                    modifier = Modifier
-                                )
-                            }
+                            Page.HOME -> { HomePage( font = mPlusFontFamily ) }
+                            Page.ABOUT_ME -> { AboutMePage( font = mPlusFontFamily, themeState = themeState ) }
+                            Page.PROJECTS -> { ProjectsPage( font = mPlusFontFamily ) }
+                            Page.FAQ -> { FaqPage( font = mPlusFontFamily ) }
+                            Page.GALLERY -> { GalleryPage( font = mPlusFontFamily ) }
+                            Page.CONTACT -> { ContactPage( font = mPlusFontFamily ) }
                         }
                     }
                 }

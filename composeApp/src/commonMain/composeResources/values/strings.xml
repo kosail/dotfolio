@@ -303,4 +303,8 @@
 
         A quiet corner for pixels I find beautiful, and that inspires me how to design and build.
     </string>
+    <string name="web_browser_gallery_tag_one">GTK</string>
+    <string name="web_browser_gallery_tag_two">Fluent Design</string>
+    <string name="web_browser_gallery_tag_three">MacOs Aqua</string>
+    <string name="web_browser_gallery_tag_four">Frosted Glass</string>
 </resources>

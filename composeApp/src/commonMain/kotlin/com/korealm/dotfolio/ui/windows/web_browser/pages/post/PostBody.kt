@@ -39,7 +39,7 @@ fun PostBody(
     ) {
         if (! bodyHeader.isNullOrBlank()) {
             Surface(
-                color = Color(0xFFDEB3C6), // Cute pink. Hardcoded because I need it to be static. Does not change
+                color = Color(0xEEDEB3C6), // Cute pink. Hardcoded because I need it to be static. Does not change
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(
@@ -59,8 +59,7 @@ fun PostBody(
                 Image(
                     painter = painterResource(image),
                     contentDescription = stringResource(description),
-                    contentScale = ContentScale.Inside
-                    ,
+                    contentScale = ContentScale.Inside,
                     modifier = Modifier
                 )
             }
