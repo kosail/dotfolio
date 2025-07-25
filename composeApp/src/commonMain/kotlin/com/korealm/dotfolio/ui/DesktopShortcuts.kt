@@ -39,7 +39,7 @@ fun DesktopShortcuts(
         Triple(Res.drawable.web_browser, stringResource(Res.string.about_me) + ".html", AppId.WEB_BROWSER),
         Triple(Res.drawable.mp3, stringResource(Res.string.voice_recording) + ".wav", AppId.MEDIA_PLAYER),
         Triple(Res.drawable.photos, stringResource(Res.string.profile_pic) + ".jpg", AppId.PHOTOS),
-        Triple(Res.drawable.folder, stringResource(Res.string.projects), AppId.FILE_EXPLORER),
+        Triple(Res.drawable.folder, stringResource(Res.string.tech_stack), AppId.FILE_EXPLORER),
         Triple(Res.drawable.settings, stringResource(Res.string.settings), AppId.SETTINGS)
     )
 

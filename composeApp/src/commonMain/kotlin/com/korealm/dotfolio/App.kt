@@ -28,7 +28,7 @@ fun App() {
 
 
     // Windows related
-    var openWindows by remember { mutableStateOf(listOf(AppId.WEB_BROWSER)) } // ! Debugging purposes
+    var openWindows by remember { mutableStateOf(listOf(AppId.FILE_EXPLORER)) } // ! Debugging purposes
 
     var openWindowRef by remember { mutableStateOf<(AppId) -> Unit>({}) } // Due to circular dependency between this 2 functions and appRegistry
     var closeWindowRef by remember { mutableStateOf<(AppId) -> Unit>({}) } // I had to first declare them, and then associate the real function
@@ -40,7 +40,7 @@ fun App() {
         AppId.WEB_BROWSER to { Win32Controller.WebBrowser(themeState) { closeWindowRef(AppId.WEB_BROWSER) } },
         AppId.MEDIA_PLAYER to { Win32Controller.MediaPlayer (themeState) { closeWindowRef(AppId.MEDIA_PLAYER) } },
         AppId.PHOTOS to { Win32Controller.Photos { closeWindowRef(AppId.PHOTOS) } },
-        AppId.FILE_EXPLORER to { Win32Controller.FileExplorer { closeWindowRef(AppId.FILE_EXPLORER) } },
+        AppId.FILE_EXPLORER to { Win32Controller.FileExplorer (themeState) { closeWindowRef(AppId.FILE_EXPLORER) } },
         AppId.SETTINGS to { Win32Controller.Settings (themeState) { closeWindowRef(AppId.SETTINGS) } },
     )
 

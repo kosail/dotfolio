@@ -2,17 +2,7 @@ package com.korealm.dotfolio.ui.windows.web_browser
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -25,26 +15,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.korealm.dotfolio.state.AppThemeState
-import com.korealm.dotfolio.ui.HoverableSymbolicIconButton
 import com.korealm.dotfolio.ui.SimpleSymbolicIconButton
 import com.korealm.dotfolio.ui.windows.StandardTitleBarButtonSet
-import com.korealm.dotfolio.ui.windows.TitleBarMainIcon
-import dotfolio.composeapp.generated.resources.Res
-import dotfolio.composeapp.generated.resources.add_plus_symbolic
-import dotfolio.composeapp.generated.resources.chinese_redbud
-import dotfolio.composeapp.generated.resources.favicon
-import dotfolio.composeapp.generated.resources.readme
-import dotfolio.composeapp.generated.resources.tag_properties
-import dotfolio.composeapp.generated.resources.web_browser
-import dotfolio.composeapp.generated.resources.web_browser_tab_name
-import dotfolio.composeapp.generated.resources.window_close
+import dotfolio.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun WebBrowserTitleBar(
-    themeState: AppThemeState,
     onClose: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -119,7 +97,7 @@ fun WebBrowserTitleBar(
             }
         }
 
-        Spacer(modifier = Modifier.width(13.dp))
+        Spacer(modifier = Modifier.width(14.dp))
 
         Surface(
             color = Color.Transparent,

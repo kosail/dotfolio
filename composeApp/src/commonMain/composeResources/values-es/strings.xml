@@ -8,7 +8,7 @@
     <string name="about_me">Acerca de mí</string>       <!--  .html  -->
     <string name="voice_recording">Notas de voz</string>   <!--  .wav   -->
     <string name="profile_pic">Yo</string>          <!--  .jpg   -->
-    <string name="projects">Proyectos</string>
+    <string name="tech_stack">Proyectos</string>
     <string name="settings">Configuración</string>
     <string name="readme">Léeme</string>           <!--  .txt   -->
 

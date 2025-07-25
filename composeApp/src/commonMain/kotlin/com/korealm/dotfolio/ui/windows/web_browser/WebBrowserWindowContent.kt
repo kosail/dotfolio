@@ -1,11 +1,7 @@
 package com.korealm.dotfolio.ui.windows.web_browser
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -33,12 +29,11 @@ fun WebBrowserWindowContent(
                     .fillMaxWidth()
                     .height(120.dp)
                     .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f))
-            ) { BrowserToolBar() }
+            ) { BrowserToolbar() }
 
             Box(
                 propagateMinConstraints = true,
-                modifier = Modifier
-                    .fillMaxSize()
+                modifier = Modifier.fillMaxSize()
             ) { Index(themeState = themeState) }
         }
     }

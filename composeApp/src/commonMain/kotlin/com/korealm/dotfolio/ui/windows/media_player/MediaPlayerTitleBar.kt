@@ -28,7 +28,9 @@ fun MediaPlayerTitleBar(
     ) {
         TitleBarMainIcon(
             icon = Res.drawable.media_player,
-            modifier = Modifier.align(Alignment.CenterVertically)
+            modifier = Modifier
+                .align(Alignment.CenterVertically)
+                .padding(horizontal = 15.dp)
         )
 
         Spacer(Modifier.width(5.dp))

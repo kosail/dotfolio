@@ -45,6 +45,7 @@ fun NotepadTitleBar(
             icon = Res.drawable.notepad,
             modifier = Modifier
                 .align(Alignment.CenterVertically)
+                .padding(horizontal = 15.dp)
                 .padding(top = 5.dp)
         )
 
@@ -85,7 +86,6 @@ fun NotepadTitleBar(
             }
         }
 
-
         // Space Filler
         Surface(
             content = { Spacer(Modifier.fillMaxSize()) },
@@ -94,7 +94,6 @@ fun NotepadTitleBar(
                 .fillMaxWidth()
                 .weight(1f)
         )
-
 
         StandardTitleBarButtonSet(onClose = onClose)
     }

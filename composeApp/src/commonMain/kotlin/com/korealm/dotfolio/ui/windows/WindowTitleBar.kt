@@ -127,7 +127,6 @@ fun TitleBarMainIcon(
     Surface(
         color = Color.Transparent,
         modifier = modifier
-            .padding(horizontal = 15.dp)
     ) {
         Image(
             painter = painterResource(icon),
