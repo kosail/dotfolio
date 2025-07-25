@@ -28,16 +28,17 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 ## 🪻 Development Stage
 ### Main
 - ✅ Desktop Environment:
-    - ❌ Z Index for apps 
+    - ❌ Z Index for apps
     - ❌ Windows minimize capabilities
+    - ❌ Windows dynamic size at launch based on the viewport
 
 ### Apps
 - ✅ Notepad
 - ✅ Settings
 - ✅ Photos
 - ✅ Media Player
-- 🌱 Web Browser
-- ❌ File Manager
+- ✅ Web Browser
+- 🌱 File Manager
 - ✅ PDF file download
 
 ### Bugs
