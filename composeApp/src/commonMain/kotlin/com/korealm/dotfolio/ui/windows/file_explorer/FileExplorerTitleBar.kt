@@ -1,4 +1,4 @@
-package com.korealm.dotfolio.ui.windows.file_manager
+package com.korealm.dotfolio.ui.windows.file_explorer
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -26,7 +26,7 @@ import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-fun FileManagerTitleBar(
+fun FileExplorerTitleBar(
     onClose: () -> Unit,
     themeState: AppThemeState,
     title: StringResource,

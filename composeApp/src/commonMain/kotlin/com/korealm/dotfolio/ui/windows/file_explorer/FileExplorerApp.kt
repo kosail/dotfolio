@@ -1,4 +1,4 @@
-package com.korealm.dotfolio.ui.windows.file_manager
+package com.korealm.dotfolio.ui.windows.file_explorer
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.DpSize
@@ -20,12 +20,12 @@ fun FileManagerApp(
     onClose: () -> Unit
 ): WindowApp {
     return WindowApp(
-        appId = AppId.WEB_BROWSER,
+        appId = AppId.FILE_EXPLORER,
         title = stringResource(Res.string.file_explorer),
         icon = painterResource(Res.drawable.file_manager),
         defaultSize = DpSize(1100.dp, 700.dp),
         titleBar = {
-            FileManagerTitleBar(
+            FileExplorerTitleBar(
                 onClose = onClose,
                 title = Res.string.tech_stack,
                 icon = Res.drawable.folder,
@@ -33,7 +33,7 @@ fun FileManagerApp(
             )
         },
         content = {
-            FileManagerWindowContent(
+            FileExplorerWindowContent(
                 title = Res.string.tech_stack
             )
         }

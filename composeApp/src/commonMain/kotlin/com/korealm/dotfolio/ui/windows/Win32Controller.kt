@@ -3,7 +3,7 @@ package com.korealm.dotfolio.ui.windows
 import androidx.compose.runtime.Composable
 import com.korealm.dotfolio.model.WindowApp
 import com.korealm.dotfolio.state.AppThemeState
-import com.korealm.dotfolio.ui.windows.file_manager.FileManagerApp
+import com.korealm.dotfolio.ui.windows.file_explorer.FileManagerApp
 import com.korealm.dotfolio.ui.windows.media_player.MediaPlayerApp
 import com.korealm.dotfolio.ui.windows.notepad.NotepadApp
 import com.korealm.dotfolio.ui.windows.photos.PhotosApp

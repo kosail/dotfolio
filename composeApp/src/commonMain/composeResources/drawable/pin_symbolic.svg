@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="16"
+   width="16"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="pin_symbolic.svg"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="50.5625"
+     inkscape:cx="6.447466"
+     inkscape:cy="6.7737948"
+     inkscape:window-width="1904"
+     inkscape:window-height="1018"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg1" />
+  <path
+     d="M 10.770369,1.3190972 V 2.7333108 L 7.9419417,5.5617379 H 5.1135146 L 10.063262,10.511485 V 7.6830583 l 2.828427,-2.8284272 h 1.414214 z M 6.5277282,8.390165 3.168971,11.748922 A 16.197,16.197 0 0 0 2.4618642,13.163136 18.757,18.757 0 0 0 3.8760777,12.456029 L 7.234835,9.0972718 Z"
+     color="#000000"
+     fill="#dedede"
+     id="path1" />
+</svg>

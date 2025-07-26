@@ -1,7 +1,7 @@
-package com.korealm.dotfolio.ui.windows.file_manager
+package com.korealm.dotfolio.ui.windows.file_explorer
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalDivider
@@ -20,7 +20,7 @@ import org.jetbrains.compose.resources.stringResource
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
-fun FileManagerToolbar(
+fun FileExplorerToolbar(
     title: StringResource,
     modifier: Modifier = Modifier
 ) {
@@ -118,6 +118,16 @@ fun FileManagerToolbar(
             }
         }
 
+        Box(
+            modifier = Modifier.align(Alignment.Center)
+        ) {
+            HorizontalDivider(
+                thickness = 2.dp,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.2f),
+                modifier = Modifier.padding(top = 10.dp)
+                )
+        }
+
         // Toolbar actions. The map below holds the icon resource and their size, since they have different proportions
         val actionIcons = mapOf(
             Res.drawable.cut_symbolic to 24,
@@ -157,6 +167,7 @@ fun FileManagerToolbar(
                 actionIcons.forEach { (icon, size) ->
                     SimpleSymbolicIconButton(
                         icon = icon,
+                        tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f),
                         modifier = Modifier.size(size.dp),
                     )
 
@@ -200,6 +211,14 @@ fun FileManagerToolbar(
                     modifier = Modifier.padding(bottom = 8.dp, end = 24.dp)
                 )
             }
+
+            HorizontalDivider(
+                thickness = 1.dp,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.2f),
+                modifier = Modifier
+                    .padding(top = 10.dp)
+                    .align(Alignment.BottomCenter)
+            )
         }
     }
 }

@@ -329,11 +329,14 @@
     <string name="file_explorer_toolbar_details">Details</string>
 
     <string name="file_explorer_quick_access">Quick Access</string>
+    <string name="file_explorer_home">Home</string>
     <string name="file_explorer_desktop">Desktop</string>
     <string name="file_explorer_downloads">Downloads</string>
     <string name="file_explorer_documents">Documents</string>
     <string name="file_explorer_pictures">Pictures</string>
-    <string name="file_explorer_onedrive_personal">OneDrive - Personal</string>
+    <string name="file_explorer_music">Music</string>
+    <string name="file_explorer_videos">Videos</string>
+    <string name="file_explorer_this_pc">This PC</string>
     <string name="file_explorer_network">Network</string>
     <string name="file_explorer_items">%1$d items</string>
 
