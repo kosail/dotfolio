@@ -344,7 +344,7 @@
     <string name="file_explorer_discord">Discord</string>
     <string name="file_explorer_java">Java</string>
     <string name="file_explorer_kotlin">Kotlin</string>
-    <string name="file_explorer_go">Go</string>
+    <string name="file_explorer_compose">Compose Multiplatform</string>
     <string name="file_explorer_csharp">C#</string>
     <string name="file_explorer_html">HTML</string>
     <string name="file_explorer_css">CSS</string>
@@ -353,7 +353,4 @@
     <string name="file_explorer_docker">Docker</string>
     <string name="file_explorer_linux">Linux</string>
     <string name="file_explorer_wordpress">Wordpress</string>
-
-
-
 </resources>

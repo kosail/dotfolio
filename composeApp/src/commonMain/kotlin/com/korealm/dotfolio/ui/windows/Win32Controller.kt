@@ -32,4 +32,7 @@ object Win32Controller {
 
     @Composable
     fun Settings(themeState: AppThemeState, onClose: () -> Unit): WindowApp = SettingsApp(themeState, onClose)
+
+    @Composable
+    fun RecycleBin(themeState: AppThemeState, onClose: () -> Unit): WindowApp = RecycleBin(themeState, onClose)
 }

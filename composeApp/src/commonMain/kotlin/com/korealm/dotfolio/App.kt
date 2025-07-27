@@ -42,6 +42,7 @@ fun App() {
         AppId.PHOTOS to { Win32Controller.Photos { closeWindowRef(AppId.PHOTOS) } },
         AppId.FILE_EXPLORER to { Win32Controller.FileExplorer (themeState) { closeWindowRef(AppId.FILE_EXPLORER) } },
         AppId.SETTINGS to { Win32Controller.Settings (themeState) { closeWindowRef(AppId.SETTINGS) } },
+        AppId.TRASH to { Win32Controller.RecycleBin (themeState) { closeWindowRef(AppId.TRASH) } },
     )
 
     openWindowRef = { appId ->
