@@ -38,10 +38,12 @@ fun App() {
 
 
     // Windows related
-    var openWindows by remember { mutableStateOf(listOf(AppId.FILE_EXPLORER)) } // ! Debugging purposes
+    var openWindows by remember { mutableStateOf(listOf(AppId.NOTEPAD)) }
 
     var openWindowRef by remember { mutableStateOf<(AppId) -> Unit>({}) } // Due to circular dependency between this 2 functions and appRegistry
     var closeWindowRef by remember { mutableStateOf<(AppId) -> Unit>({}) } // I had to first declare them, and then associate the real function
+    val bringToFrontRef = remember { mutableStateOf<(AppId) -> Unit>({}) }
+
 
 
     // This is like a sealed "registry" of apps, and now all apps can be called from here.
@@ -64,6 +66,13 @@ fun App() {
 
     closeWindowRef = { appId ->
         openWindows = openWindows.filterNot { it == appId }
+    }
+
+    // The following function simply deletes the app from the openApps list and readd it (changing the composition order and thus rendering the window over any other)
+    // It will be triggered by the DraggableWindow assigned to every opened app.
+    // This is performed inside DesktopEnvironment.kt (because there is where the apps are actually called)
+    bringToFrontRef.value = { appId ->
+        openWindows = openWindows.filterNot { it == appId } + appId
     }
 
 
@@ -106,6 +115,7 @@ fun App() {
                 clock = localDateTime,
                 openAppsIds = openWindows,
                 appRegistry = appRegistry,
+                onWindowFocus = bringToFrontRef.value,
                 themeState = themeState,
                 modifier = Modifier
             )

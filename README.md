@@ -28,8 +28,8 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 ## 🪻 Development Stage
 ### Main
 - ✅ Desktop Environment:
-    - 🌱 Z Index for apps
-    - ❌ Windows minimize capabilities
+    - ✅ Z Index for apps (Not an actual z index, since I just used Compose's rendering order...)
+    - 🌱 Windows minimize capabilities
     - ❌ Windows dynamic size at launch based on the viewport
 
 ### Apps

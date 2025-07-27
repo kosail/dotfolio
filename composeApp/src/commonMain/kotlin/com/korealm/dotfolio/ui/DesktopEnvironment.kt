@@ -33,6 +33,7 @@ fun DesktopEnvironment(
     openAppsIds: List<AppId>,
     appRegistry: Map<AppId, @Composable () -> WindowApp>,
     themeState: AppThemeState,
+    onWindowFocus: (AppId) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val visibleApps by remember(openAppsIds) { derivedStateOf { openAppsIds } }
@@ -183,7 +184,8 @@ fun DesktopEnvironment(
                     windowWidth = window.defaultSize.width,
                     windowHeight = window.defaultSize.height,
                     titleBar = window.titleBar,
-                    content = window.content
+                    content = window.content,
+                    onFocus = { onWindowFocus(appId) }
                 )
             }
         }

@@ -3,6 +3,7 @@ package com.korealm.dotfolio.ui.windows
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.detectDragGestures
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -27,6 +28,7 @@ fun DraggableWindow(
     windowWidth: Dp = 600.dp,
     windowHeight: Dp = 400.dp,
     modifier: Modifier = Modifier,
+    onFocus: () -> Unit,
     titleBar: @Composable () -> Unit,
     content: @Composable () -> Unit
 ) {
@@ -55,6 +57,14 @@ fun DraggableWindow(
                 .offset { IntOffset(offset.x.roundToInt(), offset.y.roundToInt()) }
                 .size(windowWidth, windowHeight)
                 .then(modifier)
+                .pointerInput(Unit) {
+                    detectTapGestures(
+                        onPress = {
+                            onFocus() // Bring the window to the front like a real DE
+                            tryAwaitRelease()
+                        }
+                    )
+                }
         ) {
             Column {
                 Box(
