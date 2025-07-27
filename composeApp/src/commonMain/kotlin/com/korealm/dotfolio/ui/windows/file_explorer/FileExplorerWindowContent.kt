@@ -8,12 +8,16 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.korealm.dotfolio.ui.SimpleSymbolicIconButton
+import dotfolio.composeapp.generated.resources.Res
+import dotfolio.composeapp.generated.resources.computer
+import dotfolio.composeapp.generated.resources.file_explorer_items
+import dotfolio.composeapp.generated.resources.hamburger_four_symbolic
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.painterResource
@@ -54,12 +58,37 @@ fun FileExplorerWindowContent(
         }
 
         Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(.05f)
-                .background(Color.Red)
+                .padding(horizontal = 20.dp)
         ) {
-            // TODO: MAKE HERE THE ELEMENT COUNT AND THE TWO ICONS AT THE END
+            Text(
+                text = "${ stringResource(Res.string.file_explorer_items, elements.size) }",
+                color = MaterialTheme.colorScheme.onBackground.copy(alpha = .7f),
+                fontSize = 15.sp,
+                fontWeight = FontWeight.Normal,
+                modifier = Modifier
+            )
+
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier
+            ) {
+                SimpleSymbolicIconButton(
+                    icon = Res.drawable.hamburger_four_symbolic,
+                    modifier = Modifier
+                )
+
+                Spacer(Modifier.width(12.dp))
+
+                SimpleSymbolicIconButton(
+                    icon = Res.drawable.computer,
+                    modifier = Modifier.size(24.dp)
+                )
+            }
         }
     }
 }
@@ -70,6 +99,7 @@ fun FileExplorerMain(
     modifier: Modifier = Modifier
 ) {
     FlowRow(
+        horizontalArrangement = Arrangement.Start,
         modifier = modifier
             .fillMaxSize()
             .padding(top = 16.dp, start = 12.dp)
@@ -86,7 +116,7 @@ fun FileExplorerMain(
                     painter = painterResource(logo),
                     contentDescription = null,
                     contentScale = ContentScale.Fit,
-                    modifier = Modifier.height(40.dp)
+                    modifier = Modifier.height(50.dp)
                 )
 
                 Spacer(Modifier.height(20.dp))

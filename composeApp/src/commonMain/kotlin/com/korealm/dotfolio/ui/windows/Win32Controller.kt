@@ -7,6 +7,7 @@ import com.korealm.dotfolio.ui.windows.file_explorer.FileManagerApp
 import com.korealm.dotfolio.ui.windows.media_player.MediaPlayerApp
 import com.korealm.dotfolio.ui.windows.notepad.NotepadApp
 import com.korealm.dotfolio.ui.windows.photos.PhotosApp
+import com.korealm.dotfolio.ui.windows.recycle_bin.RecycleBinApp
 import com.korealm.dotfolio.ui.windows.settings.SettingsApp
 import com.korealm.dotfolio.ui.windows.web_browser.WebBrowserApp
 
@@ -34,5 +35,5 @@ object Win32Controller {
     fun Settings(themeState: AppThemeState, onClose: () -> Unit): WindowApp = SettingsApp(themeState, onClose)
 
     @Composable
-    fun RecycleBin(themeState: AppThemeState, onClose: () -> Unit): WindowApp = RecycleBin(themeState, onClose)
+    fun RecycleBin(themeState: AppThemeState, onClose: () -> Unit): WindowApp = RecycleBinApp(themeState, onClose)
 }

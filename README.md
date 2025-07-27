@@ -21,14 +21,14 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 
 
 ![Showdown of some apps](repo_images/nightly_appearance.webp)
-![Web browser app opened up](repo_images/nightly_appearance_3.webp)
-![About project](repo_images/nightly_appearance_2.webp)
+![Web browser app opened up](repo_images/nightly_appearance_2.webp)
+![About project](repo_images/nightly_appearance_3.webp)
 
 ---
 ## 🪻 Development Stage
 ### Main
 - ✅ Desktop Environment:
-    - ❌ Z Index for apps
+    - 🌱 Z Index for apps
     - ❌ Windows minimize capabilities
     - ❌ Windows dynamic size at launch based on the viewport
 
@@ -36,10 +36,10 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 - ✅ Notepad
 - ✅ Settings
 - ✅ Photos
-- ✅ Media Player
+- ✅ Media Player (Missing real audios)
 - ✅ Web Browser
-- 🌱 File Manager
-- ✅ PDF file download
+- ✅ File Manager
+- ✅ PDF file download (Missing real PDF)
 
 ### Bugs
 
@@ -62,16 +62,6 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 
 3. ### Media player works seamlessly on web target, but in Desktop it has a bug in which if the audio is paused, then it cannot be played again.
     Although, it's okay. This project focuses on web target, and I use desktop implementation just for its hot reload capabilities, which really makes my life easier when quickly prototyping or fast debugging.
-
-</details>
-
-
-### Dev notes
-<details>
-<summary>Show/Hide</summary>
-
-### ~~I may end up dropping the file manager app, as the web browser app became extremely efficient in its tasks.~~
-   I decided to drop the original idea of the file manager. It will no longer showcase my projects, but instead just serve as a "tech stack" or something like that. Simple, showing only icons.
 
 </details>
 
@@ -138,7 +128,6 @@ cd dotfolio
 #### -> Fonts
 - Main font: [Selawik font, from Microsoft](https://github.com/microsoft/Selawik)
 - Japanese font: [M Plus 1p, from Google Fonts](https://fonts.google.com/specimen/M+PLUS+1p)
-- [CURRENTLY NOT IN USE] Emoji font: [Noto Color Emoji, from Google Fonts](https://fonts.google.com/noto/specimen/Noto+Color+Emoji)
 
 ---
 

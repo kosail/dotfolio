@@ -66,10 +66,6 @@ fun App() {
                 .safeContentPadding()
                 .fillMaxSize()
         ) {
-            /* TODO:  has this comment become a bug tracker? Hmm, well...
-            * Nothing in here by the moment...
-            */
-
             DesktopEnvironment(
                 clock = localDateTime,
                 openAppsIds = openWindows,
