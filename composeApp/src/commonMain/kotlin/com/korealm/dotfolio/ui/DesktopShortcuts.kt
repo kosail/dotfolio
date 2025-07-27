@@ -3,6 +3,7 @@ package com.korealm.dotfolio.ui
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.onClick
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -17,6 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.onPointerEvent
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -94,7 +96,7 @@ fun ShortcutTitle(
 @Composable
 fun ShortcutButton(
     icon: DrawableResource,
-    title: String, // A String and not a StringResource to be able to send localize string with .ext
+    title: String, // A String and not a StringResource to be able to send localized string with .ext
     onLaunch: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -103,10 +105,13 @@ fun ShortcutButton(
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
-            .onClick(
-                onClick = {}, // I need you to do ✨ nothing ✨
-                onDoubleClick = { onLaunch() },
-            )
+            .pointerInput(Unit) {
+                detectTapGestures(
+                    onDoubleTap = {
+                        onLaunch()
+                    }
+                )
+            }
             .onPointerEvent(PointerEventType.Enter) { isSelected = true }
             .onPointerEvent(PointerEventType.Exit ) { isSelected = false }
             .background(

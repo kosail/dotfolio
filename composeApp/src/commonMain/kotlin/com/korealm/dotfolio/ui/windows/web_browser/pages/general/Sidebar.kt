@@ -4,6 +4,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -16,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.onPointerEvent
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -172,7 +174,13 @@ fun BoxedIcon(
             )
             .onPointerEvent(PointerEventType.Enter) { isHover = true }
             .onPointerEvent(PointerEventType.Exit) { isHover = false }
-            .onPointerEvent(PointerEventType.Press) { action() }
+            .pointerInput(Unit) {
+                detectTapGestures(
+                    onTap = {
+                        action()
+                    }
+                )
+            }
     ) {
         Box(
             propagateMinConstraints = true,

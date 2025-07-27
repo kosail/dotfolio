@@ -4,6 +4,7 @@ import androidx.compose.animation.*
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -16,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.onPointerEvent
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -208,7 +210,15 @@ fun TaskbarIcon(
             .size(56.dp)
             .onPointerEvent(PointerEventType.Enter) { isHover = true }
             .onPointerEvent(PointerEventType.Exit) { isHover = false }
-            .clickable { onClick() }
+            .pointerInput(Unit) {
+                detectTapGestures(
+                    onPress = {
+                        onClick()
+                        tryAwaitRelease()
+                    },
+                    onTap = { onClick() }
+                )
+            }
             .background(if (isHover) MaterialTheme.colorScheme.primary.copy(alpha = 0.01f) else Color.Transparent)
     ) {
         Image(
