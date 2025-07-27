@@ -171,14 +171,21 @@ fun DesktopEnvironment(
     }
 
     openAppsIds.forEach { appId ->
-        val window = appRegistry[appId]?.invoke()
-        if (window != null) {
-            DraggableWindow(
-                windowWidth = window.defaultSize.width,
-                windowHeight = window.defaultSize.height,
-                titleBar = window.titleBar,
-                content = window.content
-            )
+        // This key(){} thing fixed the bug where when a window was closed, it took the previous window offset in the screen.
+        // This issue happened because, apparently, Jetpack Compose tracks state by composition order unless I tell it explicitly what it should key on. So using a key binds the DraggableWindow composable for each AppId individually, instead of just reusing the DraggableWindow of the previous opened windows in the composition tree.
+
+        // This is a little bit confusing, but according to my IA friends, using key(){} is like telling Compose:
+        // "Hey, track this block using the unique key appId, not just the order it appeared in."
+        key(appId) {
+            val window = appRegistry[appId]?.invoke()
+            if (window != null) {
+                DraggableWindow(
+                    windowWidth = window.defaultSize.width,
+                    windowHeight = window.defaultSize.height,
+                    titleBar = window.titleBar,
+                    content = window.content
+                )
+            }
         }
     }
 

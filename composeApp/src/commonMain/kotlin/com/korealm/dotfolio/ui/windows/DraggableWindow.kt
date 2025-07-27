@@ -21,14 +21,12 @@ import kotlin.math.roundToInt
 import kotlin.random.Random
 
 // This composable recreates Windows 11 windows and requests a Composable function to display inside.
-// As Windows 11 photo viewer, audio player, notepad and web browser (edge) have different layouts, this Windows composable only holds
-// basic window behavior: Window drag and taskbar capabilities.
+// As Windows 11 photo viewer, audio player, notepad and web browser (edge) have different layouts, this Windows composable only holds basic window behavior: Window drag and taskbar capabilities.
 @Composable
 fun DraggableWindow(
     windowWidth: Dp = 600.dp,
     windowHeight: Dp = 400.dp,
     modifier: Modifier = Modifier,
-//    titleBarColor: Color = MaterialTheme.colorScheme.surface, // Unnecessary because the bg color can be set directly in titleBar
     titleBar: @Composable () -> Unit,
     content: @Composable () -> Unit
 ) {
@@ -63,8 +61,6 @@ fun DraggableWindow(
                     content = { titleBar() },
                     modifier = Modifier
                         .fillMaxWidth()
-//                        .height(32.dp) // Don't hardcode the title bar height! But make sure to specify it in the titleBar you are passing
-//                        .background(titleBarColor)
                         .pointerInput(Unit) {
                             detectDragGestures { change, dragAmount ->
                                 change.consume()

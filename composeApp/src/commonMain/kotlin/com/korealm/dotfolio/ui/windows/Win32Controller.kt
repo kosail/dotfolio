@@ -12,7 +12,7 @@ import com.korealm.dotfolio.ui.windows.settings.SettingsApp
 import com.korealm.dotfolio.ui.windows.web_browser.WebBrowserApp
 
 // Why "Win32"?, you may ask.
-// Because of nothing, my friend. Don't ask, but enjoy.
+// Because it sounds cool, my friend. Don't ask, but enjoy.
 
 // This is just a glue layer between the logic declared in each app package, and the general app
 object Win32Controller {
@@ -23,7 +23,7 @@ object Win32Controller {
     fun WebBrowser(themeState: AppThemeState, onClose: () -> Unit): WindowApp = WebBrowserApp(themeState, onClose)
 
     @Composable
-    fun MediaPlayer(themeState: AppThemeState ,onClose: () -> Unit): WindowApp = MediaPlayerApp(themeState, onClose)
+    fun MediaPlayer(themeState: AppThemeState, onClose: () -> Unit): WindowApp = MediaPlayerApp(themeState, onClose)
 
     @Composable
     fun Photos(onClose: () -> Unit): WindowApp = PhotosApp(onClose)
