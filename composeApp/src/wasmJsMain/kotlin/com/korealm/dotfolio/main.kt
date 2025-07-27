@@ -5,10 +5,7 @@ import androidx.compose.ui.window.ComposeViewport
 import kotlinx.browser.document
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 
-@OptIn(
-    ExperimentalComposeUiApi::class,
-    ExperimentalResourceApi::class // TODO: I may require it for font loading. I'll check on that later
-)
+@OptIn(ExperimentalComposeUiApi::class)
 fun main() {
     ComposeViewport(document.body!!) {
         App()

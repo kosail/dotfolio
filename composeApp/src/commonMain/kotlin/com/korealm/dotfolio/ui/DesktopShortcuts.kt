@@ -45,13 +45,15 @@ fun DesktopShortcuts(
         Triple(Res.drawable.settings, stringResource(Res.string.settings), AppId.SETTINGS)
     )
 
-    Box( modifier = modifier ) {
-        Column(
+    Box {
+        FlowColumn(
             verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.CenterHorizontally,
+            horizontalArrangement = Arrangement.Center,
+            itemHorizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxHeight()
                 .padding(horizontal = 20.dp)
+                .padding(bottom = 60.dp)
 
         ) {
             for ((icon, title, appId) in shortcutButtonsList) { // Unpacking Triple for more readability

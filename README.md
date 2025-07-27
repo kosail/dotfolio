@@ -48,6 +48,8 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 
 1. ### Media player works seamlessly on web target, but in Desktop it has a bug in which if the audio is paused, then it cannot be played again.
     Although, it's okay. This project focuses on web target, and I use desktop implementation just for its hot reload capabilities, which really makes my life easier when quickly prototyping or fast debugging.
+2. ### Dotfolio does not play well with small screens
+    I just realized that Compose works with density, not with actual screen size. I feel so foolish of not realizing that on time... ugh. I have made a small fix in DesktopShortcuts chaing the Column for a FlowColumn, but still elements and text are too big.
 
 </details>
 
