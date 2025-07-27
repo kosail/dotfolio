@@ -1,7 +1,6 @@
 package com.korealm.dotfolio.ui
 
 import androidx.compose.animation.*
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -17,7 +16,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.onPointerEvent
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -28,13 +26,6 @@ import com.korealm.dotfolio.ui.windows.DraggableWindow
 import dotfolio.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
-
-//        ██████╗  ██████╗      █████╗ ███╗   ██╗██████╗     ████████╗ █████╗ ███████╗██╗  ██╗██████╗  █████╗ ██████╗
-//        ██╔══██╗██╔════╝     ██╔══██╗████╗  ██║██╔══██╗    ╚══██╔══╝██╔══██╗██╔════╝██║ ██╔╝██╔══██╗██╔══██╗██╔══██╗
-//        ██████╔╝██║  ███╗    ███████║██╔██╗ ██║██║  ██║       ██║   ███████║███████╗█████╔╝ ██████╔╝███████║██████╔╝
-//        ██╔══██╗██║   ██║    ██╔══██║██║╚██╗██║██║  ██║       ██║   ██╔══██║╚════██║██╔═██╗ ██╔══██╗██╔══██║██╔══██╗
-//        ██████╔╝╚██████╔╝    ██║  ██║██║ ╚████║██████╔╝       ██║   ██║  ██║███████║██║  ██╗██████╔╝██║  ██║██║  ██║
-//        ╚═════╝  ╚═════╝     ╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝        ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 
 @Composable
 fun DesktopEnvironment(
@@ -47,24 +38,8 @@ fun DesktopEnvironment(
     val visibleApps by remember(openAppsIds) { derivedStateOf { openAppsIds } }
 
     Box(
-        modifier = modifier
-            .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background) // Default background color. Useful to not flash the user when background changing.
+        modifier = modifier.fillMaxSize()
     ) {
-        AnimatedContent(
-            targetState = themeState.currentWallpaper,
-            transitionSpec = {
-                fadeIn(animationSpec = tween(1000) ) togetherWith fadeOut(animationSpec = tween(1000))
-            }
-        ) { targetWallpaper ->
-            Image(
-                painter = painterResource(targetWallpaper.resource),
-                contentDescription = "Wallpaper",
-                contentScale = ContentScale.Crop,
-                modifier = modifier.matchParentSize()
-            )
-        }
-
         Surface(
             tonalElevation = 2.dp,
             color = MaterialTheme.colorScheme.surface.copy(alpha = 0.7f),
