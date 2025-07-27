@@ -110,12 +110,12 @@ cd dotfolio
 - [Purple cat photo, by Adam Gonzales on Unsplash](https://unsplash.com/@adamgonzales)
 - [Gnome screenshot, from Blur my shell GitHub repo, by aunetx](https://github.com/aunetx/blur-my-shell)
 - Screenshot from the game "Flowers, le volume sur le printemps." Innocent Grey made this wonderful visual novel, and it's available on GOG for purchase.
-- [Amberol music player screenshot, from linkvegas12 on DevianArt](https://www.deviantart.com/linkvegas12/art/Fluent-Start-Menu-Style-For-Windows-11-1137827427)
-- [Windows 11 screenshot, from FOSTips](https://fostips.com/amberol-music-player-beautiful-design/)
+- [Amberol music player screenshot, from FOSTips](https://www.deviantart.com/linkvegas12/art/Fluent-Start-Menu-Style-For-Windows-11-1137827427)
+- [Windows 11 screenshot, from linkvegas12 on DevianArt](https://fostips.com/amberol-music-player-beautiful-design/)
 
 - [Java logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Duke_%28Java_mascot%29_waving.svg)
 - [Kotlin logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kotlin_Icon.svg)
-- [Compose logo, from Compose officla repo on Github](https://github.com/JetBrains/compose-multiplatform/blob/master/artwork/compose-logo.svg)
+- [Compose logo, from Compose official repo on Github](https://github.com/JetBrains/compose-multiplatform/blob/master/artwork/compose-logo.svg)
 - [C# logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Logo_C_sharp.svg)
 - [HTML logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:HTML5_Badge.svg)
 - [CSS logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Official_CSS_Logo.svg)
