@@ -91,8 +91,8 @@ cd dotfolio
 - [Blanket app icon, by Rafael Mardojai](https://github.com/rafaelmardojai/blanket)
 
 #### -> Wallpapers and images
-- [Windows 11 background light, from 4kwallpapers.com](https://4kwallpapers.com/abstract/windows-11-stock-3d-10781.html)
-- [Windows 11 background dark, from 4kwallpapers.com](https://4kwallpapers.com/abstract/windows-11-stock-grey-abstract-dark-background-8957.html)
+- [Windows 11 background light, from 4kwallpapers.com](https://4kwallpapers.com/abstract/windows-11-blue-stock-white-background-light-official-5616.html)
+- [Windows 11 background dark, from 4kwallpapers.com](https://4kwallpapers.com/abstract/windows-11-dark-mode-blue-stock-official-5630.html)
 - [Anime wallpaper, by Jensen Art Co. on Pixabay](https://pixabay.com/users/jensenartofficial-31380959/)
 - [Cat wallpaper, by Zeke Tucker on Unsplash](https://unsplash.com/@zeketucker)
 - [Honduras wallpaper 1, by Hector Emilio Gonzalez on Unsplash](https://unsplash.com/@hectoremilio)
