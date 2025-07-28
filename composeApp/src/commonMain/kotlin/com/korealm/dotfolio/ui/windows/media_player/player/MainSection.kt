@@ -1,9 +1,8 @@
 package com.korealm.dotfolio.ui.windows.media_player.player
 
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
@@ -239,6 +238,7 @@ fun MainSection(
             Column(
                 modifier = Modifier
                     .padding(top = 250.dp)
+                    .scrollable(rememberScrollState(), orientation = Orientation.Vertical)
             ) {
                 val names = listOf(
                     Res.string.media_player__recordings_en,

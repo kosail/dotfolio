@@ -94,7 +94,7 @@ fun App() {
             ) { targetWallpaper ->
                 Image(
                     painter = painterResource(targetWallpaper.resource),
-                    contentDescription = "Wallpaper",
+                    contentDescription = null,
                     contentScale = ContentScale.Crop,
                     modifier = Modifier.matchParentSize()
                 )
