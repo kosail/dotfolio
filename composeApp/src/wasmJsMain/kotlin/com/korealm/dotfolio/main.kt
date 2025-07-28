@@ -3,6 +3,7 @@ package com.korealm.dotfolio
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.window.ComposeViewport
 import com.korealm.dotfolio.utils.isBigScreen
+import com.korealm.dotfolio.utils.isDesktopBigScreen
 import com.korealm.dotfolio.utils.isMobile
 import kotlinx.browser.document
 
@@ -10,7 +11,7 @@ import kotlinx.browser.document
 fun main() {
     ComposeViewport(document.body!!) {
         if (! isMobile()) {
-            App()
+            if (isDesktopBigScreen()) App() else LimitedDotfolio()
         } else {
             if (isBigScreen()) LimitedDotfolio() else UnsupportedDevice()
         }

@@ -353,4 +353,17 @@
     <string name="file_explorer_docker">Docker</string>
     <string name="file_explorer_linux">Linux</string>
     <string name="file_explorer_wordpress">Wordpress</string>
+
+    <!--  Misc  -->
+    <string name="unsupported_tag_one">Not available on mobile</string>
+    <string name="unsupported_tag_two">Screen too small to display</string>
+    <string name="unsupported_msg">Dotfolio is designed for desktop. Try visiting from a larger screen to explore it fully.</string>
+
+    <string name="limited_ux_title">Compact Experience</string>
+    <string name="limited_ux_msg">
+        This is a simplified view of Dotfolio, designed for smaller screens. For the full desktop simulation, try a larger device.
+
+        Tap or click to continue.
+    </string>
+
 </resources>

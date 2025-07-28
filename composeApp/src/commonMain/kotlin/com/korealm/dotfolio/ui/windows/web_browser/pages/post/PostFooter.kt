@@ -64,9 +64,8 @@ fun PostFooter(
             }
         }
 
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
+        FlowRow(
+            modifier = Modifier.fillMaxWidth()
         ) {
             for (tag in tags) {
                 Surface (

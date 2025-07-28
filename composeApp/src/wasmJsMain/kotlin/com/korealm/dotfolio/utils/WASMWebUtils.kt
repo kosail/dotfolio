@@ -27,8 +27,17 @@ external fun getWindowWidth(): Int
 @JsFun("(function() { return window.innerHeight; })")
 external fun getWindowHeight(): Int
 
+
+// Why two functions that do the same, you may ask
+// In a nutshell; I had to restrict desktops with resolution of 1366x768, as dotfolio does not play well at all in less than 1920x1080.
+// I know. That was one of my huge mistakes creating this project. However, I learned from it.
+// So one function is for tablets and mobile and the other to restrict low-res desktop monitors.
 fun isBigScreen(): Boolean {
-    return getWindowWidth() > 1300 && getWindowHeight() > 600
+    return getWindowWidth() > 1000 && getWindowHeight() > 500
+}
+
+fun isDesktopBigScreen(): Boolean {
+    return getWindowWidth() > 1400 && getWindowHeight() > 800
 }
 
 @JsFun("(function() {return navigator.userAgent })")

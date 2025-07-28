@@ -21,26 +21,30 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 > Dotfolio is structured like an operating system, but powered by storytelling. Just check it out:
 
 
-![Showdown of some apps](repo_images/nightly_appearance.webp)
-![Web browser app opened up](repo_images/nightly_appearance_2.webp)
-![About project](repo_images/nightly_appearance_3.webp)
+![Showdown of some apps](repo_images/beta_desktop.webp)
+![Web browser app opened up](repo_images/beta_desktop_2.webp)
+![About project](repo_images/beta_desktop_3.webp)
 
-
+On desktop it loads the full version. On tablets, it loads just the content of dotfolio's web browser (the blog of myself), and on mobile it shows a nice message telling mobile is not currently supported
 <details>
-<summary>On desktop it loads the full version. On tablets, it loads just the content of dotfolio's web browser (the blog of myself), and on mobile it shows a nice message telling mobile is not currently supported</summary>
+<summary>Open images</summary>
 
-![On tablet preview](repo_images/ontablet_appearance.webp)
+![On tablet preview](repo_images/beta_tablet_and_low_res.webp)
+![On mobile preview](repo_images/beta_mobile.webp)
 
 </details>
 
 
 ---
 ## 🪻 Development Stage
+Almost ready for first deployment! I consider that we are currently reaching a beta version.
+I'll deploy it when I achieve all of what is listed here.
+
 ### Main
 - ✅ Desktop Environment:
-    - ✅ Z Index for apps (Not an actual z index, since I just used Compose's rendering order...)
+    - ✅ Z Index for apps
     - 🌱 Windows minimize capabilities
-    - ❌ Windows dynamic size at launch based on the viewport
+- 🌱 Spanish translation (expected to be released at v2.0)
 
 ### Apps
 - ✅ Notepad
@@ -133,9 +137,24 @@ Contributions are welcome! Feel free to fork the repository and submit pull requ
 
 ---
 
-[//]: # (## 🎒 What I learned from this project)
+## 🎒 What I learned from this project
+### 1. Scaling
+Up until finishing this project, I realize that Compose doesn't automatically adapt my content to different resolutions, and that all this time I've been building just taking 1920x1080 resolution in mind. That was... ugh, a big headache.
 
-[//]: # (---)
+"What am I supposed to do now with over a month of hard work? Refactor it over the whole project?." Dotfolio was never intended to be mobile first, but people will surely try it on mobile and I had to do something.
+
+Thus, I decided to reuse the blog I made inside dotfolio to work as a sole website. Tried it, loved it. I think I'm quite lucky that this blog adapted almost perfectly to these resolutions that are over HD but less than Full HD. For mobile, I had no luck as it is more complicated. So I decided to limit the app reusing composables that I wrote for the blog.
+
+From here and on, I'll take special attention not just to density, but resolutions.
+
+### 2. Side Effects, Effect Handlers and the State API
+I think that this was one of the most important things that I learned by the end of this project.
+
+I had doubts since the beginning of this journey on how it could be possible to call normal code from Composables (as Composables can be rebuilt many times during their lifecycle. Thus, they call the code inside them many times), but I didn't think too much on it as long as it worked. In my last project it just worked, but in dotfolio... well, it could have not been possible with Effect Handlers.
+
+I still need to learn a lot more about these topics, and especially about derivatedState.
+
+---
 
 ## 📜 License
 ![GPLv3 License logo. Copyright © 2012 Christian Cadena](repo_images/license-logos-by-christian-candena-GNU_GPLv3_License.webp)
@@ -151,6 +170,7 @@ GPLv3 Logos:
 ---
 > **Note:** dotfolio is a personal learning project and is not affiliated with Microsoft, Windows or any other brand or product.
 ---
+
 dotfolio Copyright © 2025, kosail
 <br>
 With love, from Honduras.
