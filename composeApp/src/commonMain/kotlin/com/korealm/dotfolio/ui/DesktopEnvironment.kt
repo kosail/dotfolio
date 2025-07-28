@@ -33,6 +33,7 @@ import org.jetbrains.compose.resources.stringResource
 fun DesktopEnvironment(
     clock: Pair<String, String>,
     openAppsIds: List<AppId>,
+    launchedAppsIds: List<AppId>,
     appRegistry: Map<AppId, @Composable () -> WindowApp>,
     themeState: AppThemeState,
     onWindowFocus: (AppId) -> Unit,
@@ -96,10 +97,10 @@ fun DesktopEnvironment(
             ) {
                 TaskbarIcon( // Start menu icon
                     icon = painterResource(Res.drawable.start),
-                    onClick = { /* TODO LATER */ },
+                    onClick = { /* Nothing. I consider the menu not necessary for dotfolio */ },
                 )
 
-                visibleApps.forEach { appId ->
+                launchedAppsIds.forEach { appId ->
                     val windowApp = appRegistry[appId]?.invoke()
                     if (windowApp != null) {
                         AnimatedVisibility(
@@ -110,7 +111,7 @@ fun DesktopEnvironment(
                         ) {
                             TaskbarIcon(
                                 icon = windowApp.icon,
-                                onClick = { windowApp.isMinimized = ! windowApp.isMinimized },
+                                onClick = { onWindowFocus(appId) },
                                 modifier = Modifier
                             )
                         }
@@ -210,15 +211,7 @@ fun TaskbarIcon(
             .size(56.dp)
             .onPointerEvent(PointerEventType.Enter) { isHover = true }
             .onPointerEvent(PointerEventType.Exit) { isHover = false }
-            .pointerInput(Unit) {
-                detectTapGestures(
-                    onPress = {
-                        onClick()
-                        tryAwaitRelease()
-                    },
-                    onTap = { onClick() }
-                )
-            }
+            .clickable { onClick() }
             .background(if (isHover) MaterialTheme.colorScheme.primary.copy(alpha = 0.01f) else Color.Transparent)
     ) {
         Image(

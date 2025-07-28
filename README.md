@@ -43,7 +43,6 @@ I'll deploy it when I achieve all of what is listed here.
 ### Main
 - ✅ Desktop Environment:
     - ✅ Z Index for apps
-    - 🌱 Windows minimize capabilities
 - 🌱 Spanish translation (expected to be released at v2.0)
 
 ### Apps

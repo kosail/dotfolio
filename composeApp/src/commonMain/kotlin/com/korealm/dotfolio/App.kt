@@ -42,7 +42,9 @@ fun App() {
 
     var openWindowRef by remember { mutableStateOf<(AppId) -> Unit>({}) } // Due to circular dependency between this 2 functions and appRegistry
     var closeWindowRef by remember { mutableStateOf<(AppId) -> Unit>({}) } // I had to first declare them, and then associate the real function
+
     val bringToFrontRef = remember { mutableStateOf<(AppId) -> Unit>({}) }
+    var launchedApps by remember { mutableStateOf(listOf(AppId.NOTEPAD)) } // This one is needed for the taskbar icons. To make then independent of changes in focus being done in openWindows
 
 
 
@@ -61,11 +63,17 @@ fun App() {
         if (appId !in openWindows) {
             openWindows = openWindows + appId
         }
+
+        if (appId !in launchedApps) {
+            launchedApps = launchedApps + appId
+        }
     }
+
 
 
     closeWindowRef = { appId ->
         openWindows = openWindows.filterNot { it == appId }
+        launchedApps = launchedApps.filterNot { it == appId }
     }
 
     // The following function simply deletes the app from the openApps list and readd it (changing the composition order and thus rendering the window over any other)
@@ -74,6 +82,7 @@ fun App() {
     bringToFrontRef.value = { appId ->
         openWindows = openWindows.filterNot { it == appId } + appId
     }
+
 
 
     // Run dotfolio!
@@ -114,6 +123,7 @@ fun App() {
             DesktopEnvironment(
                 clock = localDateTime,
                 openAppsIds = openWindows,
+                launchedAppsIds = launchedApps,
                 appRegistry = appRegistry,
                 onWindowFocus = bringToFrontRef.value,
                 themeState = themeState,
