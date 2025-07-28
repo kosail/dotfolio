@@ -8,6 +8,16 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 
 ---
 
+## 🌺 Goal of this project:
+
+The sole goal is to stand out in a sea of traditional portfolios. It's to tell, build an interactive story about myself.
+
+Taking this in mind, I focused on implementing only what is needed to tell this story, not to rebuild the actual functionality of an entire OS on Compose.
+
+I consider this minimalist precision is not a limitation, but a design power move. Make it speak clearly, cleanly, and with purpose. That's my goal, and the one of this project.
+
+---
+
 ## 🌼 Features
 
 - 💻 A static desktop environment that looks and feels like Windows 11 — but minimal, soft, and handcrafted
@@ -62,16 +72,6 @@ I'll deploy it when I achieve all of what is listed here.
 1. ### Media player works seamlessly on web target, but in Desktop it has a bug in which if the audio is paused, then it cannot be played again.
     Although, it's okay. This project focuses on web target, and I use desktop implementation just for its hot reload capabilities, which really makes my life easier when quickly prototyping or fast debugging.
 </details>
-
----
-
-## 🌺 Goal of this project:
-
-The sole goal is to stand out in a sea of traditional portfolios. It's to tell, build an interactive story about myself.
-
-Taking this in mind, I focused on implementing only what is needed to tell this story, not to rebuild the actual functionality of an entire OS on Compose.
-
-I consider this minimalist precision is not a limitation, but a design power move. Make it speak clearly, cleanly, and with purpose. That's my goal, and the one of this project.
 
 ---
 
