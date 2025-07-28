@@ -2,7 +2,11 @@ package com.korealm.dotfolio.ui.windows.web_browser.pages
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,32 +29,37 @@ fun ContactPage(
     font: FontFamily,
     modifier: Modifier = Modifier
 ) {
-    Column(
+    val fullMsg = "${ stringResource(Res.string.web_browser_contact_msg, stringResource(Res.string.web_browser_faq_askbox_recipient)).trimIndent() }"
+
+    LazyColumn(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
             .fillMaxSize()
             .padding(50.dp)
             .border(1.dp, MaterialTheme.colorScheme.onBackground.copy(alpha = .1f))
     ) {
-        Box(
-            modifier = Modifier.height(290.dp)
-        ) {
-            Image(
-                painter = painterResource(Res.drawable.byebye_banner),
-                contentDescription = null,
-                contentScale = ContentScale.FillWidth,
-                modifier = Modifier
-            )
+        item {
+            Box(
+                modifier = Modifier.height(290.dp)
+            ) {
+                Image(
+                    painter = painterResource(Res.drawable.byebye_banner),
+                    contentDescription = null,
+                    contentScale = ContentScale.FillWidth,
+                    modifier = Modifier
+                )
+            }
         }
 
-        val fullMsg = "${ stringResource(Res.string.web_browser_contact_msg, stringResource(Res.string.web_browser_faq_askbox_recipient)).trimIndent() }"
-        Text(
-            text = fullMsg,
-            fontFamily = font,
-            fontWeight = FontWeight.Normal,
-            fontSize = 17.sp,
-            color = MaterialTheme.colorScheme.onBackground,
-            modifier = Modifier.padding(25.dp)
-        )
+        item {
+            Text(
+                text = fullMsg,
+                fontFamily = font,
+                fontWeight = FontWeight.Normal,
+                fontSize = 17.sp,
+                color = MaterialTheme.colorScheme.onBackground,
+                modifier = Modifier.padding(25.dp)
+            )
+        }
     }
 }

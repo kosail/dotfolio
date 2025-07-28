@@ -15,7 +15,8 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 - 🗂️ Clickable desktop icons launch simulated apps like Notepad, Settings, a Media Player, Web Browser, and my CV
 - 🌗 Seamless light and dark mode, and wallpaper customization option included
 - 🧠 Each “app” is not just aesthetic — it tells a part of the story: my skills, my personality, my design sense
-- 🌐 Runs fully client-side, no backend, no trackers
+- 🌐 Runs fully client-side, no backend, no trackers.
+- 🤳 Render different versions of dotfolio depending on if it's a desktop, a tablet or a mobile phone.
 
 > Dotfolio is structured like an operating system, but powered by storytelling. Just check it out:
 
@@ -23,6 +24,15 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 ![Showdown of some apps](repo_images/nightly_appearance.webp)
 ![Web browser app opened up](repo_images/nightly_appearance_2.webp)
 ![About project](repo_images/nightly_appearance_3.webp)
+
+
+<details>
+<summary>On desktop it loads the full version. On tablets, it loads just the content of dotfolio's web browser (the blog of myself), and on mobile it shows a nice message telling mobile is not currently supported</summary>
+
+![On tablet preview](repo_images/ontablet_appearance.webp)
+
+</details>
+
 
 ---
 ## 🪻 Development Stage
@@ -48,9 +58,6 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 
 1. ### Media player works seamlessly on web target, but in Desktop it has a bug in which if the audio is paused, then it cannot be played again.
     Although, it's okay. This project focuses on web target, and I use desktop implementation just for its hot reload capabilities, which really makes my life easier when quickly prototyping or fast debugging.
-2. ### Dotfolio does not play well with small screens
-    I just realized that Compose works with density, not with actual screen size. I feel so foolish of not realizing that on time... ugh. I have made a small fix in DesktopShortcuts chaing the Column for a FlowColumn, but still elements and text are too big.
-
 </details>
 
 ---

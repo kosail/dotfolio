@@ -1,8 +1,7 @@
 package com.korealm.dotfolio.utils
 
-import org.w3c.dom.HTMLAnchorElement
 import kotlinx.browser.document
-import org.w3c.dom.get
+import org.w3c.dom.HTMLAnchorElement
 
 @JsName("openInNewTab")
 actual fun openInNewTab(url: String) {
@@ -19,4 +18,25 @@ external fun encodeURIComponent(str: String): String
 
 actual fun encodeText(text: String) : String {
     return encodeURIComponent(text)
+}
+
+// WASM target only
+@JsFun("(function() { return window.innerWidth; })")
+external fun getWindowWidth(): Int
+
+@JsFun("(function() { return window.innerHeight; })")
+external fun getWindowHeight(): Int
+
+fun isBigScreen(): Boolean {
+    return getWindowWidth() > 1300 && getWindowHeight() > 600
+}
+
+@JsFun("(function() {return navigator.userAgent })")
+external fun getUserAgent(): String
+
+fun isMobile(): Boolean {
+    val agent = getUserAgent().lowercase()
+    return agent.let { ua ->
+        ua.contains("android") || ua.contains("iphone") || ua.contains("ipad") || ua.contains("mobile")
+    }
 }

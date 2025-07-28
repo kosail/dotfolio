@@ -4,6 +4,7 @@ import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -45,6 +46,7 @@ fun AboutMePage(
                     text = stringResource(Res.string.web_browser_aboutme_first_content).trimIndent(),
                     fontFamily = font,
                     fontSize = 16.sp,
+                    color = MaterialTheme.colorScheme.onBackground,
                     modifier = Modifier
                 )
             }
@@ -62,6 +64,7 @@ fun AboutMePage(
                         text = stringResource(Res.string.web_browser_aboutme_second_content_one).trimIndent(),
                         fontFamily = font,
                         fontSize = 16.sp,
+                        color = MaterialTheme.colorScheme.onBackground,
                         modifier = Modifier.padding(bottom = 16.dp)
                     )
 
@@ -70,6 +73,7 @@ fun AboutMePage(
                         fontFamily = font,
                         fontSize = 16.sp,
                         fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onBackground,
                         modifier = Modifier
                     )
                 }
@@ -103,6 +107,7 @@ fun AboutMePage(
                             text = stringResource(Res.string.web_browser_aboutme_third_content_personal),
                             fontFamily = font,
                             fontSize = 16.sp,
+                            color = MaterialTheme.colorScheme.onBackground,
                             modifier = Modifier
                         )
                     }
@@ -123,6 +128,7 @@ fun AboutMePage(
                             text = stringResource(Res.string.web_browser_aboutme_third_content_professional),
                             fontFamily = font,
                             fontSize = 16.sp,
+                            color = MaterialTheme.colorScheme.onBackground,
                             modifier = Modifier
                         )
                     }
@@ -141,6 +147,7 @@ fun AboutMePage(
                         text = stringResource(Res.string.web_browser_aboutme_third_content_final),
                         fontFamily = font,
                         fontSize = 16.sp,
+                        color = MaterialTheme.colorScheme.onBackground,
                         modifier = Modifier
                     )
                 }
@@ -158,6 +165,7 @@ fun AboutMePage(
                     text = stringResource(Res.string.web_browser_aboutme_last_content).trimIndent(),
                     fontFamily = font,
                     fontSize = 16.sp,
+                    color = MaterialTheme.colorScheme.onBackground,
                     modifier = Modifier
                 )
             }

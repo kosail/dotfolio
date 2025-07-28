@@ -1,18 +1,11 @@
 package com.korealm.dotfolio.ui.windows.web_browser.pages
 
 import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.tween
-import androidx.compose.animation.expandIn
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
-import androidx.compose.animation.shrinkOut
-import androidx.compose.animation.shrinkVertically
 import androidx.compose.animation.togetherWith
-import androidx.compose.animation.with
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -20,14 +13,7 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
 import androidx.compose.foundation.lazy.staggeredgrid.items
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
@@ -41,8 +27,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Dialog
-import androidx.compose.ui.window.DialogProperties
 import com.korealm.dotfolio.ui.windows.web_browser.pages.general.CustomVerticalScrollbar
 import com.korealm.dotfolio.ui.windows.web_browser.pages.general.FullScreenImageVisualizer
 import com.korealm.dotfolio.ui.windows.web_browser.pages.post.Post
@@ -140,16 +124,6 @@ private fun GalleryGrid(
         modifier = modifier.fillMaxWidth()
     ) {
         items(items = imageList) { image ->
-//            Image(
-//                painter = painterResource(image),
-//                contentDescription = null,
-//                contentScale = ContentScale.Fit,
-//                modifier = Modifier
-//                    .fillMaxWidth()
-//                    .wrapContentHeight()
-//                    .pointerHoverIcon(PointerIcon.Hand)
-//            )
-
             HoverFadeImage(
                 drawable = image,
                 modifier = Modifier

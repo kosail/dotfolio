@@ -42,6 +42,7 @@ fun AskBox(
                 fontFamily = font,
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onBackground,
                 modifier = Modifier.padding(end = 6.dp)
             )
 

@@ -61,8 +61,9 @@ fun PostBody(
                 Image(
                     painter = painterResource(image),
                     contentDescription = stringResource(description),
-                    contentScale = ContentScale.Inside,
+                    contentScale = ContentScale.Fit,
                     modifier = Modifier
+                        .fillMaxWidth()
                         .clickable { selectedImage = image }
                 )
             }
