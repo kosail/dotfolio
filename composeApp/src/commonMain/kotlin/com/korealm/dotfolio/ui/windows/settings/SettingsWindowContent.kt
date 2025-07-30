@@ -470,7 +470,7 @@ fun AboutScreen(
                     .padding(top = 15.dp)
             ) {
                 Text(
-                    text = stringResource(Res.string.dev_mode_about_description),
+                    text = stringResource(Res.string.dev_mode_about_description).trimIndent(),
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Light,
                     textAlign = TextAlign.Center,
@@ -494,7 +494,7 @@ fun AboutScreen(
                 Spacer(Modifier.height(15.dp))
 
                 Text(
-                    text = stringResource(Res.string.dev_mode_built_and_tested),
+                    text = stringResource(Res.string.dev_mode_built_and_tested).trimIndent(),
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Light,
                     textAlign = TextAlign.Center,

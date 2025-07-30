@@ -23,7 +23,7 @@ fun MediaPlayerApp(themeState: AppThemeState, onClose: () -> Unit): WindowApp {
         title = stringResource(Res.string.media_player),
         icon = painterResource(Res.drawable.media_player),
         isMinimized = false,
-        defaultSize = DpSize(950.dp, 700.dp),
+        defaultSize = DpSize(980.dp, 700.dp),
         titleBar = { MediaPlayerTitleBar(
             onClose = {
                 onClose()
