@@ -21,7 +21,7 @@ actual object MediaPlayer {
                 state?.currentTime = 0f
             }
 
-            ontimeupdate = { // TODO: Seems like this is not working... I'll check this later
+            ontimeupdate = {
                 state?.currentTime = audioElement.currentTime.toFloat()
             }
 
@@ -48,7 +48,7 @@ actual object MediaPlayer {
         audioElement.onloadedmetadata = {
             state?.isBuffering = false
             state?.duration = audioElement.duration.toFloat()
-            onReady() // ✅ Now it's really ready to play
+            onReady()
         }
     }
 

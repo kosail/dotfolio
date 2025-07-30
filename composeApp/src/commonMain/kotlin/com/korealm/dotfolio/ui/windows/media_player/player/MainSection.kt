@@ -251,11 +251,11 @@ fun MainSection(
                         audioName = stringResource(names[index]),
                         index = index,
                         year = year,
+                        duration = audio.duration,
                         color = if (index % 2 == 0) MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f) else MaterialTheme.colorScheme.surface,
                         onClick = { onSelectedAudioChange(audio) },
                         japaneseFont = japaneseFont,
-                        modifier = Modifier
-                            .fillMaxWidth()
+                        modifier = Modifier.fillMaxWidth()
                     )
                 }
             }

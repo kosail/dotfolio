@@ -27,7 +27,6 @@ import com.korealm.dotfolio.state.MediaPlayerState
 import com.korealm.dotfolio.ui.HoverableSymbolicIconButton
 import com.korealm.dotfolio.ui.SimpleSymbolicIconButton
 import dotfolio.composeapp.generated.resources.*
-import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.pluralStringResource
 import org.jetbrains.compose.resources.stringResource
@@ -38,6 +37,7 @@ fun MediaListRow(
     audioName: String,
     index: Int,
     year: Int,
+    duration: String, // Since these are fixed audios, no need of overhead to dynamically getting the length of the audio sources
     color: Color = MaterialTheme.colorScheme.surface,
     onClick: () -> Unit,
     japaneseFont: FontFamily,
@@ -73,8 +73,6 @@ fun MediaListRow(
                 .padding(vertical = 10.dp)
                 .padding(start = 55.dp, end = 10.dp)
         ) {
-            // TODO: Remove the index rendering into a new Text composable to avoid having the japanese row with a different font everywhere.
-
             Text(
                 text = "${index + 1}.",
                 fontSize = 15.sp,
@@ -114,9 +112,8 @@ fun MediaListRow(
                     .widthIn(min = 100.dp, max = 100.dp)
             )
 
-            // TODO: Duration of the songs. I'm not sure if to hardcode them or do it dynamically because, if done dynamically, I'll need to preload all three files with JS for web target
             Text(
-                text = "01:30",
+                text = duration,
                 fontSize = 15.sp,
                 modifier = Modifier
                     .padding(start = 30.dp)
@@ -165,7 +162,6 @@ fun PlayerSection(
                     modifier = Modifier
                 )
 
-                // TODO: Replace this shit with a custom progress bar indicator
                 ProgressBar(
                     playerState = playerState,
                     backgroundColor = if (themeState.isDarkTheme) MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.8f) else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),

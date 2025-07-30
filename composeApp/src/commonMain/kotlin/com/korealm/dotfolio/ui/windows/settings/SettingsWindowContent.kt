@@ -272,7 +272,6 @@ fun SystemScreen(
 
             Spacer(Modifier.height(4.dp))
 
-            // TODO: Currently working on this
             var rotation by remember { mutableStateOf(0f) }
             SettingOption(
                 icon = Res.drawable.picture_symbolic,
