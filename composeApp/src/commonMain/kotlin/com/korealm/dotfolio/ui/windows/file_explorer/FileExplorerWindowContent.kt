@@ -47,13 +47,13 @@ fun FileExplorerWindowContent(
                 .weight(.95f),
         ) {
             FileExplorerSidebar(
-                modifier = Modifier.weight(.2f)
+                modifier = Modifier.weight(.22f)
             )
 
 
             FileExplorerMain(
                 elements = elements,
-                modifier = Modifier.weight(.8f)
+                modifier = Modifier.weight(.78f)
             )
         }
 

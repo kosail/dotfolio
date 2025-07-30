@@ -46,7 +46,7 @@ fun PostBody(
             ) {
                 Text(
                     text = bodyHeader,
-                    color = MaterialTheme.colorScheme.background.copy(alpha = 0.8f),
+                    color = Color(0xEE202020).copy(alpha = 0.8f),
                     fontFamily = font,
                     fontWeight = FontWeight.SemiBold,
                     fontSize = 16.sp,

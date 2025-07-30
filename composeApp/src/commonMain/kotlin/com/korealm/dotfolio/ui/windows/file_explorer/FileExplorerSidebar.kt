@@ -129,7 +129,9 @@ fun SideMenuElement(
         if (isPinned) {
             Box(
                 contentAlignment = Alignment.Center,
-                modifier = Modifier.align(Alignment.CenterEnd)
+                modifier = Modifier
+                    .align(Alignment.CenterEnd)
+                    .padding(end = 12.dp)
             ) {
                 SimpleSymbolicIconButton(
                     icon = Res.drawable.pin_symbolic,

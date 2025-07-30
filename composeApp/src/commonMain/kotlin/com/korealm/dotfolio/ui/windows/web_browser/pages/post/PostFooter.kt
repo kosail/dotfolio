@@ -72,7 +72,7 @@ fun PostFooter(
                     color = Color.Transparent,
                     shape = RoundedCornerShape(6.dp),
                     border = BorderStroke(1.dp, MaterialTheme.colorScheme.onBackground.copy(alpha = 0.3f)),
-                    modifier = Modifier.padding(end = 10.dp)
+                    modifier = Modifier.padding(end = 10.dp, bottom = 10.dp)
                 ) {
                     Row(
                         horizontalArrangement = Arrangement.Start,

@@ -62,7 +62,7 @@
     <string name="settings__dark_mode_description">Cambiar el tema de dotfolio</string>
 
     <string name="settings__background">Fondo de pantalla</string>
-    <string name="settings__background_description">Escogé tu imagen preferida para ser el fondo de pantalla de tu sistema</string>
+    <string name="settings__background_description">Escogé el fondo de pantalla de tu sistema</string>
     <string name="settings__background_available_images">Imágenes disponibles</string>
     <string name="settings__background_images_content_description">Vista previa del fondo de pantalla</string>
 
@@ -178,10 +178,10 @@
 
     <string name="web_browser_post_three_content_desc">Screenshot de una de las canciones de Takayan en YouTube</string>
     <string name="web_browser_post_three_tag_one">rap japonés</string>
-    <string name="web_browser_post_three_tag_two">el artista es takayan</string>
-    <string name="web_browser_post_three_tag_three">la artista gráfica se llama Ran</string>
+    <string name="web_browser_post_three_tag_two">cantante: Takayan</string>
+    <string name="web_browser_post_three_tag_three">artista del dibujo: Ran</string>
     <string name="web_browser_post_three">
-        Es extraño pensar que ya han pasado ocho largos años desde que comencé a estudiar japonés… el tiempo se va volando. Y todavía no alcanzo el nivel más alto que imaginaba —o más bien, quería— alcanzar.
+        Es extraño pensar que ya han pasado ocho largos años desde que comencé a estudiar japonés... el tiempo se va volando. Y todavía no alcanzo el nivel más alto que imaginaba —o más bien, quería— alcanzar.
 
         Y crecí, hoy ya siendo un hombre. Siendo mayor, siendo más fuerte. Pero con todo, con poco tiempo para mí mismo.
 
@@ -214,7 +214,7 @@
 
         Vengo de Java, así que el salto a Kotlin fue natural: Corre sobre la misma JVM, pero con null safety de fábrica, corutinas para manejar programación asincrónica de forma fluida, y —mi parte favorita— tiene Compose Multiplatform, que me permite escribir una sola UI que corre en escritorio, móvil y web. Una UI hermosa, como podés darte cuenta.
 
-        Dicho eso, no creo en martillos de oro. Kotlin está maravilloso para hacer apps, pero no es lo que usaría si necesito trabajar a bajo nivel o con cosas del sistema que requieran root. Para eso, tengo cierta debilidad por Go y C (con C es amor complicado… solo desearía que manejar strings y memoria no se sintiera como un castigo con fusta).
+        Dicho eso, no creo en martillos de oro. Kotlin está maravilloso para hacer apps, pero no es lo que usaría si necesito trabajar a bajo nivel o con cosas del sistema que requieran root. Para eso, tengo cierta debilidad por Go y C (con C es amor complicado... solo desearía que manejar strings y memoria no se sintiera como un castigo con fusta).
 
         Y luego está C#. Honestamente, me sorprendió. Antes lo veía como “el Java de Microsoft” (J++), pero al probarlo —sobre todo con cosas como LINQ, o su conexión con Power Apps y Power BI— descubrí lo pulido y productivo que es su ecosistema, especialmente para hacer apps empresariales de alto grado. Y con Power Apps fue una sorpresa grata: a veces se siente bien no tener que diseñar todo desde cero y simplemente enfocarse en el negocio.
 
@@ -244,11 +244,11 @@
     <string name="web_browser_faq_question_three_reply">
         Cuando la gente se entera de que soy de Honduras, casi siempre me preguntan por la comida típica. Y yo siempre hablo de las baleadas.
 
-        Dios mío… una baleada es como un abrazo de la comida callejera hondureña. Una tortilla de harina suave y que se estira, recién salida del comal. Rellena de frijoles refritos licuados, quesito semiseco rallado y una buena cucharada de mantequilla catracha ("de Honduras", pues).
+        Dios mío... una baleada es como un abrazo de la comida callejera hondureña. Una tortilla de harina suave y que se estira, recién salida del comal. Rellena de frijoles refritos licuados, quesito semiseco rallado y una buena cucharada de mantequilla catracha ("de Honduras", pues).
 
         La versión clásica es simple, pero riquísima. Claro que la podés hacer más premium con huevo revuelto, aguacate o hasta tajadas de plátano maduro.
 
-        La doblás por la mitad, le das una mordida… y pam! Felicidad pura.
+        La doblás por la mitad, le das una mordida... y pam! Felicidad pura.
 
         A veces me encuentro a mí mismo con nostalgia cuando pienso en mi casa y en su comida.
     </string>
@@ -263,7 +263,7 @@
 
         No podría. Sería muy difícil si no tuviera naturaleza cerca.
 
-        No es que sea un amante de las plantas. No soy de andar afuera todo el tiempo. Pero tocar tierra, y quedarme quieto frente a un bosque verde y profundo… eso me reinicia la vida.
+        No es que sea un amante de las plantas. No soy de andar afuera todo el tiempo. Pero tocar tierra, y quedarme quieto frente a un bosque verde y profundo... eso me reinicia la vida.
 
         No se trata de huir de la tecnología. Para mí, es solo recordar que debo respirar, que la vida se me escapa entre proyectos y el qué hacer.
     </string>
@@ -293,7 +293,7 @@
     <string name="web_browser_aboutme_third_title">sobre mi futuro.</string>
     <string name="web_browser_aboutme_third_content_personal">En lo personal, quiero seguir creando las herramientas que me gustaría que existieran. Minimalistas. Significativas. Casi siempre sobre Linux, usando Compose Multiplatform y Go.</string>
     <string name="web_browser_aboutme_third_content_professional">En lo profesional, trabajar con Power Apps, Power BI y el ecosistema .NET para crear herramientas empresariales rápidas, estables y prácticas.</string>
-    <string name="web_browser_aboutme_third_content_final">Para ambos caminos tengo una meta en conjunto: crecer como desarrollador backend y, con el tiempo, darle vida a mis propias ideas de SaaS — software limpio, sostenible, multiplataforma… que dure.</string>
+    <string name="web_browser_aboutme_third_content_final">Para ambos caminos tengo una meta en conjunto: crecer como desarrollador backend y, con el tiempo, darle vida a mis propias ideas de SaaS — software limpio, sostenible, multiplataforma... que dure.</string>
 
     <string name="web_browser_aboutme_last_title">gracias por darte la vuelta.</string>
     <string name="web_browser_aboutme_last_content">Espero que algo aquí haya resonado con vos.</string>
