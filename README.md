@@ -44,24 +44,6 @@ On desktop it loads the full version. On tablets, it loads just the content of d
 
 </details>
 
-
----
-## 🪻 Development Stage
-
-### Main
-- ✅ Desktop Environment:
-    - ✅ Z Index for apps
-    - ✅ Spanish translation
-
-### Apps
-- ✅ Notepad
-- ✅ Settings
-- ✅ Photos
-- ✅ Media Player (Missing real audios)
-- ✅ Web Browser
-- ✅ File Manager
-- ✅ PDF file download (Missing real PDF)
-
 ### Bugs
 
 <details>
