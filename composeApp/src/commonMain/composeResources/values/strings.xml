@@ -69,9 +69,15 @@
 
     <string name="dev_mode_logo_content_description">dotfolio logo image</string>
     <string name="dev_mode_dotfolio_version">dotfolio v1.0.0</string>
-    <string name="dev_mode_about_description">A minimalist, interactive, Windows 11 themed developer portfolio built with Compose Multiplatform.\nMake it speak clearly, cleanly, and with purpose.</string>
+    <string name="dev_mode_about_description">
+        A minimalist, interactive, Windows 11 themed developer portfolio built with Compose Multiplatform.
+        Make it speak clearly, cleanly, and with purpose.
+    </string>
     <string name="dev_mode_not_a_website">But dotfolio is not a website. It’s a window to who I am.</string>
-    <string name="dev_mode_built_and_tested">It was built entirely with Kotlin and Compose Multiplatform.\nPowered by Compose for Web (WASM/JS), and tested on Arch Linux, of course.</string>
+    <string name="dev_mode_built_and_tested">
+        It was built entirely with Kotlin and Compose Multiplatform.
+        Powered by Compose for Web (WASM/JS), and tested on Arch Linux, of course.
+    </string>
     <string name="dev_mode_created_by">Created by kosail</string>
     <string name="dev_mode_with_love">With love, from Honduras.</string>
     <string name="dev_mode_signature">kosail in the korealm</string>
@@ -83,7 +89,7 @@
 
     <!--  Media Player App  -->
     <string name="media_player__album">The voice behind the code</string>
-    <string name="media_player__album_content_desc">Wherever you are now, I wish you the best, my lovely cat.</string>
+    <string name="media_player__album_content_desc">Wherever you are now, I wish you the best, my lovely kitty.</string>
     <string name="media_player__artist">kosailing</string>
     <string name="media_player__genre">dotradio.fm</string>
     <string name="media_player__audios_count">3 audios</string>
@@ -94,16 +100,16 @@
         <item quantity="one">Play</item>
         <item quantity="other">Play all</item>
     </plurals>
-    <string name="media_player__next">Next audio</string>
-    <string name="media_player__prev">Previous audio</string>
-    <string name="media_player__shuffle">Shuffle</string>
-    <string name="media_player__repeat">Repeat</string>
-    <string name="media_player__shuffle_and_play">Shuffle and play</string>
-    <string name="media_player__add_to">Add to</string>
-    <string name="media_player__edit_info">Edit info</string>
+    <string name="media_player__next">Siguiente audio</string>
+    <string name="media_player__prev">Audio anterior</string>
+    <string name="media_player__shuffle">Aleatorio</string>
+    <string name="media_player__repeat">Repetir</string>
+    <string name="media_player__shuffle_and_play">Reproducir en aleatorio</string>
+    <string name="media_player__add_to">Añadir</string>
+    <string name="media_player__edit_info">Editar</string>
 
     <!--  Web browser App  -->
-    <string name="web_browser_tab_name">A world of us</string>
+    <string name="web_browser_tab_name">Mi lugar en el mundo</string>
     <string name="web_browser_github">kosail's Github</string>
     <string name="web_browser_website">https://korealm.dev/</string>
     <string name="web_browser_web_name">late night commits</string>
@@ -192,6 +198,8 @@
     <string name="web_browser_faq_askbox_sender">Your name</string>
     <string name="web_browser_faq_askbox_recipient">dsolishn@pm.me</string>
 
+    <string name="web_browser_faq_question">replied a question.</string>
+
     <string name="web_browser_faq_question_one">Are you a Kotlin fan? Or why did you choose it over JavaScript to build your portfolio?</string>
     <string name="web_browser_faq_question_one_tag_one">Kotlin</string>
     <string name="web_browser_faq_question_one_tag_two">Power Bi</string>
@@ -217,7 +225,6 @@
         Because a portfolio shouldn't feel like a résumé. It should feel like stepping into my brain. I didn’t want static links or an endless talk about "how great I am" or how I'm so confident about my skills, because I'm not. I wanted something playful, interactive, and deeply mine. A technical challenge to myself to prove you, and me, what I'm capable of.
     </string>
 
-    <string name="web_browser_faq_question">replied a question.</string>
     <string name="web_browser_faq_question_three">Favorite food?</string>
     <string name="web_browser_faq_question_three_tag_one">baleadas</string>
     <string name="web_browser_faq_question_three_tag_two">street food</string>
@@ -249,7 +256,7 @@
     <!--  About me section  -->
     <string name="web_browser_aboutme_first_title">about me.</string>
     <string name="web_browser_aboutme_first_content">
-        I’m kosail — a computer science student from Honduras who found their path through Linux, over a decade ago. I’ve been exploring ever since.
+        I’m kosail — a computer science student from Honduras who found their path through Linux and making custom roms for Android, over a decade ago. I’ve been exploring ever since.
     </string>
     <string name="web_browser_aboutme_second_title">what I care about.</string>
     <string name="web_browser_aboutme_second_content_one">
@@ -275,6 +282,8 @@
     <string name="web_browser_projects_blanket">Blanket</string>
     <string name="web_browser_projects_created">created</string>
     <string name="web_browser_projects_interested">is interested in rewriting</string>
+    <string name="web_browser_projects_hint">Click on the icons to see more</string>
+
     <string name="web_browser_projects_kvantage_content">
         The first real-world app I made.
 
@@ -282,13 +291,14 @@
 
         KVantage is a sleek and minimal desktop app designed to provide users of Lenovo laptops running Linux the ease of access to essential device settings. Inspired by the clean aesthetics of GNOME (GTK), it aims to offer just the core features users care about. No bloat.
     </string>
+
     <string name="web_browser_projects_dotfolio_content">
         The hardest and most beautiful thing I’ve ever built.
         It has taken me months of planning and coding.
 
         As I said in the recordings, I hope it speaks for itself.
     </string>
-    <string name="web_browser_projects_hint">Click on the icons to see more</string>
+
     <string name="web_browser_projects_blanket_content">
         A project I didn’t create — but one I’d love to carry forward.
 
@@ -317,6 +327,7 @@
 
         A quiet corner for pixels I find beautiful, and that inspires me how to design and build.
     </string>
+
     <string name="web_browser_gallery_tag_one">GTK</string>
     <string name="web_browser_gallery_tag_two">Fluent Design</string>
     <string name="web_browser_gallery_tag_three">Simplicity</string>

@@ -8,7 +8,7 @@
     <string name="about_me">Acerca de mí</string>       <!--  .html  -->
     <string name="voice_recording">Notas de voz</string>   <!--  .wav   -->
     <string name="profile_pic">Yo</string>          <!--  .jpg   -->
-    <string name="tech_stack">Proyectos</string>
+    <string name="tech_stack">Tech stack</string>
     <string name="settings">Configuración</string>
     <string name="readme">Léeme</string>           <!--  .txt   -->
 
@@ -22,7 +22,7 @@
     <string name="web_browser">Edge</string>
     <string name="media_player">Reproductor multimedia</string>
     <string name="photos">Fotos</string>
-    <string name="file_explorer">Navegador de archivos</string>
+    <string name="file_explorer">Explorador de archivos</string>
 
     <!--  Notepad  -->
     <string name="file">Archivo</string>
@@ -32,18 +32,18 @@
     <string name="windows_crlf">Windows (CRLF)</string>
     <string name="utf8">UTF-8</string>
     <string name="main_content_message">
-        ¡Bienvenidos!
+        ¡Bienvenido!
 
-        Esto no es una página web común — es una simulación de un escritorio.
-        Fue creado desde cero con Kotlin y Compose Multiplatform, y corre directamente en tu navegador.
+        Esto no es solo una página web — es una simulación de un entorno de escritorio.
 
-        Puedes hacer doble clic en los íconos de la izquierda para abrir las aplicaciones.
-        Cada una muestra una parte de mí: mis proyectos, habilidades, historia o trabajo.
+        Todo fue creado desde cero usando Kotlin y Compose Multiplatform, y corre directamente en tu navegador.
 
-        No hay tutoriales ni instrucciones. Solo explora, como si usaras un sistema real.
-        Piensa en esto como un pequeño sistema operativo que inicia en quien soy.
+        Dale doble clic a los íconos de la izquierda para abrir las aplicaciones. Cada una te muestra una parte de mí — mis proyectos, habilidades, historia y forma de trabajar.
 
-        Gracias por visitar.
+        No hay tutoriales, ni guías. Explorálo como si fuera un sistema operativo real.
+        Podés verlo como un pequeño sistema operativo que inicia en quien soy yo.
+
+        Gracias por visitar, y estar aquí.
 
         — kosail
     </string>
@@ -51,4 +51,359 @@
     <!--  Settings App  -->
     <string name="username">kosail</string>
     <string name="email">Cuenta local</string>
+
+    <string name="settings__search_bar_content">Buscar</string>
+    <string name="settings__system">Sistema</string>
+    <string name="settings__about">Acerca de dotfolio</string>
+
+    <string name="settings__dev_mode">Habilitar modo desarrollador</string>
+
+    <string name="settings__dark_mode">Modo oscuro</string>
+    <string name="settings__dark_mode_description">Cambiar el tema de dotfolio</string>
+
+    <string name="settings__background">Fondo de pantalla</string>
+    <string name="settings__background_description">Escogé tu imagen preferida para ser el fondo de pantalla de tu sistema</string>
+    <string name="settings__background_available_images">Imágenes disponibles</string>
+    <string name="settings__background_images_content_description">Vista previa del fondo de pantalla</string>
+
+    <string name="dev_mode_logo_content_description">logo de dotfolio</string>
+    <string name="dev_mode_dotfolio_version">dotfolio v1.0.0</string>
+    <string name="dev_mode_about_description">
+        Un portafolio minimalista, interactivo y con estética de Windows 11, hecho con Compose Multiplatform.
+        Diseñado para hablar claro, limpio y con intención.
+    </string>
+
+    <string name="dev_mode_not_a_website">Pero dotfolio no es una página web. Es una ventana a lo que soy.</string>
+
+    <string name="dev_mode_built_and_tested">
+        Construido 100% con Kotlin y Compose Multiplatform.
+        Corre sobre Compose for Web (WASM/JS), y sí — probado en Arch Linux, por supuesto.
+    </string>
+    <string name="dev_mode_created_by">Creado por kosail</string>
+    <string name="dev_mode_with_love">Con amor, desde Honduras.</string>
+    <string name="dev_mode_signature">kosail in the korealm</string>
+
+    <!--  Photos App  -->
+    <string name="photos__photo_content_description">Desarrollador en modo desarrollador desarrollando</string>
+    <string name="photos__zoom_in">Más zoom</string>
+    <string name="photos__zoom_out">Menos zoom</string>
+
+    <!--  Media Player App  -->
+    <string name="media_player__album">La voz detrás del código</string>
+    <string name="media_player__album_content_desc">Dónde sea que estés hoy, te deseo lo mejor, mi gatito. Espero verte algún día otra vez y abrazarte tanto de nuevo.</string>
+    <string name="media_player__artist">kosailing</string>
+    <string name="media_player__genre">dotradio.fm</string>
+    <string name="media_player__audios_count">3 audios</string>
+    <string name="media_player__recordings_en">Welcome to dotfolio</string>
+    <string name="media_player__recordings_es">Bienvenido a dotfolio</string>
+    <string name="media_player__recordings_jp">ドットフォリオへようこそ</string>
+    <plurals name="media_player__play">
+        <item quantity="one">Reproducir</item>
+        <item quantity="other">Reproducir</item> <!-- I believe there is no need of plural on it in Spanish for this specific case. This line is used only once, by the media player, and it looks more natural in this way. -->
+    </plurals>
+    <string name="media_player__next">Siguiente audio</string>
+    <string name="media_player__prev">Audio anterior</string>
+    <string name="media_player__shuffle">Aleatorio</string>
+    <string name="media_player__repeat">Repetir</string>
+    <string name="media_player__shuffle_and_play">Reproducir en aleatorio</string>
+    <string name="media_player__add_to">Añadir</string>
+    <string name="media_player__edit_info">Editar</string>
+
+    <!--  Web browser App  -->
+    <string name="web_browser_tab_name">Mi lugar en el mundo</string>
+    <string name="web_browser_github">kosail's Github</string>
+    <string name="web_browser_website">https://korealm.dev/</string>
+    <string name="web_browser_web_name">commits de madrugada</string>
+    <string name="web_browser_web_description">
+        Este es mi escritorio, mi rincón tranquilo. Cada pixel fue puesto con cuidado, con amor y paciencia.
+
+        No hice dotfolio para impresionar, sino para expresar.
+    </string>
+
+    <string name="web_browser_home">Principal</string>
+    <string name="web_browser_about">Acerca de mí</string>
+    <string name="web_browser_projects">Proyectos</string>
+    <string name="web_browser_thoughts">Preguntas</string>
+    <string name="web_browser_gallery">Galería de inspiración</string>
+    <string name="web_browser_contact">Contactame</string>
+
+    <plurals name="web_browser_weeks_ago">
+        <item quantity="one">Hace %1$d semana</item>
+        <item quantity="other">Hace %1$d semanas</item>
+    </plurals>
+    <plurals name="web_browser_months_ago">
+        <item quantity="one">Hace %1$d mes</item>
+        <item quantity="other">Hace %1$d meses</item>
+    </plurals>
+    <plurals name="web_browser_days_ago">
+        <item quantity="one">Hace %1$d día</item>
+        <item quantity="other">Hace %1$d días</item>
+    </plurals>
+
+    <string name="web_browser_blogged">blogeó</string>
+    <string name="web_browser_reblogged">reblogeó</string>
+    <string name="web_browser_reblogs">REBLOGEOS</string>
+    <string name="web_browser_pinned_post">post destacado</string>
+
+    <!--  Home posts section  -->
+    <string name="web_browser_post_welcome_tag_one">bienvenida</string>
+    <string name="web_browser_post_welcome_tag_two">blog personal</string>
+    <string name="web_browser_post_welcome_tag_three">inspirado en tumblr</string>
+    <string name="web_browser_post_welcome">
+        Bienvenido, mi colega programador! Sentíte libre de recorrer cada rincón de este blog, de este pequeño espacio personal. Espero que aquí podás hacerte una idea de quién soy, y captar los latidos del corazón que latía escribiendo estas líneas.
+    </string>
+
+    <string name="web_browser_post_one_content_desc">Captura de mi blog, de hace un tiempo atrás</string>
+    <string name="web_browser_post_one_tag_one">wordpress</string>
+    <string name="web_browser_post_one_tag_two">moodle</string>
+    <string name="web_browser_post_one_tag_three">SEO</string>
+    <string name="web_browser_post_one_tag_four">maestro de japonés</string>
+    <string name="web_browser_post_one">
+        Hace un tiempo tuve un blog (o mejor dicho, lo llevé durante 4 años). Se llamaba “Mi lugar en el mundo”. Primero estuvo en Tumblr, luego en WordPress.
+        Tengo muchísimas ganas de relanzarlo en el futuro, y probablemente usando Hugo (el generador de sitios estáticos hecho en Go), porque lo probé y me encantó lo simple que es Markdown.
+    </string>
+
+    <string name="web_browser_post_two_reblogger_account">Top 10 escritores del anime</string>
+    <string name="web_browser_post_two_content_desc">Panel del manga "Oyasumi Punpun", de Asano Inio.</string>
+    <string name="web_browser_post_two_tag_one">manga</string>
+    <string name="web_browser_post_two_tag_two">asano inio</string>
+    <string name="web_browser_post_two_tag_three">aiko tanaka</string>
+    <string name="web_browser_post_two">
+        Oyasumi Punpun es uno de los mejores mangas que he leído en mi vida. No precisamente porque su historia sea perfecta, pero porque Aiko resuena muy profundo dentro de mí.
+
+        Ya sabes, "cuando miras adentro del abismo, el abismo mira adentro de ti".
+
+        Panel del manga "Oyasumi Punpun", de Asano Inio.
+    </string>
+
+    <string name="web_browser_post_three_content_desc">Screenshot de una de las canciones de Takayan en YouTube</string>
+    <string name="web_browser_post_three_tag_one">rap japonés</string>
+    <string name="web_browser_post_three_tag_two">el artista es takayan</string>
+    <string name="web_browser_post_three_tag_three">la artista gráfica se llama Ran</string>
+    <string name="web_browser_post_three">
+        Es extraño pensar que ya han pasado ocho largos años desde que comencé a estudiar japonés… el tiempo se va volando. Y todavía no alcanzo el nivel más alto que imaginaba —o más bien, quería— alcanzar.
+
+        Y crecí, hoy ya siendo un hombre. Siendo mayor, siendo más fuerte. Pero con todo, con poco tiempo para mí mismo.
+
+        A veces quisiera volver atrás y ensuciarme las manos más seguido. Hacer cosas sin preguntarme podría ser capaz. Preocuparme menos por los demás, y por mí mismo.
+
+        Hoy, siendo un adulto, y con la mitad de mí hecha de nostalgias del pasado, cuando cierro los ojos y escucho canciones viejas de Takayan, me siento agradecido. Agradecido con ese niño tonto que, hace tantos años, decidió aprender japonés.
+
+        Esta tarde es para vos. Por tu dulzura. Por ese viaje brillante e interminable que era tu sonrisa.
+    </string>
+
+    <!--  FAQ section  -->
+    <string name="web_browser_faq_askbox_title">Enviáme tus preguntas</string>
+    <string name="web_browser_faq_askbox_msg">
+        Sé que has de tener más de una, y este formulario de contacto sí funciona.
+        Escribíme solo en Español, Inglés o en Japonés.
+    </string>
+    <string name="web_browser_faq_askbox_max_chars">Máximo de caracteres: </string>
+    <string name="web_browser_faq_askbox_button">Preguntar</string>
+    <string name="web_browser_faq_askbox_sender">Nombre</string>
+    <string name="web_browser_faq_askbox_recipient">dsolishn@pm.me</string>
+
+    <string name="web_browser_faq_question">respondió a una pregunta.</string>
+
+    <string name="web_browser_faq_question_one">¿Sos un fan de Kotlin? ¿O por qué lo elegiste en vez de JavaScript para hacer tu portafolio?</string>
+    <string name="web_browser_faq_question_one_tag_one">Kotlin</string>
+    <string name="web_browser_faq_question_one_tag_two">Power Bi</string>
+    <string name="web_browser_faq_question_one_tag_three">PowerApps</string>
+    <string name="web_browser_faq_question_one_reply">
+        Últimamente Kotlin es mi lenguaje favorito, pero no soy fan. Te lo explico:
+
+        Vengo de Java, así que el salto a Kotlin fue natural: Corre sobre la misma JVM, pero con null safety de fábrica, corutinas para manejar programación asincrónica de forma fluida, y —mi parte favorita— tiene Compose Multiplatform, que me permite escribir una sola UI que corre en escritorio, móvil y web. Una UI hermosa, como podés darte cuenta.
+
+        Dicho eso, no creo en martillos de oro. Kotlin está maravilloso para hacer apps, pero no es lo que usaría si necesito trabajar a bajo nivel o con cosas del sistema que requieran root. Para eso, tengo cierta debilidad por Go y C (con C es amor complicado… solo desearía que manejar strings y memoria no se sintiera como un castigo con fusta).
+
+        Y luego está C#. Honestamente, me sorprendió. Antes lo veía como “el Java de Microsoft” (J++), pero al probarlo —sobre todo con cosas como LINQ, o su conexión con Power Apps y Power BI— descubrí lo pulido y productivo que es su ecosistema, especialmente para hacer apps empresariales de alto grado. Y con Power Apps fue una sorpresa grata: a veces se siente bien no tener que diseñar todo desde cero y simplemente enfocarse en el negocio.
+
+        Así que sí, cambio de stack según lo que se necesite. Los lenguajes son herramientas, y no me molesta pasar de un desatornillador a un martillo, mientras esté construyendo algo que valga la pena.
+
+        Me importa más el resultado que las herramientas.
+    </string>
+
+
+    <string name="web_browser_faq_question_two">¿Por qué crear tu propio “sistema operativo” en lugar de usar un portafolio tradicional?</string>
+    <string name="web_browser_faq_question_two_tag_one">motivación</string>
+    <string name="web_browser_faq_question_two_tag_two">pienso y luego diseño</string>
+    <string name="web_browser_faq_question_two_tag_three">tech skills</string>
+    <string name="web_browser_faq_question_two_reply">
+        Porque un portafolio no debería sentirse como un currículum. Debería sentirse como un extra, algo que podás ver y que digas "Ah, ya veo qué tipo de persona esta". Y me entendás mejor.
+
+        No quería solo poner una lista de enlaces ni hablar sin parar de “lo bueno que soy” o lo seguro que estoy de mis habilidades, porque no es así.
+
+        Quería algo más lindo, interactivo, y profundamente mío. Un reto técnico que me lanzara a mostrarme —y a mostrarme— de lo que soy capaz.
+    </string>
+
+
+    <string name="web_browser_faq_question_three">Tu comida favorita?</string>
+    <string name="web_browser_faq_question_three_tag_one">baleadas</string>
+    <string name="web_browser_faq_question_three_tag_two">comida callejera</string>
+    <string name="web_browser_faq_question_three_tag_three">centro américa</string>
+    <string name="web_browser_faq_question_three_reply">
+        Cuando la gente se entera de que soy de Honduras, casi siempre me preguntan por la comida típica. Y yo siempre hablo de las baleadas.
+
+        Dios mío… una baleada es como un abrazo de la comida callejera hondureña. Una tortilla de harina suave y que se estira, recién salida del comal. Rellena de frijoles refritos licuados, quesito semiseco rallado y una buena cucharada de mantequilla catracha ("de Honduras", pues).
+
+        La versión clásica es simple, pero riquísima. Claro que la podés hacer más premium con huevo revuelto, aguacate o hasta tajadas de plátano maduro.
+
+        La doblás por la mitad, le das una mordida… y pam! Felicidad pura.
+
+        A veces me encuentro a mí mismo con nostalgia cuando pienso en mi casa y en su comida.
+    </string>
+
+    <string name="web_browser_faq_question_four">¿Qué es eso sin lo que no podrías vivir?</string>
+    <string name="web_browser_faq_question_four_tag_one">bosques de pino</string>
+    <string name="web_browser_faq_question_four_tag_two">el mar</string>
+    <string name="web_browser_faq_question_four_tag_three">la lluvia</string>
+    <string name="web_browser_faq_question_four_tag_four">花鳥風月</string>
+    <string name="web_browser_faq_question_four_reply">
+        La naturaleza.
+
+        No podría. Sería muy difícil si no tuviera naturaleza cerca.
+
+        No es que sea un amante de las plantas. No soy de andar afuera todo el tiempo. Pero tocar tierra, y quedarme quieto frente a un bosque verde y profundo… eso me reinicia la vida.
+
+        No se trata de huir de la tecnología. Para mí, es solo recordar que debo respirar, que la vida se me escapa entre proyectos y el qué hacer.
+    </string>
+
+    <!--  About me section  -->
+    <string name="web_browser_aboutme_first_title">sobre mí.</string>
+    <string name="web_browser_aboutme_first_content">
+        Soy kosail — estudiante de ingeniería en Sistemas computacionales, de Honduras. Hace más de una década descubrí este camino gracias a Linux y a hacer custom roms para Android. Desde entonces, no he parado de explorar.
+
+        Si te preguntas de dónde viene eso de "kosail", pues:
+        子 = ko. En japonés significa niño, cachorro, o "un pequeño".
+        sail = En inglés significa "viajar por el mar", o "sailing" que significa navegar.
+
+        kosail = un pequeño navegante, mi pequeño viaje
+    </string>
+
+    <string name="web_browser_aboutme_second_title">lo que me importa.</string>
+    <string name="web_browser_aboutme_second_content_one">
+        Siempre he preferido las interfaces limpias sobre las dashboards llenas de cosas.
+
+        Herramientas que se sienten tranquilas, estables, enfocadas. Que se sientan tuyas incluso la primera vez que las usás.
+
+        Creo que el software debe hacerse con atención al detalle: que cargue rápido, que se vea bonito, y que desaparezca cuando no se necesita. No es solo UI — también es UX.
+    </string>
+    <string name="web_browser_aboutme_second_content_two">No soy un genio. Solo es que me importa profundamente las cosas que construyo.</string>
+
+    <string name="web_browser_aboutme_third_title">sobre mi futuro.</string>
+    <string name="web_browser_aboutme_third_content_personal">En lo personal, quiero seguir creando las herramientas que me gustaría que existieran. Minimalistas. Significativas. Casi siempre sobre Linux, usando Compose Multiplatform y Go.</string>
+    <string name="web_browser_aboutme_third_content_professional">En lo profesional, trabajar con Power Apps, Power BI y el ecosistema .NET para crear herramientas empresariales rápidas, estables y prácticas.</string>
+    <string name="web_browser_aboutme_third_content_final">Para ambos caminos tengo una meta en conjunto: crecer como desarrollador backend y, con el tiempo, darle vida a mis propias ideas de SaaS — software limpio, sostenible, multiplataforma… que dure.</string>
+
+    <string name="web_browser_aboutme_last_title">gracias por darte la vuelta.</string>
+    <string name="web_browser_aboutme_last_content">Espero que algo aquí haya resonado con vos.</string>
+
+    <!--  Projects section  -->
+    <string name="web_browser_projects_kvantage">Kvantage</string>
+    <string name="web_browser_projects_dotfolio">dotfolio</string>
+    <string name="web_browser_projects_blanket">Blanket</string>
+    <string name="web_browser_projects_created">creó</string>
+    <string name="web_browser_projects_interested">está interesado en reescribir</string>
+    <string name="web_browser_projects_hint">Clic en los íconos para ver más</string>
+
+
+    <string name="web_browser_projects_kvantage_content">
+        La primera app real que hice para el mundo.
+
+        En Windows, las laptops Lenovo tienen una herramienta oficial para controlar perfiles de rendimiento, batería y carga rápida. En Linux no existía algo así. Así que di el paso y la hice yo.
+
+        KVantage es una app de escritorio minimalista y elegante, hecha para darle a los usuarios de Lenovo en Linux acceso rápido a funciones esenciales. Inspirada en la estética limpia de GNOME (GTK), ofrece solo lo necesario. Nada de cosas extra.
+    </string>
+
+    <string name="web_browser_projects_dotfolio_content">
+        Lo más difícil y hermoso que he construido.
+
+        Me tomó minutos pensarlo, y meses más para desarrollarlo.
+
+        Como dije en las notas de voz que dejé en el escritorio: ojalá este proyecto hable por sí mismo.
+    </string>
+
+    <string name="web_browser_projects_blanket_content">
+        Este proyecto no es mío, pero me encantaría continuar.
+
+        Blanket es una app bellísima y sencilla, creada por Rafael Mardojai para el escritorio Linux. Te ayuda a concentrarte o relajarte mezclando sonidos ambientales — viento, lluvia, fuego, truenos — corriendo invisible, de fondo.
+
+        Pero vive principalmente en GNOME, sobre Linux. Y yo quiero llevarla a más personas.
+
+        Mi plan es reescribirla con Compose Multiplatform, para que funcione en Windows, macOS, Android e incluso en la web. Misma esencia. Misma simpleza. Solo más alcance.
+
+        Este es mi proximo proyecto.
+    </string>
+
+    <!--  Contact page section  -->
+    <string name="web_browser_contact_msg">
+        ¡Gracias por darte la vuelta por Dotfolio!
+        Si algo acá te hizo clic, o si simplemente querés saludar, me encantaría leerte.
+
+        La mejor forma es dejando un mensaje desde la ventana en la sección de preguntas.
+
+        O si preferís, podés escribirme al correo: [ %1$d ]
+        Y ya. Sin redes sociales. Sin ruido.
+    </string>
+
+    <!--  Gallery section  -->
+    <string name="web_browser_gallery_msg">
+        Esta página no explica nada.
+
+        Solo muestra lo que, para mí, se siente bien — visual, emocional, estéticamente.
+
+        Un rincón tranquilo de píxeles que me inspiran a diseñar y construir.
+    </string>
+
+    <string name="web_browser_gallery_tag_one">GTK</string>
+    <string name="web_browser_gallery_tag_two">Fluent Design</string>
+    <string name="web_browser_gallery_tag_three">Alive design philosophy</string>
+    <string name="web_browser_gallery_tag_four">Frosted Glass</string>
+
+    <!--  File explorer & Recycle bin  -->
+    <string name="file_explorer_toolbar_new">Nuevo</string>
+    <string name="file_explorer_toolbar_sort">Ordenar</string>
+    <string name="file_explorer_toolbar_view">Vista</string>
+    <string name="file_explorer_toolbar_details">Detalles</string>
+
+    <string name="file_explorer_quick_access">Acceso rápido</string>
+    <string name="file_explorer_home">Carpeta personal</string>
+    <string name="file_explorer_desktop">Escritorio</string>
+    <string name="file_explorer_downloads">Descargas</string>
+    <string name="file_explorer_documents">Documentos</string>
+    <string name="file_explorer_pictures">Fotos</string>
+    <string name="file_explorer_music">Música</string>
+    <string name="file_explorer_videos">Videos</string>
+    <string name="file_explorer_this_pc">Este equipo</string>
+    <string name="file_explorer_network">Red</string>
+    <string name="file_explorer_items">%1$d elementos</string>
+
+    <string name="file_explorer_amungos">Amungos</string>
+    <string name="file_explorer_discord">Discord</string>
+    <string name="file_explorer_java">Java</string>
+    <string name="file_explorer_kotlin">Kotlin</string>
+    <string name="file_explorer_compose">Compose Multiplatform</string>
+    <string name="file_explorer_csharp">C#</string>
+    <string name="file_explorer_html">HTML</string>
+    <string name="file_explorer_css">CSS</string>
+    <string name="file_explorer_js">JavaScript</string>
+    <string name="file_explorer_oracle">Oracle</string>
+    <string name="file_explorer_docker">Docker</string>
+    <string name="file_explorer_linux">Linux</string>
+    <string name="file_explorer_wordpress">Wordpress</string>
+
+    <!--  Misc  -->
+    <string name="unsupported_tag_one">No disponible en móvil</string>
+    <string name="unsupported_tag_two">Pantalla demasiado pequeña</string>
+    <string name="unsupported_msg">Dotfolio fue pensado para computadoras de escritorio. Probá desde una pantalla más grande para explorarlo como se debe.</string>
+
+    <string name="limited_ux_title">Experiencia compacta</string>
+    <string name="limited_ux_msg">
+        Estás viendo una versión simplificada de Dotfolio, pensada para pantallas más pequeñas que la de una computadora.
+
+        Para vivir toda la simulación de escritorio, mejor abrílo desde una pantalla grande.
+
+        Tocá o hacé clic para continuar.
+    </string>
+
 </resources>
