@@ -47,13 +47,11 @@ On desktop it loads the full version. On tablets, it loads just the content of d
 
 ---
 ## 🪻 Development Stage
-Almost ready for first deployment! I consider that we are currently reaching a beta version.
-I'll deploy it when I achieve all of what is listed here.
 
 ### Main
 - ✅ Desktop Environment:
     - ✅ Z Index for apps
-- 🌱 Spanish translation (expected to be released at v2.0)
+    - ✅ Spanish translation
 
 ### Apps
 - ✅ Notepad
@@ -71,6 +69,8 @@ I'll deploy it when I achieve all of what is listed here.
 
 1. ### Media player works seamlessly on web target, but in Desktop it has a bug in which if the audio is paused, then it cannot be played again.
     Although, it's okay. This project focuses on web target, and I use desktop implementation just for its hot reload capabilities, which really makes my life easier when quickly prototyping or fast debugging.
+    
+    Later note: It got worse xd now it doesn't even play audio at all... but meh.
 </details>
 
 ---
@@ -91,7 +91,7 @@ cd dotfolio
 ### Stack
 - **Kotlin** — Main language
 - **Compose Multiplatform (WASM/JS)** — UI framework
-- **GitHub Pages** — For deployment (expected static hosting)
+- **GitHub Pages** — For deployment
 
 ### Resources
 
@@ -153,6 +153,8 @@ I had doubts since the beginning of this journey on how it could be possible to 
 
 I still need to learn a lot more about these topics, and especially about derivatedState.
 
+### 3. JavaScript is inescapable. Wherever you go, it will find you.
+Brah, I need to learn JS.
 ---
 
 ## 📜 License
