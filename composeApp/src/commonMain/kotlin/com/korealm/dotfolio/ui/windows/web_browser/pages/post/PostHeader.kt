@@ -9,7 +9,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.korealm.dotfolio.ui.SimpleSymbolicIconButton
@@ -52,8 +51,7 @@ fun PostHeader(
                     fontWeight = FontWeight.SemiBold,
                     fontSize = 17.sp,
                     textAlign = TextAlign.Start,
-                    modifier = modifier
-                        .padding(end = 5.dp)
+                    modifier = modifier.padding(end = 5.dp)
                 )
 
                 when {

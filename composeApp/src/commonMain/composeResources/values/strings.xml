@@ -285,9 +285,14 @@
     <string name="web_browser_projects_kvantage">Kvantage</string>
     <string name="web_browser_projects_dotfolio">dotfolio</string>
     <string name="web_browser_projects_blanket">Blanket</string>
+    <string name="web_browser_projects_kvantage_link">https://github.com/kosail/kvantage</string>
+    <string name="web_browser_projects_dotfolio_link">https://github.com/kosail/dotfolio</string>
+    <string name="web_browser_projects_blanket_link">https://github.com/rafaelmardojai/blanket</string>
+
     <string name="web_browser_projects_created">created</string>
     <string name="web_browser_projects_interested">is interested in rewriting</string>
     <string name="web_browser_projects_hint">Click on the icons to see more</string>
+    <string name="web_browser_projects_check_on_github">Check %1$d on GitHub</string>
 
     <string name="web_browser_projects_kvantage_title">A clean, native control center for Lenovo laptops — built for Linux.</string>
     <string name="web_browser_projects_kvantage_content">

@@ -312,7 +312,7 @@
     <string name="web_browser_projects_created">creó</string>
     <string name="web_browser_projects_interested">está interesado en reescribir</string>
     <string name="web_browser_projects_hint">Clic en los íconos para ver más</string>
-
+    <string name="web_browser_projects_check_on_github">Mirá %1$d en GitHub</string>
 
     <string name="web_browser_projects_kvantage_title">Un panel de control nativo y limpio para laptops Lenovo — hecho para Linux.</string>
     <string name="web_browser_projects_kvantage_content">

@@ -45,7 +45,7 @@ fun PostFooter(
                 fontWeight = FontWeight.Light,
                 fontSize = 16.sp,
                 textAlign = TextAlign.Start,
-                modifier = modifier.padding(end = 5.dp)
+                modifier = Modifier.padding(end = 5.dp)
             )
 
             Row(
@@ -93,7 +93,7 @@ fun PostFooter(
                             fontSize = 14.sp,
                             textAlign = TextAlign.Start,
                             textDecoration = TextDecoration.Underline,
-                            modifier = modifier
+                            modifier = Modifier
                         )
                     }
                 }

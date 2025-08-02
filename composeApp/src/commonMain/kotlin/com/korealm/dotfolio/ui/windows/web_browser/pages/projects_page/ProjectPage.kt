@@ -45,7 +45,6 @@ fun ProjectsPage(
     val slideAnimation = {
         slideInHorizontally(animationSpec = tween(250)) { fullWidth -> fullWidth } + fadeIn(animationSpec = tween(250)
         ) togetherWith
-
                 slideOutHorizontally(animationSpec = tween(250)) { fullWidth -> -fullWidth } + fadeOut(animationSpec = tween(250)
         )
     }
@@ -53,14 +52,14 @@ fun ProjectsPage(
     var selectedProject by remember { mutableStateOf(Project.DOTFOLIO) }
 
     // The title changes with the content, but the rest remains the same. Instead or recomposing everything, better to extract this and recompose just the title.
-    val postTitle = if (selectedProject != Project.BLANKET) {
+    val postTitle = if (selectedProject.isOwn) {
         "${ stringResource(Res.string.web_browser_projects_created)} ${ stringResource(selectedProject.titleRes) }"
     } else {
         "${ stringResource(Res.string.web_browser_projects_interested) } ${ stringResource(Project.BLANKET.titleRes) }"
     }
 
     Box(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .padding(horizontal = 50.dp, vertical = 30.dp)
     ) {
@@ -120,16 +119,20 @@ fun ProjectsPage(
                             contentAlignment = Alignment.Center,
                             transitionSpec = { slideAnimation() },
                         ) { target ->
-                            PostBody(
-                                images = mapOf(
-                                    target.bannerRes to target.titleRes
-                                ),
-                                font = font,
-                                modifier = Modifier
-                            )
+                            // Render the images only
+                            Column (
+                                verticalArrangement = Arrangement.Center
+                            ) {
+                                PostBody(
+                                    images = mapOf(
+                                        target.bannerRes to target.titleRes
+                                    ),
+                                    font = font,
+                                )
 
-                            // TODO: Add the content composables of each project here
-                            target.contentComposable()
+                                // Render the actual custom contents of each project
+                                target.contentComposable(font)
+                            }
                         }
                     }
 

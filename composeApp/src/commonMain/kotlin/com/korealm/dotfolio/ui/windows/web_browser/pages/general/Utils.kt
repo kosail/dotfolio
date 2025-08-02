@@ -1,29 +1,39 @@
 package com.korealm.dotfolio.ui.windows.web_browser.pages.general
 
 import androidx.compose.animation.*
+import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.*
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.VerticalDivider
-import androidx.compose.runtime.Composable
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import com.korealm.dotfolio.ui.SimpleSymbolicIconButton
 import com.korealm.dotfolio.utils.encodeText
 import com.korealm.dotfolio.utils.openInNewTab
+import dotfolio.composeapp.generated.resources.Res
+import dotfolio.composeapp.generated.resources.github_symbolic
+import dotfolio.composeapp.generated.resources.web_browser_projects_check_on_github
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun SlightDivider(
@@ -105,6 +115,79 @@ fun FullScreenImageVisualizer(
                     )
                 }
             }
+        }
+    }
+}
+
+// This composable is just to centralize the style of text.
+// As you can tell, it literally just passes down the defaults to the Text Composable
+@Composable
+fun PostText(
+    text: String,
+    fontSize: TextUnit = 17.sp,
+    fontWeight: FontWeight = FontWeight.Normal,
+    textAlign: TextAlign = TextAlign.Start,
+    color: Color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.9f),
+    font: FontFamily,
+    modifier: Modifier = Modifier
+) {
+    Text(
+        text = text,
+        color = color,
+        fontFamily = font,
+        fontWeight = fontWeight,
+        fontSize = fontSize,
+        textAlign = textAlign,
+        modifier = modifier
+    )
+}
+
+@OptIn(ExperimentalFoundationApi::class, ExperimentalComposeUiApi::class)
+@Composable
+fun SimpleGitHubButton(
+    appName: String,
+    url: String,
+    font: FontFamily,
+    modifier: Modifier = Modifier
+) {
+    var isHover by remember { mutableStateOf(false) }
+
+    val animatedBackgroundColor by animateColorAsState(
+        targetValue = if (isHover) MaterialTheme.colorScheme.onBackground.copy(alpha = 0.1f) else Color.Transparent,
+        animationSpec = tween(durationMillis = 200)
+    )
+
+    val animatedBorder by animateDpAsState(
+        targetValue = if (isHover) 2.dp else 1.dp,
+        animationSpec = tween(durationMillis = 200)
+    )
+
+    Surface (
+        color = animatedBackgroundColor,
+        shape = RoundedCornerShape(6.dp),
+        border = BorderStroke(animatedBorder, MaterialTheme.colorScheme.secondary.copy(alpha = 0.3f)),
+        modifier = modifier
+            .onClick { openInNewTab(url) }
+            .onPointerEvent(PointerEventType.Enter) { isHover = true }
+            .onPointerEvent(PointerEventType.Exit) { isHover = false }
+    ) {
+        Row(
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(16.dp)
+        ) {
+            SimpleSymbolicIconButton(
+                icon = Res.drawable.github_symbolic,
+                modifier = Modifier.size(32.dp)
+            )
+
+            Spacer(Modifier.width(12.dp))
+
+            PostText(
+                text = stringResource(Res.string.web_browser_projects_check_on_github, appName),
+                font = font,
+                fontSize = 18.sp
+            )
         }
     }
 }

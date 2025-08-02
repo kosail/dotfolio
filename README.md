@@ -137,6 +137,8 @@ I still need to learn a lot more about these topics, and especially about deriva
 
 ### 3. JavaScript is inescapable. Wherever you go, it will find you.
 Brah, I need to learn JS.
+
+
 ---
 
 ## 📜 License
