@@ -34,18 +34,25 @@
     <string name="main_content_message">
         ¡Bienvenido!
 
-        Esto no es solo una página web — es una simulación de un entorno de escritorio.
+        Esto no es un sistema operativo, ni una máquina virtual, ni una captura de pantalla — y tampoco es “solo una página web”.
 
-        Todo fue creado desde cero usando Kotlin y Compose Multiplatform, y corre directamente en tu navegador.
+        Es una simulación hecha a mano de un entorno de escritorio, construida desde cero.
 
-        Dale doble clic a los íconos de la izquierda para abrir las aplicaciones. Cada una te muestra una parte de mí — mis proyectos, habilidades, historia y forma de trabajar.
+        Sin plantillas. Sin frameworks.
+        Solo Kotlin, Compose Multiplatform, y un montón de cariño — corriendo completamente en tu navegador.
 
-        No hay tutoriales, ni guías. Explorálo como si fuera un sistema operativo real.
-        Podés verlo como un pequeño sistema operativo que inicia en quien soy yo.
+        Podés hacer doble clic en los íconos de la izquierda para abrir las aplicaciones.
+        Cada una te muestra una parte de mí: mis proyectos, mis habilidades, mi historia, y mi trabajo.
 
-        Gracias por visitar, y estar aquí.
+        No hay tutoriales, ni instrucciones. Explorálo como explorarías cualquier sistema operativo real.
+        Pensálo como un pequeño sistema, uno que te muestra lo que hay dentro de mí.
+
+        Este soy yo, escrito en código.
+
+        Gracias por darte una vuelta, y espero de todo corazón te encante.
 
         — kosail
+
     </string>
 
     <!--  Settings App  -->
@@ -307,33 +314,68 @@
     <string name="web_browser_projects_hint">Clic en los íconos para ver más</string>
 
 
+    <string name="web_browser_projects_kvantage_title">Un panel de control nativo y limpio para laptops Lenovo — hecho para Linux.</string>
     <string name="web_browser_projects_kvantage_content">
-        La primera app real que hice para el mundo.
+        Esta fue la primera app real que hice — y nació de una frustración real.
 
-        En Windows, las laptops Lenovo tienen una herramienta oficial para controlar perfiles de rendimiento, batería y carga rápida. En Linux no existía algo así. Así que di el paso y la hice yo.
+        En Windows, las laptops Lenovo tienen herramientas oficiales para controlar los modos de rendimiento, la batería y la carga rápida. ¿Pero, y en Linux? Nada amigable para usuarios que no quisieran usar una terminal. Así que hice la mía.
 
-        KVantage es una app de escritorio minimalista y elegante, hecha para darle a los usuarios de Lenovo en Linux acceso rápido a funciones esenciales. Inspirada en la estética limpia de GNOME (GTK), ofrece solo lo necesario. Nada de cosas extra.
+        KVantage es una app de escritorio elegante que le da a los usuarios de Lenovo en Linux los controles esenciales de hardware que antes solo estaban en Windows. Inspirada en la estética limpia de GNOME y GTK, se enfoca solo en lo que importa — sin anuncios, sin relleno, sin distracciones.
     </string>
 
+    <string name="web_browser_projects_kvantage_what_i_built">Las que construí de este proyecto:</string>
+    <string name="web_browser_projects_kvantage_content_two">
+        Todo.
+
+        • La interfaz la construí desde cero con Kotlin y Compose Multiplatform para escritorio
+        • El backend es un servicio seguro con privilegios de root, escrito en Go, que maneja lectura/escritura ACPI vía /proc/acpi/call
+        • Creé un protocolo IPC propio (basado en texto, tipo CLI) para que la GUI y el backend se comuniquen
+        • La app corre con permisos normales — solo el backend se ejecuta como root, por seguridad y para mantener las responsabilidades separadas.
+        • Soporta múltiples perfiles de rendimiento, límite de batería, carga rápida, y hasta temas y varios idiomas
+
+        No existe una API oficial para controlar las funciones que necesitaba para hacer este proyecto, ya que todo se logra usando interfaces de kernel a bajo nivel (ACPI), que normalmente están escondidas para el usuario común. Lenovo no ha publicado los funcionamientos internos de la tabla ACPI de sus laptops, o al menos no de la mía. Tuve que aprender cómo funciona esta interfaz del kernel, hacer ingeniería inversa en mi laptopy comparar mis resultados con otros proyectos en GitHub; cómo invocar las llamadas ACPI y cómo convertirlas en una experiencia gráfica segura.
+    </string>
+
+
+    <string name="web_browser_projects_dotfolio_title">Lo más difícil —y lo más bonito— que he construido en mi vida.</string>
     <string name="web_browser_projects_dotfolio_content">
-        Lo más difícil y hermoso que he construido.
+        Dotfolio recrea la experiencia de un entorno de escritorio completo: ventanas que podés arrastrar, aplicaciones que se abren y se cierran, un reloj real que marca la hora en la barra de tareas. Se parece a un sistema operativo, pero no lo es. Es una historia interactiva sobre mí, contada a través de mi software.
 
-        Me tomó minutos pensarlo, y meses más para desarrollarlo.
+        Todo esto está hecho a mano en Kotlin usando Compose Multiplatform, corriendo como una single-page app de WebAssembly. No hay librerías de UI, ni plantillas, ni backend — cada píxel, cada componente, cada interacción fue construida desde cero.
 
-        Como dije en las notas de voz que dejé en el escritorio: ojalá este proyecto hable por sí mismo.
+        Desde el administrador de ventanas hasta la barra de tareas animada. Desde el seguimiento de estados (States) en tiempo real hasta la lógica de temas. Todo lo hice yo.
+
+        Incluso cosas como el z-index (ese detallito de que una ventana se venga al frente cuando le das clic) están manejadas con lógica propia, ligera y hecha a la medida.
+
+        Dotfolio no intenta imitar a Windows — solo usa su lenguaje para hablar el mío.
+
+        Cada app acá muestra una parte de lo que soy: mis proyectos, mis valores, mi voz, lo que escribo.
+
+        Nunca fue pensado como “un portafolio más”.
+        Es una prueba viva de lo que puedo crear cuando tengo claridad e intención.
+        Lo que ves —y lo que sentís— fue hecho con cariño. No salió de una plantilla.
+
+        Espero que este proyecto hable por sí solo.
     </string>
 
+
+    <string name="web_browser_projects_blanket_title">Una app tranquila de sonidos ambientales — renacida para todos.</string>
     <string name="web_browser_projects_blanket_content">
-        Este proyecto no es mío, pero me encantaría continuar.
+        Este es el único proyecto de acá que no creé yo.
 
-        Blanket es una app bellísima y sencilla, creada por Rafael Mardojai para el escritorio Linux. Te ayuda a concentrarte o relajarte mezclando sonidos ambientales — viento, lluvia, fuego, truenos — corriendo invisible, de fondo.
+        Blanket es una app preciosa para el escritorio Linux, creada originalmente por Rafael Mardojai, parte del GNOME Circle. Reproduce sonidos ambientales — viento, lluvia, fuego, truenos — para que puedas concentrarte, dormir o simplemente relajarte. Corre en segundo plano, silenciosa, integrándose al escritorio como una brisa suave.
 
-        Pero vive principalmente en GNOME, sobre Linux. Y yo quiero llevarla a más personas.
+        Pero al día de hoy, está pensada casi exclusivamente para usuarios de Linux.
 
-        Mi plan es reescribirla con Compose Multiplatform, para que funcione en Windows, macOS, Android e incluso en la web. Misma esencia. Misma simpleza. Solo más alcance.
+        Y yo quiero cambiar eso. Quiero reescribir Blanket usando Compose Multiplatform, para que pueda correr de forma nativa en Windows, macOS, Android e incluso en la web.
 
-        Este es mi proximo proyecto.
+        ¿Por qué quiero reconstruirla?, podrías preguntarte. Porque creo que el buen software no debería estar amarrado a una sola plataforma. Blanket es una de mis apps favoritas, pero depende de Linux y Vala.
+
+        Yo quiero hacerla portátil, sin perder su esencia.
+        No sería un fork. Sería un homenaje silencioso — reconstruido desde cero, pero con el mismo cariño.
     </string>
+
+
 
     <!--  Contact page section  -->
     <string name="web_browser_contact_msg">

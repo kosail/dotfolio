@@ -34,14 +34,19 @@
     <string name="main_content_message">
         Welcome!
 
-        This isn't just a website — it's a simulation of a desktop environment.
-        Built from scratch with Kotlin and Compose Multiplatform, running fully in your browser.
+        This isn’t an OS, a virtual machine or a screenshot — and it’s not just a website.
+        It’s a handcrafted simulation of a desktop environment, built from scratch.
+
+        No templates. No frameworks.
+        Just Kotlin, Compose Multiplatform, love and care — running fully in your browser.
 
         You can double-click the icons on the left to open apps.
         Each one shows a piece of me — my projects, skills, story, and work.
 
         There’s no onboarding, no instructions. Just explore it as you would a real OS.
-        Think of it as a tiny operating system, one that boots into who I am.
+        Think of it as a tiny operating system... one that boots into who I am.
+
+        This is me, in code.
 
         Thank you for visiting.
 
@@ -284,29 +289,63 @@
     <string name="web_browser_projects_interested">is interested in rewriting</string>
     <string name="web_browser_projects_hint">Click on the icons to see more</string>
 
+    <string name="web_browser_projects_kvantage_title">A clean, native control center for Lenovo laptops — built for Linux.</string>
     <string name="web_browser_projects_kvantage_content">
-        The first real-world app I made.
+        This was the first real-world app I ever made — and it came from real frustration.
 
-        On Windows OS, Lenovo laptops have an official tool for control performance profiles, battery and rapid charge settings. On Linux, there was no such software that allowed me to do it. Thus, I took the step and created it.
+        On Windows, Lenovo laptops have official tools to control performance modes, battery conservation, and rapid charging. On Linux? Nothing usable. So I made my own.
 
-        KVantage is a sleek and minimal desktop app designed to provide users of Lenovo laptops running Linux the ease of access to essential device settings. Inspired by the clean aesthetics of GNOME (GTK), it aims to offer just the core features users care about. No bloat.
+        KVantage is a sleek desktop app that brings these essential hardware toggles to Lenovo Linux users. Inspired by GNOME and GTK's clean visuals, it focuses only on the features that matter — no ads, no clutter, no distractions. Just control.
     </string>
 
+    <string name="web_browser_projects_kvantage_what_i_built">What I built:</string>
+    <string name="web_browser_projects_kvantage_content_two">
+        Everything.
+
+        • The GUI was built from scratch using Kotlin and Compose Multiplatform for Desktop
+        • The backend is a secure, root-privileged Go daemon I wrote myself, handling ACPI read/write through /proc/acpi/call
+        • I created a custom IPC protocol (text-based, CLI-style) for communication between the GUI and daemon
+        • The app runs with regular user privileges — only the tiny backend runs as root, for safety
+        • It supports multiple performance profiles, battery threshold toggles, rapid charge, and even multi-language theming
+
+        There is no official API for these features — all of it is achieved through low-level kernel interfaces (ACPI), usually hidden from standard users. I had to learn how they work, how to invoke them, and how to wrap them into a safe, graphical experience.
+    </string>
+
+
+    <string name="web_browser_projects_dotfolio_title">The hardest and most beautiful thing I’ve ever built.</string>
     <string name="web_browser_projects_dotfolio_content">
-        The hardest and most beautiful thing I’ve ever built.
-        It has taken me months of planning and coding.
+        Dotfolio recreates the feel of a full desktop environment: apps you can drag, windows you can open and close, a real clock ticking in the taskbar. It looks like an operating system — but it’s not. It’s an interactive story about me, told through software.
 
-        As I said in the recordings, I hope it speaks for itself.
+        Everything here is handcrafted in Kotlin using Compose Multiplatform, all inside a single-page WebAssembly app. There are no UI libraries, no templates, and no backend — every pixel, every component, every interaction is custom-made.
+
+        From the window manager to the animated taskbar, from real-time state tracking to theming logic — I built it all.
+        Even features like z-indexing (bringing a window to front when clicked) are handled through my own lightweight renderer logic.
+
+        Dotfolio doesn’t try to imitate Windows — it uses its language to speak mine.
+        Each app here reveals a part of who I am: my projects, values, writing, voice.
+
+        It was never meant to be “just a portfolio.”
+        It’s a living proof of concept — one that shows what I can do when given space and intent.
+        What you see — and what you feel — was built with care, not copied from a template.
+
+        I hope it speaks for itself.
     </string>
 
+    <string name="web_browser_projects_blanket_title">A calm, ambient sound app — reborn for everyone.</string>
     <string name="web_browser_projects_blanket_content">
-        A project I didn’t create — but one I’d love to carry forward.
+        This is the only project here I didn’t create.
 
-        Blanket is a beautifully simple app built for the Linux desktop, by Rafael Mardojai. It helps you focus or rest by mixing ambient sounds — wind, thunder, fire, rain — all running quietly in the background.
+        Blanket is a beautifully minimal app for the Linux desktop, originally built by Rafael Mardojai, who's part of the GNOME Circle. It plays ambient sounds — wind, rain, fire, thunder — so you can focus, sleep, or simply relax. It runs quietly in the background, blending into the desktop like a gentle breath of fresh air.
 
-        But it lives mostly in GNOME, on Linux. And I want to bring it to everyone.
+        But right now, it's mostly for GNOME users on Linux.
 
-        My plan is to rewrite it in Compose Multiplatform — so it can run on Windows, macOS, Android, and even the web. Same spirit. Same simplicity. Just more reachable.
+        And I want to change that.
+        I want to rewrite Blanket using Compose Multiplatform, so it can run natively on Windows, macOS, Android, and even the web.
+
+        Why do I want to rebuild it?, you may ask. Because I think great software shouldn't be locked to a single platform. Blanket is beautifully designed, but it’s tied to Linux + Vala.
+
+        I want to make it portable while respecting its spirit.
+        This wouldn't be a fork. It would be a quiet tribute — rebuilt from scratch, but with the same love.
     </string>
 
     <!--  Contact page section  -->

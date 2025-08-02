@@ -124,10 +124,12 @@ fun ProjectsPage(
                                 images = mapOf(
                                     target.bannerRes to target.titleRes
                                 ),
-                                text = stringResource(target.contentRes).trimIndent(),
                                 font = font,
                                 modifier = Modifier
                             )
+
+                            // TODO: Add the content composables of each project here
+                            target.contentComposable()
                         }
                     }
 
