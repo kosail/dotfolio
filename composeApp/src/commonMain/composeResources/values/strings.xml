@@ -342,12 +342,12 @@
 
         Blanket is a beautifully minimal app for the Linux desktop, originally built by Rafael Mardojai, who's part of the GNOME Circle. It plays ambient sounds — wind, rain, fire, thunder — so you can focus, sleep, or simply relax. It runs quietly in the background, blending into the desktop like a gentle breath of fresh air.
 
-        But right now, it's mostly for GNOME users on Linux.
+        But right now, it's mostly for users on Linux.
 
         And I want to change that.
-        I want to rewrite Blanket using Compose Multiplatform, so it can run natively on Windows, macOS, Android, and even the web.
+        I want to rewrite Blanket using Compose Multiplatform, so it can easily run on Windows, macOS, Android, and even the web.
 
-        Why do I want to rebuild it?, you may ask. Because I think great software shouldn't be locked to a single platform. Blanket is beautifully designed, but it’s tied to Linux + Vala.
+        Why do I want to rebuild it?, you may ask. Because I think great software shouldn't be locked to a single platform. Blanket is beautifully designed, but it’s tied to Linux.
 
         I want to make it portable while respecting its spirit.
         This wouldn't be a fork. It would be a quiet tribute — rebuilt from scratch, but with the same love.
