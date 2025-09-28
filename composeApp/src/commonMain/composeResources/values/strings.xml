@@ -34,16 +34,16 @@
     <string name="main_content_message">
         Welcome!
 
-        This isn’t an OS, a virtual machine or a screenshot — and it’s not just a website.
+        This isn’t an OS, a virtual machine or a screenshot, and it’s not just a website.
         It’s a handcrafted simulation of a desktop environment, built from scratch.
 
         No templates. No frameworks.
-        Just Kotlin, Compose Multiplatform, love and care — running fully in your browser.
+        Just Kotlin, Compose Multiplatform, love and care, running fully in your browser.
 
         You can double-click the icons on the left to open apps.
-        Each one shows a piece of me — my projects, skills, story, and work.
+        Each one shows a piece of me: my projects, skills, story, and work.
 
-        There’s no onboarding, no instructions. Just explore it as you would a real OS.
+        There’s no onboarding, no instructions. Explore it as you would a real OS.
         Think of it as a tiny operating system... one that boots into who I am.
 
         This is me, in code.
@@ -76,7 +76,7 @@
     <string name="dev_mode_dotfolio_version">dotfolio v1.0.0</string>
     <string name="dev_mode_about_description">
         A minimalist, interactive, Windows 11 themed developer portfolio built with Compose Multiplatform.
-        Make it speak clearly, cleanly, and with purpose.
+        Designed to speak clearly, cleanly, and with purpose.
     </string>
     <string name="dev_mode_not_a_website">But dotfolio is not a website. It’s a window to who I am.</string>
     <string name="dev_mode_built_and_tested">
@@ -196,7 +196,7 @@
     <string name="web_browser_faq_askbox_title">Send me your questions</string>
     <string name="web_browser_faq_askbox_msg">
         I know you may have one, and this contact box actually works.
-        Please reply either in English, Spanish or Japanese only.
+        Please reply either in English, Spanish, or Japanese only.
     </string>
     <string name="web_browser_faq_askbox_max_chars">Max characters: </string>
     <string name="web_browser_faq_askbox_button">Ask</string>
@@ -207,17 +207,17 @@
 
     <string name="web_browser_faq_question_one">Are you a Kotlin fan? Or why did you choose it over JavaScript to build your portfolio?</string>
     <string name="web_browser_faq_question_one_tag_one">Kotlin</string>
-    <string name="web_browser_faq_question_one_tag_two">Power Bi</string>
-    <string name="web_browser_faq_question_one_tag_three">PowerApps</string>
+    <string name="web_browser_faq_question_one_tag_two">multiplatform</string>
+    <string name="web_browser_faq_question_one_tag_three">full stack</string>
 
     <string name="web_browser_faq_question_one_reply">
         Lately my favorite language is Kotlin, but I'm not a fan. Let me explain:
 
-        I came from a Java background, so it felt like a natural upgrade. Same JVM under the hood but with built-in null safety, coroutines for smooth async, and (my favorite) Compose Multiplatform for writing one UI that actually runs on desktop, mobile, and web.
+        I came from a Java background, so it felt like a natural upgrade. The same JVM under the hood but with built-in null safety, coroutines for smooth async, and (my favorite) Compose Multiplatform for writing one UI that actually runs on desktop, mobile, and web.
 
         That said, I don’t believe in golden hammers. Kotlin is great for apps, but it’s not what I reach for when I want to go low-level or mess with things like root services. For that, I’ve always had a soft spot for Go and C (it’s tough love tho, I just wish strings mem allocs in C didn’t feel like punishment).
 
-        Then there’s C#. It honestly surprised me. I used to see it as “Microsoft Java,” but trying it out—especially alongside tools like LINQ, Power Apps, and Power BI—made me appreciate how polished and productive the ecosystem is, especially for building serious business apps fast. Sometimes it’s nice not to architect everything from scratch, and just focus on getting real things done.
+        Then there’s JavaScript. I honestly hated it. It's not personal, but I prefer predictability and strong typing over something that Promise me &lt;any&gt;, and at the moment of truth it returns an undefined. TypeScript, however, felt like a game changer, and along with React, it became a stack that I truly liked. But why I didn't use JS or TS for this project? Because I knew nothing from web dev aside from the triad by the moment I created dotfolio, and that's why I used Kotlin over conventional web tools.
 
         So yeah, I jump between stacks depending on the job. Languages are tools, and I don’t mind switching between screwdrivers and hammers as long as I’m building something useful. I care more about the craft, not the tools.
     </string>
@@ -239,7 +239,7 @@
 
         Oh man, a baleada is like a warm, comforting hug from Honduran street food. It's a soft, fluffy flour tortilla, fresh off the comal, stuffed with creamy refried beans, crumbled semi-seco cheese, and a drizzle of sweet-savory mantequilla (Honduran sour cream).
 
-        The classic version is simple but so satisfying, though you can level it up with scrambled eggs, avocado, or even sliced plantains. Fold it in half, take a bite, and boom—pure happiness.
+        The classic version is simple but so satisfying, though you can level it up with scrambled eggs, avocado, or even sliced plantains. Fold it in half, take a bite, and boom! Pure happiness (at least for me).
 
         I often find myself with a fuzzy feeling when I think of home and its cuisine.
     </string>
@@ -266,16 +266,16 @@
     <string name="web_browser_aboutme_second_title">what I care about.</string>
     <string name="web_browser_aboutme_second_content_one">
         I’ve always preferred clean UIs over cluttered dashboards.
-        Tools that feel quiet, stable, and focused — like home, even on first use.
+        Tools that feel quiet, stable, and focused. Like home, even on first use.
 
-        I believe software should be carefully crafted: apps should be fast to load, pleasant to look at, and invisible when not needed. Its not just UI — but UX.
+        I believe software should be carefully crafted: apps should be fast to load, pleasant to look at, and invisible when not needed. Its not just UI, but UX.
     </string>
     <string name="web_browser_aboutme_second_content_two">I’m not a genius. But I care deeply about what I build.</string>
 
     <string name="web_browser_aboutme_third_title">about my future.</string>
     <string name="web_browser_aboutme_third_content_personal">Personally, I’ll keep building the kind of tools I wish existed. Minimalist. Meaningful. Mostly on Linux, and powered by Compose Multiplatform and Go.</string>
-    <string name="web_browser_aboutme_third_content_professional">Professionally, I work with Power Apps, Power BI, and the .NET ecosystem to build fast, pragmatic enterprise tools.</string>
-    <string name="web_browser_aboutme_third_content_final">In both paths, my focus is the same: to grow in backend development, and eventually bring my own SaaS ideas to life —clean, sustainable, cross-platform software that lasts.</string>
+    <string name="web_browser_aboutme_third_content_professional">Professionally, I work with TypeScript and React to build fast, pragmatic enterprise tools. However, I may be transition to NextJS in the future.</string>
+    <string name="web_browser_aboutme_third_content_final">In both paths, my focus is the same: to grow in full stack development, bring my own SaaS ideas to life as clean, sustainable, and cross-platform software that lasts.</string>
 
     <string name="web_browser_aboutme_last_title">Thanks for stopping by.</string>
     <string name="web_browser_aboutme_last_content">I hope something here resonated.</string>
@@ -284,10 +284,10 @@
     <!--  Projects section  -->
     <string name="web_browser_projects_kvantage">Kvantage</string>
     <string name="web_browser_projects_dotfolio">dotfolio</string>
-    <string name="web_browser_projects_blanket">Blanket</string>
+    <string name="web_browser_projects_aria">Aria</string>
     <string name="web_browser_projects_kvantage_link">https://github.com/kosail/kvantage</string>
     <string name="web_browser_projects_dotfolio_link">https://github.com/kosail/dotfolio</string>
-    <string name="web_browser_projects_blanket_link">https://github.com/rafaelmardojai/blanket</string>
+    <string name="web_browser_projects_aria_link">https://github.com/kosail/Aria</string>
 
     <string name="web_browser_projects_created">created</string>
     <string name="web_browser_projects_interested">is interested in rewriting</string>
@@ -310,18 +310,18 @@
         • The GUI was built from scratch using Kotlin and Compose Multiplatform for Desktop
         • The backend is a secure, root-privileged Go daemon I wrote myself, handling ACPI read/write through /proc/acpi/call
         • I created a custom IPC protocol (text-based, CLI-style) for communication between the GUI and daemon
-        • The app runs with regular user privileges — only the tiny backend runs as root, for safety
+        • The app runs with regular user privileges. Only the tiny backend runs as root, for safety
         • It supports multiple performance profiles, battery threshold toggles, rapid charge, and even multi-language theming
 
-        There is no official API for these features — all of it is achieved through low-level kernel interfaces (ACPI), usually hidden from standard users. I had to learn how they work, how to invoke them, and how to wrap them into a safe, graphical experience.
+        There is no official API for these features. All of it is achieved through low-level kernel interfaces (ACPI), usually hidden from standard users. I had to learn how they work, how to invoke them, and how to wrap them into a safe, graphical experience.
     </string>
 
 
     <string name="web_browser_projects_dotfolio_title">The hardest and most beautiful thing I’ve ever built.</string>
     <string name="web_browser_projects_dotfolio_content">
-        Dotfolio recreates the feel of a full desktop environment: apps you can drag, windows you can open and close, a real clock ticking in the taskbar. It looks like an operating system — but it’s not. It’s an interactive story about me, told through software.
+        Dotfolio recreates the feel of a full desktop environment: apps you can drag, windows you can open and close, a real clock ticking in the taskbar. It looks like an operating system, but it’s not. It’s an interactive story about me, told through software.
 
-        Everything here is handcrafted in Kotlin using Compose Multiplatform, all inside a single-page WebAssembly app. There are no UI libraries, no templates, and no backend — every pixel, every component, every interaction is custom-made.
+        Everything here is handcrafted in Kotlin using Compose Multiplatform, all inside a single-page WebAssembly app. There are no UI libraries, no templates, and no backend. Every pixel, every component, every interaction is custom-made.
 
         From the window manager to the animated taskbar, from real-time state tracking to theming logic — I built it all.
         Even features like z-indexing (bringing a window to front when clicked) are handled through my own lightweight renderer logic.
@@ -330,27 +330,26 @@
         Each app here reveals a part of who I am: my projects, values, writing, voice.
 
         It was never meant to be “just a portfolio.”
-        It’s a living proof of concept — one that shows what I can do when given space and intent.
-        What you see — and what you feel — was built with care, not copied from a template.
+        It’s a living proof of concept, one that shows what I can do when given space and intent.
+        What you see —and what you feel— was built with care, not copied from a template.
 
         I hope it speaks for itself.
     </string>
 
-    <string name="web_browser_projects_blanket_title">A calm, ambient sound app — reborn for everyone.</string>
-    <string name="web_browser_projects_blanket_content">
-        This is the only project here I didn’t create.
+    <string name="web_browser_projects_aria_title">A calm soundscape, rebuilt to flow across platforms.</string>
+    <string name="web_browser_projects_aria_content">
+        Blanket was the spark. A quiet little app on Linux that filled the room with rain, fire, and birdsong. It was created by Rafael Mardojai, who's part of the GNOME Circle, and I loved its simplicity.
 
-        Blanket is a beautifully minimal app for the Linux desktop, originally built by Rafael Mardojai, who's part of the GNOME Circle. It plays ambient sounds — wind, rain, fire, thunder — so you can focus, sleep, or simply relax. It runs quietly in the background, blending into the desktop like a gentle breath of fresh air.
+        While beautiful, it was bound to one desktop: Linux. It is true that there are forks of it (which you can find in the app GitHub repository), but I feel like they didn't capture the aesthetics and the love that Rafael placed into Blanket. Aria is my tribute to it.
 
-        But right now, it's mostly for users on Linux.
+        I rebuilt it from scratch in Kotlin with Compose Multiplatform, so it could live not only on Linux, but also on Windows, macOS, and the web. The design borrows GTK’s elegance, but it speaks with my own voice.
 
-        And I want to change that.
-        I want to rewrite Blanket using Compose Multiplatform, so it can easily run on Windows, macOS, Android, and even the web.
+        Like the original, Aria has no accounts, no ads, no clutter. Just nature’s sounds — mix them, adjust them, let them fade away as you rest or work. A rewrite often means adding more, but this one is different: Aria isn’t about more features. It’s about preserving the calm and carrying it everywhere without breaking its spirit.
 
-        Why do I want to rebuild it?, you may ask. Because I think great software shouldn't be locked to a single platform. Blanket is beautifully designed, but it’s tied to Linux.
+        Under the hood, the web version relies only on the browser’s native audio API. The JVM version uses Korau — the audio engine of KorGE, Kotlin Game Engine — because Java’s built-in audio wasn’t enough. I needed something modern, fast, and precise to let the sounds breathe.
 
-        I want to make it portable while respecting its spirit.
-        This wouldn't be a fork. It would be a quiet tribute — rebuilt from scratch, but with the same love.
+
+        Soon, when it’s complete, I’ll link it here. For now, you can follow its progress on GitHub below.
     </string>
 
     <!--  Contact page section  -->
@@ -373,9 +372,9 @@
     </string>
 
     <string name="web_browser_gallery_tag_one">GTK</string>
-    <string name="web_browser_gallery_tag_two">Fluent Design</string>
-    <string name="web_browser_gallery_tag_three">Simplicity</string>
-    <string name="web_browser_gallery_tag_four">Frosted Glass</string>
+    <string name="web_browser_gallery_tag_two">Apple HIG</string>
+    <string name="web_browser_gallery_tag_three">Alive design philosophy</string>
+    <string name="web_browser_gallery_tag_four">Material UI</string>
 
     <!--  File explorer & Recycle bin  -->
     <string name="file_explorer_toolbar_new">New</string>
@@ -404,10 +403,14 @@
     <string name="file_explorer_html">HTML</string>
     <string name="file_explorer_css">CSS</string>
     <string name="file_explorer_js">JavaScript</string>
+    <string name="file_explorer_ts">TypeScript</string>
     <string name="file_explorer_oracle">Oracle</string>
+    <string name="file_explorer_sql_server">SQL Server</string>
     <string name="file_explorer_docker">Docker</string>
     <string name="file_explorer_linux">Linux</string>
     <string name="file_explorer_wordpress">Wordpress</string>
+    <string name="file_explorer_react">React</string>
+    <string name="file_explorer_spring_boot">Spring Boot 3</string>
 
     <!--  Misc  -->
     <string name="unsupported_tag_one">Not available on mobile</string>

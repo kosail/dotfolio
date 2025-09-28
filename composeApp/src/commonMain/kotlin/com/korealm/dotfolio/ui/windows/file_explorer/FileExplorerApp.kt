@@ -16,17 +16,26 @@ fun FileManagerApp(
     onClose: () -> Unit
 ): WindowApp {
     val elements = listOf(
-        Pair(Res.drawable.java_logo, Res.string.file_explorer_java), // Java
-        Pair(Res.drawable.kotlin_logo, Res.string.file_explorer_kotlin), // Kotlin
-        Pair(Res.drawable.compose_logo, Res.string.file_explorer_compose), // Compose
-        Pair(Res.drawable.csharp_logo, Res.string.file_explorer_csharp), // C#
-        Pair(Res.drawable.html5_logo, Res.string.file_explorer_html), // HTML
-        Pair(Res.drawable.css_logo, Res.string.file_explorer_css), // CSS
-        Pair(Res.drawable.js_logo, Res.string.file_explorer_js), // JS
-        Pair(Res.drawable.oracle_logo, Res.string.file_explorer_oracle), // Oracle
-        Pair(Res.drawable.docker_logo, Res.string.file_explorer_docker), // Docker
-        Pair(Res.drawable.linux_logo, Res.string.file_explorer_linux), // Linux
-        Pair(Res.drawable.wordpress_logo, Res.string.file_explorer_wordpress) // WordPress
+        // JVM
+        Pair(Res.drawable.java_logo, Res.string.file_explorer_java),
+        Pair(Res.drawable.kotlin_logo, Res.string.file_explorer_kotlin),
+        Pair(Res.drawable.compose_logo, Res.string.file_explorer_compose),
+        Pair(Res.drawable.spring_boot_logo, Res.string.file_explorer_spring_boot),
+        // Web
+        Pair(Res.drawable.html5_logo, Res.string.file_explorer_html),
+        Pair(Res.drawable.css_logo, Res.string.file_explorer_css),
+        Pair(Res.drawable.js_logo, Res.string.file_explorer_js),
+        Pair(Res.drawable.Typescript_logo_2020, Res.string.file_explorer_ts),
+        Pair(Res.drawable.react_logo, Res.string.file_explorer_react),
+        // DB
+        Pair(Res.drawable.oracle_logo, Res.string.file_explorer_oracle),
+        Pair(Res.drawable.ms_sql_server_2025, Res.string.file_explorer_sql_server),
+
+        // Other
+        Pair(Res.drawable.docker_logo, Res.string.file_explorer_docker),
+        Pair(Res.drawable.linux_logo, Res.string.file_explorer_linux),
+        Pair(Res.drawable.wordpress_logo, Res.string.file_explorer_wordpress),
+//        Pair(Res.drawable.csharp_logo, Res.string.file_explorer_csharp),
     )
 
     return WindowApp(

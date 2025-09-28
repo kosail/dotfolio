@@ -52,7 +52,7 @@ fun DotfolioContent(
 
         SimpleGitHubButton(
             appName = stringResource(Res.string.web_browser_projects_dotfolio),
-            url = stringResource(Res.string.web_browser_projects_blanket_link),
+            url = stringResource(Res.string.web_browser_projects_aria_link),
             font = font,
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)

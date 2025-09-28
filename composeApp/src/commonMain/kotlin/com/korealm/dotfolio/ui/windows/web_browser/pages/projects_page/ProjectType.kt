@@ -27,11 +27,11 @@ enum class Project (
         isOwn = true,
         contentComposable = { font -> DotfolioContent(font) }
     ),
-    BLANKET (
-        faviconRes = Res.drawable.rafael_mardojai_blanket_favicon,
-        titleRes = Res.string.web_browser_projects_blanket,
-        bannerRes = Res.drawable.blanket_banner,
-        isOwn = false,
-        contentComposable = { font -> BlanketContent(font) }
+    ARIA (
+        faviconRes = Res.drawable.aria_logo,
+        titleRes = Res.string.web_browser_projects_aria,
+        bannerRes = Res.drawable.aria_banner,
+        isOwn = true,
+        contentComposable = { font -> AriaContent(font) }
     )
 }

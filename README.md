@@ -98,11 +98,14 @@ cd dotfolio
 - [Java logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Duke_%28Java_mascot%29_waving.svg)
 - [Kotlin logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kotlin_Icon.svg)
 - [Compose logo, from Compose official repo on GitHub](https://github.com/JetBrains/compose-multiplatform/blob/master/artwork/compose-logo.svg)
-- [C# logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Logo_C_sharp.svg)
+- [Spring Boot 3 logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Spring_Boot.svg)
 - [HTML logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:HTML5_Badge.svg)
 - [CSS logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Official_CSS_Logo.svg)
 - [JS logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:JavaScript-logo.png)
+- [TS logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Typescript_logo_2020.svg)
+- [React logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:React-icon.svg)
 - [Oracle logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Oracle_logo.svg)
+- [MS SQL Server logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Microsoft_SQL_Server_2025_icon.svg)
 - [Docker logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Docker_(container_engine)_logo_(cropped).png)
 - [Linux logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:TuxFlat.svg)
 - [WordPress logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:WordPress_blue_logo.svg)
@@ -120,7 +123,7 @@ Contributions are welcome! Feel free to fork the repository and submit pull requ
 
 ## 🎒 What I learned from this project
 ### 1. Scaling
-Up until finishing this project, I realize that Compose doesn't automatically adapt my content to different resolutions, and that all this time I've been building just taking 1920x1080 resolution in mind. That was... ugh, a big headache.
+Up until finishing this project, I realized that Compose doesn't automatically adapt my content to different resolutions, and that all this time I've been building just taking 1920x1080 resolution in mind. That was... ugh, a big headache.
 
 "What am I supposed to do now with over a month of hard work? Refactor it over the whole project?." Dotfolio was never intended to be mobile first, but people will surely try it on mobile and I had to do something.
 
@@ -136,8 +139,8 @@ I had doubts since the beginning of this journey on how it could be possible to 
 I still need to learn a lot more about these topics, and especially about derivatedState.
 
 ### 3. JavaScript is inescapable. Wherever you go, it will find you.
-Brah, I need to learn JS.
-
+~~Brah, I need to learn JS.~~
+I did learn JS. So goal accomplished!
 
 ---
 

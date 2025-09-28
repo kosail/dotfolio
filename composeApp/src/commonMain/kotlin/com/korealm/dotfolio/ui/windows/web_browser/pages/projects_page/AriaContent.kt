@@ -18,13 +18,13 @@ import dotfolio.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-fun BlanketContent(
+fun AriaContent(
     font: FontFamily,
     modifier: Modifier = Modifier
 ) {
     Column {
         PostText(
-            text = stringResource(Res.string.web_browser_projects_blanket_title),
+            text = stringResource(Res.string.web_browser_projects_aria_title),
             fontSize = 18.sp,
             fontWeight = FontWeight.SemiBold,
             textAlign = TextAlign.Center,
@@ -40,15 +40,15 @@ fun BlanketContent(
         )
 
         PostBody(
-            text = stringResource(Res.string.web_browser_projects_blanket_content).trimIndent(),
+            text = stringResource(Res.string.web_browser_projects_aria_content).trimIndent(),
             font = font,
         )
 
         Spacer(Modifier.height(16.dp))
 
         SimpleGitHubButton(
-            appName = stringResource(Res.string.web_browser_projects_blanket),
-            url = stringResource(Res.string.web_browser_projects_blanket_link),
+            appName = stringResource(Res.string.web_browser_projects_aria),
+            url = stringResource(Res.string.web_browser_projects_aria_link),
             font = font,
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)

@@ -34,12 +34,12 @@
     <string name="main_content_message">
         ¡Bienvenido!
 
-        Esto no es un sistema operativo, ni una máquina virtual, ni una captura de pantalla — y tampoco es “solo una página web”.
+        Esto no es un sistema operativo, ni una máquina virtual, ni una captura de pantalla. Y no, tampoco es “solo una página web”.
 
         Es una simulación hecha a mano de un entorno de escritorio, construida desde cero.
 
         Sin plantillas. Sin frameworks.
-        Solo Kotlin, Compose Multiplatform, y un montón de cariño — corriendo completamente en tu navegador.
+        Solo Kotlin, Compose Multiplatform, y un montón de cariño, corriendo completamente en tu navegador.
 
         Podés hacer doble clic en los íconos de la izquierda para abrir las aplicaciones.
         Cada una te muestra una parte de mí: mis proyectos, mis habilidades, mi historia, y mi trabajo.
@@ -219,11 +219,11 @@
     <string name="web_browser_faq_question_one_reply">
         Últimamente Kotlin es mi lenguaje favorito, pero no soy fan. Te lo explico:
 
-        Vengo de Java, así que el salto a Kotlin fue natural: Corre sobre la misma JVM, pero con null safety de fábrica, corutinas para manejar programación asincrónica de forma fluida, y —mi parte favorita— tiene Compose Multiplatform, que me permite escribir una sola UI que corre en escritorio, móvil y web. Una UI hermosa, como podés darte cuenta.
+        Vengo de Java, así que el salto a Kotlin se me hizo natural: Corre sobre la misma JVM, pero con null safety de fábrica, corutinas para manejar programación asincrónica de forma fluida; y, mi parte favorita, tiene Compose Multiplatform, que me permite escribir una sola UI que corre en escritorio, móvil y web. Una UI hermosa basada en Material UI, pero que es muy maleable, como podés darte cuenta.
 
         Dicho eso, no creo en martillos de oro. Kotlin está maravilloso para hacer apps, pero no es lo que usaría si necesito trabajar a bajo nivel o con cosas del sistema que requieran root. Para eso, tengo cierta debilidad por Go y C (con C es amor complicado... solo desearía que manejar strings y memoria no se sintiera como un castigo con fusta).
 
-        Y luego está C#. Honestamente, me sorprendió. Antes lo veía como “el Java de Microsoft” (J++), pero al probarlo —sobre todo con cosas como LINQ, o su conexión con Power Apps y Power BI— descubrí lo pulido y productivo que es su ecosistema, especialmente para hacer apps empresariales de alto grado. Y con Power Apps fue una sorpresa grata: a veces se siente bien no tener que diseñar todo desde cero y simplemente enfocarse en el negocio.
+        Y luego está JavaScript. Honestamente, lo odié. No es personal, pero prefiero la predictibilidad y el tipado fuerte que algo que me promete lo que quiero, y al momento de la verdad me regala un undefined. TypeScript fue una grata sorpresa, y React lo hizo bastante más interesante. No obstante, cuando desarrollé este proyecto no sabía nada de web más allá de la triada (HTML, CSS y JS), y esa es la razón por la que usé Kotlin en lugar de tecnologías web convencionales.
 
         Así que sí, cambio de stack según lo que se necesite. Los lenguajes son herramientas, y no me molesta pasar de un desatornillador a un martillo, mientras esté construyendo algo que valga la pena.
 
@@ -289,18 +289,18 @@
 
     <string name="web_browser_aboutme_second_title">lo que me importa.</string>
     <string name="web_browser_aboutme_second_content_one">
-        Siempre he preferido las interfaces limpias sobre las dashboards llenas de cosas.
+        Siempre he preferido las interfaces limpias sobre los dashboards llenos de cosas.
 
         Herramientas que se sienten tranquilas, estables, enfocadas. Que se sientan tuyas incluso la primera vez que las usás.
 
-        Creo que el software debe hacerse con atención al detalle: que cargue rápido, que se vea bonito, y que desaparezca cuando no se necesita. No es solo UI — también es UX.
+        Creo que el software debe hacerse con atención al detalle: que cargue rápido, que se vea bonito, y que desaparezca cuando no se necesita. No es solo UI, también es UX.
     </string>
     <string name="web_browser_aboutme_second_content_two">No soy un genio. Solo es que me importa profundamente las cosas que construyo.</string>
 
     <string name="web_browser_aboutme_third_title">sobre mi futuro.</string>
-    <string name="web_browser_aboutme_third_content_personal">En lo personal, quiero seguir creando las herramientas que me gustaría que existieran. Minimalistas. Significativas. Casi siempre sobre Linux, usando Compose Multiplatform y Go.</string>
-    <string name="web_browser_aboutme_third_content_professional">En lo profesional, trabajar con Power Apps, Power BI y el ecosistema .NET para crear herramientas empresariales rápidas, estables y prácticas.</string>
-    <string name="web_browser_aboutme_third_content_final">Para ambos caminos tengo una meta en conjunto: crecer como desarrollador backend y, con el tiempo, darle vida a mis propias ideas de SaaS — software limpio, sostenible, multiplataforma... que dure.</string>
+    <string name="web_browser_aboutme_third_content_personal">En lo personal, quiero seguir creando las herramientas que me gustaría que existieran. Minimalistas. Significativas. Apps para Linux usando Compose Multiplatform y Go.</string>
+    <string name="web_browser_aboutme_third_content_professional">En lo profesional, trabajo con TypeScript y React creando herramientas rápidas, estables y prácticas.</string>
+    <string name="web_browser_aboutme_third_content_final">En ambos casos tengo una meta por igual: crecer como desarrollador full stack y, con el tiempo, darle vida a mis propias ideas de SaaS. Software limpio, sostenible, multiplataforma... que dure.</string>
 
     <string name="web_browser_aboutme_last_title">gracias por darte la vuelta.</string>
     <string name="web_browser_aboutme_last_content">Espero que algo aquí haya resonado con vos.</string>
@@ -308,7 +308,7 @@
     <!--  Projects section  -->
     <string name="web_browser_projects_kvantage">Kvantage</string>
     <string name="web_browser_projects_dotfolio">dotfolio</string>
-    <string name="web_browser_projects_blanket">Blanket</string>
+    <string name="web_browser_projects_aria">Aria</string>
     <string name="web_browser_projects_created">creó</string>
     <string name="web_browser_projects_interested">está interesado en reescribir</string>
     <string name="web_browser_projects_hint">Clic en los íconos para ver más</string>
@@ -330,10 +330,10 @@
         • La interfaz la construí desde cero con Kotlin y Compose Multiplatform para escritorio
         • El backend es un servicio seguro con privilegios de root, escrito en Go, que maneja lectura/escritura ACPI vía /proc/acpi/call
         • Creé un protocolo IPC propio (basado en texto, tipo CLI) para que la GUI y el backend se comuniquen
-        • La app corre con permisos normales — solo el backend se ejecuta como root, por seguridad y para mantener las responsabilidades separadas.
+        • La app corre con permisos normales. Solo el backend se ejecuta como root, por seguridad y para mantener las responsabilidades separadas.
         • Soporta múltiples perfiles de rendimiento, límite de batería, carga rápida, y hasta temas y varios idiomas
 
-        No existe una API oficial para controlar las funciones que necesitaba para hacer este proyecto, ya que todo se logra usando interfaces de kernel a bajo nivel (ACPI), que normalmente están escondidas para el usuario común. Lenovo no ha publicado los funcionamientos internos de la tabla ACPI de sus laptops, o al menos no de la mía. Tuve que aprender cómo funciona esta interfaz del kernel, hacer ingeniería inversa en mi laptopy comparar mis resultados con otros proyectos en GitHub; cómo invocar las llamadas ACPI y cómo convertirlas en una experiencia gráfica segura.
+        No existe una API oficial para controlar las funciones que necesitaba para hacer este proyecto, ya que todo se logra usando interfaces de kernel a bajo nivel (ACPI), que normalmente están escondidas para el usuario común. Lenovo no ha publicado los funcionamientos internos de la tabla ACPI de sus laptops, o al menos no de la mía. Tuve que aprender cómo funciona esta interfaz del kernel, hacer ingeniería inversa en mi laptop y comparar mis resultados con otros proyectos en GitHub; cómo invocar las llamadas ACPI y cómo convertirlas en una experiencia gráfica segura.
     </string>
 
 
@@ -341,13 +341,13 @@
     <string name="web_browser_projects_dotfolio_content">
         Dotfolio recrea la experiencia de un entorno de escritorio completo: ventanas que podés arrastrar, aplicaciones que se abren y se cierran, un reloj real que marca la hora en la barra de tareas. Se parece a un sistema operativo, pero no lo es. Es una historia interactiva sobre mí, contada a través de mi software.
 
-        Todo esto está hecho a mano en Kotlin usando Compose Multiplatform, corriendo como una single-page app de WebAssembly. No hay librerías de UI, ni plantillas, ni backend — cada píxel, cada componente, cada interacción fue construida desde cero.
+        Todo esto está hecho a mano en Kotlin usando Compose Multiplatform, corriendo como una single-page app de WebAssembly. No hay librerías de UI, ni plantillas, ni backend. Cada píxel, cada componente, cada interacción fue construida desde cero.
 
         Desde el administrador de ventanas hasta la barra de tareas animada. Desde el seguimiento de estados (States) en tiempo real hasta la lógica de temas. Todo lo hice yo.
 
         Incluso cosas como el z-index (ese detallito de que una ventana se venga al frente cuando le das clic) están manejadas con lógica propia, ligera y hecha a la medida.
 
-        Dotfolio no intenta imitar a Windows — solo usa su lenguaje para hablar el mío.
+        Dotfolio no intenta imitar a Windows. Solo usa su lenguaje para hablar el mío.
 
         Cada app acá muestra una parte de lo que soy: mis proyectos, mis valores, mi voz, lo que escribo.
 
@@ -359,20 +359,19 @@
     </string>
 
 
-    <string name="web_browser_projects_blanket_title">Una app tranquila de sonidos ambientales — renacida para todos.</string>
-    <string name="web_browser_projects_blanket_content">
-        Este es el único proyecto de acá que no creé yo.
+    <string name="web_browser_projects_aria_title">Una app tranquila, un paraje de sonidos ambientales.</string>
+    <string name="web_browser_projects_aria_content">
+        Blanket fue la chispa: es una app sencilla con sonidos de lluvia, fuego y pájaritos. La creó Rafael Mardojai, que es parte del GNOME Circle, para Linux.
 
-        Blanket es una app preciosa para el escritorio Linux, creada originalmente por Rafael Mardojai, parte del GNOME Circle. Reproduce sonidos ambientales — viento, lluvia, fuego, truenos — para que puedas concentrarte, dormir o simplemente relajarte. Corre en segundo plano, silenciosa, integrándose al escritorio como una brisa suave.
+        Desde el inicio Blanket me atrapó por su simplicidad, pero solo estaba disponible para Linux. Sí, hay varios forks para Android y para Web (que podés encontrar en el repositorio de la app en GitHub), pero siento que no capturan el espíritu, la estética y el amor que Rafael le puso a Blanket. Así que Aria es mi manera de rendirle tributo.
 
-        Pero al día de hoy, está pensada casi exclusivamente para usuarios de Linux (Flatpak).
+        La rehice desde cero en Kotlin con Compose Multiplatform, para que no solo ilumine Linux, sino también Windows, macOS y la web. Su diseño lo inspiré en la elegancia de GTK, pero también hablando con mi propia voz.
 
-        Y yo quiero cambiar eso. Quiero reescribir Blanket usando Compose Multiplatform, para que pueda correr de forma nativa en Windows, macOS, Android e incluso en la web.
+        Igual que la original, Aria no pide registrar cuentas, no tiene anuncios ni distracciones. Solo sonidos de la naturaleza: podés mezclarlos, ajustarlos y dejarlos sonando mientras trabajás o descansás. Normalmente reescribir algo significa meterle más cosas, pero aquí no. Aria no trata de sumar funciones, sino de llevar esa misma calma a donde sea, sin perder su espíritu.
 
-        ¿Por qué quiero reconstruirla?, podrías preguntarte. Porque creo que el buen software no debería estar amarrado a una sola plataforma. Blanket es una de mis apps favoritas, pero depende de Linux.
+        Por dentro, la versión web usa únicamente la API de audio del navegador. La versión de escritorio (JVM) corre con Korau (el motor de audio de KorGE, o Kotlin Game Engine) porque el sistema de audio de Java no daba el ancho. Necesitaba algo moderno, rápido y preciso, que dejara a los sonidos respirar.
 
-        Yo quiero hacerla portátil, sin perder su esencia.
-        No sería un fork. Sería un homenaje silencioso — reconstruido desde cero, pero con el mismo cariño.
+        Pronto, cuando esté lista, pondré el enlace aquí. Mientras tanto, podés seguirle la pista en GitHub aquí abajo.
     </string>
 
 
@@ -392,15 +391,15 @@
     <string name="web_browser_gallery_msg">
         Esta página no explica nada.
 
-        Solo muestra lo que, para mí, se siente bien — visual, emocional, estéticamente.
+        Solo muestra lo que, para mí, se siente bien visual, emocional, y estéticamente.
 
         Un rincón tranquilo de píxeles que me inspiran a diseñar y construir.
     </string>
 
     <string name="web_browser_gallery_tag_one">GTK</string>
-    <string name="web_browser_gallery_tag_two">Fluent Design</string>
+    <string name="web_browser_gallery_tag_two">Apple HIG</string>
     <string name="web_browser_gallery_tag_three">Alive design philosophy</string>
-    <string name="web_browser_gallery_tag_four">Frosted Glass</string>
+    <string name="web_browser_gallery_tag_four">Material UI</string>
 
     <!--  File explorer & Recycle bin  -->
     <string name="file_explorer_toolbar_new">Nuevo</string>
@@ -429,10 +428,13 @@
     <string name="file_explorer_html">HTML</string>
     <string name="file_explorer_css">CSS</string>
     <string name="file_explorer_js">JavaScript</string>
+    <string name="file_explorer_ts">TypeScript</string>
     <string name="file_explorer_oracle">Oracle</string>
+    <string name="file_explorer_sql_server">SQL Server</string>
     <string name="file_explorer_docker">Docker</string>
     <string name="file_explorer_linux">Linux</string>
     <string name="file_explorer_wordpress">Wordpress</string>
+    <string name="file_explorer_react">React</string>
 
     <!--  Misc  -->
     <string name="unsupported_tag_one">No disponible en móvil</string>

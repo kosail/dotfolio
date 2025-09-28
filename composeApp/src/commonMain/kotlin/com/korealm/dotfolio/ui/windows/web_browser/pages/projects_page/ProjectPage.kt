@@ -55,7 +55,7 @@ fun ProjectsPage(
     val postTitle = if (selectedProject.isOwn) {
         "${ stringResource(Res.string.web_browser_projects_created)} ${ stringResource(selectedProject.titleRes) }"
     } else {
-        "${ stringResource(Res.string.web_browser_projects_interested) } ${ stringResource(Project.BLANKET.titleRes) }"
+        "${ stringResource(Res.string.web_browser_projects_interested) } ${ stringResource(Project.ARIA.titleRes) }"
     }
 
     Box(
