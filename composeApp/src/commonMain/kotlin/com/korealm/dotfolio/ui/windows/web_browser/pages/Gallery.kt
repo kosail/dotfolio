@@ -110,10 +110,13 @@ private fun GalleryGrid(
             Res.drawable.gallery_amberol,
             Res.drawable.gallery_windows11,
             Res.drawable.gallery_cozy,
+            Res.drawable.gallery_marova_screenshot,
             Res.drawable.gallery_gato,
             Res.drawable.gallery_screenshot,
-            Res.drawable.gallery_gnome,
-            Res.drawable.gallery_flowers_erika
+            Res.drawable.gallery_web_design,
+            Res.drawable.gallery_flowers_erika,
+            Res.drawable.gallery_plantfashion_glassmorphism,
+            Res.drawable.gallery_macos_sonoma_screenshot,
         )
     }
 

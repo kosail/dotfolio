@@ -83,6 +83,10 @@ cd dotfolio
 - [Blanket app icon, by Rafael Mardojai](https://github.com/rafaelmardojai/blanket)
 
 #### -> Wallpapers and images
+
+<details>
+<summary>Show/Hide</summary>
+
 - [Windows 11 background light, from 4kwallpapers.com](https://4kwallpapers.com/abstract/windows-11-blue-stock-white-background-light-official-5616.html)
 - [Windows 11 background dark, from 4kwallpapers.com](https://4kwallpapers.com/abstract/windows-11-dark-mode-blue-stock-official-5630.html)
 - [Anime wallpaper, by Jensen Art Co. on Pixabay](https://pixabay.com/users/jensenartofficial-31380959/)
@@ -94,6 +98,12 @@ cd dotfolio
 - Screenshot from the game "Flowers, le volume sur le printemps." Innocent Grey made this wonderful visual novel, and it's available on GOG for purchase.
 - [Amberol music player screenshot, from FOSTips](https://fostips.com/amberol-music-player-beautiful-design/)
 - [Windows 11 screenshot, from linkvegas12 on DevianArt](https://www.deviantart.com/linkvegas12/art/Fluent-Start-Menu-Style-For-Windows-11-1137827427)
+- [Notion screenshots, taken from Gridfiti](https://gridfiti.com/notion-templates-aesthetic/)
+- [MacOS Sonoma screenshot, taken from Pinterest](https://www.pinterest.com/pin/756112224966502408/)
+- [Glassmorphism example, taken from Pinteres](https://www.pinterest.com/pin/1124070388271624658/)
+- [Web design screenshot, taken from Pinterest](https://www.pinterest.com/pin/397301998382015577/)
+- [Mobile app screenshot, taken from Pinterest](https://www.pinterest.com/pin/1055599907266272/)
+
 
 - [Java logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Duke_%28Java_mascot%29_waving.svg)
 - [Kotlin logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kotlin_Icon.svg)
@@ -109,6 +119,8 @@ cd dotfolio
 - [Docker logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Docker_(container_engine)_logo_(cropped).png)
 - [Linux logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:TuxFlat.svg)
 - [WordPress logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:WordPress_blue_logo.svg)
+
+</details>
 
 #### -> Fonts
 - Main font: [Selawik font, from Microsoft](https://github.com/microsoft/Selawik)
