@@ -6,39 +6,3 @@ html, body {
     overflow: hidden;
     background-color: #0B0F28;
 }
-
-.main_container {
-    display: flex;
-    flex-grow: 1;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
-    gap: 2rem;
-
-}
-
-.main_text {
-    color: #f1f1f1;
-    font-size: 1.6rem;
-    font-family: 'Selawik', 'Arial', monospace;
-}
-
-.spinner {
-    border: 6px solid rgba(255, 255, 255, 0.0);
-    border-top: 6px solid #3498db;
-    border-radius: 50%; /* Makes it a circle */
-    width: 50px;
-    height: 50px;
-    margin-top: 5%;
-    display:block;
-    animation: spin 600ms linear infinite;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}

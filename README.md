@@ -1,8 +1,9 @@
 ![dotfolio logo](repo_images/banner.webp)
 
-Dotfolio is not just a portfolio — it’s a narrative, a space, an emotional experience disguised as an operating system.
+Dotfolio is my personal portfolio (dotfiles about me? Hence "dotfolio").
+Instead of a standard website, I chose to create a narrative, an emotional experience disguised as an operating system.
 
-Inspired by Mica aesthetics, this project blends creativity with code — aiming to speak louder than words.
+Inspired by Windows 11 Mica aesthetics, this project aims to speak louder than words.
 
 🧭 Built entirely with [Compose Multiplatform](https://github.com/JetBrains/compose-multiplatform) — using the WebAssembly + JS target.
 
@@ -10,11 +11,9 @@ Inspired by Mica aesthetics, this project blends creativity with code — aiming
 
 ## 🌺 Goal of this project:
 
-The sole goal is to stand out in a sea of traditional portfolios. It's to tell, build an interactive story about myself.
+The sole goal is to stand out in a sea of traditional portfolios. It's to tell, build an interactive story about myself. Taking this in mind, I focused on implementing only what is needed to tell this story, not to rebuild the actual functionality of an entire OS on Compose.
 
-Taking this in mind, I focused on implementing only what is needed to tell this story, not to rebuild the actual functionality of an entire OS on Compose.
-
-I consider this minimalist precision is not a limitation, but a design power move. Make it speak clearly, cleanly, and with purpose. That's my goal, and the one of this project.
+Make it speak clearly, cleanly, and with purpose. That's my goal, and the one of this project.
 
 ---
 
@@ -26,7 +25,7 @@ I consider this minimalist precision is not a limitation, but a design power mov
 - 🌗 Seamless light and dark mode, and wallpaper customization option included
 - 🧠 Each “app” is not just aesthetic — it tells a part of the story: my skills, my personality, my design sense
 - 🌐 Runs fully client-side, no backend, no trackers.
-- 🤳 Render different versions of dotfolio depending on if it's a desktop, a tablet or a mobile phone.
+- 🤳 Render different versions of dotfolio depending on if it's a desktop, a tablet, or a mobile phone
 
 > Dotfolio is structured like an operating system, but powered by storytelling. Just check it out:
 
@@ -35,7 +34,7 @@ I consider this minimalist precision is not a limitation, but a design power mov
 ![Web browser app opened up](repo_images/beta_desktop_2.webp)
 ![About project](repo_images/beta_desktop_3.webp)
 
-On desktop it loads the full version. On tablets, it loads just the content of dotfolio's web browser (the blog of myself), and on mobile it shows a nice message telling mobile is not currently supported
+On desktop, it loads the full version. On tablets, it loads just the content of dotfolio's web browser (the blog of myself), and on mobile it shows a nice message telling mobile is not currently supported
 <details>
 <summary>Open images</summary>
 
@@ -99,7 +98,7 @@ cd dotfolio
 - [Amberol music player screenshot, from FOSTips](https://fostips.com/amberol-music-player-beautiful-design/)
 - [Windows 11 screenshot, from linkvegas12 on DevianArt](https://www.deviantart.com/linkvegas12/art/Fluent-Start-Menu-Style-For-Windows-11-1137827427)
 - [Notion screenshots, taken from Gridfiti](https://gridfiti.com/notion-templates-aesthetic/)
-- [MacOS Sonoma screenshot, taken from Pinterest](https://www.pinterest.com/pin/756112224966502408/)
+- [macOS Sonoma screenshot, taken from Pinterest](https://www.pinterest.com/pin/756112224966502408/)
 - [Glassmorphism example, taken from Pinteres](https://www.pinterest.com/pin/1124070388271624658/)
 - [Web design screenshot, taken from Pinterest](https://www.pinterest.com/pin/397301998382015577/)
 - [Mobile app screenshot, taken from Pinterest](https://www.pinterest.com/pin/1055599907266272/)
@@ -143,7 +142,7 @@ Thus, I decided to reuse the blog I made inside dotfolio to work as a sole websi
 
 From here and on, I'll take special attention not just to density, but resolutions.
 
-### 2. Side Effects, Effect Handlers and the State API
+### 2. Side Effects, Effect Handlers, and the State API
 I think that this was one of the most important things that I learned by the end of this project.
 
 I had doubts since the beginning of this journey on how it could be possible to call normal code from Composables (as Composables can be rebuilt many times during their lifecycle. Thus, they call the code inside them many times), but I didn't think too much on it as long as it worked. In my last project it just worked, but in dotfolio... well, it could have not been possible with Effect Handlers.
