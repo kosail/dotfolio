@@ -5,7 +5,9 @@ import kotlinx.browser.document
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import org.w3c.dom.HTMLAudioElement
+import kotlin.js.ExperimentalWasmJsInterop
 
+@OptIn(ExperimentalWasmJsInterop::class)
 actual object MediaPlayer {
     private val audioElement = document.createElement("audio") as HTMLAudioElement
     private var state: MediaPlayerState? = null

@@ -23,6 +23,7 @@ import com.korealm.dotfolio.ui.theme.MicaTheme
 import com.korealm.dotfolio.ui.windows.Win32Controller
 import kotlinx.coroutines.delay
 import kotlinx.datetime.TimeZone
+import kotlinx.datetime.number
 import kotlinx.datetime.toLocalDateTime
 import org.jetbrains.compose.resources.painterResource
 import kotlin.time.Clock
@@ -155,11 +156,11 @@ fun ClockThread(
             val localDateTime = now.toLocalDateTime(TimeZone.currentSystemDefault())
             val hour = (if (localDateTime.hour > 12) localDateTime.hour - 12 else localDateTime.hour).toString().padStart(2, '0')
             val minute = localDateTime.minute.toString().padStart(2, '0')
-            val month = localDateTime.monthNumber.toString().padStart(2, '0')
+            val month = localDateTime.month.number.toString().padStart(2, '0')
 
             val time = "$hour:$minute ${if (localDateTime.hour > 12) "PM" else "AM"}"
 
-            val date = "$month/${localDateTime.dayOfMonth}/${localDateTime.year}"
+            val date = "$month/${localDateTime.day}/${localDateTime.year}"
 
             onClockUpdate(time, date)
             delay(6000)
