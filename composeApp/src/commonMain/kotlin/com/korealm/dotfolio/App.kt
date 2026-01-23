@@ -22,22 +22,31 @@ import com.korealm.dotfolio.ui.DesktopShortcuts
 import com.korealm.dotfolio.ui.theme.MicaTheme
 import com.korealm.dotfolio.ui.windows.Win32Controller
 import kotlinx.coroutines.delay
-import kotlinx.datetime.Clock
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 import org.jetbrains.compose.resources.painterResource
+import kotlin.time.Clock
+import kotlin.time.Instant
 
 @Composable
 fun App() {
     // Important stuff
     val themeState = rememberAppThemeState()
 
+
     // Clock related
+    // -------------------
     var localDateTime by remember { mutableStateOf(Pair("", "")) }
-    ClockThread { time, date -> localDateTime = localDateTime.copy(time, date) }
+
+    ClockThread(
+        now = Clock.System.now()
+    ) { time, date ->
+        localDateTime = localDateTime.copy(first = time, second = date)
+    }
 
 
     // Windows related
+    // -------------------
     var openWindows by remember { mutableStateOf(listOf(AppId.NOTEPAD)) }
 
     var openWindowRef by remember { mutableStateOf<(AppId) -> Unit>({}) } // Due to circular dependency between this 2 functions and appRegistry
@@ -86,6 +95,7 @@ fun App() {
 
 
     // Run dotfolio!
+    // -------------------
     MicaTheme(
         darkTheme = themeState.isDarkTheme
     ){
@@ -137,11 +147,12 @@ fun App() {
 // Keep updating the time in the background every 6 seconds.
 @Composable
 fun ClockThread(
+    now: Instant,
     onClockUpdate: (String, String) -> Unit
 ) {
     LaunchedEffect(Unit) {
         while(true) {
-            val localDateTime = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault())
+            val localDateTime = now.toLocalDateTime(TimeZone.currentSystemDefault())
             val hour = (if (localDateTime.hour > 12) localDateTime.hour - 12 else localDateTime.hour).toString().padStart(2, '0')
             val minute = localDateTime.minute.toString().padStart(2, '0')
             val month = localDateTime.monthNumber.toString().padStart(2, '0')

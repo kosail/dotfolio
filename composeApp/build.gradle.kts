@@ -1,6 +1,5 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
-import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -10,31 +9,20 @@ plugins {
 }
 
 kotlin {
-    jvm("desktop")
+    jvm()
     
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
-        outputModuleName = "composeApp"
-        browser {
-            val rootDirPath = project.rootDir.path
-            val projectDirPath = project.projectDir.path
-            commonWebpackConfig {
-                outputFileName = "composeApp.js"
-                devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
-                    static = (static ?: mutableListOf()).apply {
-                        // Serve sources to debug inside browser
-                        add(rootDirPath)
-                        add(projectDirPath)
-                    }
-                }
-            }
-        }
+        browser()
         binaries.executable()
     }
+
+//    js {
+//        browser()
+//        binaries.executable()
+//    }
     
     sourceSets {
-        val desktopMain by getting
-        
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -47,16 +35,17 @@ kotlin {
             implementation(libs.kotlinx.datetime)
 
         }
-//        commonTest.dependencies {
-//            implementation(libs.kotlin.test)
-//        }
-        desktopMain.dependencies {
+
+        jvmMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutinesSwing)
         }
+
+//        commonTest.dependencies {
+//            implementation(libs.kotlin.test)
+//        }
     }
 }
-
 
 compose.desktop {
     application {
@@ -65,7 +54,7 @@ compose.desktop {
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "com.korealm.dotfolio"
-            packageVersion = "1.0.0"
+            packageVersion = "1.1.0"
         }
     }
 }
