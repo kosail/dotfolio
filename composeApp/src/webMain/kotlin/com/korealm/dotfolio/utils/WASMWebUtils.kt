@@ -40,7 +40,7 @@ fun isDesktopBigScreen(): Boolean {
     return getWindowWidth() > 1400 && getWindowHeight() > 800
 }
 
-@JsFun("(function() {return navigator.userAgent })")
+@JsFun("(function() { return navigator.userAgent })")
 external fun getUserAgent(): String
 
 fun isMobile(): Boolean {

@@ -17,10 +17,10 @@ kotlin {
         binaries.executable()
     }
 
-//    js {
-//        browser()
-//        binaries.executable()
-//    }
+    js {
+        browser()
+        binaries.executable()
+    }
     
     sourceSets {
         commonMain.dependencies {

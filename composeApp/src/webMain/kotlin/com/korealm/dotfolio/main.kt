@@ -9,7 +9,7 @@ import kotlinx.browser.document
 
 @OptIn(ExperimentalComposeUiApi::class)
 fun main() {
-    ComposeViewport(document.body!!) {
+    ComposeViewport {
         if (! isMobile()) {
             if (isDesktopBigScreen()) App() else LimitedDotfolio()
         } else {
