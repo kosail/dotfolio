@@ -3,7 +3,7 @@ package com.korealm.dotfolio.ui.windows.photos
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.gestures.detectTransformGestures
+import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -46,25 +46,21 @@ fun PhotosAppWindowContent(
                 modifier = Modifier
                     .fillMaxWidth()
                     .pointerInput(Unit) {
-                        while(true) {
-                            detectTransformGestures(
-                                onGesture = { _, pan, zoom, _ ->
-                                    offsetX += pan.x
-                                    offsetY += pan.y
-                                    scale = (scale * zoom).coerceIn(0.5f, 3f)
-                                }
-                            )
-
-                            awaitPointerEventScope {
+                        detectDragGestures { _, dragAmount ->
+                            // Handle drag for panning
+                            offsetX += dragAmount.x
+                            offsetY += dragAmount.y
+                        }
+                    }
+                    .pointerInput(Unit) {
+                        awaitPointerEventScope {
+                            while (true) {
                                 val event = awaitPointerEvent()
-                                val type = event.type
+                                val scrollDelta = (event.changes.firstOrNull()?.scrollDelta?.y ?: 0f).coerceIn(-1f, 1f)
 
-                                when (type) {
-                                    PointerEventType.Scroll -> {
-                                        val scrollDelta = event.changes.first().scrollDelta.y
-                                        val speed = 0.02f
-                                        scale = (scale + scrollDelta * speed).coerceIn(0.5f, 3f)
-                                    }
+                                if (scrollDelta != 0f) {
+                                    val speed = 0.07f
+                                    scale = (scale + scrollDelta * speed).coerceIn(0.5f, 3f)
                                 }
                             }
                         }
