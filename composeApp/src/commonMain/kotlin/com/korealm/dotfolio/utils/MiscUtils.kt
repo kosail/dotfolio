@@ -9,11 +9,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.input.pointer.PointerEventType
-import androidx.compose.ui.input.pointer.onPointerEvent
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.DrawableResource
@@ -34,7 +33,6 @@ fun RoundedPicture(
     )
 }
 
-@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun UrlBar(
     modifier: Modifier = Modifier,
@@ -54,8 +52,18 @@ fun UrlBar(
                     Modifier
                 } else {
                     Modifier
-                        .onPointerEvent(PointerEventType.Enter) { isHover = true }
-                        .onPointerEvent(PointerEventType.Exit) { isHover = false }
+                        .pointerInput(Unit) {
+                            awaitPointerEventScope {
+                                while(true) {
+                                    val type = awaitPointerEvent().type
+
+                                    when (type) {
+                                        PointerEventType.Enter -> isHover = true
+                                        PointerEventType.Exit -> isHover = false
+                                    }
+                                }
+                            }
+                        }
                         .then(
                             if (isHover) {
                                 modifier.border(2.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.5f), RoundedCornerShape(6.dp))

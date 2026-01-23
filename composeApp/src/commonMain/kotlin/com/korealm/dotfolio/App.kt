@@ -117,7 +117,7 @@ fun App() {
         ) {
             DesktopShortcuts(
                 onAppLaunch = { appId -> openWindowRef(appId) },
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier
             )
 
             DesktopEnvironment(

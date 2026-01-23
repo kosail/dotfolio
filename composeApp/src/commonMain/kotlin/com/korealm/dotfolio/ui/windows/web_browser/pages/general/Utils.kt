@@ -11,11 +11,10 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.PointerEventType
-import androidx.compose.ui.input.pointer.onPointerEvent
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -74,7 +73,6 @@ fun CustomVerticalScrollbar(
     )
 }
 
-@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun FullScreenImageVisualizer(
     selectedImage: DrawableResource?,
@@ -103,7 +101,17 @@ fun FullScreenImageVisualizer(
                     modifier = Modifier
                         .fillMaxSize()
                         .background(MaterialTheme.colorScheme.background.copy(alpha = 0.8f))
-                        .onPointerEvent(PointerEventType.Press) { onClick() } // Click anywhere to exit
+                        .pointerInput(Unit) {
+                            awaitPointerEventScope {
+                                while(true) {
+                                    val type = awaitPointerEvent().type
+
+                                    when (type) {
+                                        PointerEventType.Press -> onClick() // Click anywhere to exit
+                                    }
+                                }
+                            }
+                        }
                 ) {
                     Image(
                         painter = painterResource(selectedImageCache),
@@ -142,7 +150,7 @@ fun PostText(
     )
 }
 
-@OptIn(ExperimentalFoundationApi::class, ExperimentalComposeUiApi::class)
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun SimpleGitHubButton(
     appName: String,
@@ -168,8 +176,18 @@ fun SimpleGitHubButton(
         border = BorderStroke(animatedBorder, MaterialTheme.colorScheme.secondary.copy(alpha = 0.3f)),
         modifier = modifier
             .onClick { openInNewTab(url) }
-            .onPointerEvent(PointerEventType.Enter) { isHover = true }
-            .onPointerEvent(PointerEventType.Exit) { isHover = false }
+            .pointerInput(Unit) {
+                awaitPointerEventScope {
+                    while(true) {
+                        val type = awaitPointerEvent().type
+
+                        when (type) {
+                            PointerEventType.Enter -> isHover = true
+                            PointerEventType.Exit -> isHover = false
+                        }
+                    }
+                }
+            }
     ) {
         Row(
             horizontalArrangement = Arrangement.Start,

@@ -9,12 +9,11 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.input.pointer.PointerEventType
-import androidx.compose.ui.input.pointer.onPointerEvent
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -83,7 +82,6 @@ fun StandardTitleBarButtonSet(
 }
 
 // I cracked my head trying to find a way to remove the default shape of an IconButton (which by default is round), since Windows 11 has flat buttons. Tried with a Card, but failed... thus, a Box!
-@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun TitleBarButton(
     onClick: () -> Unit,
@@ -104,8 +102,18 @@ fun TitleBarButton(
                 color = if (isHovered) hoverColor else Color.Transparent,
                 shape = RectangleShape
             )
-            .onPointerEvent(PointerEventType.Enter) { isHovered = true }
-            .onPointerEvent(PointerEventType.Exit) { isHovered = false }
+            .pointerInput(Unit) {
+                awaitPointerEventScope {
+                    while(true) {
+                        val type = awaitPointerEvent().type
+
+                        when (type) {
+                            PointerEventType.Enter -> isHovered = true
+                            PointerEventType.Exit -> isHovered = false
+                        }
+                    }
+                }
+            }
             .clickable { onClick() }
     ) {
         SimpleSymbolicIconButton(

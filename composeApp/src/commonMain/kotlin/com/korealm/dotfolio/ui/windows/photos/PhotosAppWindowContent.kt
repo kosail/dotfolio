@@ -3,20 +3,18 @@ package com.korealm.dotfolio.ui.windows.photos
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.gestures.detectDragGestures
+import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.PointerEventType
-import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
@@ -26,7 +24,6 @@ import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
-@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun PhotosAppWindowContent(
     modifier: Modifier = Modifier
@@ -48,16 +45,28 @@ fun PhotosAppWindowContent(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .onPointerEvent(PointerEventType.Scroll) { event ->
-                        val scrollDelta = event.changes.first().scrollDelta.y
-                        val speed = 0.05f
-
-                        scale = (scale + scrollDelta * speed).coerceIn(0.5f, 4f)
-                    }
                     .pointerInput(Unit) {
-                        detectDragGestures { _, dragAmount ->
-                            offsetX += dragAmount.x
-                            offsetY += dragAmount.y
+                        while(true) {
+                            detectTransformGestures(
+                                onGesture = { _, pan, zoom, _ ->
+                                    offsetX += pan.x
+                                    offsetY += pan.y
+                                    scale = (scale * zoom).coerceIn(0.5f, 3f)
+                                }
+                            )
+
+                            awaitPointerEventScope {
+                                val event = awaitPointerEvent()
+                                val type = event.type
+
+                                when (type) {
+                                    PointerEventType.Scroll -> {
+                                        val scrollDelta = event.changes.first().scrollDelta.y
+                                        val speed = 0.02f
+                                        scale = (scale + scrollDelta * speed).coerceIn(0.5f, 3f)
+                                    }
+                                }
+                            }
                         }
                     }
             ) {
@@ -117,7 +126,6 @@ fun PhotosAppWindowContent(
     }
 }
 
-@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun PhotosBottomBarIcon(
     icon: DrawableResource,
@@ -136,8 +144,18 @@ fun PhotosBottomBarIcon(
                 color = if (isHovered) MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f) else Color.Transparent,
                 shape = RectangleShape
             )
-            .onPointerEvent(PointerEventType.Enter) { isHovered = true }
-            .onPointerEvent(PointerEventType.Exit) { isHovered = false }
+            .pointerInput(Unit) {
+                awaitPointerEventScope {
+                    while(true) {
+                        val type = awaitPointerEvent().type
+
+                        when (type) {
+                            PointerEventType.Enter -> isHovered = true
+                            PointerEventType.Exit -> isHovered = false
+                        }
+                    }
+                }
+            }
             .clickable { onClick() }
     ) {
         SimpleSymbolicIconButton(

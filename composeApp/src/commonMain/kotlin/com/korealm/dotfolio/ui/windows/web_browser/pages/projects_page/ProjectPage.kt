@@ -12,15 +12,14 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.PointerIcon
-import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.input.pointer.pointerHoverIcon
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -143,7 +142,6 @@ fun ProjectsPage(
     }
 }
 
-@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun CircledWidget(
     project: Project,
@@ -194,9 +192,19 @@ fun CircledWidget(
         shadowElevation = 2.dp,
             modifier = Modifier
                 .pointerHoverIcon(PointerIcon.Hand)
-                .onPointerEvent(PointerEventType.Enter) { isPointerHovering = true }
-                .onPointerEvent(PointerEventType.Exit) { isPointerHovering = false }
-                .onPointerEvent(PointerEventType.Press) { onProjectClick() }
+                .pointerInput(Unit) {
+                    awaitPointerEventScope {
+                        while(true) {
+                            val type = awaitPointerEvent().type
+
+                            when (type) {
+                                PointerEventType.Enter -> isPointerHovering = true
+                                PointerEventType.Exit -> isPointerHovering = false
+                                PointerEventType.Press -> onProjectClick()
+                            }
+                        }
+                    }
+                }
         ) {
             RoundedPicture(
                 painter = project.faviconRes,

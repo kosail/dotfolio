@@ -12,12 +12,11 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.PointerEventType
-import androidx.compose.ui.input.pointer.onPointerEvent
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -31,7 +30,6 @@ import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.pluralStringResource
 import org.jetbrains.compose.resources.stringResource
 
-@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun MediaListRow(
     audioName: String,
@@ -48,8 +46,18 @@ fun MediaListRow(
     Box(
         contentAlignment = Alignment.CenterStart,
         modifier = modifier
-            .onPointerEvent(PointerEventType.Enter) { isHover = true }
-            .onPointerEvent(PointerEventType.Exit) { isHover = false }
+            .pointerInput(Unit) {
+                awaitPointerEventScope {
+                    while(true) {
+                        val type = awaitPointerEvent().type
+
+                        when (type) {
+                            PointerEventType.Enter -> isHover = true
+                            PointerEventType.Exit -> isHover = false
+                        }
+                    }
+                }
+            }
             .clickable { onClick() }
             .clip(RoundedCornerShape(5.dp))
             .background(color)
@@ -122,7 +130,6 @@ fun MediaListRow(
     }
 }
 
-@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun PlayerSection(
     themeState: AppThemeState,
@@ -293,7 +300,17 @@ fun PlayerSection(
                         painter = painterResource(painter),
                         contentDescription = null,
                         modifier = Modifier
-                            .onPointerEvent(PointerEventType.Press) { onPlayClick() }
+                            .pointerInput(Unit) {
+                                awaitPointerEventScope {
+                                    while(true) {
+                                        val type = awaitPointerEvent().type
+
+                                        when (type) {
+                                            PointerEventType.Press -> onPlayClick()
+                                        }
+                                    }
+                                }
+                            }
                     )
 
                 }

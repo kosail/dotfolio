@@ -15,14 +15,13 @@ import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
 import androidx.compose.foundation.lazy.staggeredgrid.items
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.PointerIcon
-import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.input.pointer.pointerHoverIcon
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontFamily
@@ -97,7 +96,6 @@ fun GalleryPage(
     }
 }
 
-@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 private fun GalleryGrid(
     modifier: Modifier = Modifier
@@ -142,7 +140,6 @@ private fun GalleryGrid(
     )
 }
 
-@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun HoverFadeImage(
     drawable: DrawableResource,
@@ -173,8 +170,18 @@ fun HoverFadeImage(
             modifier = modifier
                 .fillMaxWidth()
                 .wrapContentHeight()
-                .onPointerEvent(PointerEventType.Enter) { isHovered = true }
-                .onPointerEvent(PointerEventType.Exit) { isHovered = false }
+                .pointerInput(Unit) {
+                    awaitPointerEventScope {
+                        while(true) {
+                            val type = awaitPointerEvent().type
+
+                            when (type) {
+                                PointerEventType.Enter -> isHovered = true
+                                PointerEventType.Exit -> isHovered = false
+                            }
+                        }
+                    }
+                }
                 .pointerHoverIcon(PointerIcon.Hand)
         )
     }

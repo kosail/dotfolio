@@ -11,12 +11,10 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.input.pointer.PointerEventType
-import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontFamily
@@ -154,7 +152,6 @@ fun IndexSidebar(
     }
 }
 
-@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun BoxedIcon(
     painter: DrawableResource,
@@ -172,8 +169,18 @@ fun BoxedIcon(
             .background(
                 color = if (isHover) MaterialTheme.colorScheme.onBackground.copy(alpha = 0.07f) else Color.Transparent,
             )
-            .onPointerEvent(PointerEventType.Enter) { isHover = true }
-            .onPointerEvent(PointerEventType.Exit) { isHover = false }
+            .pointerInput(Unit) {
+                awaitPointerEventScope {
+                    while(true) {
+                        val type = awaitPointerEvent().type
+
+                        when (type) {
+                            PointerEventType.Enter -> isHover = true
+                            PointerEventType.Exit -> isHover = false
+                        }
+                    }
+                }
+            }
             .pointerInput(Unit) {
                 detectTapGestures(
                     onTap = {

@@ -5,19 +5,16 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.onClick
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.input.pointer.PointerEventType
-import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -50,7 +47,7 @@ fun DesktopShortcuts(
             verticalArrangement = Arrangement.Top,
             horizontalArrangement = Arrangement.Center,
             itemHorizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxHeight()
                 .padding(horizontal = 20.dp)
                 .padding(bottom = 60.dp)
@@ -94,7 +91,7 @@ fun ShortcutTitle(
     )
 }
 
-@OptIn(ExperimentalFoundationApi::class, ExperimentalComposeUiApi::class)
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ShortcutButton(
     icon: DrawableResource,
@@ -108,14 +105,24 @@ fun ShortcutButton(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
             .pointerInput(Unit) {
+                awaitPointerEventScope {
+                    while(true) {
+                        val type = awaitPointerEvent().type
+
+                        when (type) {
+                            PointerEventType.Enter -> isSelected = true
+                            PointerEventType.Exit -> isSelected = false
+                        }
+                    }
+                }
+            }
+            .pointerInput(Unit) {
                 detectTapGestures(
                     onDoubleTap = {
                         onLaunch()
                     }
                 )
             }
-            .onPointerEvent(PointerEventType.Enter) { isSelected = true }
-            .onPointerEvent(PointerEventType.Exit ) { isSelected = false }
             .background(
                 color = if (isSelected) MaterialTheme.colorScheme.primary.copy(alpha = 0.09f) else Color.Transparent,
                 shape = RoundedCornerShape(3.dp)

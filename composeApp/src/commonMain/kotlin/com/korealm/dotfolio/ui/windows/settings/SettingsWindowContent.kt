@@ -10,7 +10,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
@@ -18,8 +17,8 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.PointerIcon
-import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.input.pointer.pointerHoverIcon
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -345,7 +344,6 @@ fun SystemScreen(
     }
 }
 
-@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun SettingOption(
     icon: DrawableResource,
@@ -372,7 +370,17 @@ fun SettingOption(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Start,
                 modifier = Modifier
-                    .onPointerEvent(PointerEventType.Press) { onClick() }
+                    .pointerInput(Unit) {
+                        awaitPointerEventScope {
+                            while(true) {
+                                val type = awaitPointerEvent().type
+
+                                when (type) {
+                                    PointerEventType.Press -> onClick()
+                                }
+                            }
+                        }
+                    }
             ) {
                 Icon(
                     painter = painterResource(icon),
