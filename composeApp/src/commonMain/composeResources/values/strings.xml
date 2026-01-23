@@ -32,18 +32,18 @@
     <string name="windows_crlf">Windows (CRLF)</string>
     <string name="utf8">UTF-8</string>
     <string name="main_content_message">
-        Welcome!
+        Welcome to my web portfolio!
 
         This isn’t an OS, a virtual machine or a screenshot, and it’s not just a website.
         It’s a handcrafted simulation of a desktop environment, built from scratch.
 
         No templates. No frameworks.
-        Just Kotlin, Compose Multiplatform, love and care, running fully in your browser.
+        Just Kotlin: Compose Multiplatform and love and care, running fully in your browser.
 
         You can double-click the icons on the left to open apps.
         Each one shows a piece of me: my projects, skills, story, and work.
 
-        There’s no onboarding, no instructions. Explore it as you would a real OS.
+        There’s no onboarding, no instructions. Explore it as you would a real OS (I would suggest you start by double-clicking the Voice.wav file, tho)
         Think of it as a tiny operating system... one that boots into who I am.
 
         This is me, in code.
@@ -217,7 +217,7 @@
 
         That said, I don’t believe in golden hammers. Kotlin is great for apps, but it’s not what I reach for when I want to go low-level or mess with things like root services. For that, I’ve always had a soft spot for Go and C (it’s tough love tho, I just wish strings mem allocs in C didn’t feel like punishment).
 
-        Then there’s JavaScript. I honestly hated it. It's not personal, but I prefer predictability and strong typing over something that Promise me &lt;any&gt;, and at the moment of truth it returns an undefined. TypeScript, however, felt like a game changer, and along with React, it became a stack that I truly liked. But why I didn't use JS or TS for this project? Because I knew nothing from web dev aside from the triad by the moment I created dotfolio, and that's why I used Kotlin over conventional web tools.
+        Then there’s JavaScript. I honestly hated it. It's not personal, but I prefer predictability and strong typing over something that Promise me &lt;any&gt;, and at the moment of truth it returns an undefined. TypeScript, however, felt like a game changer, and along with React, it became a stack that I truly liked. But why I didn't use JS or TS for this project? Because I knew nothing from web dev aside from HTML &amp; CSS by the moment I created dotfolio, and that's why I used Kotlin over conventional web tools.
 
         So yeah, I jump between stacks depending on the job. Languages are tools, and I don’t mind switching between screwdrivers and hammers as long as I’m building something useful. I care more about the craft, not the tools.
     </string>
@@ -294,13 +294,13 @@
     <string name="web_browser_projects_hint">Click on the icons to see more</string>
     <string name="web_browser_projects_check_on_github">Check %1$d on GitHub</string>
 
-    <string name="web_browser_projects_kvantage_title">A clean, native control center for Lenovo laptops — built for Linux.</string>
+    <string name="web_browser_projects_kvantage_title">A clean, native control center for Lenovo laptops, built for Linux.</string>
     <string name="web_browser_projects_kvantage_content">
         This was the first real-world app I ever made — and it came from real frustration.
 
         On Windows, Lenovo laptops have official tools to control performance modes, battery conservation, and rapid charging. On Linux? Nothing usable. So I made my own.
 
-        KVantage is a sleek desktop app that brings these essential hardware toggles to Lenovo Linux users. Inspired by GNOME and GTK's clean visuals, it focuses only on the features that matter — no ads, no clutter, no distractions. Just control.
+        KVantage is a sleek desktop app that brings these essential hardware toggles to Lenovo Linux users. Inspired by GNOME clean visuals, but ending up looking like plain Compose, it focuses only on the features that matter — no ads, no clutter, no distractions. Just control.
     </string>
 
     <string name="web_browser_projects_kvantage_what_i_built">What I built:</string>
@@ -309,8 +309,7 @@
 
         • The GUI was built from scratch using Kotlin and Compose Multiplatform for Desktop
         • The backend is a secure, root-privileged Go daemon I wrote myself, handling ACPI read/write through /proc/acpi/call
-        • I created a custom IPC protocol (text-based, CLI-style) for communication between the GUI and daemon
-        • The app runs with regular user privileges. Only the tiny backend runs as root, for safety
+        • I created a custom IPC protocol (text-based, CLI-style) for communication between the GUI and daemon . The app runs with regular user privileges. Only the tiny backend runs as root, for safety
         • It supports multiple performance profiles, battery threshold toggles, rapid charge, and even multi-language theming
 
         There is no official API for these features. All of it is achieved through low-level kernel interfaces (ACPI), usually hidden from standard users. I had to learn how they work, how to invoke them, and how to wrap them into a safe, graphical experience.
@@ -319,37 +318,37 @@
 
     <string name="web_browser_projects_dotfolio_title">The hardest and most beautiful thing I’ve ever built.</string>
     <string name="web_browser_projects_dotfolio_content">
-        Dotfolio recreates the feel of a full desktop environment: apps you can drag, windows you can open and close, a real clock ticking in the taskbar. It looks like an operating system, but it’s not. It’s an interactive story about me, told through software.
+        Dotfolio recreates the feel of a full desktop environment: apps you can drag, windows you can open and close, a real clock ticking in the taskbar. It looks like an operating system, but it’s not. It’s an interactive story about me, told through software tho.
 
         Everything here is handcrafted in Kotlin using Compose Multiplatform, all inside a single-page WebAssembly app. There are no UI libraries, no templates, and no backend. Every pixel, every component, every interaction is custom-made.
 
-        From the window manager to the animated taskbar, from real-time state tracking to theming logic — I built it all.
+        From the window manager to the animated taskbar, from real-time state tracking to theming logic. I built it all.
         Even features like z-indexing (bringing a window to front when clicked) are handled through my own lightweight renderer logic.
 
-        Dotfolio doesn’t try to imitate Windows — it uses its language to speak mine.
+        Dotfolio doesn’t try to imitate Windows, because, as I said before, there is no point in such a thing. But I loved its aesthetics, and I decided that its UX was the perfect language to speak mine.
         Each app here reveals a part of who I am: my projects, values, writing, voice.
 
-        It was never meant to be “just a portfolio.”
+        Although, to be honest, it started as a "cool portfolio" idea and ended up in all this, it was never meant to be just a website.
         It’s a living proof of concept, one that shows what I can do when given space and intent.
-        What you see —and what you feel— was built with care, not copied from a template.
+        What you see and what you feel was built with care, not copied from a template.
 
         I hope it speaks for itself.
     </string>
 
     <string name="web_browser_projects_aria_title">A calm soundscape, rebuilt to flow across platforms.</string>
     <string name="web_browser_projects_aria_content">
-        Blanket was the spark. A quiet little app on Linux that filled the room with rain, fire, and birdsong. It was created by Rafael Mardojai, who's part of the GNOME Circle, and I loved its simplicity.
+        Blanket was the spark. A quiet little app on Linux that filled my room with rain, fire, and birdsong since many years ago. Man... I really love Blanket. It was created by Rafael Mardojai, who's part of the GNOME Circle, and I loved its simplicity, yet unique spirit.
 
-        While beautiful, it was bound to one desktop: Linux. It is true that there are forks of it (which you can find in the app GitHub repository), but I feel like they didn't capture the aesthetics and the love that Rafael placed into Blanket. Aria is my tribute to it.
+        Though beautiful, it was bound to one desktop: Linux. It is true that there are forks of it (which you can find in the app GitHub repository), but I feel like they didn't capture the aesthetics and the love that Rafael placed into Blanket. Aria is my tribute to it.
 
-        I rebuilt it from scratch in Kotlin with Compose Multiplatform, so it could live not only on Linux, but also on Windows, macOS, and the web. The design borrows GTK’s elegance, but it speaks with my own voice.
+        I rebuilt it from scratch in Kotlin with Compose Multiplatform, so it could live not only on Linux, but also on Windows, macOS, Android, and the web. The design borrows the original GTK’s elegance, which in Android ended up looking unusually well. I got to admit, I didn't expect so.
 
-        Like the original, Aria has no accounts, no ads, no clutter. Just nature’s sounds — mix them, adjust them, let them fade away as you rest or work. A rewrite often means adding more, but this one is different: Aria isn’t about more features. It’s about preserving the calm and carrying it everywhere without breaking its spirit.
+        Like the original, Aria has no accounts, no ads, no clutter. Just nature’s sounds. Mix them, adjust them, let them fade away as you rest or work. A rewrite often means adding more, but this one is different: Aria isn’t about more features. It’s about preserving the calm and carrying it everywhere without breaking its spirit.
 
-        Under the hood, the web version relies only on the browser’s native audio API. The JVM version uses Korau — the audio engine of KorGE, Kotlin Game Engine — because Java’s built-in audio wasn’t enough. I needed something modern, fast, and precise to let the sounds breathe.
+        Under the hood, the web version relies only on the browser’s native audio API. The JVM version uses Java’s built-in audio library. On Android, it's currently using MediaPlayer (although I might migrate it into ExoPlayer soon).
 
 
-        Soon, when it’s complete, I’ll link it here. For now, you can follow its progress on GitHub below.
+        Soon, when I finally complete it, will be my first to the Google Play Store. For now, you can follow its progress on GitHub below.
     </string>
 
     <!--  Contact page section  -->
@@ -366,7 +365,7 @@
     <string name="web_browser_gallery_msg">
         This page doesn’t explain anything.
 
-        It just shows you what feels right to me — visually, emotionally, aesthetically.
+        It just shows you what feels right to me: visually, emotionally and aesthetically speaking.
 
         A quiet corner for pixels I find beautiful, and that inspires me how to design and build.
     </string>
@@ -419,7 +418,8 @@
 
     <string name="limited_ux_title">Compact Experience</string>
     <string name="limited_ux_msg">
-        This is a simplified view of Dotfolio, designed for smaller screens. For the full desktop simulation, try a larger device.
+        You are currently using a device with a small screen or high screen scaling, thus Dotfolio cannot run the full desktop.
+        This is a simplified view, designed for smaller screens. For the full desktop experience, try a larger device.
 
         Tap or click to continue.
     </string>
