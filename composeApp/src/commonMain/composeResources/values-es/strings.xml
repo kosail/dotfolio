@@ -72,7 +72,7 @@
     <string name="settings__background_images_content_description">Vista previa del fondo de pantalla</string>
 
     <string name="dev_mode_logo_content_description">logo de dotfolio</string>
-    <string name="dev_mode_dotfolio_version">dotfolio v1.0.0</string>
+    <string name="dev_mode_dotfolio_version">dotfolio v1.1.0</string>
     <string name="dev_mode_about_description">
         Un portafolio minimalista, interactivo y con estética de Windows 11, hecho con Compose Multiplatform.
         Diseñado para hablar claro, limpio y con intención.

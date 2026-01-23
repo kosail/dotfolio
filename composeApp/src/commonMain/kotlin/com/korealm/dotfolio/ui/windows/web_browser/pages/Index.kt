@@ -70,6 +70,7 @@ fun Index(
                 modifier = Modifier.fillMaxSize()
             ) {
                 IndexSidebar(
+                    activePage = currentPage,
                     defaultFont = mPlusFontFamily,
                     onNavigationClick = { currentPage = it },
                     modifier = Modifier

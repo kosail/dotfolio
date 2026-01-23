@@ -29,6 +29,7 @@ import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun IndexSidebar(
+    activePage: Page,
     defaultFont: FontFamily,
     onNavigationClick: (Page) -> Unit,
     modifier: Modifier = Modifier,
@@ -71,6 +72,7 @@ fun IndexSidebar(
                     BoxedIcon(
                         painter = Res.drawable.lucide_house,
                         contentDescription = stringResource(Res.string.web_browser_home),
+                        isActive = activePage == Page.HOME,
                         action = { onNavigationClick(Page.HOME) },
                         modifier = Modifier
                     )
@@ -78,6 +80,7 @@ fun IndexSidebar(
                     BoxedIcon(
                         painter = Res.drawable.lucide_folder_code,
                         contentDescription = stringResource(Res.string.web_browser_projects),
+                        isActive = activePage == Page.PROJECTS,
                         action = { onNavigationClick(Page.PROJECTS) },
                         modifier = Modifier
                     )
@@ -85,6 +88,7 @@ fun IndexSidebar(
                     BoxedIcon(
                         painter = Res.drawable.lucide_send,
                         contentDescription = stringResource(Res.string.web_browser_contact),
+                        isActive = activePage == Page.CONTACT,
                         action = { onNavigationClick(Page.CONTACT) },
                         modifier = Modifier
                     )
@@ -99,6 +103,7 @@ fun IndexSidebar(
                     BoxedIcon(
                         painter = Res.drawable.lucide_user,
                         contentDescription = stringResource(Res.string.web_browser_about),
+                        isActive = activePage == Page.ABOUT_ME,
                         action = { onNavigationClick(Page.ABOUT_ME) },
                         modifier = Modifier
                     )
@@ -106,6 +111,7 @@ fun IndexSidebar(
                     BoxedIcon(
                         painter = Res.drawable.lucide_message_circle_heart,
                         contentDescription = stringResource(Res.string.web_browser_thoughts),
+                        isActive = activePage == Page.FAQ,
                         action = { onNavigationClick(Page.FAQ) },
                         modifier = Modifier
                     )
@@ -113,6 +119,7 @@ fun IndexSidebar(
                     BoxedIcon(
                         painter = Res.drawable.lucide_images,
                         contentDescription = stringResource(Res.string.web_browser_gallery),
+                        isActive = activePage == Page.GALLERY,
                         action = { onNavigationClick(Page.GALLERY) },
                         modifier = Modifier
                     )
@@ -156,19 +163,25 @@ fun IndexSidebar(
 fun BoxedIcon(
     painter: DrawableResource,
     contentDescription: String? = null,
+    isActive: Boolean,
     action: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     var isHover by remember { mutableStateOf(false) }
 
+    val bgColor = if (isActive) { MaterialTheme.colorScheme.onBackground.copy(alpha = 0.125f) } else {
+        if (isHover) MaterialTheme.colorScheme.onBackground.copy(alpha = 0.07f)
+        else Color.Transparent
+    }
+
+    val borderColor = if (isActive) MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.onBackground.copy(alpha = 0.35f)
+
     Surface (
         color = Color.Transparent,
         shape = RectangleShape,
-        border = BorderStroke(1.dp, MaterialTheme.colorScheme.onBackground.copy(alpha = 0.35f)),
+        border = BorderStroke(1.dp, borderColor),
         modifier = modifier
-            .background(
-                color = if (isHover) MaterialTheme.colorScheme.onBackground.copy(alpha = 0.07f) else Color.Transparent,
-            )
+            .background(color = bgColor)
             .pointerInput(Unit) {
                 awaitPointerEventScope {
                     while(true) {
@@ -197,7 +210,7 @@ fun BoxedIcon(
             SimpleSymbolicIconButton(
                 icon = painter,
                 contentDescription = contentDescription,
-                tint = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f),
+                tint = if (isActive) MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f),
                 modifier = modifier.size(22.dp)
             )
         }

@@ -19,12 +19,11 @@ Make it speak clearly, cleanly, and with purpose. That's my goal, and the one of
 
 ## 🌼 Features
 
-- 💻 A static desktop environment that looks and feels like Windows 11 — but minimal, soft, and handcrafted
-- 🖱️ Fully interactive: a live clock, animated shortcuts, and a taskbar that reacts to opened apps
-- 🗂️ Clickable desktop icons launch simulated apps like Notepad, Settings, a Media Player, Web Browser, and my CV
-- 🌗 Seamless light and dark mode, and wallpaper customization option included
-- 🧠 Each “app” is not just aesthetic — it tells a part of the story: my skills, my personality, my design sense
-- 🌐 Runs fully client-side, no backend, no trackers.
+- 💻 A static desktop environment that looks and feels like Windows 11, but minimal, soft, and handcrafted.
+- 🗂️ It's fully interactive. Clickable desktop icons launch simulated apps like Notepad, Settings, a Media Player, Web Browser, and my CV
+- 🌗 Seamless light and dark mode, and wallpaper customization option included (god I LOVED the resulting transition between dark/light mode)
+- 🧠 Each “app” is not just aesthetic, but tells a part of the story: my skills, my personality, my design sense
+- 🌐 Runs fully client-side. No backend, no trackers.
 - 🤳 Render different versions of dotfolio depending on if it's a desktop, a tablet, or a mobile phone
 
 > Dotfolio is structured like an operating system, but powered by storytelling. Just check it out:
@@ -52,6 +51,10 @@ On desktop, it loads the full version. On tablets, it loads just the content of 
     Although, it's okay. This project focuses on web target, and I use desktop implementation just for its hot reload capabilities, which really makes my life easier when quickly prototyping or fast debugging.
     
     Later note: It got worse xd now it doesn't even play audio at all... but meh.
+
+
+2. ### Skiko is slow on the first load.
+    I incorporated a JS target and did some tests, but I found out that the JS target is 2x times heavier and loads time are slightly longer than the WebAssembly one. Why? Hmm... I think it might be related to the bundle size. I'll keep the WASM target for now.
 </details>
 
 ---
@@ -63,7 +66,8 @@ On desktop, it loads the full version. On tablets, it loads just the content of 
 ```bash
 git clone https://github.com/kosail/dotfolio.git
 cd dotfolio
-./gradlew wasmJsBrowserDistribution
+./gradlew wasmJsBrowserDistribution # For web target
+./gradlew hotRunJvm # For desktop jvm target
 ```
 
 ---
@@ -107,9 +111,9 @@ cd dotfolio
 - [Java logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Duke_%28Java_mascot%29_waving.svg)
 - [Kotlin logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kotlin_Icon.svg)
 - [Compose logo, from Compose official repo on GitHub](https://github.com/JetBrains/compose-multiplatform/blob/master/artwork/compose-logo.svg)
-- [Spring Boot 3 logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Spring_Boot.svg)
+- [Spring Boot 3 logo, from Wikimedia Commons](https://worldvectorlogo.com/logo/spring-boot-1)
 - [HTML logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:HTML5_Badge.svg)
-- [CSS logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Official_CSS_Logo.svg)
+- [CSS logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:CSS3_logo.svg)
 - [JS logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:JavaScript-logo.png)
 - [TS logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Typescript_logo_2020.svg)
 - [React logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:React-icon.svg)
