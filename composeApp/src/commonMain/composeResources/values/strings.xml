@@ -105,16 +105,16 @@
         <item quantity="one">Play</item>
         <item quantity="other">Play all</item>
     </plurals>
-    <string name="media_player__next">Siguiente audio</string>
-    <string name="media_player__prev">Audio anterior</string>
-    <string name="media_player__shuffle">Aleatorio</string>
-    <string name="media_player__repeat">Repetir</string>
-    <string name="media_player__shuffle_and_play">Reproducir en aleatorio</string>
-    <string name="media_player__add_to">Añadir</string>
-    <string name="media_player__edit_info">Editar</string>
+    <string name="media_player__next">Next audio</string>
+    <string name="media_player__prev">Previous audio</string>
+    <string name="media_player__shuffle">Shuffle</string>
+    <string name="media_player__repeat">Repeat</string>
+    <string name="media_player__shuffle_and_play">Shuffle play</string>
+    <string name="media_player__add_to">Add</string>
+    <string name="media_player__edit_info">Edit</string>
 
     <!--  Web browser App  -->
-    <string name="web_browser_tab_name">Mi lugar en el mundo</string>
+    <string name="web_browser_tab_name">A world of us</string>
     <string name="web_browser_github">kosail's Github</string>
     <string name="web_browser_website">https://korealm.dev/</string>
     <string name="web_browser_web_name">late night commits</string>
@@ -274,8 +274,8 @@
 
     <string name="web_browser_aboutme_third_title">about my future.</string>
     <string name="web_browser_aboutme_third_content_personal">Personally, I’ll keep building the kind of tools I wish existed. Minimalist. Meaningful. Mostly on Linux, and powered by Compose Multiplatform and Go.</string>
-    <string name="web_browser_aboutme_third_content_professional">Professionally, I work with TypeScript and React to build fast, pragmatic enterprise tools. However, I may be transition to NextJS in the future.</string>
-    <string name="web_browser_aboutme_third_content_final">In both paths, my focus is the same: to grow in full stack development, bring my own SaaS ideas to life as clean, sustainable, and cross-platform software that lasts.</string>
+    <string name="web_browser_aboutme_third_content_professional">Professionally, I work with TypeScript and React to build fast, pragmatic enterprise tools. However, I may be transitioning to Tanstack Start or NextJS in the future.</string>
+    <string name="web_browser_aboutme_third_content_final">In both paths, my focus is the same: to grow in full stack development, bring my own SaaS ideas to life as clean and sustainable, cross-platform software that lasts.</string>
 
     <string name="web_browser_aboutme_last_title">Thanks for stopping by.</string>
     <string name="web_browser_aboutme_last_content">I hope something here resonated.</string>
@@ -365,7 +365,7 @@
     <string name="web_browser_gallery_msg">
         This page doesn’t explain anything.
 
-        It just shows you what feels right to me: visually, emotionally and aesthetically speaking.
+        It just shows you what feels right to me: visually, emotionally, and aesthetically speaking.
 
         A quiet corner for pixels I find beautiful, and that inspires me how to design and build.
     </string>
