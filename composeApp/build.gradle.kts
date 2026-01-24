@@ -41,6 +41,10 @@ kotlin {
             implementation(libs.kotlinx.coroutinesSwing)
         }
 
+        webMain.dependencies {
+            implementation(libs.kotlinx.browser)
+        }
+
 //        commonTest.dependencies {
 //            implementation(libs.kotlin.test)
 //        }

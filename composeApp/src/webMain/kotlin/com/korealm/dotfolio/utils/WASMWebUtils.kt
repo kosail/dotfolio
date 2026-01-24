@@ -2,6 +2,7 @@ package com.korealm.dotfolio.utils
 
 import kotlinx.browser.document
 import org.w3c.dom.HTMLAnchorElement
+import kotlin.js.JsName
 
 @JsName("openInNewTab")
 actual fun openInNewTab(url: String) {
@@ -21,9 +22,11 @@ actual fun encodeText(text: String) : String {
 }
 
 // WASM target only
+@OptIn(kotlin.js.ExperimentalWasmJsInterop::class)
 @JsFun("(function() { return window.innerWidth; })")
 external fun getWindowWidth(): Int
 
+@OptIn(kotlin.js.ExperimentalWasmJsInterop::class)
 @JsFun("(function() { return window.innerHeight; })")
 external fun getWindowHeight(): Int
 
@@ -40,6 +43,7 @@ fun isDesktopBigScreen(): Boolean {
     return getWindowWidth() > 1400 && getWindowHeight() > 800
 }
 
+@OptIn(kotlin.js.ExperimentalWasmJsInterop::class)
 @JsFun("(function() { return navigator.userAgent })")
 external fun getUserAgent(): String
 
