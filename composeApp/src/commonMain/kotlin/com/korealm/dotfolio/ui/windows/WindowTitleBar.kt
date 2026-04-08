@@ -33,8 +33,7 @@ fun StandardTitleBarButtonSet(
     minimizeButton: Boolean = true,
     maximizeButton: Boolean = true,
     exitButton: Boolean = true,
-    onMinimize: () -> Unit = {},
-    onMaximize: () -> Unit = {},
+    onMinimize: (() -> Unit)? = null,
     onClose: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
@@ -60,7 +59,6 @@ fun StandardTitleBarButtonSet(
 
             if (maximizeButton) {
                 TitleBarButton(
-                    onClick = onMaximize,
                     iconPainter = Res.drawable.window_maximize,
                     contentDescription = "Maximize",
                     hoverColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.05f),
@@ -84,7 +82,7 @@ fun StandardTitleBarButtonSet(
 // I cracked my head trying to find a way to remove the default shape of an IconButton (which by default is round), since Windows 11 has flat buttons. Tried with a Card, but failed... thus, a Box!
 @Composable
 fun TitleBarButton(
-    onClick: () -> Unit,
+    onClick: (() -> Unit)? = null,
     iconPainter: DrawableResource,
     contentDescription: String,
     hoverColor: Color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
@@ -105,6 +103,8 @@ fun TitleBarButton(
             .pointerInput(Unit) {
                 awaitPointerEventScope {
                     while(true) {
+                        if (onClick == null) return@awaitPointerEventScope
+
                         val type = awaitPointerEvent().type
 
                         when (type) {
@@ -114,7 +114,9 @@ fun TitleBarButton(
                     }
                 }
             }
-            .clickable { onClick() }
+            .then(
+                if (onClick != null) Modifier.clickable { onClick() } else Modifier
+            )
     ) {
         SimpleSymbolicIconButton(
             icon = iconPainter,

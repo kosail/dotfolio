@@ -179,7 +179,7 @@ fun BoxedIcon(
 
     TooltipBox(
         tooltip = { StyledTooltip(contentDescription) },
-        state = rememberTooltipState(),
+        state = rememberTooltipState(isPersistent = true),
         positionProvider = rememberTooltipPositionProvider(
             positioning = TooltipAnchorPosition.Above,
             spacingBetweenTooltipAndAnchor = 4.dp

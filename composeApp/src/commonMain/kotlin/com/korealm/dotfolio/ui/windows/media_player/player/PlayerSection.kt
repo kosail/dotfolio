@@ -7,9 +7,8 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
+import androidx.compose.material3.TooltipDefaults.rememberTooltipPositionProvider
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,6 +24,7 @@ import com.korealm.dotfolio.state.AppThemeState
 import com.korealm.dotfolio.state.MediaPlayerState
 import com.korealm.dotfolio.ui.HoverableSymbolicIconButton
 import com.korealm.dotfolio.ui.SimpleSymbolicIconButton
+import com.korealm.dotfolio.utils.SimpleTooltipBox
 import dotfolio.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.pluralStringResource
@@ -130,6 +130,7 @@ fun MediaListRow(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PlayerSection(
     themeState: AppThemeState,
@@ -200,15 +201,24 @@ fun PlayerSection(
                     .fillMaxWidth()
                     .height(120.dp)
             ) {
-                Surface(
-                    shape = RoundedCornerShape(5.dp),
-                    modifier = Modifier.padding(5.dp)
-                ) {
-                    Image(
-                        painter = painterResource(  if (playerState.itemIndex == 2) Res.drawable.me_and_my_neko else Res.drawable.me_and_my_cat ),
-                        contentDescription = null,
-                        modifier = Modifier
+                TooltipBox(
+                    tooltip = { SimpleTooltipBox(Res.string.media_player__album_content_desc) },
+                    state = rememberTooltipState(isPersistent = true),
+                    positionProvider = rememberTooltipPositionProvider(
+                        positioning = TooltipAnchorPosition.Below,
+                        spacingBetweenTooltipAndAnchor = 4.dp
                     )
+                ) {
+                    Surface(
+                        shape = RoundedCornerShape(5.dp),
+                        modifier = Modifier.padding(5.dp)
+                    ) {
+                        Image(
+                            painter = painterResource(  if (playerState.itemIndex == 2) Res.drawable.me_and_my_neko else Res.drawable.me_and_my_cat ),
+                            contentDescription = null,
+                            modifier = Modifier
+                        )
+                    }
                 }
 
 
