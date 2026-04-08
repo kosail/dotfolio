@@ -100,7 +100,7 @@ fun GalleryPage(
 private fun GalleryGrid(
     modifier: Modifier = Modifier
 ) {
-    // When click on an image, it selects it to open up the full screen dialog to see the image enlarged
+    // When click on an image, it selects it to open up the full-screen dialog to see the image enlarged
     var selectedImage by remember { mutableStateOf<DrawableResource?>(null) }
 
     val imageList = remember {
@@ -108,7 +108,7 @@ private fun GalleryGrid(
             Res.drawable.gallery_amberol,
             Res.drawable.gallery_windows11,
             Res.drawable.gallery_cozy,
-            Res.drawable.gallery_marova_screenshot,
+            Res.drawable.gallery_apostrophe,
             Res.drawable.gallery_gato,
             Res.drawable.gallery_screenshot,
             Res.drawable.gallery_web_design,

@@ -11,7 +11,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.korealm.dotfolio.ui.windows.web_browser.pages.general.PostText
-import com.korealm.dotfolio.ui.windows.web_browser.pages.general.SimpleGitHubButton
+import com.korealm.dotfolio.ui.windows.web_browser.pages.general.RepositoriesShowdown
+import com.korealm.dotfolio.ui.windows.web_browser.pages.general.SimpleUrlButton
 import com.korealm.dotfolio.ui.windows.web_browser.pages.general.SlightDivider
 import com.korealm.dotfolio.ui.windows.web_browser.pages.post.PostBody
 import dotfolio.composeapp.generated.resources.*
@@ -46,13 +47,27 @@ fun AriaContent(
 
         Spacer(Modifier.height(16.dp))
 
-        SimpleGitHubButton(
-            appName = stringResource(Res.string.web_browser_projects_aria),
-            url = stringResource(Res.string.web_browser_projects_aria_link),
+
+
+        Column(
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = modifier.fillMaxWidth()
+        ) {
+            SimpleUrlButton(
+                title = stringResource(Res.string.web_browser_projects_aria_webapp_title),
+                url = stringResource(Res.string.web_browser_projects_aria_web_app_link),
+                font = font,
+                icon = Res.drawable.aria_clean_icon,
+                modifier = Modifier.padding(bottom = 8.dp)
+            )
+        }
+
+        RepositoriesShowdown(
+            appNameRes = Res.string.web_browser_projects_aria,
+            url = Res.string.web_browser_projects_aria_link,
             font = font,
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .padding(bottom = 20.dp)
+            modifier = Modifier.padding(bottom = 20.dp)
         )
     }
 }

@@ -37,14 +37,14 @@
         This isn’t an OS, a virtual machine or a screenshot, and it’s not just a website.
         It’s a handcrafted simulation of a desktop environment, built from scratch.
 
-        No templates. No frameworks.
+        No templates. No pre-made UI.
         Just Kotlin: Compose Multiplatform and love and care, running fully in your browser.
 
         You can double-click the icons on the left to open apps.
         Each one shows a piece of me: my projects, skills, story, and work.
 
-        There’s no onboarding, no instructions. Explore it as you would a real OS (I would suggest you start by double-clicking the Voice.wav file, tho)
-        Think of it as a tiny operating system... one that boots into who I am.
+        There’s no onboarding, no instructions. Explore it as you would a real OS (Tho I would suggest you start by double-clicking the "About me.html" file)
+        Think of this as a tiny operating system... one that boots into who I am.
 
         This is me, in code.
 
@@ -75,8 +75,8 @@
     <string name="dev_mode_logo_content_description">dotfolio logo image</string>
     <string name="dev_mode_dotfolio_version">dotfolio v1.1.0</string>
     <string name="dev_mode_about_description">
-        A minimalist, interactive, Windows 11 themed developer portfolio built with Compose Multiplatform.
-        Designed to speak clearly, cleanly, and with purpose.
+        Dotfolio is my personal portfolio (dotfiles about me? Hence "dotfolio").
+        Inspired by Windows 11 Mica aesthetics, this project aims to speak louder than words.
     </string>
     <string name="dev_mode_not_a_website">But dotfolio is not a website. It’s a window to who I am.</string>
     <string name="dev_mode_built_and_tested">
@@ -116,6 +116,7 @@
     <!--  Web browser App  -->
     <string name="web_browser_tab_name">A world of us</string>
     <string name="web_browser_github">kosail's Github</string>
+    <string name="web_browser_codeberg">kosail's Codeberg</string>
     <string name="web_browser_website">https://korealm.dev/</string>
     <string name="web_browser_web_name">late night commits</string>
     <string name="web_browser_web_description">
@@ -153,7 +154,9 @@
     <string name="web_browser_post_welcome_tag_two">personal blog</string>
     <string name="web_browser_post_welcome_tag_three">tumblr inspired</string>
     <string name="web_browser_post_welcome">
-        Welcome, fellow programmer! You are very welcome to visit every corner of this blog, this personal space. I hope you can get an idea of me, and get the beats of the heart that wrote these posts.
+        Welcome, fellow programmer! You are very welcome to visit every corner of this blog, this personal space. In this blog you can learn about me and some of my projects, by click in the icons in the left panel.
+
+        I hope you can get an idea of me, and get the beats of the heart that wrote these posts.
     </string>
 
     <string name="web_browser_post_one_content_desc">Screenshot of my blog, time ago</string>
@@ -162,7 +165,9 @@
     <string name="web_browser_post_one_tag_three">SEO</string>
     <string name="web_browser_post_one_tag_four">japanese teaching</string>
     <string name="web_browser_post_one">
-        I once had a blog (or well said, I ran a blog for 4 years). It was called Mi lugar en el mundo (roughly translated as "My place in this world"). First on Tumblr, later on WordPress. I'll relaunch it in the future, maybe using Hugo (the static site generators written in Go) since I loved the simplicity of Markdown.
+        I once had a blog (or well said, I ran a blog for 4 years). It was called Mi lugar en el mundo (roughly translated as "My place in this world"). First on Tumblr, later on WordPress. God I loved WordPress...
+
+        I'll relaunch it in the future, probably using Astro + Svelte. My first impressions after using Svelte was that it's super refreshing, compared to React.
     </string>
 
     <string name="web_browser_post_two_reblogger_account">Top writings fans</string>
@@ -215,7 +220,7 @@
 
         I came from a Java background, so it felt like a natural upgrade. The same JVM under the hood but with built-in null safety, coroutines for smooth async, and (my favorite) Compose Multiplatform for writing one UI that actually runs on desktop, mobile, and web.
 
-        That said, I don’t believe in golden hammers. Kotlin is great for apps, but it’s not what I reach for when I want to go low-level or mess with things like root services. For that, I’ve always had a soft spot for Go and C (it’s tough love tho, I just wish strings mem allocs in C didn’t feel like punishment).
+        That said, I don’t believe in golden hammers. Kotlin is great for apps, but it’s not what I reach for when I want to go low-level or mess with things like root services. For that, I’ve always had a soft spot for Go, C (it’s tough love tho, I just wish strings mem allocs in C didn’t feel like punishment) and recently Zig.
 
         Then there’s JavaScript. I honestly hated it. It's not personal, but I prefer predictability and strong typing over something that Promise me &lt;any&gt;, and at the moment of truth it returns an undefined. TypeScript, however, felt like a game changer, and along with React, it became a stack that I truly liked. But why I didn't use JS or TS for this project? Because I knew nothing from web dev aside from HTML &amp; CSS by the moment I created dotfolio, and that's why I used Kotlin over conventional web tools.
 
@@ -249,12 +254,15 @@
     <string name="web_browser_faq_question_four_tag_two">sea</string>
     <string name="web_browser_faq_question_four_tag_three">rain</string>
     <string name="web_browser_faq_question_four_tag_four">花鳥風月</string>
+    <string name="web_browser_faq_question_four_photos_caption">Honduras nature photo</string>
     <string name="web_browser_faq_question_four_reply">
         Nature.
         I wouldn’t make it far without it.
 
         I’m not a hiker. I’m not outdoorsy. But touching soil and standing quietly in front of a deep green forest... it resets something.
         It’s not about escaping tech. It’s about remembering how to breathe.
+
+        Here are some photos I took in my homeland.
     </string>
 
 
@@ -266,15 +274,15 @@
     <string name="web_browser_aboutme_second_title">what I care about.</string>
     <string name="web_browser_aboutme_second_content_one">
         I’ve always preferred clean UIs over cluttered dashboards.
-        Tools that feel quiet, stable, and focused. Like home, even on first use.
+        Tools that feel quiet, stable. Powerful apps, yet focused. Apps that feel like home, even on first use.
 
         I believe software should be carefully crafted: apps should be fast to load, pleasant to look at, and invisible when not needed. Its not just UI, but UX.
     </string>
     <string name="web_browser_aboutme_second_content_two">I’m not a genius. But I care deeply about what I build.</string>
 
     <string name="web_browser_aboutme_third_title">about my future.</string>
-    <string name="web_browser_aboutme_third_content_personal">Personally, I’ll keep building the kind of tools I wish existed. Minimalist. Meaningful. Mostly on Linux, and powered by Compose Multiplatform and Go.</string>
-    <string name="web_browser_aboutme_third_content_professional">Professionally, I work with TypeScript and React to build fast, pragmatic enterprise tools. However, I may be transitioning to Tanstack Start or NextJS in the future.</string>
+    <string name="web_browser_aboutme_third_content_personal">Personally, I’ll keep building the kind of tools I wish existed. Minimalist. Meaningful. Mostly on Linux, and powered by Compose Multiplatform or Tauri + Svelte.</string>
+    <string name="web_browser_aboutme_third_content_professional">Professionally, I work with TypeScript and React to build fast, pragmatic enterprise tools. However, I may be transitioning to Tanstack Start or Next.js soon.</string>
     <string name="web_browser_aboutme_third_content_final">In both paths, my focus is the same: to grow in full stack development, bring my own SaaS ideas to life as clean and sustainable, cross-platform software that lasts.</string>
 
     <string name="web_browser_aboutme_last_title">Thanks for stopping by.</string>
@@ -288,11 +296,13 @@
     <string name="web_browser_projects_kvantage_link">https://github.com/kosail/kvantage</string>
     <string name="web_browser_projects_dotfolio_link">https://github.com/kosail/dotfolio</string>
     <string name="web_browser_projects_aria_link">https://github.com/kosail/Aria</string>
+    <string name="web_browser_projects_aria_web_app_link">https://aria.korealm.tech</string>
 
     <string name="web_browser_projects_created">created</string>
     <string name="web_browser_projects_interested">is interested in rewriting</string>
     <string name="web_browser_projects_hint">Click on the icons to see more</string>
     <string name="web_browser_projects_check_on_github">Check %1$d on GitHub</string>
+    <string name="web_browser_projects_check_on_codeberg">Check %1$d on Codeberg</string>
 
     <string name="web_browser_projects_kvantage_title">A clean, native control center for Lenovo laptops, built for Linux.</string>
     <string name="web_browser_projects_kvantage_content">
@@ -300,27 +310,27 @@
 
         On Windows, Lenovo laptops have official tools to control performance modes, battery conservation, and rapid charging. On Linux? Nothing usable. So I made my own.
 
-        KVantage is a sleek desktop app that brings these essential hardware toggles to Lenovo Linux users. Inspired by GNOME clean visuals, but ending up looking like plain Compose, it focuses only on the features that matter — no ads, no clutter, no distractions. Just control.
+        KVantage is a sleek desktop app that brings these essential hardware toggles to Lenovo Linux users. Originally inspired by GNOME clean visuals (but ending up looking like plain Material UI), it focuses only on the features that matter. No ads, no clutter, no distractions. Just control.
     </string>
 
     <string name="web_browser_projects_kvantage_what_i_built">What I built:</string>
     <string name="web_browser_projects_kvantage_content_two">
         Everything.
 
-        • The GUI was built from scratch using Kotlin and Compose Multiplatform for Desktop
-        • The backend is a secure, root-privileged Go daemon I wrote myself, handling ACPI read/write through /proc/acpi/call
-        • I created a custom IPC protocol (text-based, CLI-style) for communication between the GUI and daemon . The app runs with regular user privileges. Only the tiny backend runs as root, for safety
-        • It supports multiple performance profiles, battery threshold toggles, rapid charge, and even multi-language theming
+        • The GUI was built from scratch using Kotlin and Compose Multiplatform for Desktop.
+        • The backend is a secure, root-privileged Go daemon I wrote myself, handling ACPI read/write through /proc/acpi/call.
+        • I created a custom IPC protocol (text-based, CLI-style) for communication between the GUI and daemon. The app runs with regular user privileges. Only the tiny backend runs as root, for safety.
+        • It supports multiple performance profiles, battery threshold toggles, rapid charge, and even multi-language theming.
 
         There is no official API for these features. All of it is achieved through low-level kernel interfaces (ACPI), usually hidden from standard users. I had to learn how they work, how to invoke them, and how to wrap them into a safe, graphical experience.
     </string>
 
 
-    <string name="web_browser_projects_dotfolio_title">The hardest and most beautiful thing I’ve ever built.</string>
+    <string name="web_browser_projects_dotfolio_title">The most beautiful thing I’ve ever built.</string>
     <string name="web_browser_projects_dotfolio_content">
         Dotfolio recreates the feel of a full desktop environment: apps you can drag, windows you can open and close, a real clock ticking in the taskbar. It looks like an operating system, but it’s not. It’s an interactive story about me, told through software tho.
 
-        Everything here is handcrafted in Kotlin using Compose Multiplatform, all inside a single-page WebAssembly app. There are no UI libraries, no templates, and no backend. Every pixel, every component, every interaction is custom-made.
+        Everything here is handcrafted in Kotlin using Compose Multiplatform, all inside a single-page WebAssembly/JS app. There is no premade UI, no templates, and no backend. Every pixel, every component, every interaction is custom-made.
 
         From the window manager to the animated taskbar, from real-time state tracking to theming logic. I built it all.
         Even features like z-indexing (bringing a window to front when clicked) are handled through my own lightweight renderer logic.
@@ -336,6 +346,7 @@
     </string>
 
     <string name="web_browser_projects_aria_title">A calm soundscape, rebuilt to flow across platforms.</string>
+    <string name="web_browser_projects_aria_webapp_title">Check out the web beta!</string>
     <string name="web_browser_projects_aria_content">
         Blanket was the spark. A quiet little app on Linux that filled my room with rain, fire, and birdsong since many years ago. Man... I really love Blanket. It was created by Rafael Mardojai, who's part of the GNOME Circle, and I loved its simplicity, yet unique spirit.
 
@@ -372,7 +383,7 @@
 
     <string name="web_browser_gallery_tag_one">GTK</string>
     <string name="web_browser_gallery_tag_two">Apple HIG</string>
-    <string name="web_browser_gallery_tag_three">Alive design philosophy</string>
+    <string name="web_browser_gallery_tag_three">Fluent Design (just Mica tbh)</string>
     <string name="web_browser_gallery_tag_four">Material UI</string>
 
     <!--  File explorer & Recycle bin  -->
@@ -418,8 +429,10 @@
 
     <string name="limited_ux_title">Compact Experience</string>
     <string name="limited_ux_msg">
-        You are currently using a device with a small screen or high screen scaling, thus Dotfolio cannot run the full desktop.
-        This is a simplified view, designed for smaller screens. For the full desktop experience, try a larger device.
+        You are currently using a device with a small screen or high-density scaling, thus Dotfolio cannot run the full desktop.
+        A desktop with a resolution of 1600x1200 or greater is required to unleash the full power. (If you do have a high resolution, maximize the browser and refresh the page.)
+
+        So this is a simplified view, designed for smaller screens and containing just the core. For the full desktop experience, try a larger screen.
 
         Tap or click to continue.
     </string>

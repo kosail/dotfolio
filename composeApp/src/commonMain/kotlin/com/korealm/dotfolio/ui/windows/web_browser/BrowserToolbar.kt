@@ -1,6 +1,5 @@
 package com.korealm.dotfolio.ui.windows.web_browser
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
@@ -13,9 +12,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.korealm.dotfolio.ui.SimpleSymbolicIconButton
+import com.korealm.dotfolio.ui.windows.web_browser.pages.general.PageBookmarkButton
 import com.korealm.dotfolio.utils.RoundedPicture
 import com.korealm.dotfolio.utils.UrlBar
-import com.korealm.dotfolio.utils.openInNewTab
 import dotfolio.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
 
@@ -136,30 +135,24 @@ fun BrowserToolbar(
         }
 
         // Bookmarks bar
-        Box (
+        Row (
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.BottomCenter)
         ) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.clickable {
-                    openInNewTab("https://github.com/kosail")
-                }
-                    .padding(horizontal = 20.dp, vertical = 11.dp)
-            ) {
-                SimpleSymbolicIconButton(
-                    icon = Res.drawable.github_symbolic,
-                    modifier = Modifier.size(20.dp),
-                )
+            PageBookmarkButton(
+                url = "https://github.com/kosail",
+                iconRes = Res.drawable.github_symbolic,
+                titleRes = Res.string.web_browser_github,
+            )
 
-                Spacer(Modifier.width(8.dp))
-
-                Text(
-                    text = stringResource(Res.string.web_browser_github),
-                    fontSize = 15.sp
-                )
-            }
+            PageBookmarkButton(
+                url = "https://codeberg.com/kosail",
+                iconRes = Res.drawable.codeberg_symbolic,
+                titleRes = Res.string.web_browser_codeberg,
+            )
         }
     }
 }

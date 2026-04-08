@@ -1,15 +1,17 @@
 package com.korealm.dotfolio.ui.windows.web_browser.pages.general
 
 import androidx.compose.animation.*
-import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.*
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.material3.VerticalDivider
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -27,10 +29,8 @@ import androidx.compose.ui.window.DialogProperties
 import com.korealm.dotfolio.ui.SimpleSymbolicIconButton
 import com.korealm.dotfolio.utils.encodeText
 import com.korealm.dotfolio.utils.openInNewTab
-import dotfolio.composeapp.generated.resources.Res
-import dotfolio.composeapp.generated.resources.github_symbolic
-import dotfolio.composeapp.generated.resources.web_browser_projects_check_on_github
 import org.jetbrains.compose.resources.DrawableResource
+import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -150,63 +150,30 @@ fun PostText(
     )
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun SimpleGitHubButton(
-    appName: String,
+fun PageBookmarkButton(
     url: String,
-    font: FontFamily,
-    modifier: Modifier = Modifier
+    iconRes: DrawableResource,
+    titleRes: StringResource,
 ) {
-    var isHover by remember { mutableStateOf(false) }
-
-    val animatedBackgroundColor by animateColorAsState(
-        targetValue = if (isHover) MaterialTheme.colorScheme.onBackground.copy(alpha = 0.1f) else Color.Transparent,
-        animationSpec = tween(durationMillis = 200)
-    )
-
-    val animatedBorder by animateDpAsState(
-        targetValue = if (isHover) 2.dp else 1.dp,
-        animationSpec = tween(durationMillis = 200)
-    )
-
-    Surface (
-        color = animatedBackgroundColor,
-        shape = RoundedCornerShape(6.dp),
-        border = BorderStroke(animatedBorder, MaterialTheme.colorScheme.secondary.copy(alpha = 0.3f)),
-        modifier = modifier
-            .onClick { openInNewTab(url) }
-            .pointerInput(Unit) {
-                awaitPointerEventScope {
-                    while(true) {
-                        val type = awaitPointerEvent().type
-
-                        when (type) {
-                            PointerEventType.Enter -> isHover = true
-                            PointerEventType.Exit -> isHover = false
-                        }
-                    }
-                }
-            }
-    ) {
-        Row(
-            horizontalArrangement = Arrangement.Start,
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(16.dp)
-        ) {
-            SimpleSymbolicIconButton(
-                icon = Res.drawable.github_symbolic,
-                modifier = Modifier.size(32.dp)
-            )
-
-            Spacer(Modifier.width(12.dp))
-
-            PostText(
-                text = stringResource(Res.string.web_browser_projects_check_on_github, appName),
-                font = font,
-                fontSize = 18.sp
-            )
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier.clickable {
+            openInNewTab(url)
         }
+            .padding(horizontal = 20.dp, vertical = 11.dp)
+    ) {
+        SimpleSymbolicIconButton(
+            icon = iconRes,
+            modifier = Modifier.size(20.dp),
+        )
+
+        Spacer(Modifier.width(8.dp))
+
+        Text(
+            text = stringResource(titleRes),
+            fontSize = 15.sp
+        )
     }
 }
 

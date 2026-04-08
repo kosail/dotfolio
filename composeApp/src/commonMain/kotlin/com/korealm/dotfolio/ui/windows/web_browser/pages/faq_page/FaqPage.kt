@@ -163,6 +163,9 @@ fun FaqPage(
                     },
                     postBody = {
                         PostBody(
+                            images = mapOf(
+                                Res.drawable.honduras_nature to Res.string.web_browser_faq_question_four_photos_caption,
+                            ),
                             bodyHeader = stringResource(Res.string.web_browser_faq_question_four),
                             text = stringResource(Res.string.web_browser_faq_question_four_reply).trimIndent(),
                             font = font,
