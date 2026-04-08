@@ -65,7 +65,6 @@ fun KvantageContent(
 
         RepositoriesShowdown(
             appNameRes = Res.string.web_browser_projects_kvantage,
-            url = Res.string.web_browser_projects_kvantage_link,
             font = font,
             modifier = Modifier.padding(bottom = 20.dp)
         )

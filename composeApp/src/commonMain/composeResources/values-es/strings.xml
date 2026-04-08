@@ -126,10 +126,10 @@
 
     <string name="web_browser_home">Principal</string>
     <string name="web_browser_about">Acerca de mí</string>
-    <string name="web_browser_projects">Proyectos</string>
-    <string name="web_browser_thoughts">Preguntas</string>
+    <string name="web_browser_projects">Proyectos personales</string>
+    <string name="web_browser_thoughts">Preguntas frecuentes</string>
     <string name="web_browser_gallery">Galería de inspiración</string>
-    <string name="web_browser_contact">Contactame</string>
+    <string name="web_browser_contact">Contáctame</string>
 
     <plurals name="web_browser_weeks_ago">
         <item quantity="one">Hace %1$d semana</item>

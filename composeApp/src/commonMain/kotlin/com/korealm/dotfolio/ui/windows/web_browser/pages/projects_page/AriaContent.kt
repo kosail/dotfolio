@@ -65,7 +65,6 @@ fun AriaContent(
 
         RepositoriesShowdown(
             appNameRes = Res.string.web_browser_projects_aria,
-            url = Res.string.web_browser_projects_aria_link,
             font = font,
             modifier = Modifier.padding(bottom = 20.dp)
         )

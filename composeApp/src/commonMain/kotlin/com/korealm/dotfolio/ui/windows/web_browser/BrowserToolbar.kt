@@ -149,7 +149,7 @@ fun BrowserToolbar(
             )
 
             PageBookmarkButton(
-                url = "https://codeberg.com/kosail",
+                url = "https://codeberg.org/kosail",
                 iconRes = Res.drawable.codeberg_symbolic,
                 titleRes = Res.string.web_browser_codeberg,
             )

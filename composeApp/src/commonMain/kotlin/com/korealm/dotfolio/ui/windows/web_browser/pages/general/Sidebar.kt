@@ -6,9 +6,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
+import androidx.compose.material3.TooltipDefaults.rememberTooltipPositionProvider
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -24,6 +23,7 @@ import androidx.compose.ui.unit.sp
 import com.korealm.dotfolio.ui.SimpleSymbolicIconButton
 import dotfolio.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.DrawableResource
+import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -71,7 +71,7 @@ fun IndexSidebar(
                 ) {
                     BoxedIcon(
                         painter = Res.drawable.lucide_house,
-                        contentDescription = stringResource(Res.string.web_browser_home),
+                        contentDescription = Res.string.web_browser_home,
                         isActive = activePage == Page.HOME,
                         action = { onNavigationClick(Page.HOME) },
                         modifier = Modifier
@@ -79,7 +79,7 @@ fun IndexSidebar(
 
                     BoxedIcon(
                         painter = Res.drawable.lucide_folder_code,
-                        contentDescription = stringResource(Res.string.web_browser_projects),
+                        contentDescription = Res.string.web_browser_projects,
                         isActive = activePage == Page.PROJECTS,
                         action = { onNavigationClick(Page.PROJECTS) },
                         modifier = Modifier
@@ -87,7 +87,7 @@ fun IndexSidebar(
 
                     BoxedIcon(
                         painter = Res.drawable.lucide_send,
-                        contentDescription = stringResource(Res.string.web_browser_contact),
+                        contentDescription = Res.string.web_browser_contact,
                         isActive = activePage == Page.CONTACT,
                         action = { onNavigationClick(Page.CONTACT) },
                         modifier = Modifier
@@ -102,7 +102,7 @@ fun IndexSidebar(
                 ) {
                     BoxedIcon(
                         painter = Res.drawable.lucide_user,
-                        contentDescription = stringResource(Res.string.web_browser_about),
+                        contentDescription = Res.string.web_browser_about,
                         isActive = activePage == Page.ABOUT_ME,
                         action = { onNavigationClick(Page.ABOUT_ME) },
                         modifier = Modifier
@@ -110,7 +110,7 @@ fun IndexSidebar(
 
                     BoxedIcon(
                         painter = Res.drawable.lucide_message_circle_heart,
-                        contentDescription = stringResource(Res.string.web_browser_thoughts),
+                        contentDescription = Res.string.web_browser_thoughts,
                         isActive = activePage == Page.FAQ,
                         action = { onNavigationClick(Page.FAQ) },
                         modifier = Modifier
@@ -118,7 +118,7 @@ fun IndexSidebar(
 
                     BoxedIcon(
                         painter = Res.drawable.lucide_images,
-                        contentDescription = stringResource(Res.string.web_browser_gallery),
+                        contentDescription = Res.string.web_browser_gallery,
                         isActive = activePage == Page.GALLERY,
                         action = { onNavigationClick(Page.GALLERY) },
                         modifier = Modifier
@@ -159,10 +159,11 @@ fun IndexSidebar(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BoxedIcon(
     painter: DrawableResource,
-    contentDescription: String? = null,
+    contentDescription: StringResource,
     isActive: Boolean,
     action: () -> Unit,
     modifier: Modifier = Modifier
@@ -176,43 +177,52 @@ fun BoxedIcon(
 
     val borderColor = if (isActive) MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.onBackground.copy(alpha = 0.35f)
 
-    Surface (
-        color = Color.Transparent,
-        shape = RectangleShape,
-        border = BorderStroke(1.dp, borderColor),
-        modifier = modifier
-            .background(color = bgColor)
-            .pointerInput(Unit) {
-                awaitPointerEventScope {
-                    while(true) {
-                        val type = awaitPointerEvent().type
+    TooltipBox(
+        tooltip = { StyledTooltip(contentDescription) },
+        state = rememberTooltipState(),
+        positionProvider = rememberTooltipPositionProvider(
+            positioning = TooltipAnchorPosition.Above,
+            spacingBetweenTooltipAndAnchor = 4.dp
+        )
+    ) {
+        Surface (
+            color = Color.Transparent,
+            shape = RectangleShape,
+            border = BorderStroke(1.dp, borderColor),
+            modifier = modifier
+                .background(color = bgColor)
+                .pointerInput(Unit) {
+                    awaitPointerEventScope {
+                        while(true) {
+                            val type = awaitPointerEvent().type
 
-                        when (type) {
-                            PointerEventType.Enter -> isHover = true
-                            PointerEventType.Exit -> isHover = false
+                            when (type) {
+                                PointerEventType.Enter -> isHover = true
+                                PointerEventType.Exit -> isHover = false
+                            }
                         }
                     }
                 }
-            }
-            .pointerInput(Unit) {
-                detectTapGestures(
-                    onTap = {
-                        action()
-                    }
+                .pointerInput(Unit) {
+                    detectTapGestures(
+                        onTap = {
+                            action()
+                        }
+                    )
+                }
+        ) {
+            Box(
+                propagateMinConstraints = true,
+                contentAlignment = Alignment.Center,
+                modifier = Modifier.padding(10.dp)
+            ) {
+                SimpleSymbolicIconButton(
+                    icon = painter,
+                    contentDescription = stringResource(contentDescription),
+                    tint = if (isActive) MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f),
+                    modifier = modifier.size(22.dp)
                 )
             }
-    ) {
-        Box(
-            propagateMinConstraints = true,
-            contentAlignment = Alignment.Center,
-            modifier = Modifier.padding(10.dp)
-        ) {
-            SimpleSymbolicIconButton(
-                icon = painter,
-                contentDescription = contentDescription,
-                tint = if (isActive) MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f),
-                modifier = modifier.size(22.dp)
-            )
         }
     }
 }

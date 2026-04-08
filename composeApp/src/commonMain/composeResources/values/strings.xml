@@ -126,10 +126,10 @@
     </string>
     <string name="web_browser_home">Home</string>
     <string name="web_browser_about">About me</string>
-    <string name="web_browser_projects">Projects</string>
-    <string name="web_browser_thoughts">Thoughts</string>
+    <string name="web_browser_projects">Personal projects</string>
+    <string name="web_browser_thoughts">FAQ</string>
     <string name="web_browser_gallery">Gallery of inspiration</string>
-    <string name="web_browser_contact">Contact me</string>
+    <string name="web_browser_contact">Contact</string>
 
     <plurals name="web_browser_weeks_ago">
         <item quantity="one">%1$d week ago</item>
@@ -293,9 +293,8 @@
     <string name="web_browser_projects_kvantage">Kvantage</string>
     <string name="web_browser_projects_dotfolio">dotfolio</string>
     <string name="web_browser_projects_aria">Aria</string>
-    <string name="web_browser_projects_kvantage_link">https://github.com/kosail/kvantage</string>
-    <string name="web_browser_projects_dotfolio_link">https://github.com/kosail/dotfolio</string>
-    <string name="web_browser_projects_aria_link">https://github.com/kosail/Aria</string>
+    <string name="web_browser_projects_github_base_url">https://github.com/kosail/%1$d</string>
+    <string name="web_browser_projects_codeberg_base_url">https://codeberg.org/kosail/%1$d</string>
     <string name="web_browser_projects_aria_web_app_link">https://aria.korealm.tech</string>
 
     <string name="web_browser_projects_created">created</string>

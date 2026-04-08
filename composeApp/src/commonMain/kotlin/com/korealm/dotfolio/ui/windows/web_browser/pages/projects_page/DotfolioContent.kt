@@ -14,7 +14,10 @@ import androidx.compose.ui.unit.sp
 import com.korealm.dotfolio.ui.windows.web_browser.pages.general.RepositoriesShowdown
 import com.korealm.dotfolio.ui.windows.web_browser.pages.general.SlightDivider
 import com.korealm.dotfolio.ui.windows.web_browser.pages.post.PostBody
-import dotfolio.composeapp.generated.resources.*
+import dotfolio.composeapp.generated.resources.Res
+import dotfolio.composeapp.generated.resources.web_browser_projects_dotfolio
+import dotfolio.composeapp.generated.resources.web_browser_projects_dotfolio_content
+import dotfolio.composeapp.generated.resources.web_browser_projects_dotfolio_title
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -51,7 +54,6 @@ fun DotfolioContent(
 
         RepositoriesShowdown(
             appNameRes = Res.string.web_browser_projects_dotfolio,
-            url = Res.string.web_browser_projects_dotfolio_link,
             font = font,
             modifier = Modifier.padding(bottom = 20.dp)
         )
