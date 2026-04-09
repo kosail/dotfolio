@@ -249,9 +249,12 @@ fun PlayerSection(
 
                     // Tricky line. I know it can be simplified, done in a clearer way. But it's ok, there are only 3 audios. It's not a real media player.
                     val artistAndAlbum = "${stringResource(Res.string.media_player__artist)} • ${stringResource(Res.string.media_player__album)}"
+                    val truncated = artistAndAlbum.take(28).let {
+                        if (it.length < artistAndAlbum.length) "$it..." else it
+                    }
 
                     Text(
-                        text = artistAndAlbum.substring(0, 28) + "...",
+                        text = truncated,
                         fontSize = 15.sp,
                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f),
                     )
