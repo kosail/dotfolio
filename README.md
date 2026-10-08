@@ -1,4 +1,4 @@
-![dotfolio logo](repo_images/banner.webp)
+![dotfolio logo](.github/images/banner.webp)
 
 Dotfolio is my personal portfolio (dotfiles about me? Hence "dotfolio").
 Instead of a standard website, I chose to create a narrative, an emotional experience disguised as an operating system.
@@ -29,16 +29,16 @@ Make it speak clearly, cleanly, and with purpose. That's my goal, and the one of
 > Dotfolio is structured like an operating system, but powered by storytelling. Just check it out:
 
 
-![Showdown of some apps](repo_images/beta_desktop.webp)
-![Web browser app opened up](repo_images/beta_desktop_2.webp)
-![About project](repo_images/beta_desktop_3.webp)
+![Showdown of some apps](.github/images/beta_desktop.webp)
+![Web browser app opened up](.github/images/beta_desktop_2.webp)
+![About project](.github/images/beta_desktop_3.webp)
 
 On desktop, it loads the full version. On tablets, it loads just the content of dotfolio's web browser (the blog of myself), and on mobile it shows a nice message telling mobile is not currently supported
 <details>
 <summary>Open images</summary>
 
-![On tablet preview](repo_images/beta_tablet_and_low_res.webp)
-![On mobile preview](repo_images/beta_mobile.webp)
+![On tablet preview](.github/images/beta_tablet_and_low_res.webp)
+![On mobile preview](.github/images/beta_mobile.webp)
 
 </details>
 
@@ -117,6 +117,8 @@ cd dotfolio
 - [JS logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:JavaScript-logo.png)
 - [TS logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Typescript_logo_2020.svg)
 - [React logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:React-icon.svg)
+- [Svelte logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Svelte_Logo.svg)
+- [PostgreSQL logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pg_logo.png)
 - [Oracle logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Oracle_logo.svg)
 - [MS SQL Server logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Microsoft_SQL_Server_2025_icon.svg)
 - [Docker logo, from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Docker_(container_engine)_logo_(cropped).png)
@@ -160,7 +162,7 @@ I did learn JS. So goal accomplished!
 ---
 
 ## 📜 License
-![GPLv3 License logo. Copyright © 2012 Christian Cadena](repo_images/license-logos-by-christian-candena-GNU_GPLv3_License.webp)
+![GPLv3 License logo. Copyright © 2012 Christian Cadena](.github/images//license-logos-by-christian-candena-GNU_GPLv3_License.webp)
 
 [GPLv3 (GNU General Public License v3)](LICENSE.txt) – Free to use, modify, and distribute as long as this remains open source, and it is not use for profitable purposes.
 

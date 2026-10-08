@@ -1,5 +1,6 @@
 package com.korealm.dotfolio.ui
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
@@ -23,35 +24,43 @@ fun SimpleSymbolicIconButton(
     contentDescription: String? = null,
     tint: Color = MaterialTheme.colorScheme.onSurface,
     modifier: Modifier = Modifier,
+    monochromatic: Boolean = true,
     onClick: (() -> Unit)? = null,
 ) {
-    Icon(
-        painter = painterResource(icon),
-        contentDescription = contentDescription,
-        tint = tint,
-        modifier = modifier
-            .size(18.dp)
-            .then(
-                if (onClick != null) {
-                    // I'm using pointerInput instead of .clickable to have no hover changes on the button
-                    // In this way, I can have an icon with an action and nothing more, and manage myself manually any behavior like hovering and so on
-                    Modifier
-                        .pointerInput(Unit) {
-                            awaitPointerEventScope {
-                                while(true) {
-                                    val type = awaitPointerEvent().type
-
-                                    when (type) {
-                                        PointerEventType.Press -> onClick()
-                                    }
-                                }
+    val baseModifier = modifier
+        .size(18.dp)
+        .then(
+            if (onClick != null) {
+                // Using pointerInput instead of .clickable to avoid hover changes
+                Modifier.pointerInput(Unit) {
+                    awaitPointerEventScope {
+                        while (true) {
+                            val type = awaitPointerEvent().type
+                            when (type) {
+                                PointerEventType.Press -> onClick()
                             }
                         }
-                } else {
-                    modifier
+                    }
                 }
-            )
-    )
+            } else {
+                Modifier
+            }
+        )
+
+    if (monochromatic) {
+        Icon(
+            painter = painterResource(icon),
+            contentDescription = contentDescription,
+            tint = tint,
+            modifier = baseModifier
+        )
+    } else {
+        Image(
+            painter = painterResource(icon),
+            contentDescription = contentDescription,
+            modifier = baseModifier
+        )
+    }
 }
 
 

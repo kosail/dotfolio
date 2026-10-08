@@ -26,16 +26,17 @@ fun FileManagerApp(
         Pair(Res.drawable.css_logo, Res.string.file_explorer_css),
         Pair(Res.drawable.js_logo, Res.string.file_explorer_js),
         Pair(Res.drawable.Typescript_logo_2020, Res.string.file_explorer_ts),
+        Pair(Res.drawable.svelte_logo, Res.string.file_explorer_svelte),
         Pair(Res.drawable.react_logo, Res.string.file_explorer_react),
         // DB
         Pair(Res.drawable.oracle_logo, Res.string.file_explorer_oracle),
         Pair(Res.drawable.ms_sql_server_2025, Res.string.file_explorer_sql_server),
+        Pair(Res.drawable.postgresql_logo, Res.string.file_explorer_postgresql),
 
         // Other
         Pair(Res.drawable.docker_logo, Res.string.file_explorer_docker),
         Pair(Res.drawable.linux_logo, Res.string.file_explorer_linux),
         Pair(Res.drawable.wordpress_logo, Res.string.file_explorer_wordpress),
-//        Pair(Res.drawable.csharp_logo, Res.string.file_explorer_csharp),
     )
 
     return WindowApp(

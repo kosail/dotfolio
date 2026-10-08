@@ -115,6 +115,7 @@
 
     <!--  Web browser App  -->
     <string name="web_browser_tab_name">A world of us</string>
+    <string name="web_browser_korealm">korealm - My tech blog</string>
     <string name="web_browser_github">kosail's Github</string>
     <string name="web_browser_codeberg">kosail's Codeberg</string>
     <string name="web_browser_website">https://korealm.dev/</string>
@@ -154,7 +155,7 @@
     <string name="web_browser_post_welcome_tag_two">personal blog</string>
     <string name="web_browser_post_welcome_tag_three">tumblr inspired</string>
     <string name="web_browser_post_welcome">
-        Welcome, fellow programmer! You are very welcome to visit every corner of this blog, this personal space. In this blog you can learn about me and some of my projects, by click in the icons in the left panel.
+        Welcome, fellow recluiter! You are very welcome to visit every corner of this blog, this personal space. In this blog you can learn about me and some of my projects, by click in the icons in the left panel.
 
         I hope you can get an idea of me, and get the beats of the heart that wrote these posts.
     </string>
@@ -167,7 +168,7 @@
     <string name="web_browser_post_one">
         I once had a blog (or well said, I ran a blog for 4 years). It was called Mi lugar en el mundo (roughly translated as "My place in this world"). First on Tumblr, later on WordPress. God I loved WordPress...
 
-        I'll relaunch it in the future, probably using Astro + Svelte. My first impressions after using Svelte was that it's super refreshing, compared to React.
+        I'll relaunch it in the future, probably using Hugo (the static site generators). Though my favorite UI library of all times is Svelte, I think in this matter I lean for practicity.
     </string>
 
     <string name="web_browser_post_two_reblogger_account">Top writings fans</string>
@@ -269,9 +270,14 @@
     <!--  About me section  -->
     <string name="web_browser_aboutme_first_title">about me.</string>
     <string name="web_browser_aboutme_first_content">
-        I’m kosail — a computer science student from Honduras who found their path through Linux and making custom roms for Android, over a decade ago. I’ve been exploring ever since.
+        I'm kosail.
+        That’s not my real name, you know. But a pseudonym I’ve been using online for a while and that deeply resonate with me. It comes from the name of my favorite fiction character of all times: 琥珀 (kohaku, from Tsukihime), and the title of a song from Aimer, called Sailing (“Sailing miles away 誰のため?”)
+
+        I’m from Honduras, and though I’m honestly not completely proud of my motherland situation, it is still my motherland. I am part of it, and it is part of me. Even though I no longer live there, my heart will likely resonate with it for most of my life.
+
+        I’ve always been a little too curious about computers (got into all this because I wanted to install a custom rom in my no-brand Android phone back in 2013. If you wonder, yeah, using Android Kitchen on Ubuntu 13.10 I managed to brick my phone. Successfully failed task).
     </string>
-    <string name="web_browser_aboutme_second_title">what I care about.</string>
+    <string name="web_browser_aboutme_second_title">things that matter to me.</string>
     <string name="web_browser_aboutme_second_content_one">
         I’ve always preferred clean UIs over cluttered dashboards.
         Tools that feel quiet, stable. Powerful apps, yet focused. Apps that feel like home, even on first use.
@@ -282,7 +288,7 @@
 
     <string name="web_browser_aboutme_third_title">about my future.</string>
     <string name="web_browser_aboutme_third_content_personal">Personally, I’ll keep building the kind of tools I wish existed. Minimalist. Meaningful. Mostly on Linux, and powered by Compose Multiplatform or Tauri + Svelte.</string>
-    <string name="web_browser_aboutme_third_content_professional">Professionally, I work with TypeScript and React to build fast, pragmatic enterprise tools. However, I may be transitioning to Tanstack Start or Next.js soon.</string>
+    <string name="web_browser_aboutme_third_content_professional">Professionally, I work as a backend and infrastructure developer for a videogames studio. I work with Spring Boot 4, Java and Kotlin, and some Go for Devops. I have also worked professionally with TypeScript and React to build fast, pragmatic enterprise platforms.</string>
     <string name="web_browser_aboutme_third_content_final">In both paths, my focus is the same: to grow in full stack development, bring my own SaaS ideas to life as clean and sustainable, cross-platform software that lasts.</string>
 
     <string name="web_browser_aboutme_last_title">Thanks for stopping by.</string>
@@ -290,12 +296,12 @@
 
 
     <!--  Projects section  -->
-    <string name="web_browser_projects_kvantage">Kvantage</string>
+    <string name="web_browser_projects_kvantage">kvantage</string>
     <string name="web_browser_projects_dotfolio">dotfolio</string>
     <string name="web_browser_projects_aria">Aria</string>
     <string name="web_browser_projects_github_base_url">https://github.com/kosail/%1$d</string>
     <string name="web_browser_projects_codeberg_base_url">https://codeberg.org/kosail/%1$d</string>
-    <string name="web_browser_projects_aria_web_app_link">https://aria.korealm.tech</string>
+    <string name="web_browser_projects_aria_web_app_link">https://aria.korealm.dev</string>
 
     <string name="web_browser_projects_created">created</string>
     <string name="web_browser_projects_interested">is interested in rewriting</string>
@@ -345,7 +351,7 @@
     </string>
 
     <string name="web_browser_projects_aria_title">A calm soundscape, rebuilt to flow across platforms.</string>
-    <string name="web_browser_projects_aria_webapp_title">Check out the web beta!</string>
+    <string name="web_browser_projects_aria_webapp_title">Check out the web version!</string>
     <string name="web_browser_projects_aria_content">
         Blanket was the spark. A quiet little app on Linux that filled my room with rain, fire, and birdsong since many years ago. Man... I really love Blanket. It was created by Rafael Mardojai, who's part of the GNOME Circle, and I loved its simplicity, yet unique spirit.
 
@@ -355,10 +361,9 @@
 
         Like the original, Aria has no accounts, no ads, no clutter. Just nature’s sounds. Mix them, adjust them, let them fade away as you rest or work. A rewrite often means adding more, but this one is different: Aria isn’t about more features. It’s about preserving the calm and carrying it everywhere without breaking its spirit.
 
-        Under the hood, the web version relies only on the browser’s native audio API. The JVM version uses Java’s built-in audio library. On Android, it's currently using MediaPlayer (although I might migrate it into ExoPlayer soon).
+        Under the hood, the web version relies only on the browser’s native audio API. On Android, it's uses ExoPlayer. As per the JVM version I'm still debating about what should I use, as I ran into several latency problems that I have not solve yet.
 
-
-        Soon, when I finally complete it, will be my first to the Google Play Store. For now, you can follow its progress on GitHub below.
+        The Android version is already out, you can find the APK in the GitHub releases page. On the other hand, the web version is up and running right now and you can check it in the link below.
     </string>
 
     <!--  Contact page section  -->
@@ -382,7 +387,7 @@
 
     <string name="web_browser_gallery_tag_one">GTK</string>
     <string name="web_browser_gallery_tag_two">Apple HIG</string>
-    <string name="web_browser_gallery_tag_three">Fluent Design (just Mica tbh)</string>
+    <string name="web_browser_gallery_tag_three">MIUI Alive Design</string>
     <string name="web_browser_gallery_tag_four">Material UI</string>
 
     <!--  File explorer & Recycle bin  -->
@@ -408,18 +413,19 @@
     <string name="file_explorer_java">Java</string>
     <string name="file_explorer_kotlin">Kotlin</string>
     <string name="file_explorer_compose">Compose Multiplatform</string>
-    <string name="file_explorer_csharp">C#</string>
     <string name="file_explorer_html">HTML</string>
     <string name="file_explorer_css">CSS</string>
     <string name="file_explorer_js">JavaScript</string>
     <string name="file_explorer_ts">TypeScript</string>
     <string name="file_explorer_oracle">Oracle</string>
     <string name="file_explorer_sql_server">SQL Server</string>
+    <string name="file_explorer_postgresql">PostgreSQL 18</string>
     <string name="file_explorer_docker">Docker</string>
     <string name="file_explorer_linux">Linux</string>
     <string name="file_explorer_wordpress">Wordpress</string>
     <string name="file_explorer_react">React</string>
-    <string name="file_explorer_spring_boot">Spring Boot 3</string>
+    <string name="file_explorer_svelte">Svelte</string>
+    <string name="file_explorer_spring_boot">Spring Boot 4</string>
 
     <!--  Misc  -->
     <string name="unsupported_tag_one">Not available on mobile</string>

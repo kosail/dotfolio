@@ -155,6 +155,7 @@ fun PageBookmarkButton(
     url: String,
     iconRes: DrawableResource,
     titleRes: StringResource,
+    monochromatic: Boolean = true
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -165,6 +166,7 @@ fun PageBookmarkButton(
     ) {
         SimpleSymbolicIconButton(
             icon = iconRes,
+            monochromatic = monochromatic,
             modifier = Modifier.size(20.dp),
         )
 

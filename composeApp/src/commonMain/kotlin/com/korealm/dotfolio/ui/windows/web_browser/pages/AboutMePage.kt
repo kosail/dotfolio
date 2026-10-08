@@ -93,7 +93,7 @@ fun AboutMePage(
                 ) {
                     Row (
                         modifier = Modifier
-                            .weight(0.5f)
+                            .weight(0.45f)
                             .padding(horizontal = 5.dp),
                     ) {
                         SimpleSymbolicIconButton(
@@ -114,7 +114,7 @@ fun AboutMePage(
 
                     Row (
                         modifier = Modifier
-                            .weight(0.5f)
+                            .weight(0.55f)
                             .padding(horizontal = 5.dp),
                     ) {
                         SimpleSymbolicIconButton(

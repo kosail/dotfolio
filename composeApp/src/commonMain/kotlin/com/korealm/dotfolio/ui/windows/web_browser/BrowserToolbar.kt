@@ -143,6 +143,13 @@ fun BrowserToolbar(
                 .align(Alignment.BottomCenter)
         ) {
             PageBookmarkButton(
+                url = "https://korealm.dev",
+                iconRes = Res.drawable.korealm_blog_logo,
+                titleRes = Res.string.web_browser_korealm,
+                monochromatic = false
+            )
+
+            PageBookmarkButton(
                 url = "https://github.com/kosail",
                 iconRes = Res.drawable.github_symbolic,
                 titleRes = Res.string.web_browser_github,

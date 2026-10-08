@@ -28,9 +28,6 @@
     <string name="file">Archivo</string>
     <string name="edit">Editar</string>
     <string name="view">Vista</string>
-    <string name="100_percent">100%</string>
-    <string name="windows_crlf">Windows (CRLF)</string>
-    <string name="utf8">UTF-8</string>
     <string name="main_content_message">
         ¡Bienvenido a mi portafolio web!
 
@@ -155,7 +152,7 @@
     <string name="web_browser_post_welcome_tag_two">blog personal</string>
     <string name="web_browser_post_welcome_tag_three">inspirado en tumblr</string>
     <string name="web_browser_post_welcome">
-        Bienvenido, mi colega programador! Sentíte libre de recorrer cada rincón de este blog, de este pequeño espacio personal. En este blog vas a saber más sobre mí, mi forma de pensar y algunos de mis proyectos más importantes.
+        Bienvenido, mi colega reclutador! Sentíte libre de recorrer cada rincón de este blog, de este pequeño espacio personal. En este blog vas a saber más sobre mí, mi forma de pensar y algunos de mis proyectos más importantes.
 
         Espero que aquí podás hacerte una idea de quién soy, y captar los latidos del corazón que latía escribiendo estas líneas.
     </string>
@@ -168,7 +165,7 @@
     <string name="web_browser_post_one">
         Hace un tiempo tuve un blog (o mejor dicho, lo llevé durante 4 años). Se llamaba “Mi lugar en el mundo”. Primero estuvo en Tumblr, luego en WordPress. Dios, ¡cómo amé WordPress!...
 
-        Tengo muchísimas ganas de relanzarlo en el futuro, y probablemente usando Astro con Svelte. Svelte me parece un aire superrefrescante en comparación a React.
+        Tengo muchísimas ganas de relanzarlo en el futuro, y probablemente lo haga usando Hugo (el generador de sitios estáticos, escrito en Go]). Svelte es mi librería de UI favorita de todos los tiempos, pero creo que para este blog, prefiero la practicidad.
     </string>
 
     <string name="web_browser_post_two_reblogger_account">Top 10 escritores del anime</string>
@@ -281,37 +278,33 @@
     <!--  About me section  -->
     <string name="web_browser_aboutme_first_title">sobre mí.</string>
     <string name="web_browser_aboutme_first_content">
-        Soy kosail — estudiante de ingeniería en Sistemas Computacionales, de Honduras. Hace más de una década descubrí este camino gracias a Linux y a hacer custom roms para Android. Desde entonces, no he parado de explorar.
+        Soy Kosail.
+        Ese no es mi nombre real, vos sabes. Es un seudónimo que he estado usando online desde hace un buen tiempo y con el que me identifico bastante. Viene del nombre de mi personaje de ficción favorito de todos los tiempos: 琥珀 (kohaku, de Tsukihime), y del título de una canción de Aimer que se llama Sailing ("Sailing miles away 誰のため?").
 
-        Si te preguntas de dónde viene eso de "kosail", pues:
-        子 = ko. En japonés significa niño, cachorro, o "un pequeño".
-        sail = En inglés significa "viajar por el mar", o "sailing" que significa navegar.
+        Soy de Honduras, y aunque sinceramente no estoy del todo orgulloso de la situación de mi patria, sigue siendo mi patria. Soy parte de ella, y ella es parte de mí. Aunque ya no vivo allá, mi corazón probablemente va a seguir resonando con ella durante la mayor parte de mi vida.
 
-        kosail = un pequeño navegante, mi pequeño viaje
+        Siempre he sido un poco demasiado curioso con las computadoras (me metí en todo esto porque quería instalar una rom personalizada (custom ROM) en mi teléfono Android de marca chinísima por allá en el 2013. Si te preguntás, sí, usando Android Kitchen en Ubuntu 13.10 logré brickear mi teléfono).
     </string>
 
-    <string name="web_browser_aboutme_second_title">lo que me importa.</string>
+    <string name="web_browser_aboutme_second_title">las cosas que me importan.</string>
     <string name="web_browser_aboutme_second_content_one">
-        Siempre he preferido las interfaces limpias sobre los dashboards llenísimos de cosas.
+        Siempre he preferido las interfaces limpias sobre los dashboards sobrecargados.
 
         Herramientas que se sienten tranquilas, estables. Muy potentes, pero enfocadas. Que se sientan tuyas incluso la primera vez que las usás.
 
         Creo que el software debe hacerse con atención al detalle: que cargue rápido, que se vea bonito, y que desaparezca cuando no se necesita. No es solo UI, también es UX.
     </string>
-    <string name="web_browser_aboutme_second_content_two">No soy un genio. Solo es que me importa profundamente las cosas que construyo.</string>
+    <string name="web_browser_aboutme_second_content_two">No es que sea un genio. Pero es que sí que me importan las cosas que construyo.</string>
 
     <string name="web_browser_aboutme_third_title">sobre mi futuro.</string>
     <string name="web_browser_aboutme_third_content_personal">En lo personal, quiero seguir creando las herramientas que me gustaría que existieran. Minimalistas. Significativas. Apps para Linux usando Compose Multiplatform o Tauri con Svelte.</string>
-    <string name="web_browser_aboutme_third_content_professional">En lo profesional, trabajo con TypeScript y React creando herramientas rápidas, estables y prácticas. Últimamente, me interesa empezar a adoptar Next.js</string>
+    <string name="web_browser_aboutme_third_content_professional">En lo profesional, trabajo como desarrollador de backend e infraestructura para un estudio de videojuegos. En mi trabajo uso Spring Boot 4, Java y Kotlin, y Go cuando hace falta en DevOps. También he trabajado profesionalmente con TypeScript y React creando herramientas rápidas, estables y prácticas para industrias (industria automotríz).</string>
     <string name="web_browser_aboutme_third_content_final">En ambos casos tengo una meta por igual: crecer como desarrollador full stack y, con el tiempo, darle vida a mis propias ideas de SaaS. Software limpio, sostenible, multiplataforma... que dure.</string>
 
     <string name="web_browser_aboutme_last_title">gracias por darte la vuelta.</string>
     <string name="web_browser_aboutme_last_content">Espero que algo aquí haya resonado con vos.</string>
 
     <!--  Projects section  -->
-    <string name="web_browser_projects_kvantage">Kvantage</string>
-    <string name="web_browser_projects_dotfolio">dotfolio</string>
-    <string name="web_browser_projects_aria">Aria</string>
     <string name="web_browser_projects_created">creó</string>
     <string name="web_browser_projects_interested">está interesado en reescribir</string>
     <string name="web_browser_projects_hint">Clic en los íconos para ver más</string>
@@ -363,6 +356,7 @@
 
 
     <string name="web_browser_projects_aria_title">Una app tranquila, un paraje de sonidos ambientales.</string>
+    <string name="web_browser_projects_aria_webapp_title">Ir a la versión web!</string>
     <string name="web_browser_projects_aria_content">
         Blanket fue la chispa: es una aplicación sencilla de sonidos de lluvia, fuego y pájaritos que vengo usando desde hace ya muchos años. La creó Rafael Mardojai, que es parte del círculo de desarrolladores para GNOME, en Linux.
 
@@ -372,9 +366,9 @@
 
         Igual que la original, mi proyecto, Aria, no pide registrar cuentas, no tiene anuncios ni distracciones. Solo sonidos de la naturaleza: podés mezclarlos, ajustarlos y dejarlos sonando mientras trabajás o descansás. Normalmente, reescribir algo significa meterle más cosas, pero aquí no. Aria no trata de sumar funciones, sino de llevar esa misma calma a donde sea, sin perder su espíritu.
 
-        Por dentro, la versión web usa únicamente la API de audio del navegador. La versión de escritorio (JVM) corre con el sistema de audio built-in de java (javax.sample). En Android, actualmente usa MediaPlayer, aunque probablemente migre a ExoPlayer en un futuro cercano.
+        Por dentro, la versión web usa únicamente la API de audio del navegador. En Android, usa ExoPlayer. Respecto a versión de escritorio (JVM), todavía me estoy debatiendo entre qué debería usar, puesto que he tenido problemas con latencia en el sonido que todavía no he podido resolver.
 
-        Pronto, cuando esté lista, esta se convertirá en mi primer aplicación en la Google Play Store. Mientras tanto, podés seguirle la pista en GitHub aquí abajo.
+        La versión de Android está publicada, y la podés encontrar en la sección de GitHub releases. Por otro lado, la versión web está vivita y coleando en este preciso segundo, y la podés probar en el link de aquí abajito.
     </string>
 
 
@@ -399,11 +393,6 @@
         Un rincón tranquilo de píxeles que me inspiran a diseñar y construir.
     </string>
 
-    <string name="web_browser_gallery_tag_one">GTK</string>
-    <string name="web_browser_gallery_tag_two">Apple HIG</string>
-    <string name="web_browser_gallery_tag_three">Fluent Design (solo Mica para ser honesto)</string>
-    <string name="web_browser_gallery_tag_four">Material UI</string>
-
     <!--  File explorer & Recycle bin  -->
     <string name="file_explorer_toolbar_new">Nuevo</string>
     <string name="file_explorer_toolbar_sort">Ordenar</string>
@@ -421,23 +410,6 @@
     <string name="file_explorer_this_pc">Este equipo</string>
     <string name="file_explorer_network">Red</string>
     <string name="file_explorer_items">%1$d elementos</string>
-
-    <string name="file_explorer_amungos">Amungos</string>
-    <string name="file_explorer_discord">Discord</string>
-    <string name="file_explorer_java">Java</string>
-    <string name="file_explorer_kotlin">Kotlin</string>
-    <string name="file_explorer_compose">Compose Multiplatform</string>
-    <string name="file_explorer_csharp">C#</string>
-    <string name="file_explorer_html">HTML</string>
-    <string name="file_explorer_css">CSS</string>
-    <string name="file_explorer_js">JavaScript</string>
-    <string name="file_explorer_ts">TypeScript</string>
-    <string name="file_explorer_oracle">Oracle</string>
-    <string name="file_explorer_sql_server">SQL Server</string>
-    <string name="file_explorer_docker">Docker</string>
-    <string name="file_explorer_linux">Linux</string>
-    <string name="file_explorer_wordpress">Wordpress</string>
-    <string name="file_explorer_react">React</string>
 
     <!--  Misc  -->
     <string name="unsupported_tag_one">No disponible en móvil</string>
